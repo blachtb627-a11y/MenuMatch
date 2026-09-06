@@ -10,8 +10,8 @@ import { colors, radius, space, type } from '@/theme';
 import { ONBOARDED_KEY } from './index';
 
 /**
- * §7. Two screens, both skippable, and no account required before the deck.
- * The taste pass is roughly fifteen seconds of tapping, or nothing at all.
+ * The taste pass: roughly fifteen seconds of tapping, and skippable. Shown once,
+ * after the account exists, so the picks can be written straight to it.
  */
 
 const CUISINES = ['Italian', 'Mexican', 'Japanese', 'Indian', 'Mediterranean',
@@ -27,7 +27,6 @@ const DIETARY = [
 
 export default function Onboarding() {
   const { isGuest } = useSession();
-  const [step, setStep] = useState<'welcome' | 'taste'>('welcome');
   const [categories, setCategories] = useState<{ slug: string; label: string }[]>([]);
   const [pickedCats, setPickedCats] = useState<string[]>([]);
   const [pickedCuisines, setPickedCuisines] = useState<string[]>([]);
@@ -68,28 +67,6 @@ export default function Onboarding() {
 
   function toggle(list: string[], set: (v: string[]) => void, value: string) {
     set(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
-  }
-
-  if (step === 'welcome') {
-    return (
-      <Screen>
-        <SafeAreaView style={s.welcome}>
-          <View style={s.markRow}>
-            <View style={s.mark}><Text style={s.markLetters}>MM</Text></View>
-          </View>
-          <View style={{ gap: space.md }}>
-            <Text style={s.headline}>MenuMatch</Text>
-            <Text style={s.sub}>
-              Discover recipes by swiping, save your favourites, share your own.
-            </Text>
-          </View>
-          <View style={{ gap: space.md }}>
-            <Button label="Get started" onPress={() => setStep('taste')} />
-            <Button label="Skip to the deck" variant="ghost" onPress={finish} />
-          </View>
-        </SafeAreaView>
-      </Screen>
-    );
   }
 
   return (
@@ -160,15 +137,6 @@ function Chip({ label, active, onPress }: { label: string; active: boolean; onPr
 }
 
 const s = StyleSheet.create({
-  welcome: { flex: 1, padding: space.xl, justifyContent: 'space-between', gap: space.xxl },
-  markRow: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-  mark: {
-    width: 108, height: 108, borderRadius: 30, backgroundColor: colors.surface,
-    alignItems: 'center', justifyContent: 'center',
-  },
-  markLetters: { fontSize: 42, fontWeight: '800', color: colors.mint, letterSpacing: -1 },
-  headline: { ...type.display, color: colors.text },
-  sub: { ...type.body, color: colors.textMuted, lineHeight: 22, maxWidth: 320 },
 
   tasteBody: { padding: space.xl, gap: space.xl, paddingBottom: space.xxl },
   stepTitle: { ...type.title, color: colors.text },

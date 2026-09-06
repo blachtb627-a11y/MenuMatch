@@ -61,6 +61,29 @@ createServer((req, res) => {
     const url = new URL(req.url ?? '/', 'http://localhost');
     const body = raw ? JSON.parse(raw) : null;
 
+    // Mimics GoTrue with "Confirm email" enabled: the account is created and a
+    // user is returned, but the session is withheld until the link is clicked.
+    // This is the exact response that used to strand people on a signed-out deck.
+    if (url.pathname === '/auth/v1/signup') {
+      res.writeHead(200, cors);
+      return res.end(JSON.stringify({
+        user: {
+          id: '00000000-0000-4000-8000-0000000000aa',
+          aud: 'authenticated', role: '', email: body?.email ?? '',
+          email_confirmed_at: null,
+          confirmation_sent_at: new Date().toISOString(),
+          app_metadata: { provider: 'email', providers: ['email'] },
+          user_metadata: {}, identities: [],
+          created_at: new Date().toISOString(), updated_at: new Date().toISOString(),
+        },
+        session: null,
+      }));
+    }
+    if (url.pathname === '/auth/v1/resend') {
+      res.writeHead(200, cors);
+      return res.end(JSON.stringify({}));
+    }
+
     if (url.pathname.startsWith('/rest/v1/rpc/')) {
       const name = url.pathname.split('/').pop();
       if (process.env.DEV_LOG) console.log(name, JSON.stringify(body)?.slice(0, 160));

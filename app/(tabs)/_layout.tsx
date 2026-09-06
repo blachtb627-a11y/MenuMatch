@@ -1,10 +1,18 @@
 import React from 'react';
-import { Tabs } from 'expo-router';
+import { Redirect, Tabs } from 'expo-router';
 import { Feather } from '@expo/vector-icons';
+import { useSession } from '@/state/session';
+import { REQUIRE_ACCOUNT } from '@/config';
 import { colors } from '@/theme';
 
 /** §6 primary navigation. Terminology follows the §3 lexicon: Cookbook, not Library. */
 export default function TabsLayout() {
+  const { ready, session } = useSession();
+
+  // Covers signing out and an expired session, not just a cold start: without
+  // this the tabs stay mounted after the session goes away.
+  if (ready && REQUIRE_ACCOUNT && !session) return <Redirect href="/welcome" />;
+
   return (
     <Tabs
       screenOptions={{

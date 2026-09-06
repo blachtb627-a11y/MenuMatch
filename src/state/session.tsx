@@ -24,7 +24,13 @@ type SessionState = {
   pendingSave: { recipeId: string; source: string } | null;
   setPendingSave: (v: { recipeId: string; source: string } | null) => void;
   signIn: (email: string, password: string) => Promise<void>;
-  signUp: (email: string, password: string) => Promise<void>;
+  /**
+   * Resolves to needsConfirmation=true when Supabase created the account but
+   * withheld a session pending email confirmation. Callers must not treat that
+   * as being signed in.
+   */
+  signUp: (email: string, password: string) => Promise<{ needsConfirmation: boolean }>;
+  resendConfirmation: (email: string) => Promise<void>;
   signOut: () => Promise<void>;
   refreshMe: () => Promise<void>;
 };
@@ -106,7 +112,15 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
         if (error) throw new Error(error.message);
       },
       async signUp(email, password) {
-        const { error } = await supabase.auth.signUp({ email, password });
+        const { data, error } = await supabase.auth.signUp({ email, password });
+        if (error) throw new Error(error.message);
+        // With "Confirm email" enabled, Supabase returns a user and a null
+        // session, and no error. Reporting that as success is what stranded
+        // people on a signed-out deck being asked to sign up again.
+        return { needsConfirmation: !data.session };
+      },
+      async resendConfirmation(email) {
+        const { error } = await supabase.auth.resend({ type: 'signup', email });
         if (error) throw new Error(error.message);
       },
       async signOut() {

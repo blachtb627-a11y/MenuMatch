@@ -2,7 +2,7 @@
 
 Swipe-first recipe discovery. Built to the v2.0 product specification.
 
-**Live: https://blachtb627-a11y.github.io/MenuMatch/**
+**Live: https://menumatch.store**
 
 An Expo (React Native) client on a Supabase Postgres backend. This build covers
 the discovery loop end to end — **discover, save, cook** — plus the trust and
@@ -63,9 +63,10 @@ Two things an Expo app on Pages needs, both easy to lose in a rewrite:
 `404.html` as a copy of the SPA shell, because Pages serves it on a miss, which
 is what lets a shared recipe link resolve client-side.
 
-To point a custom domain at it, add a `CNAME` file at the repo root containing
-just the domain. The workflow reads it, switches the build from the `/MenuMatch`
-subpath to the site root, and copies it into the published output.
+The site is served from `menumatch.store`, set by the `CNAME` file at the repo
+root. The workflow reads that file, switches the build from the `/MenuMatch`
+subpath to the site root, and copies it into the published output so the domain
+survives every deploy. Removing the file reverts to the github.io subpath.
 
 ## Running it
 

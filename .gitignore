@@ -9,3 +9,4 @@ web-build/
 npm-debug.*
 # Local overrides; .env is committed because the publishable key is meant to ship.
 .env.local
+site/

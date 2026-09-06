@@ -2,6 +2,8 @@
 
 Swipe-first recipe discovery. Built to the v2.0 product specification.
 
+**Live: https://blachtb627-a11y.github.io/MenuMatch/**
+
 An Expo (React Native) client on a Supabase Postgres backend. This build covers
 the discovery loop end to end — **discover, save, cook** — plus the trust and
 safety controls the spec treats as day-one requirements rather than post-launch
@@ -49,6 +51,21 @@ profile and settings.
    require are already built. Do not ship placeholder text — both stores check.
 
 ---
+
+## The website
+
+The Expo web build is published to GitHub Pages by `.github/workflows/deploy-web.yml`
+on every push to the default branch. It typechecks and runs the tests before it
+publishes, so a broken commit does not reach the site.
+
+Two things an Expo app on Pages needs, both easy to lose in a rewrite:
+`.nojekyll`, because Jekyll drops the `_expo/` directory Expo emits; and
+`404.html` as a copy of the SPA shell, because Pages serves it on a miss, which
+is what lets a shared recipe link resolve client-side.
+
+To point a custom domain at it, add a `CNAME` file at the repo root containing
+just the domain. The workflow reads it, switches the build from the `/MenuMatch`
+subpath to the site root, and copies it into the published output.
 
 ## Running it
 

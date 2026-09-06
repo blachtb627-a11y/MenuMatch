@@ -34,11 +34,24 @@ jobs:
       - run: npx tsc --noEmit
       - run: npm test
 
+      - name: Resolve base path
+        id: base
+        # A custom domain serves the site from the root; a project repo without
+        # one serves it from /<repo>. The presence of a CNAME file is what tells
+        # the two apart, so adding a domain needs no workflow change.
+        run: |
+          if [ -f CNAME ]; then
+            echo "path=" >> "$GITHUB_OUTPUT"
+            echo "Custom domain: $(cat CNAME) — building for the site root"
+          else
+            echo "path=/${{ github.event.repository.name }}" >> "$GITHUB_OUTPUT"
+            echo "No CNAME — building for /${{ github.event.repository.name }}"
+          fi
+
       - name: Export web bundle
-        # A project site is served from /<repo>, so the bundle needs that prefix.
         # Supabase URL and publishable key come from the committed .env.
         env:
-          EXPO_BASE_URL: /${{ github.event.repository.name }}
+          EXPO_BASE_URL: ${{ steps.base.outputs.path }}
         run: npx expo export --platform web --output-dir dist
 
       - name: Prepare for Pages
@@ -48,6 +61,8 @@ jobs:
           # Pages serves 404.html on a miss; making it the SPA shell is what lets
           # a shared recipe link resolve client-side.
           cp dist/index.html dist/404.html
+          # Pages reads the custom domain from CNAME in the published output.
+          if [ -f CNAME ]; then cp CNAME dist/CNAME; fi
 
       - uses: actions/upload-pages-artifact@v3
         with:

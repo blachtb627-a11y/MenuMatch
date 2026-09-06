@@ -1,0 +1,72 @@
+{
+  "config": {
+    "flags": {"comments": false, "cook_photos": false, "star_ratings": false, "alcohol_recipes": false, "public_collections": false},
+    "categories": [
+      {"slug": "for_you", "label": "For You", "description": "Picked from what you save and skip"},
+      {"slug": "following", "label": "Following", "description": "New from creators you follow"},
+      {"slug": "dinner", "label": "Dinner", "description": "Mains for the end of the day"},
+      {"slug": "lunch", "label": "Lunch", "description": "Midday plates and bowls"},
+      {"slug": "breakfast", "label": "Breakfast", "description": "Mornings, fast and slow"},
+      {"slug": "snacks", "label": "Snacks", "description": "Small things worth making"},
+      {"slug": "dessert", "label": "Dessert", "description": "Sweet finishes"},
+      {"slug": "drinks", "label": "Drinks", "description": "Non-alcoholic by default"},
+      {"slug": "quick", "label": "Quick", "description": "On the table in half an hour"},
+      {"slug": "high_protein", "label": "High Protein", "description": "Recipes with protein data provided"},
+      {"slug": "vegetarian", "label": "Vegetarian", "description": "No meat, creator-tagged"}
+    ],
+    "quickThresholdMinutes": 30
+  },
+  "feed": {
+    "category": "for_you",
+    "fallback": "personalized",
+    "cards": [
+      {"id": "b8993d3f-16e0-4808-9dae-d877714713d0", "title": "Charred Lemon Chicken Thighs",
+       "coverImageUrl": "https://cdn.menumatch.app/seed/charred-lemon-chicken-thighs/card.webp",
+       "category": "dinner", "cuisine": "Mediterranean", "totalMinutes": 35, "servings": 4,
+       "difficulty": "easy", "isSponsored": false, "saveCount": 0, "cookCount": 0,
+       "creator": {"id": "43e24995-8abe-4126-a10f-58fe2646f3f5", "username": "sofia.reyes", "displayName": "Sofia Reyes", "avatarUrl": null, "isSeedAccount": true},
+       "tags": [{"name": "Gluten-free", "slug": "gluten-free", "type": "dietary"}, {"name": "High protein", "slug": "high-protein", "type": "dietary"}, {"name": "Sheet pan", "slug": "sheet-pan", "type": "equipment"}, {"name": "Weeknight", "slug": "weeknight", "type": "occasion"}]},
+      {"id": "5591c7ad-84f6-4865-8e08-d7c670ef9e0c", "title": "Masala Omelette",
+       "coverImageUrl": "https://cdn.menumatch.app/seed/masala-omelette/card.webp",
+       "category": "breakfast", "cuisine": "Indian", "totalMinutes": 13, "servings": 1,
+       "difficulty": "easy", "isSponsored": false, "saveCount": 0, "cookCount": 0,
+       "creator": {"id": "0d0d27ec-56ba-4f8c-9936-2109a8abf136", "username": "priya.nair", "displayName": "Priya Nair", "avatarUrl": null, "isSeedAccount": true},
+       "tags": [{"name": "High protein", "slug": "high-protein", "type": "dietary"}, {"name": "Vegetarian", "slug": "vegetarian", "type": "dietary"}, {"name": "Weeknight", "slug": "weeknight", "type": "occasion"}]},
+      {"id": "331f5eb1-1ea0-4746-a59a-f4ab61e9997a", "title": "Miso Mushroom Udon",
+       "coverImageUrl": "https://cdn.menumatch.app/seed/miso-mushroom-udon/card.webp",
+       "category": "dinner", "cuisine": "Japanese", "totalMinutes": 20, "servings": 2,
+       "difficulty": "easy", "isSponsored": false, "saveCount": 0, "cookCount": 0,
+       "creator": {"id": "65eb40e3-dfae-4675-914a-f431d6d111db", "username": "kenji.watanabe", "displayName": "Kenji Watanabe", "avatarUrl": null, "isSeedAccount": true},
+       "tags": [{"name": "Vegetarian", "slug": "vegetarian", "type": "dietary"}, {"name": "Weeknight", "slug": "weeknight", "type": "occasion"}]}
+    ]
+  },
+  "recipe": {
+    "id": "b8993d3f-16e0-4808-9dae-d877714713d0",
+    "title": "Charred Lemon Chicken Thighs",
+    "description": "Weeknight sheet-pan chicken with a bright, slightly bitter lemon crust. The thighs go in skin up and stay that way.",
+    "coverImageUrl": "https://cdn.menumatch.app/seed/charred-lemon-chicken-thighs/card.webp",
+    "category": "dinner", "cuisine": "Mediterranean", "totalMinutes": 35, "prepMinutes": 10,
+    "cookMinutes": 25, "servings": 4, "difficulty": "easy", "isSponsored": false,
+    "saveCount": 0, "cookCount": 0, "attribution": null, "containsAlcohol": false,
+    "publishedAt": "2026-08-03T22:17:53.692753+00:00", "isSaved": false, "isFollowingCreator": false,
+    "creator": {"id": "43e24995-8abe-4126-a10f-58fe2646f3f5", "username": "sofia.reyes", "displayName": "Sofia Reyes", "avatarUrl": null, "isSeedAccount": true},
+    "nutrition": {"fatG": 34, "carbsG": 4, "source": "creator", "calories": 480, "proteinG": 38, "perServing": true},
+    "tags": [{"name": "Gluten-free", "slug": "gluten-free", "type": "dietary"}, {"name": "High protein", "slug": "high-protein", "type": "dietary"}, {"name": "Mediterranean", "slug": "mediterranean", "type": "cuisine"}, {"name": "Dinner", "slug": "dinner", "type": "meal"}, {"name": "Sheet pan", "slug": "sheet-pan", "type": "equipment"}, {"name": "Weeknight", "slug": "weeknight", "type": "occasion"}],
+    "media": [{"url": "https://cdn.menumatch.app/seed/charred-lemon-chicken-thighs/detail.webp", "width": 1600, "height": 1200, "blurhash": null}],
+    "ingredients": [
+      {"id": "4befd6bf-ea73-4768-b7ef-1bc19a640bcf", "position": 0, "quantity": {"numerator": 3, "denominator": 2}, "unit": "lb", "unitIsImprecise": false, "ingredient": "bone-in chicken thighs", "note": "skin on"},
+      {"id": "2eba699c-8268-4c4a-b232-ee4281c80e7d", "position": 1, "quantity": {"numerator": 1, "denominator": 3}, "unit": "cup", "unitIsImprecise": false, "ingredient": "olive oil", "note": null},
+      {"id": "3592e7ed-b749-4b56-b8a4-8a5f97bed77e", "position": 2, "quantity": {"numerator": 2, "denominator": 1}, "unit": "piece", "unitIsImprecise": false, "ingredient": "lemons", "note": "one sliced thin, one juiced"},
+      {"id": "7ca80f6d-0f5a-416c-878f-596f032e5306", "position": 3, "quantity": {"numerator": 4, "denominator": 1}, "unit": "clove", "unitIsImprecise": false, "ingredient": "garlic", "note": "crushed"},
+      {"id": "f6d2e6e4-ab08-4d3b-b84a-3b87b825cad2", "position": 4, "quantity": {"numerator": 1, "denominator": 1}, "unit": "tsp", "unitIsImprecise": false, "ingredient": "chilli flakes", "note": null},
+      {"id": "b0dc71bb-ea2c-4b60-8b36-aeed16c8f403", "position": 5, "quantity": null, "unit": "to_taste", "unitIsImprecise": true, "ingredient": "sea salt and black pepper", "note": null}
+    ],
+    "steps": [
+      {"id": "71ee44e2-6042-4a9c-9637-3cfdf971f671", "position": 0, "instruction": "Heat the oven to 220C fan.", "imageUrl": null, "timerSeconds": null},
+      {"id": "6a29093a-ed3b-4eec-842e-fb36b8021b1a", "position": 1, "instruction": "Toss the chicken with the olive oil, lemon juice, garlic, chilli flakes and a generous amount of salt.", "imageUrl": null, "timerSeconds": null},
+      {"id": "212c5f4c-9fac-400f-873b-af0641995473", "position": 2, "instruction": "Spread the lemon slices over a sheet pan and sit the thighs on top, skin up. Do not crowd them.", "imageUrl": null, "timerSeconds": null},
+      {"id": "05445c7c-17a2-43d5-a45b-5e8ebb2c8b31", "position": 3, "instruction": "Roast for 25 minutes, until the skin is deeply browned and the lemon slices have caught at the edges.", "imageUrl": null, "timerSeconds": 1500},
+      {"id": "071fc859-98d3-48ff-ace3-35dff3a0c203", "position": 4, "instruction": "Rest for 5 minutes before serving, and spoon the pan juices back over the top.", "imageUrl": null, "timerSeconds": 300}
+    ]
+  }
+}

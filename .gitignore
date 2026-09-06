@@ -1,0 +1,11 @@
+node_modules/
+.expo/
+dist/
+dist-dev/
+dist-test/
+web-build/
+*.log
+.DS_Store
+npm-debug.*
+# Local overrides; .env is committed because the publishable key is meant to ship.
+.env.local

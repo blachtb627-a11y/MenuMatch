@@ -273,25 +273,25 @@ export default function Compose() {
                 <Feather name="camera" size={17} color={colors.mint} />
                 <Text style={s.scanTitle}>Scan your recipe</Text>
               </View>
-              {scanUnavailable ? null : (
-                <Text style={s.scanBody}>
-                  Photograph a recipe you wrote — a card, a notebook page, your own
-                  printout — and we'll fill these fields in for you to check. The
-                  photo is read and discarded; it is not saved anywhere.
-                </Text>
-              )}
-              {scanUnavailable ? null : (
-                <View style={{ flexDirection: 'row', gap: space.sm, flexWrap: 'wrap' }}>
-                  <Button label={scanning ? 'Reading…' : 'Take a photo'}
-                          onPress={() => void runScan('camera')} disabled={scanning} />
-                  <Button label="Choose an image" variant="secondary"
-                          onPress={() => void runScan('library')} disabled={scanning} />
-                </View>
-              )}
+              <Text style={s.scanBody}>
+                Photograph a recipe you wrote — a card, a notebook page, your own
+                printout — and we'll fill these fields in for you to check. The
+                photo is read and discarded; it is not saved anywhere.
+              </Text>
+              <View style={{ flexDirection: 'row', gap: space.sm, flexWrap: 'wrap' }}>
+                <Button label={scanning ? 'Reading…' : 'Take a photo'}
+                        onPress={() => void runScan('camera')} disabled={scanning} />
+                <Button label="Choose an image" variant="secondary"
+                        onPress={() => void runScan('library')} disabled={scanning} />
+              </View>
+              {/* The buttons stay: this is a server-side switch that can be
+                  turned on at any moment, and hiding them would mean reloading
+                  the app to find out. */}
               {scanUnavailable ? (
                 <Text style={s.scanOff}>
-                  Scanning isn't switched on yet. Write the recipe out below in the
-                  meantime — nothing else here depends on it.
+                  Scanning isn't switched on for this app yet, so there is nothing
+                  to read your photo. Write the recipe out below — nothing else
+                  here depends on it.
                 </Text>
               ) : null}
               {scanning ? (

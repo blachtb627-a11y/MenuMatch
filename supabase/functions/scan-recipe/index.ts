@@ -12,16 +12,14 @@
 import Anthropic from 'npm:@anthropic-ai/sdk@^0.70';
 import { createClient } from 'npm:@supabase/supabase-js@^2';
 
-// Sonnet over Opus deliberately: this is transcription from a clear photo, not
-// reasoning, and the edge runtime kills a worker on wall-clock time — a scan
-// that returns in a few seconds beats a slightly better one that never returns.
+// Sonnet over Opus for latency: this is transcription from a photograph, not
+// reasoning, and scanning is a step someone is waiting on with a phone in hand.
 const MODEL = 'claude-sonnet-5';
 
 /**
- * Hard ceiling on the model call. The platform terminates the worker on wall
- * clock with no chance to reply, which is what made scans hang forever with
- * nothing in the logs; failing our own deadline first turns that into an error
- * the creator can actually see.
+ * Hard ceiling on the model call, well inside the runtime's own limit, so a
+ * stalled upstream becomes an error the creator can read rather than a request
+ * that never answers.
  */
 const MODEL_TIMEOUT_MS = 45_000;
 
@@ -201,6 +199,7 @@ Deno.serve(async (req) => {
 
   const apiKey = Deno.env.get('ANTHROPIC_API_KEY');
   if (!apiKey) {
+    console.error('scan-recipe: ANTHROPIC_API_KEY is not set on this project');
     return json({
       error: 'not_configured',
       message:

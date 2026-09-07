@@ -16,6 +16,7 @@ import { formatTotalTime } from '@/lib/timers';
 import { useSession } from '@/state/session';
 import { colors, radius, space, type } from '@/theme';
 import type { Recipe } from '@/lib/types';
+import { goBack } from '@/lib/nav';
 
 export default function RecipeDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -77,7 +78,7 @@ export default function RecipeDetail() {
     return (
       <Screen><SafeAreaView style={{ flex: 1 }}>
         <EmptyState title="Could not load this recipe" body={error}
-                    action={<Button label="Go back" onPress={() => router.back()} />} />
+                    action={<Button label="Go back" onPress={() => goBack('/(tabs)')} />} />
       </SafeAreaView></Screen>
     );
   }
@@ -90,7 +91,7 @@ export default function RecipeDetail() {
         <EmptyState
           title="This recipe is no longer available"
           body="The creator unpublished it, or it was removed. It stays in your Cookbook until you remove it."
-          action={<Button label="Go back" onPress={() => router.back()} />}
+          action={<Button label="Go back" onPress={() => goBack('/(tabs)')} />}
         />
       </SafeAreaView></Screen>
     );
@@ -109,7 +110,7 @@ export default function RecipeDetail() {
           <LinearGradient colors={['rgba(6,10,8,0.55)', 'transparent', 'rgba(6,10,8,0.95)']}
                           locations={[0, 0.4, 1]} style={StyleSheet.absoluteFill} />
           <SafeAreaView style={s.heroBar} edges={['top']}>
-            <IconButton icon="arrow-left" label="Go back" onPress={() => router.back()} />
+            <IconButton icon="arrow-left" label="Go back" onPress={() => goBack('/(tabs)')} />
             <View style={{ flexDirection: 'row', gap: space.sm }}>
               <IconButton icon="flag" label="Report this recipe"
                           onPress={() => router.push(`/report/${recipe.id}`)} />
@@ -368,6 +369,7 @@ function IconButton({
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={label}
+      hitSlop={6}
       style={[s.iconButton, active && { backgroundColor: colors.mint }]}
     >
       <Feather name={icon} size={19} color={active ? colors.onMint : colors.text} />

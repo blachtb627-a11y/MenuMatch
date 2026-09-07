@@ -3,7 +3,39 @@ import {
   ActivityIndicator, Modal, Pressable, StyleSheet, Text, View,
   type StyleProp, type TextStyle, type ViewStyle,
 } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { type Href } from 'expo-router';
+import { goBack } from '@/lib/nav';
 import { colors, fill, radius, space, type } from '@/theme';
+
+/**
+ * The back arrow, with a tap target you can actually hit.
+ *
+ * A bare 24px glyph in the top-left corner is roughly half the 44px minimum
+ * both platforms ask for, in the spot a thumb reaches worst — so a miss reads
+ * as "the back button does not work". `fallback` is where the screen belongs
+ * when there is nothing to go back to; see goBack.
+ */
+export function BackButton({
+  fallback, label = 'Back', onPress, style,
+}: {
+  fallback: Href;
+  label?: string;
+  onPress?: () => void;
+  style?: StyleProp<ViewStyle>;
+}) {
+  return (
+    <Pressable
+      onPress={() => { onPress?.(); goBack(fallback); }}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      hitSlop={12}
+      style={({ pressed }) => [s.backBtn, pressed && { opacity: 0.6 }, style]}
+    >
+      <Feather name="chevron-left" size={24} color={colors.text} />
+    </Pressable>
+  );
+}
 
 export function Button({
   label, onPress, variant = 'primary', disabled, style, accessibilityHint,
@@ -130,6 +162,10 @@ export function ConfirmDialog({
 }
 
 const s = StyleSheet.create({
+  backBtn: {
+    width: 44, height: 44, marginLeft: -space.md,
+    alignItems: 'center', justifyContent: 'center',
+  },
   screen: { flex: 1, backgroundColor: colors.ground },
   button: {
     minHeight: 48, paddingHorizontal: space.xl, borderRadius: radius.pill,

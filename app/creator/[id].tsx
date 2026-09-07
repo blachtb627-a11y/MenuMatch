@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from '@/components/RecipeCover';
 import { Toast } from '@/components/Toast';
-import { ConfirmDialog, EmptyState, Loading, Screen } from '@/components/ui';
+import { BackButton, ConfirmDialog, EmptyState, Loading, Screen } from '@/components/ui';
 import { fetchCreator, formatCount, type CreatorProfile } from '@/lib/search';
 import { blockUser, isBlockedByMe, unblockUser } from '@/lib/settings';
 import { formatTotalTime } from '@/lib/timers';
@@ -174,10 +174,7 @@ export default function CreatorScreen() {
 function Bar() {
   return (
     <View style={s.bar}>
-      <Pressable onPress={() => router.back()} accessibilityRole="button"
-                 accessibilityLabel="Back">
-        <Feather name="chevron-left" size={24} color={colors.text} />
-      </Pressable>
+      <BackButton fallback="/(tabs)/search" />
     </View>
   );
 }

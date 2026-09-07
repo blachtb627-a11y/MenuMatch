@@ -9,6 +9,7 @@ import { Button, Loading, Screen } from '@/components/ui';
 import { AdminHeader, AgePill, PriorityPill, REASON_LABELS } from '@/components/admin/Shared';
 import { adminAct, adminReportDetail, type ModerationAction, type ReportDetail } from '@/lib/admin';
 import { colors, radius, space, type } from '@/theme';
+import { goBack } from '@/lib/nav';
 
 /** The actions available, and what each one does, stated plainly. */
 const ACTIONS: {
@@ -58,7 +59,7 @@ export default function ReportDetailScreen() {
     try {
       await adminAct(id, selected, reason.trim(), notes.trim() || undefined);
       setToast('Action recorded');
-      setTimeout(() => router.back(), 700);
+      setTimeout(() => goBack('/admin'), 700);
     } catch (e) {
       setToast(e instanceof Error ? e.message : 'Could not record that');
     } finally {

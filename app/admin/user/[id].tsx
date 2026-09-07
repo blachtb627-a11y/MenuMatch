@@ -14,6 +14,7 @@ import {
 } from '@/lib/admin';
 import { useSession } from '@/state/session';
 import { colors, radius, space, type } from '@/theme';
+import { goBack } from '@/lib/nav';
 
 type Pending =
   | { kind: 'status'; status: 'active' | 'suspended' | 'banned'; label: string; blurb: string }
@@ -59,7 +60,7 @@ export default function AdminUserScreen() {
       if (pending.kind === 'purge') {
         await adminPurgeUser(id);
         setToast('Account removed');
-        setTimeout(() => router.back(), 900);
+        setTimeout(() => goBack('/admin/users'), 900);
         return;
       }
       if (pending.kind === 'delete') {
@@ -67,7 +68,7 @@ export default function AdminUserScreen() {
         setToast(r.recipesDeleted
           ? `Account deleted with ${r.recipesDeleted} recipe${r.recipesDeleted === 1 ? '' : 's'}`
           : 'Account deleted');
-        setTimeout(() => router.back(), 900);
+        setTimeout(() => goBack('/admin/users'), 900);
         return;
       }
       await adminSetUserStatus(id, pending.status, reason.trim());

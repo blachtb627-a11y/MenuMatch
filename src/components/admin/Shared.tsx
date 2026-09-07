@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { router } from 'expo-router';
+import { goBack } from '@/lib/nav';
 import { Feather } from '@expo/vector-icons';
 import { colors, radius, space, type } from '@/theme';
 
@@ -10,8 +10,10 @@ export function AdminHeader({
   return (
     <View style={s.header}>
       {back ? (
-        <Pressable onPress={() => router.back()} accessibilityRole="button"
-                   accessibilityLabel="Back" style={{ marginBottom: space.sm }}>
+        <Pressable onPress={() => goBack('/admin')} accessibilityRole="button"
+                   accessibilityLabel="Back" hitSlop={12}
+                   style={{ width: 44, height: 40, marginLeft: -space.md,
+                            justifyContent: 'center' }}>
           <Feather name="chevron-left" size={22} color={colors.text} />
         </Pressable>
       ) : null}

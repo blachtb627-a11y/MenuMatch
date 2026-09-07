@@ -4,6 +4,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { Button, Screen } from '@/components/ui';
+import { goBack } from '@/lib/nav';
 import { supabase } from '@/lib/supabase';
 import { useSession } from '@/state/session';
 import { colors, radius, space, type } from '@/theme';
@@ -66,7 +67,7 @@ export default function Report() {
           flooded. It takes a moment.
         </Text>
         <Button label="Create an account" onPress={() => router.replace('/auth')} />
-        <Button label="Cancel" variant="ghost" onPress={() => router.back()} />
+        <Button label="Cancel" variant="ghost" onPress={() => goBack('/(tabs)')} />
       </SafeAreaView></Screen>
     );
   }
@@ -80,7 +81,7 @@ export default function Report() {
           A moderator reviews unsafe-content reports within 24 hours, and
           everything else within 72. You will hear back about the outcome.
         </Text>
-        <Button label="Done" onPress={() => router.back()} />
+        <Button label="Done" onPress={() => goBack('/(tabs)')} />
       </SafeAreaView></Screen>
     );
   }
@@ -89,8 +90,10 @@ export default function Report() {
     <Screen>
       <SafeAreaView style={{ flex: 1 }}>
         <View style={s.bar}>
-          <Pressable onPress={() => router.back()} accessibilityRole="button"
-                     accessibilityLabel="Cancel">
+          <Pressable onPress={() => goBack('/(tabs)')} accessibilityRole="button"
+                     accessibilityLabel="Cancel" hitSlop={12}
+                     style={{ width: 44, height: 44, marginLeft: -space.md,
+                              alignItems: 'center', justifyContent: 'center' }}>
             <Feather name="x" size={22} color={colors.textMuted} />
           </Pressable>
           <Text style={s.barTitle}>Report recipe</Text>

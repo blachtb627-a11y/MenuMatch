@@ -9,6 +9,7 @@ import { Button, Screen } from '@/components/ui';
 import { useSession } from '@/state/session';
 import { REQUIRE_ACCOUNT } from '@/config';
 import { colors, radius, space, type } from '@/theme';
+import { goBack } from '@/lib/nav';
 
 export default function Auth() {
   const { signIn, signUp, resendConfirmation, pendingSave } = useSession();
@@ -142,7 +143,7 @@ export default function Auth() {
                 </Text>
               </Pressable>
               {!REQUIRE_ACCOUNT ? (
-                <Button label="Keep browsing" variant="ghost" onPress={() => router.back()} />
+                <Button label="Keep browsing" variant="ghost" onPress={() => goBack('/(tabs)')} />
               ) : null}
             </View>
 

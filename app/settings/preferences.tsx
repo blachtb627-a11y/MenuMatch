@@ -7,7 +7,7 @@ import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { Toast } from '@/components/Toast';
-import { Button, Loading, Screen } from '@/components/ui';
+import { BackButton, Button, Loading, Screen } from '@/components/ui';
 import { fetchConfig } from '@/lib/api';
 import { myPreferences, savePreferences, type Preferences } from '@/lib/settings';
 import { colors, radius, space, type } from '@/theme';
@@ -89,10 +89,7 @@ export default function PreferencesScreen() {
     <Screen>
       <SafeAreaView style={{ flex: 1 }} edges={['top']}>
         <View style={s.bar}>
-          <Pressable onPress={() => router.back()} accessibilityRole="button"
-                     accessibilityLabel="Back">
-            <Feather name="chevron-left" size={24} color={colors.text} />
-          </Pressable>
+          <BackButton fallback="/(tabs)/profile" />
           <Text style={s.barTitle}>Dietary preferences</Text>
           <View style={{ width: 24 }} />
         </View>

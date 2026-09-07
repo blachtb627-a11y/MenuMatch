@@ -7,13 +7,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from '@/components/RecipeCover';
 import { Toast } from '@/components/Toast';
-import { Button, ConfirmDialog, EmptyState, Loading, Screen } from '@/components/ui';
+import { BackButton, Button, ConfirmDialog, EmptyState, Loading, Screen } from '@/components/ui';
 import {
   collectionDetail, deleteCollection, removeFromCollection, renameCollection,
   reorderCollectionItem, type CollectionDetail,
 } from '@/lib/collections';
 import { formatTotalTime } from '@/lib/timers';
 import { colors, fill, radius, space, type } from '@/theme';
+import { goBack } from '@/lib/nav';
 
 export default function CollectionScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -59,7 +60,7 @@ export default function CollectionScreen() {
     setBusy(true);
     try {
       await deleteCollection(id);
-      router.back();
+      goBack('/(tabs)/cookbook');
     } catch (e) {
       setToast(e instanceof Error ? e.message : 'Could not delete that');
       setBusy(false);
@@ -83,7 +84,7 @@ export default function CollectionScreen() {
     return (
       <Screen><SafeAreaView style={{ flex: 1 }}>
         <EmptyState title="Could not open that collection" body={error}
-                    action={<Button label="Go back" onPress={() => router.back()} />} />
+                    action={<Button label="Go back" onPress={() => goBack('/(tabs)/cookbook') } />} />
       </SafeAreaView></Screen>
     );
   }
@@ -93,10 +94,7 @@ export default function CollectionScreen() {
     <Screen>
       <SafeAreaView style={{ flex: 1 }} edges={['top']}>
         <View style={s.bar}>
-          <Pressable onPress={() => router.back()} accessibilityRole="button"
-                     accessibilityLabel="Back">
-            <Feather name="chevron-left" size={24} color={colors.text} />
-          </Pressable>
+          <BackButton fallback="/(tabs)/cookbook" />
           <View style={{ flexDirection: 'row', gap: space.lg }}>
             <Pressable onPress={() => setRenaming(true)} accessibilityRole="button"
                        accessibilityLabel="Rename this collection">

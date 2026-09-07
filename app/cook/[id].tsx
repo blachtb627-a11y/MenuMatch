@@ -14,6 +14,7 @@ import { describeDuration, formatDuration, parseTimerSeconds } from '@/lib/timer
 import { useSession } from '@/state/session';
 import { colors, fill, radius, space, type } from '@/theme';
 import type { Recipe } from '@/lib/types';
+import { goBack } from '@/lib/nav';
 
 /**
  * Cook Mode (§11). One step at a time, large type, high contrast, screen kept
@@ -100,7 +101,7 @@ export default function CookMode() {
   async function exit(markCooked: boolean) {
     await stopTimer();
     if (markCooked && !isGuest) await queueCook(recipe!.id);
-    router.back();
+    goBack(`/recipe/${id}`);
   }
 
   function advance() {

@@ -8,7 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from '@/components/RecipeCover';
 import { Toast } from '@/components/Toast';
-import { Button, ConfirmDialog, Loading, Screen } from '@/components/ui';
+import { BackButton, Button, ConfirmDialog, Loading, Screen } from '@/components/ui';
 import { ChoiceRow, Input, Labelled, RowActions } from '@/components/composer/Fields';
 import { CuisineField } from '@/components/composer/CuisinePicker';
 import {
@@ -128,7 +128,21 @@ export default function Compose() {
 
   const onBlur = useCallback(() => { if (dirty.current) void persist(); }, [persist]);
 
-  if (!draft) return <Screen><Loading label="Opening your draft" /></Screen>;
+  if (!draft) {
+    return (
+      <Screen>
+        <SafeAreaView style={{ flex: 1 }} edges={['top']}>
+          <View style={s.bar}>
+            <BackButton fallback="/(tabs)/create" label="Close the composer" />
+            <Text style={s.barTitle}>New recipe</Text>
+            <Text style={s.saveState}> </Text>
+          </View>
+          <Loading label="Opening your draft" />
+        </SafeAreaView>
+        <Toast message={toast} onDismiss={() => setToast(null)} />
+      </Screen>
+    );
+  }
 
   function setIngredient(index: number, patch: Partial<DraftIngredient>) {
     const next = [...draft!.ingredients];
@@ -324,10 +338,8 @@ export default function Compose() {
     <Screen>
       <SafeAreaView style={{ flex: 1 }} edges={['top']}>
         <View style={s.bar}>
-          <Pressable onPress={() => { void persist(); router.back(); }}
-                     accessibilityRole="button" accessibilityLabel="Close the composer">
-            <Feather name="chevron-left" size={24} color={colors.text} />
-          </Pressable>
+          <BackButton fallback="/(tabs)/create" label="Close the composer"
+                      onPress={() => { void persist(); }} />
           <Text style={s.barTitle}>{draft.status === 'published' ? 'Edit recipe' : 'New recipe'}</Text>
           <Text style={s.saveState}>
             {saving ? 'Saving…' : savedAt ? 'Saved' : ' '}

@@ -24,6 +24,12 @@ const DEV = {
   ],
   items: { col1: [], col2: [] },
   deadSaves: 2,
+  prefs: {
+    dietaryTags: ['vegetarian'], favoriteCategories: [],
+    dislikedIngredients: ['coriander'], cuisines: ['Italian'],
+    skillLevel: null, unitsPreference: 'original', onboardingComplete: true,
+  },
+  blocks: [],
   myRecipes: [
     { id: 'draft-1', title: 'Nonna\u2019s ragu', status: 'draft',
       coverImageUrl: 'http://localhost:8787/storage/v1/object/public/recipe-media/u-me/covers/ragu.jpg',
@@ -103,6 +109,37 @@ function rpc(name, body) {
                                     isAdmin: true, adminRole: 'super_admin',
                                     preferences: {} };
     case 'my_recipes':    return DEV.myRecipes;
+    case 'my_preferences': return DEV.prefs;
+    case 'save_preferences': {
+      DEV.prefs = { ...DEV.prefs, ...(body?.p ?? {}) };
+      return DEV.prefs;
+    }
+    case 'my_blocks': return DEV.blocks;
+    case 'block_user': {
+      if (!DEV.blocks.some((b) => b.id === body?.p_user_id)) {
+        DEV.blocks = [...DEV.blocks, { id: body?.p_user_id, username: 'sofia.reyes',
+          displayName: 'Sofia Reyes', blockedAt: new Date().toISOString() }];
+      }
+      return { blocked: true };
+    }
+    case 'unblock_user': {
+      DEV.blocks = DEV.blocks.filter((b) => b.id !== body?.p_user_id);
+      return { blocked: false };
+    }
+    case 'is_blocked_by_me':
+      return DEV.blocks.some((b) => b.id === body?.p_user_id);
+    case 'export_my_data': return {
+      exportedAt: new Date().toISOString(),
+      account: { id: 'u-me', username: 'devuser', displayName: 'Dev User',
+                 email: 'dev@example.com' },
+      preferences: DEV.prefs,
+      recipes: [{ id: 'rec1', title: 'Charred cabbage with brown butter' }],
+      saves: [{ recipeId: 'rec1', title: 'Charred cabbage', savedAt: new Date().toISOString() }],
+      collections: [{ name: 'Weeknight Dinners', recipes: [] }],
+      cooks: [],
+      blocked: DEV.blocks,
+      swipes: { total: 42, mostRecent: [] },
+    };
     case 'search_all': {
       const q = String(body?.p_query ?? '').toLowerCase();
       const cap = body?.p_max_minutes;

@@ -4,9 +4,12 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from '@/components/RecipeCover';
-import { EmptyState, Loading, Screen } from '@/components/ui';
+import { Toast } from '@/components/Toast';
+import { ConfirmDialog, EmptyState, Loading, Screen } from '@/components/ui';
 import { fetchCreator, formatCount, type CreatorProfile } from '@/lib/search';
+import { blockUser, isBlockedByMe, unblockUser } from '@/lib/settings';
 import { formatTotalTime } from '@/lib/timers';
+import { useSession } from '@/state/session';
 import { colors, fill, radius, space, type } from '@/theme';
 
 /**
@@ -15,7 +18,12 @@ import { colors, fill, radius, space, type } from '@/theme';
  */
 export default function CreatorScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
+  const { me, isGuest } = useSession();
   const [creator, setCreator] = useState<CreatorProfile | null>(null);
+  const [blocked, setBlocked] = useState(false);
+  const [confirmBlock, setConfirmBlock] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [toast, setToast] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const load = useCallback(async () => {
@@ -28,9 +36,33 @@ export default function CreatorScreen() {
       // one, deliberately: which of the three it is, is not the viewer's business.
       setError('That creator is not available.');
     }
-  }, [id]);
+    if (!isGuest) {
+      try { setBlocked(await isBlockedByMe(id)); } catch { /* leave as unblocked */ }
+    }
+  }, [id, isGuest]);
 
   useEffect(() => { void load(); }, [load]);
+
+  async function toggleBlock() {
+    if (!id) return;
+    setBusy(true);
+    try {
+      if (blocked) {
+        await unblockUser(id);
+        setBlocked(false);
+        setToast('Unblocked');
+      } else {
+        await blockUser(id);
+        setBlocked(true);
+        setConfirmBlock(false);
+        setToast('Blocked. Neither of you will see the other.');
+      }
+    } catch (e) {
+      setToast(e instanceof Error ? e.message : 'Could not do that');
+    } finally {
+      setBusy(false);
+    }
+  }
 
   if (error) {
     return (
@@ -65,6 +97,24 @@ export default function CreatorScreen() {
           </View>
 
           {creator.bio ? <Text style={s.bio}>{creator.bio}</Text> : null}
+
+          {/* §20.1. Not offered on your own page, and not to a guest, who has
+              no account for a block to belong to. */}
+          {!isGuest && me?.id !== creator.id ? (
+            <Pressable onPress={() => (blocked ? void toggleBlock() : setConfirmBlock(true))}
+                       disabled={busy}
+                       accessibilityRole="button"
+                       accessibilityLabel={blocked
+                         ? `Unblock ${creator.displayName}`
+                         : `Block ${creator.displayName}`}
+                       style={s.blockRow}>
+              <Feather name={blocked ? 'user-check' : 'slash'} size={14}
+                       color={blocked ? colors.textMuted : colors.danger} />
+              <Text style={[s.blockLabel, blocked && { color: colors.textMuted }]}>
+                {blocked ? 'Unblock this creator' : 'Block this creator'}
+              </Text>
+            </Pressable>
+          ) : null}
 
           <View style={s.stats}>
             <Stat label={creator.recipes.length === 1 ? 'Recipe' : 'Recipes'}
@@ -104,6 +154,19 @@ export default function CreatorScreen() {
           )}
         </ScrollView>
       </SafeAreaView>
+
+      <ConfirmDialog
+        visible={confirmBlock}
+        title={`Block ${creator.displayName}?`}
+        body="Their recipes disappear from your deck, search and Cookbook, and yours from theirs. You can undo this from Profile → Blocked accounts."
+        confirmLabel="Block"
+        cancelLabel="Cancel"
+        busy={busy}
+        onConfirm={() => void toggleBlock()}
+        onCancel={() => setConfirmBlock(false)}
+      />
+
+      <Toast message={toast} onDismiss={() => setToast(null)} />
     </Screen>
   );
 }
@@ -140,6 +203,11 @@ const s = StyleSheet.create({
   name: { ...type.title, color: colors.text },
   handle: { ...type.small, color: colors.textMuted },
   bio: { ...type.body, color: colors.text, lineHeight: 21 },
+  blockRow: {
+    flexDirection: 'row', alignItems: 'center', gap: space.sm,
+    paddingVertical: space.sm,
+  },
+  blockLabel: { ...type.small, color: colors.danger },
   stats: {
     flexDirection: 'row', backgroundColor: colors.surface, borderRadius: radius.md,
     padding: space.lg, borderWidth: 1, borderColor: colors.border,

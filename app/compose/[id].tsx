@@ -10,6 +10,7 @@ import { RecipeCover } from '@/components/RecipeCover';
 import { Toast } from '@/components/Toast';
 import { Button, ConfirmDialog, Loading, Screen } from '@/components/ui';
 import { ChoiceRow, Input, Labelled, RowActions } from '@/components/composer/Fields';
+import { CuisineField } from '@/components/composer/CuisinePicker';
 import {
   deleteRecipe, emptyDraft, estimateNutrition, getDraft, publishRecipe, saveDraft,
   scanRecipe, ScanError, unpublishRecipe,
@@ -423,8 +424,8 @@ export default function Compose() {
             </Labelled>
 
             <Labelled label="Cuisine" required>
-              <Input value={draft.cuisine} onChangeText={(t) => update({ cuisine: t })}
-                     onBlur={onBlur} placeholder="Mediterranean" />
+              <CuisineField value={draft.cuisine}
+                            onChange={(v) => { update({ cuisine: v }); void persist(); }} />
             </Labelled>
 
             <View style={s.threeUp}>
@@ -568,7 +569,7 @@ export default function Compose() {
                                  void persist();
                                }}
                                accessibilityRole="checkbox"
-                               accessibilityState={{ checked: on }}
+                               accessibilityState={{ checked: on }} aria-checked={on}
                                accessibilityLabel={t.label}
                                style={[s.tag, on && s.tagOn]}>
                       <Text style={[s.tagLabel, on && { color: colors.mint }]}>{t.label}</Text>
@@ -614,7 +615,7 @@ export default function Compose() {
             {/* §18.2: unticked by default, required, stored with a timestamp. */}
             <Pressable onPress={() => setRightsConfirmed((v) => !v)}
                        accessibilityRole="checkbox"
-                       accessibilityState={{ checked: rightsConfirmed }}
+                       accessibilityState={{ checked: rightsConfirmed }} aria-checked={rightsConfirmed}
                        accessibilityLabel="Confirm you have the rights to publish this"
                        style={s.rightsRow}>
               <View style={[s.checkbox, rightsConfirmed && s.checkboxOn]}>

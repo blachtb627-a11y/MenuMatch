@@ -97,10 +97,12 @@ export default function Profile() {
           {/* §28.1 settings. §20.6 and §28.4 make deletion and reporting
               in-app requirements, not email-support paths. */}
           <Section title="Settings">
-            <Row icon="bell" label="Notifications" />
-            <Row icon="sliders" label="Dietary preferences" />
-            <Row icon="slash" label="Blocked accounts" />
-            <Row icon="download" label="Export my data" />
+            <Row icon="sliders" label="Dietary preferences"
+                 onPress={() => router.push('/settings/preferences')} />
+            <Row icon="slash" label="Blocked accounts"
+                 onPress={() => router.push('/settings/blocked')} />
+            <Row icon="download" label="Export my data"
+                 onPress={() => router.push('/settings/export')} />
           </Section>
 
           <Section title="Trust and safety">

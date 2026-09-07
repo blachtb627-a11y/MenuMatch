@@ -117,7 +117,7 @@ export function CollectionSheet({
               return (
                 <Pressable key={c.id} onPress={() => toggle(c.id)}
                            accessibilityRole="checkbox"
-                           accessibilityState={{ checked: on }}
+                           accessibilityState={{ checked: on }} aria-checked={on}
                            accessibilityLabel={c.name}
                            style={s.row}>
                   <View style={[s.checkbox, on && s.checkboxOn]}>

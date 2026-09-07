@@ -185,7 +185,7 @@ export default function RecipeDetail() {
                   key={key}
                   onPress={() => toggleCheck(key)}
                   accessibilityRole="checkbox"
-                  accessibilityState={{ checked: on }}
+                  accessibilityState={{ checked: on }} aria-checked={on}
                   accessibilityLabel={renderIngredient(ing, base, target)}
                   style={s.ingredientRow}
                 >
@@ -217,7 +217,7 @@ export default function RecipeDetail() {
                   key={key}
                   onPress={() => toggleCheck(key)}
                   accessibilityRole="checkbox"
-                  accessibilityState={{ checked: on }}
+                  accessibilityState={{ checked: on }} aria-checked={on}
                   accessibilityLabel={`Step ${step.position + 1}. ${step.instruction}`}
                   style={s.stepRow}
                 >

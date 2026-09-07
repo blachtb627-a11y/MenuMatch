@@ -127,7 +127,7 @@ function Chip({ label, active, onPress }: { label: string; active: boolean; onPr
     <Pressable
       onPress={onPress}
       accessibilityRole="checkbox"
-      accessibilityState={{ checked: active }}
+      accessibilityState={{ checked: active }} aria-checked={active}
       accessibilityLabel={label}
       style={[s.chip, active && s.chipActive]}
     >

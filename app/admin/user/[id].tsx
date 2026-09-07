@@ -9,15 +9,16 @@ import { Button, Loading, Screen } from '@/components/ui';
 import { AdminHeader, REASON_LABELS } from '@/components/admin/Shared';
 import { StatusPill } from '@/components/admin/StatusPill';
 import {
-  adminDeleteUser, adminSetUserStatus, adminUserDetail, relativeTime, ROLE_LABELS,
-  type AdminUserDetail,
+  adminDeleteUser, adminPurgeUser, adminSetUserStatus, adminUserDetail, relativeTime,
+  ROLE_LABELS, type AdminUserDetail,
 } from '@/lib/admin';
 import { useSession } from '@/state/session';
 import { colors, radius, space, type } from '@/theme';
 
 type Pending =
   | { kind: 'status'; status: 'active' | 'suspended' | 'banned'; label: string; blurb: string }
-  | { kind: 'delete' };
+  | { kind: 'delete' }
+  | { kind: 'purge' };
 
 export default function AdminUserScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -55,6 +56,12 @@ export default function AdminUserScreen() {
     if (!pending || !id || !user) return;
     setBusy(true);
     try {
+      if (pending.kind === 'purge') {
+        await adminPurgeUser(id);
+        setToast('Account removed');
+        setTimeout(() => router.back(), 900);
+        return;
+      }
       if (pending.kind === 'delete') {
         const r = await adminDeleteUser(id, reason.trim());
         setToast(r.recipesDeleted
@@ -107,7 +114,8 @@ export default function AdminUserScreen() {
   }
 
   const deleteReady = confirmText.trim().toLowerCase() === user.username.toLowerCase();
-  const canSubmit = !!reason.trim() && (pending?.kind !== 'delete' || deleteReady);
+  const canSubmit = pending?.kind === 'purge'
+    || (!!reason.trim() && (pending?.kind !== 'delete' || deleteReady));
 
   return (
     <Screen>
@@ -218,10 +226,33 @@ export default function AdminUserScreen() {
               another super admin has to act instead.
             </Text>
           ) : isDeleted ? (
-            <Text style={s.note}>
-              This account is deleted. Its personal data is cleared 30 days after
-              deletion; the moderation record is kept.
-            </Text>
+            <>
+              <Text style={s.note}>
+                This account is deleted. Its personal data is cleared 30 days after
+                deletion; the moderation record is kept.
+              </Text>
+              {me?.adminRole === 'super_admin' ? (
+                <Pressable onPress={() => choose({ kind: 'purge' })}
+                           accessibilityRole="radio"
+                           accessibilityState={{ selected: pending?.kind === 'purge' }}
+                           accessibilityLabel="Remove this account from the table"
+                           style={[s.action, pending?.kind === 'purge' && s.actionOn,
+                                   pending?.kind === 'purge' && { borderColor: colors.danger }]}>
+                  <View style={[s.radio, pending?.kind === 'purge' && s.radioOn,
+                                pending?.kind === 'purge' && { backgroundColor: colors.danger,
+                                                               borderColor: colors.danger }]} />
+                  <View style={{ flex: 1, gap: 2 }}>
+                    <Text style={[s.actionLabel, { color: colors.danger }]}>
+                      Remove from the table now
+                    </Text>
+                    <Text style={s.actionBlurb}>
+                      Skips the 30-day wait and clears the row outright. For seed and
+                      test accounts, where there is nobody behind it to protect.
+                    </Text>
+                  </View>
+                </Pressable>
+              ) : null}
+            </>
           ) : !canModerate ? (
             <Text style={s.note}>
               This account is a super admin. Revoke the role on the Team screen
@@ -274,7 +305,7 @@ export default function AdminUserScreen() {
                 </Pressable>
               ) : null}
 
-              {pending ? (
+              {pending && pending.kind !== 'purge' ? (
                 <>
                   <View style={{ gap: space.xs }}>
                     <Text style={s.sectionLabel}>
@@ -317,14 +348,17 @@ export default function AdminUserScreen() {
           <View style={s.footer}>
             <Button
               label={busy ? 'Working…'
+                : pending.kind === 'purge' ? 'Remove permanently'
                 : pending.kind === 'delete' ? 'Delete this account'
                 : pending.status === 'active' ? 'Reinstate' : `Confirm ${pending.status}`}
               onPress={submit}
               // A destructive confirmation shouldn't wear the affirmative colour.
-              variant={pending.kind === 'delete' || pending.status !== 'active'
+              variant={pending.kind !== 'status' || pending.status !== 'active'
                 ? 'danger' : 'primary'}
               disabled={busy || !canSubmit} />
-            {!reason.trim() ? (
+            {pending.kind === 'purge' ? (
+              <Text style={s.footerHint}>This cannot be undone.</Text>
+            ) : !reason.trim() ? (
               <Text style={s.footerHint}>A reason is required.</Text>
             ) : pending.kind === 'delete' && !deleteReady ? (
               <Text style={s.footerHint}>Type the username exactly to confirm.</Text>

@@ -112,16 +112,9 @@ export default function Cookbook() {
   );
 }
 
+// A save whose recipe is gone never reaches here: fetchCookbook drops it and
+// prunes the row behind it, so there is no dead tile to render.
 function SavedTile({ item, onOrganise }: { item: SavedRecipe; onOrganise: () => void }) {
-  // §17: a removed recipe stays in the Cookbook with a clear state.
-  if (item.unavailable) {
-    return (
-      <View style={[s.tile, s.tileUnavailable]}>
-        <Feather name="alert-circle" size={20} color={colors.textFaint} />
-        <Text style={s.unavailableText}>No longer available</Text>
-      </View>
-    );
-  }
   return (
     <Pressable
       style={s.tile}

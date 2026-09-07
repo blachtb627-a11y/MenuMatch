@@ -166,6 +166,14 @@ export const adminDeleteUser = (id: string, reason: string) =>
     p_user_id: id, p_reason: reason,
   });
 
+/**
+ * Clears an already-deleted account out of the table entirely, without waiting
+ * for the §28.4 thirty-day purge. Super admin only, and irreversible — for seed
+ * and test accounts, where there is no person behind the row to protect.
+ */
+export const adminPurgeUser = (id: string) =>
+  rpc<{ purged: boolean; username: string }>('admin_purge_user', { p_user_id: id });
+
 export const STATUS_LABELS: Record<UserStatus, string> = {
   active: 'Active',
   suspended: 'Suspended',

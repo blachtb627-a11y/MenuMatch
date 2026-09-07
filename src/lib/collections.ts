@@ -28,8 +28,16 @@ async function rpc<T>(fn: string, args: Record<string, unknown> = {}): Promise<T
 }
 
 export const myCollections = () => rpc<Collection[]>('my_collections');
-export const collectionDetail = (id: string) =>
-  rpc<CollectionDetail>('collection_detail', { p_id: id });
+/**
+ * A collection drops entries whose recipe is gone, for the same reason the
+ * Cookbook does: a tile that cannot be opened is not worth the row it takes.
+ * The count follows the list rather than the stale membership.
+ */
+export const collectionDetail = async (id: string): Promise<CollectionDetail> => {
+  const detail = await rpc<CollectionDetail>('collection_detail', { p_id: id });
+  const recipes = (detail.recipes ?? []).filter((r) => !r.unavailable);
+  return { ...detail, recipes };
+};
 export const recipeCollections = (recipeId: string) =>
   rpc<string[]>('recipe_collections', { p_recipe_id: recipeId });
 

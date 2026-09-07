@@ -83,8 +83,13 @@ export type SavedRecipe = RecipeCard & { savedAt: string; unavailable?: boolean 
 
 /**
  * The Cookbook (§12). Reads through the saves table, which RLS scopes to the
- * caller, and joins the card fields. §17: a save whose recipe was removed
- * still returns a row, marked unavailable, rather than disappearing silently.
+ * caller, and joins the card fields.
+ *
+ * §17 kept a removed recipe in place as "No longer available" so a save could
+ * not vanish unexplained. That reads right when one recipe goes and wrong when
+ * a whole creator does — the Cookbook becomes a wall of dead tiles with nothing
+ * to open. Those entries are dropped from the list, and the saves behind them
+ * are pruned server-side so the count is true and they do not come back.
  */
 export async function fetchCookbook(): Promise<SavedRecipe[]> {
   try {
@@ -102,11 +107,20 @@ export async function fetchCookbook(): Promise<SavedRecipe[]> {
                  unavailable: recipe.unavailable } as SavedRecipe;
       }),
     );
-    await writeCache('cookbook', cards);
-    return cards;
+
+    const live = cards.filter((c) => !c.unavailable);
+    // Only writes when there is something to clear, so the common read stays a
+    // read. Failure is silent: a stale save is not worth an error in the way.
+    if (live.length !== cards.length) {
+      void supabase.rpc('prune_dead_saves').then(() => {}, () => {});
+    }
+
+    await writeCache('cookbook', live);
+    return live;
   } catch (e) {
     const cached = await readCache<SavedRecipe[]>('cookbook');
-    if (cached) return cached;
+    // A cache written before dead entries were dropped can still hold them.
+    if (cached) return cached.filter((c) => !c.unavailable);
     throw e;
   }
 }

@@ -23,6 +23,7 @@ const DEV = {
     { id: 'col2', name: 'Want to Try', visibility: 'private' },
   ],
   items: { col1: [], col2: [] },
+  deadSaves: 2,
   myRecipes: [
     { id: 'draft-1', title: 'Nonna\u2019s ragu', status: 'draft',
       coverImageUrl: 'http://localhost:8787/storage/v1/object/public/recipe-media/u-me/covers/ragu.jpg',
@@ -53,6 +54,11 @@ const DEV = {
       createdAt: '2026-08-30T10:00:00Z',
       lastActiveAt: new Date(Date.now() - 40 * 6e4).toISOString(),
       adminRole: null, recipeCount: 2, saveCount: 0, strikes: 1, reportsAgainst: 3 },
+    { id: 'u5', username: 'fake.seed', displayName: 'Fake Seed',
+      email: 'seed@example.com', status: 'deleted', isCreator: true,
+      isSeedAccount: true, deletedAt: new Date().toISOString(),
+      createdAt: '2025-10-02T10:00:00Z', lastActiveAt: null,
+      adminRole: null, recipeCount: 0, saveCount: 0, strikes: 0, reportsAgainst: 0 },
     { id: 'u4', username: 'old.account', displayName: 'Marek Novak',
       email: 'marek@example.com', status: 'suspended', isCreator: false,
       isSeedAccount: false, deletedAt: null,
@@ -77,6 +83,10 @@ function rpc(name, body) {
       return { ...fx.feed, cards, fallback: cards.length ? 'personalized' : 'exhausted' };
     }
     case 'get_recipe':
+      // A deleted recipe comes back marked unavailable, as the real RPC does.
+      if (String(body?.p_recipe_id).startsWith('gone-')) {
+        return { id: body?.p_recipe_id, unavailable: true, title: '' };
+      }
       return fx.recipe.id === body?.p_recipe_id
         ? fx.recipe
         : { ...fx.recipe, id: body?.p_recipe_id };
@@ -107,6 +117,11 @@ function rpc(name, body) {
       if (!r) throw new Error('recipe not found');
       r.status = 'unpublished';
       return { published: false };
+    }
+    case 'prune_dead_saves': {
+      const before = DEV.deadSaves;
+      DEV.deadSaves = 0;
+      return { saves: before, collectionItems: 0 };
     }
     case 'my_collections': return DEV.collections.map((c) => ({
       ...c, recipeCount: (DEV.items[c.id] ?? []).length, coverImageUrl: null }));
@@ -242,6 +257,13 @@ function rpc(name, body) {
       const u = DEV.adminUsers.find((x) => x.id === body?.p_user_id);
       if (u) u.status = body?.p_status;
       return { ok: true, status: body?.p_status };
+    }
+    case 'admin_purge_user': {
+      const u = DEV.adminUsers.find((x) => x.id === body?.p_user_id);
+      if (!u) throw new Error('user not found');
+      if (!u.deletedAt) throw new Error('delete the account first');
+      DEV.adminUsers = DEV.adminUsers.filter((x) => x.id !== u.id);
+      return { purged: true, username: u.username };
     }
     case 'admin_delete_user': {
       const u = DEV.adminUsers.find((x) => x.id === body?.p_user_id);
@@ -432,9 +454,15 @@ createServer((req, res) => {
     }
     if (url.pathname.startsWith('/rest/v1/saves')) {
       res.writeHead(200, cors);
-      return res.end(JSON.stringify(fx.feed.cards.map((c) => ({
+      const live = fx.feed.cards.map((c) => ({
         recipe_id: c.id, created_at: new Date().toISOString(),
-      }))));
+      }));
+      // Two saves point at recipes that no longer resolve.
+      const dead = DEV.deadSaves
+        ? [{ recipe_id: 'gone-1', created_at: new Date().toISOString() },
+           { recipe_id: 'gone-2', created_at: new Date().toISOString() }]
+        : [];
+      return res.end(JSON.stringify([...live, ...dead]));
     }
     if (url.pathname.startsWith('/rest/v1/tags')) {
       res.writeHead(200, cors);

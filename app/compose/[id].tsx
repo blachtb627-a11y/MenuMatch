@@ -48,6 +48,7 @@ export default function Compose() {
   const [pasteOpen, setPasteOpen] = useState<'ingredients' | 'steps' | null>(null);
   const [scanning, setScanning] = useState(false);
   const [scanStage, setScanStage] = useState('');
+  const [scanError, setScanError] = useState<string | null>(null);
   const [scanNote, setScanNote] = useState<string | null>(null);
   // Set once the server says scanning has no API key configured. Retrying would
   // fail the same way every time, so the card collapses instead of teasing it.
@@ -147,6 +148,7 @@ export default function Compose() {
   /** Scan the creator's own written recipe and fill the fields for review. */
   async function runScan(source: 'library' | 'camera') {
     setScanNote(null);
+    setScanError(null);
     let picked;
     try {
       picked = await pickImage(source);
@@ -199,7 +201,9 @@ export default function Compose() {
       if (e instanceof ScanError && e.code === 'not_configured') {
         setScanUnavailable(true);
       } else {
-        setToast(e instanceof Error ? e.message : 'Could not scan that photo');
+        // Kept in the card rather than a toast that disappears: when a scan
+        // fails the reason is the only thing worth acting on.
+        setScanError(e instanceof Error ? e.message : 'Could not scan that photo');
       }
     } finally {
       setScanning(false);
@@ -287,6 +291,12 @@ export default function Compose() {
                 </View>
               ) : null}
               {scanNote ? <Text style={s.scanNote}>{scanNote}</Text> : null}
+              {scanError ? (
+                <View style={s.scanErrorBox}>
+                  <Feather name="alert-triangle" size={13} color={colors.danger} />
+                  <Text style={s.scanErrorText}>{scanError}</Text>
+                </View>
+              ) : null}
             </View>
 
             <Labelled label="Cover photo" required
@@ -687,6 +697,11 @@ const s = StyleSheet.create({
   missingItem: { ...type.small, color: colors.text },
 
   scanOff: { ...type.small, color: colors.textFaint, lineHeight: 18 },
+  scanErrorBox: {
+    flexDirection: 'row', gap: space.sm, alignItems: 'flex-start',
+    backgroundColor: colors.dangerWash, borderRadius: radius.md, padding: space.md,
+  },
+  scanErrorText: { ...type.small, color: colors.danger, flex: 1, lineHeight: 18 },
   deleteRow: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
     gap: space.sm, paddingVertical: space.md,

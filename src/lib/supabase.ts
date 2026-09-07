@@ -11,6 +11,10 @@ if (!url || !key) {
   );
 }
 
+/** Needed by callers that talk to an Edge Function without the SDK wrapper. */
+export const SUPABASE_URL = url;
+export const SUPABASE_KEY = key;
+
 export const supabase = createClient(url, key, {
   auth: {
     storage: AsyncStorage,

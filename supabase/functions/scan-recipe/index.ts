@@ -22,15 +22,40 @@ const UNITS = [
   'pinch', 'dash', 'to_taste', 'handful',
 ];
 
+// The full set the Supabase SDK may attach — it has grown over releases, and a
+// single header the browser asks for that is not named here makes the preflight
+// fail, so the POST is never sent and nothing reaches this function at all.
+const ALLOWED_HEADERS = [
+  'authorization', 'x-client-info', 'apikey', 'content-type',
+  'x-retry-count', 'x-region', 'traceparent', 'tracestate', 'baggage',
+].join(', ');
+
 const cors = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Headers': ALLOWED_HEADERS,
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Content-Type': 'application/json',
 };
 
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: cors });
+
+/**
+ * Answers the preflight by echoing back exactly what the browser asked for.
+ * A static list goes stale the moment a client adds a header; reflecting cannot.
+ * Safe here because the endpoint carries no cookies and still requires a valid
+ * JWT — allowing a header to be *sent* grants nothing on its own.
+ */
+function preflight(req: Request): Response {
+  const asked = req.headers.get('Access-Control-Request-Headers');
+  return new Response('ok', {
+    headers: {
+      ...cors,
+      'Access-Control-Allow-Headers': asked || ALLOWED_HEADERS,
+      'Access-Control-Max-Age': '86400',
+    },
+  });
+}
 
 function recipeSchema(categories: string[], tags: string[]) {
   return {
@@ -106,8 +131,12 @@ Rules:
 - Set confidence honestly. Handwriting you had to interpret is medium at best.`;
 
 Deno.serve(async (req) => {
-  if (req.method === 'OPTIONS') return new Response('ok', { headers: cors });
+  if (req.method === 'OPTIONS') return preflight(req);
   if (req.method !== 'POST') return json({ error: 'POST only' }, 405);
+
+  // Logged on entry: if a scan is failing before this line, the request never
+  // arrived, which points at the network rather than anything below.
+  console.log(`scan-recipe: POST received, ${req.headers.get('content-length') ?? '?'} bytes`);
 
   const apiKey = Deno.env.get('ANTHROPIC_API_KEY');
   if (!apiKey) {

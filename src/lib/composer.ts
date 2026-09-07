@@ -1,4 +1,4 @@
-import { supabase } from './supabase';
+import { supabase, SUPABASE_KEY, SUPABASE_URL } from './supabase';
 import { removeUploadedImage } from './media';
 import type { ParsedIngredient } from './parseIngredients';
 
@@ -104,6 +104,9 @@ export type ScannedRecipe = Partial<Draft> & {
 /** Long enough for a slow uplink, short enough not to look frozen. */
 const SCAN_TIMEOUT_MS = 90_000;
 
+/** Anything above this never reaches the function, so say so rather than hang. */
+const MAX_SCAN_BYTES = 4 * 1024 * 1024;
+
 /** Carries the function's error code so the caller can tell apart the reasons. */
 export class ScanError extends Error {
   constructor(message: string, readonly code: string) {
@@ -120,48 +123,72 @@ export class ScanError extends Error {
  * The bytes go inline rather than via storage: a scan is a means to an end, so
  * the photo of someone's notebook has no business becoming a public URL that
  * outlives the request — and a failed scan then leaves nothing behind.
+ *
+ * Deliberately a plain fetch rather than supabase.functions.invoke. The SDK
+ * decides its own request headers and has added new ones over time; each one it
+ * adds that the function's CORS allow-list does not name makes the browser
+ * refuse to send the request at all, which shows up as a scan that hangs with
+ * no server-side trace. Three headers, chosen here, cannot drift.
  */
 export async function scanRecipe(image: {
   base64: string; mimeType: string;
 }): Promise<ScannedRecipe> {
-  const call = supabase.functions.invoke('scan-recipe', {
-    body: { imageBase64: image.base64, mimeType: image.mimeType },
-  });
-
-  // Without this the spinner runs forever when a request never lands. Long
-  // enough for a slow connection, short enough to admit defeat and say so.
-  const { data, error } = await Promise.race([
-    call,
-    new Promise<never>((_, reject) =>
-      setTimeout(() => reject(new ScanError(
-        'That took too long. Try again on a stronger connection, or type the recipe in below.',
-        'timeout',
-      )), SCAN_TIMEOUT_MS)),
-  ]);
-
-  if (error) {
-    // Edge function errors carry a useful body; surface it rather than "failed".
-    let detail = error.message;
-    let code = 'scan_failed';
-    const context = (error as { context?: Response }).context;
-    if (context && typeof context.json === 'function') {
-      try {
-        const body = await context.json();
-        if (body?.message) detail = body.message;
-        if (body?.error) code = body.error;
-      } catch {
-        // keep the original message
-      }
-    }
-    throw new ScanError(detail, code);
-  }
-
-  const result = data as { recipe?: ScannedRecipe; message?: string; error?: string };
-  if (!result?.recipe) {
+  const bytes = Math.round(image.base64.length * 0.75);
+  if (bytes > MAX_SCAN_BYTES) {
     throw new ScanError(
-      result?.message ?? 'Nothing could be read from that photo.',
-      result?.error ?? 'no_recipe_found',
+      'That photo is too large to send. Try one taken at a lower resolution.',
+      'too_large',
     );
   }
-  return result.recipe;
+
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) throw new ScanError('Sign in again to scan a recipe.', 'unauthorized');
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), SCAN_TIMEOUT_MS);
+
+  let response: Response;
+  try {
+    response = await fetch(`${SUPABASE_URL}/functions/v1/scan-recipe`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${session.access_token}`,
+        apikey: SUPABASE_KEY,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ imageBase64: image.base64, mimeType: image.mimeType }),
+      signal: controller.signal,
+    });
+  } catch (e) {
+    const aborted = e instanceof Error && e.name === 'AbortError';
+    throw new ScanError(
+      aborted
+        ? 'That took too long. Try again on a stronger connection, or type the recipe in below.'
+        : `Could not reach the scanner (${Math.round(bytes / 1024)}KB photo). Check your connection and try again.`,
+      aborted ? 'timeout' : 'unreachable',
+    );
+  } finally {
+    clearTimeout(timer);
+  }
+
+  let payload: { recipe?: ScannedRecipe; message?: string; error?: string } = {};
+  try {
+    payload = await response.json();
+  } catch {
+    // A non-JSON body means it failed before reaching our code.
+  }
+
+  if (!response.ok) {
+    throw new ScanError(
+      payload.message ?? `The scanner returned ${response.status}.`,
+      payload.error ?? `http_${response.status}`,
+    );
+  }
+  if (!payload.recipe) {
+    throw new ScanError(
+      payload.message ?? 'Nothing could be read from that photo.',
+      payload.error ?? 'no_recipe_found',
+    );
+  }
+  return payload.recipe;
 }

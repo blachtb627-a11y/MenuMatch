@@ -282,7 +282,18 @@ createServer((req, res) => {
     'Access-Control-Allow-Methods': 'GET,POST,PATCH,DELETE,OPTIONS',
     'Content-Type': 'application/json',
   };
-  if (req.method === 'OPTIONS') { res.writeHead(204, cors); return res.end(); }
+  if (req.method === 'OPTIONS') {
+    // Echo the requested headers, as the real function now does. DEV_CORS=strict
+    // replays the old narrow allow-list so the failure mode stays reproducible.
+    const asked = req.headers['access-control-request-headers'];
+    res.writeHead(204, {
+      ...cors,
+      'Access-Control-Allow-Headers': process.env.DEV_CORS === 'strict'
+        ? 'authorization, x-client-info, apikey, content-type'
+        : (asked || cors['Access-Control-Allow-Headers']),
+    });
+    return res.end();
+  }
 
   let raw = '';
   req.on('data', (c) => (raw += c));
@@ -353,9 +364,15 @@ createServer((req, res) => {
       return res.end(JSON.stringify({ Key: key, Id: 'dev-object' }));
     }
 
+    // DEV_SCAN=fail replays a server-side failure so the error surfaces.
     // Edge functions. DEV_SCAN=off replays the 503 the real function returns
     // when ANTHROPIC_API_KEY is missing, so both paths can be driven.
     if (url.pathname === '/functions/v1/scan-recipe') {
+      if (process.env.DEV_SCAN === 'fail') {
+        res.writeHead(502, cors);
+        return res.end(JSON.stringify({
+          error: 'scan_failed', message: 'The model refused that request.' }));
+      }
       if (process.env.DEV_SCAN === 'off') {
         res.writeHead(503, cors);
         return res.end(JSON.stringify({

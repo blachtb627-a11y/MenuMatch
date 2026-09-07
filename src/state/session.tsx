@@ -10,6 +10,8 @@ type Me = {
   username: string;
   displayName: string;
   email: string | null;
+  bio: string | null;
+  avatarUrl: string | null;
   savedCount: number;
   isAdmin: boolean;
   adminRole: 'moderator' | 'content_admin' | 'super_admin' | null;

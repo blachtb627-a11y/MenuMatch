@@ -27,6 +27,7 @@ export default function RootLayout() {
             <Stack.Screen name="compose/[id]" options={{ animation: 'slide_from_bottom' }} />
             <Stack.Screen name="collection/[id]" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="creator/[id]" options={{ animation: 'slide_from_right' }} />
+            <Stack.Screen name="settings/profile" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="settings/preferences" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="settings/blocked" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="settings/export" options={{ animation: 'slide_from_right' }} />

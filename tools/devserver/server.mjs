@@ -17,7 +17,13 @@ const fx = JSON.parse(readFileSync(join(here, 'fixtures.json'), 'utf8'));
 const PORT = Number(process.env.PORT ?? 8787);
 
 // In-memory collection state so the picker and reorder can be exercised.
+/** 2x2 mint PNG — enough to prove an image rendered rather than fell back. */
+const DEV_PIXEL = Buffer.from(
+  'iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAHUlEQVR42mP8z8BQz0AEYBxVSF+F'
+  + 'jIwMDAwMDAwMAB8sBAX7l6JnAAAAAElFTkSuQmCC', 'base64');
+
 const DEV = {
+  profile: { displayName: 'Dev User', bio: null, avatarUrl: null },
   problemReports: [],
   collections: [
     { id: 'col1', name: 'Weeknight Dinners', visibility: 'private' },
@@ -105,8 +111,10 @@ function rpc(name, body) {
     case 'record_cook':   return { recorded: true };
     case 'less_like_this':return { recorded: true };
     case 'me':            return { id: 'u-me',
-                                    username: 'devuser', displayName: 'Dev User',
+                                    username: 'devuser',
+                                    displayName: DEV.profile.displayName,
                                     email: 'dev@example.com', savedCount: 0,
+                                    bio: DEV.profile.bio, avatarUrl: DEV.profile.avatarUrl,
                                     isAdmin: true, adminRole: 'super_admin',
                                     preferences: {} };
     case 'my_recipes':    return DEV.myRecipes;
@@ -472,6 +480,13 @@ createServer((req, res) => {
     // Storage uploads. The real bucket returns the key; the client then builds
     // the public URL from it, so echoing the path is enough to drive the flow.
     if (url.pathname.startsWith('/storage/v1/object/')) {
+      // Reading one back has to return bytes, not JSON: an <Image> pointed at
+      // a JSON body silently falls back, which looks exactly like an upload
+      // that never happened.
+      if (req.method === 'GET' && url.pathname.includes('/object/public/')) {
+        res.writeHead(200, { ...cors, 'Content-Type': 'image/png' });
+        return res.end(DEV_PIXEL);
+      }
       const key = url.pathname.replace('/storage/v1/object/', '');
       res.writeHead(200, cors);
       return res.end(JSON.stringify({ Key: key, Id: 'dev-object' }));
@@ -534,6 +549,16 @@ createServer((req, res) => {
         confidence: 'medium',
         notes: 'The oven temperature was smudged \u2014 check it before publishing.',
       } }));
+    }
+    // Profile edits go straight to the users table (0005 grants exactly those
+    // columns), so PATCH lands here rather than on an RPC.
+    if (url.pathname.startsWith('/rest/v1/users') && req.method === 'PATCH') {
+      const patch = body ?? {};
+      if (patch.display_name !== undefined) DEV.profile.displayName = patch.display_name;
+      if (patch.bio !== undefined) DEV.profile.bio = patch.bio;
+      if (patch.avatar_url !== undefined) DEV.profile.avatarUrl = patch.avatar_url;
+      res.writeHead(200, cors);
+      return res.end(JSON.stringify([]));
     }
     if (url.pathname.startsWith('/rest/v1/saves')) {
       res.writeHead(200, cors);

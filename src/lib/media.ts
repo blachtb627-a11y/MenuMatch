@@ -19,6 +19,8 @@ const SCAN_MAX_EDGE = 1024;
 
 /** Cover photos are displayed, so they keep more detail than a scan needs. */
 const COVER_MAX_EDGE = 2048;
+/** Avatars are never shown larger than ~96pt, so 512 covers every density. */
+const AVATAR_MAX_EDGE = 512;
 
 export type PickedImage = { uri: string; mimeType: string; width?: number; height?: number };
 
@@ -168,3 +170,4 @@ export async function removeUploadedImage(publicUrl: string | null): Promise<voi
 
 export const SCAN_EDGE = SCAN_MAX_EDGE;
 export const COVER_EDGE = COVER_MAX_EDGE;
+export const AVATAR_EDGE = AVATAR_MAX_EDGE;

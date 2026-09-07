@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from '@/components/RecipeCover';
 import { Toast } from '@/components/Toast';
+import { Avatar } from '@/components/Avatar';
 import { BackButton, ConfirmDialog, EmptyState, Loading, Screen } from '@/components/ui';
 import { fetchCreator, formatCount, type CreatorProfile } from '@/lib/search';
 import { blockUser, isBlockedByMe, unblockUser } from '@/lib/settings';
@@ -81,11 +82,8 @@ export default function CreatorScreen() {
         <Bar />
         <ScrollView contentContainerStyle={s.body}>
           <View style={s.identity}>
-            <View style={s.avatar}>
-              <Text style={s.avatarLetter}>
-                {(creator.displayName || creator.username).slice(0, 1).toUpperCase()}
-              </Text>
-            </View>
+            <Avatar uri={creator.avatarUrl}
+                    name={creator.displayName || creator.username} size={64} />
             <View style={{ flex: 1, gap: 3 }}>
               <Text style={s.name}>{creator.displayName}</Text>
               <Text style={s.handle}>
@@ -192,11 +190,6 @@ const s = StyleSheet.create({
   bar: { paddingHorizontal: space.lg, paddingVertical: space.md },
   body: { padding: space.xl, paddingTop: 0, gap: space.lg, paddingBottom: space.xxxl },
   identity: { flexDirection: 'row', alignItems: 'center', gap: space.lg },
-  avatar: {
-    width: 64, height: 64, borderRadius: 32, backgroundColor: colors.mintDeep,
-    alignItems: 'center', justifyContent: 'center',
-  },
-  avatarLetter: { ...type.title, color: colors.text },
   name: { ...type.title, color: colors.text },
   handle: { ...type.small, color: colors.textMuted },
   bio: { ...type.body, color: colors.text, lineHeight: 21 },

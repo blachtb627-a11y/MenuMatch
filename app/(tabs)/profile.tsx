@@ -3,6 +3,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { router, useFocusEffect } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
+import { Avatar } from '@/components/Avatar';
 import { Button, Screen } from '@/components/ui';
 import { Header } from './cookbook';
 import { listMyRecipes } from '@/lib/composer';
@@ -46,17 +47,17 @@ export default function Profile() {
       <SafeAreaView style={{ flex: 1 }} edges={['top']}>
         <Header title="Profile" />
         <ScrollView contentContainerStyle={s.body}>
-          <View style={s.identity}>
-            <View style={s.avatar}>
-              <Text style={s.avatarLetter}>
-                {(me?.displayName ?? '?').slice(0, 1).toUpperCase()}
-              </Text>
-            </View>
+          <Pressable style={({ pressed }) => [s.identity, pressed && { opacity: 0.7 }]}
+                     onPress={() => router.push('/settings/profile')}
+                     accessibilityRole="button" accessibilityLabel="Edit your name and picture">
+            <Avatar uri={me?.avatarUrl} name={me?.displayName} size={56} />
             <View style={{ gap: 2, flex: 1 }}>
               <Text style={s.name}>{me?.displayName ?? 'Cook'}</Text>
               <Text style={s.handle}>@{me?.username ?? ''}</Text>
+              {me?.bio ? <Text style={s.bio} numberOfLines={2}>{me.bio}</Text> : null}
             </View>
-          </View>
+            <Feather name="edit-2" size={15} color={colors.textFaint} />
+          </Pressable>
 
           <View style={s.stats}>
             <Stat label="Saved" value={String(me?.savedCount ?? 0)}
@@ -97,6 +98,8 @@ export default function Profile() {
           {/* §28.1 settings. §20.6 and §28.4 make deletion and reporting
               in-app requirements, not email-support paths. */}
           <Section title="Settings">
+            <Row icon="user" label="Edit profile"
+                 onPress={() => router.push('/settings/profile')} />
             <Row icon="sliders" label="Dietary preferences"
                  onPress={() => router.push('/settings/preferences')} />
             <Row icon="slash" label="Blocked accounts"
@@ -178,13 +181,9 @@ const s = StyleSheet.create({
 
   body: { padding: space.xl, gap: space.xl, paddingBottom: space.xxxl },
   identity: { flexDirection: 'row', alignItems: 'center', gap: space.lg },
-  avatar: {
-    width: 56, height: 56, borderRadius: 28, backgroundColor: colors.mintDeep,
-    alignItems: 'center', justifyContent: 'center',
-  },
-  avatarLetter: { fontSize: 22, fontWeight: '700', color: colors.mint },
   name: { ...type.heading, color: colors.text },
   handle: { ...type.small, color: colors.textMuted },
+  bio: { ...type.small, color: colors.textFaint, lineHeight: 18, marginTop: 2 },
 
   stats: { flexDirection: 'row', gap: space.xxl },
   stat: { gap: 2 },

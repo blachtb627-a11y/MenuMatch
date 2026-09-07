@@ -15,7 +15,7 @@ import { formatCount } from '@/lib/search';
 import { formatTotalTime } from '@/lib/timers';
 import { useSession } from '@/state/session';
 import { colors, radius, space, type } from '@/theme';
-import type { Recipe } from '@/lib/types';
+import type { Nutrition, Recipe } from '@/lib/types';
 import { goBack } from '@/lib/nav';
 
 export default function RecipeDetail() {
@@ -165,6 +165,12 @@ export default function RecipeDetail() {
             {recipe.difficulty ? <Stat label="Level" value={recipe.difficulty} /> : null}
           </View>
 
+          {/* Nutrition sits with the times because it is read the same way: a
+              handful of numbers people use to decide whether to cook this at
+              all. Buried under the method it was answering the question after
+              the decision had already been made. */}
+          <NutritionPanel nutrition={recipe.nutrition} />
+
           <View style={s.socialRow}>
             <Text style={s.social}>{recipe.saveCount} saved</Text>
             <Text style={s.dot}>·</Text>
@@ -232,30 +238,6 @@ export default function RecipeDetail() {
               );
             })}
           </View>
-
-          {recipe.nutrition ? (
-            <View style={s.section}>
-              <Text style={s.sectionTitle}>Nutrition</Text>
-              <View style={s.statRow}>
-                {recipe.nutrition.calories != null ? <Stat label="Calories" value={String(recipe.nutrition.calories)} /> : null}
-                {recipe.nutrition.proteinG != null ? <Stat label="Protein" value={`${recipe.nutrition.proteinG}g`} /> : null}
-                {recipe.nutrition.carbsG != null ? <Stat label="Carbs" value={`${recipe.nutrition.carbsG}g`} /> : null}
-                {recipe.nutrition.fatG != null ? <Stat label="Fat" value={`${recipe.nutrition.fatG}g`} /> : null}
-              </View>
-              {/* §19.3, verbatim requirement. Where the figures came from is
-                  said plainly first, because "estimated by AI" and "copied off
-                  the packet" deserve different amounts of trust. */}
-              {recipe.nutrition.source === 'estimated' ? (
-                <Text style={s.nutritionSource}>
-                  Estimated from the ingredients, not measured.
-                </Text>
-              ) : null}
-              <Disclaimer>
-                Nutrition information is provided by the recipe creator and is an
-                estimate. It has not been verified by MenuMatch.
-              </Disclaimer>
-            </View>
-          ) : null}
 
           {(dietary.length || allergens.length || other.length) ? (
             <View style={s.section}>
@@ -358,6 +340,45 @@ function Stat({ label, value }: { label: string; value: string }) {
   );
 }
 
+/**
+ * The nutrition numbers, as a strip under the times.
+ *
+ * The figures are per serving (that is what the estimator is asked for), and
+ * the strip says so: four bare numbers next to a serving scaler is exactly the
+ * shape that gets read as "the whole dish".
+ */
+function NutritionPanel({ nutrition }: { nutrition: Nutrition | null }) {
+  if (!nutrition) return null;
+  const { calories, proteinG, carbsG, fatG } = nutrition;
+  if (calories == null && proteinG == null && carbsG == null && fatG == null) return null;
+
+  return (
+    <View style={s.nutrition}>
+      <View style={s.nutritionHead}>
+        <Text style={s.nutritionTitle}>
+          {nutrition.perServing === false ? 'WHOLE RECIPE' : 'PER SERVING'}
+        </Text>
+        {nutrition.source === 'estimated' ? (
+          <Text style={s.nutritionSource}>Estimated, not measured</Text>
+        ) : nutrition.source === 'scanned' ? (
+          <Text style={s.nutritionNote}>From the recipe</Text>
+        ) : null}
+      </View>
+      <View style={s.statRow}>
+        {calories != null ? <Stat label="Calories" value={String(calories)} /> : null}
+        {proteinG != null ? <Stat label="Protein" value={`${proteinG}g`} /> : null}
+        {carbsG != null ? <Stat label="Carbs" value={`${carbsG}g`} /> : null}
+        {fatG != null ? <Stat label="Fat" value={`${fatG}g`} /> : null}
+      </View>
+      {/* §19.3, verbatim requirement. */}
+      <Disclaimer>
+        Nutrition information is provided by the recipe creator and is an
+        estimate. It has not been verified by MenuMatch.
+      </Disclaimer>
+    </View>
+  );
+}
+
 function IconButton({
   icon, label, onPress, active,
 }: {
@@ -411,6 +432,17 @@ const s = StyleSheet.create({
   stat: { gap: 2 },
   statLabel: { ...type.micro, color: colors.textFaint },
   statValue: { ...type.bodyStrong, color: colors.text, textTransform: 'capitalize' },
+
+  nutrition: {
+    gap: space.sm, padding: space.lg, borderRadius: radius.md,
+    backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border,
+  },
+  nutritionHead: {
+    flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between',
+    gap: space.sm,
+  },
+  nutritionTitle: { ...type.micro, color: colors.textFaint },
+  nutritionNote: { ...type.small, color: colors.textFaint },
 
   socialRow: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
   social: { ...type.small, color: colors.textMuted },

@@ -121,8 +121,8 @@ a warm clay, not a red X. There is no match moment. Terminology follows the §3
 lexicon throughout code, UI, and analytics: Deck, Card, Save, Pass, Cookbook,
 Collection, Creator, Cook Mode, Cooked it.
 
-**Two security fixes worth remembering** (both in `0008_harden.sql`), because
-they are easy to reintroduce:
+**Three security fixes worth remembering**, because they are easy to
+reintroduce:
 
 - Enabling RLS on a partitioned parent does *not* enable it on the partitions.
   Each `swipes_YYYY_MM` is its own table in the public schema and PostgREST
@@ -130,6 +130,12 @@ they are easy to reintroduce:
 - Postgres grants `EXECUTE` on new functions to `PUBLIC`. That made the
   `SECURITY DEFINER` seed loader callable with the anon key. Execute is now
   revoked wholesale and granted back only to the intended API surface.
+- That revoke does not stick on its own: every function added *after* it got
+  the `PUBLIC` default straight back, so the composer, collection and admin
+  RPCs were all anon-callable again. Most refused on their own role checks, but
+  `write_audit` did not — an anon caller could have forged audit rows. `0015`
+  re-states the whole grant list and pins the default privilege to the owning
+  role. **When you add a function, add its grant to that list.**
 
 ---
 

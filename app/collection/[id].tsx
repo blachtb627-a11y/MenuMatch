@@ -7,7 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from '@/components/RecipeCover';
 import { Toast } from '@/components/Toast';
-import { Button, EmptyState, Loading, Screen } from '@/components/ui';
+import { Button, ConfirmDialog, EmptyState, Loading, Screen } from '@/components/ui';
 import {
   collectionDetail, deleteCollection, removeFromCollection, renameCollection,
   reorderCollectionItem, type CollectionDetail,
@@ -171,26 +171,16 @@ export default function CollectionScreen() {
         </View>
       </Modal>
 
-      <Modal visible={confirmDelete} transparent animationType="fade"
-             onRequestClose={() => setConfirmDelete(false)}>
-        <Pressable style={s.scrim} onPress={() => setConfirmDelete(false)}
-                   accessibilityLabel="Close" />
-        <View style={s.dialogWrap}>
-          <View style={s.dialog}>
-            <Text style={s.dialogTitle}>Delete “{detail.name}”?</Text>
-            <Text style={s.dialogBody}>
-              The collection goes away. The {detail.recipes.length} recipe
-              {detail.recipes.length === 1 ? '' : 's'} inside stay saved in your Cookbook.
-            </Text>
-            <View style={{ flexDirection: 'row', gap: space.md }}>
-              <Button label="Keep it" variant="secondary" style={{ flex: 1 }}
-                      onPress={() => setConfirmDelete(false)} />
-              <Button label="Delete" variant="danger" style={{ flex: 1 }}
-                      onPress={commitDelete} disabled={busy} />
-            </View>
-          </View>
-        </View>
-      </Modal>
+      <ConfirmDialog
+        visible={confirmDelete}
+        title={`Delete “${detail.name}”?`}
+        body={`The collection goes away. The ${detail.recipes.length} recipe${
+          detail.recipes.length === 1 ? '' : 's'} inside stay saved in your Cookbook.`}
+        confirmLabel="Delete"
+        busy={busy}
+        onConfirm={commitDelete}
+        onCancel={() => setConfirmDelete(false)}
+      />
 
       <Toast message={toast} onDismiss={() => setToast(null)} />
     </Screen>

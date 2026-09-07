@@ -4,9 +4,10 @@ import { router, useFocusEffect } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from '@/components/RecipeCover';
-import { Button, EmptyState, Loading, Screen } from '@/components/ui';
+import { Toast } from '@/components/Toast';
+import { Button, ConfirmDialog, EmptyState, Loading, Screen } from '@/components/ui';
 import { Header } from './cookbook';
-import { listMyRecipes, type RecipeSummary } from '@/lib/composer';
+import { deleteDraft, listMyRecipes, type RecipeSummary } from '@/lib/composer';
 import { formatTotalTime } from '@/lib/timers';
 import { colors, radius, space, type } from '@/theme';
 
@@ -14,6 +15,9 @@ import { colors, radius, space, type } from '@/theme';
 export default function Create() {
   const [recipes, setRecipes] = useState<RecipeSummary[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [pendingDelete, setPendingDelete] = useState<RecipeSummary | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [toast, setToast] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     try {
@@ -26,6 +30,22 @@ export default function Create() {
   }, []);
 
   useFocusEffect(useCallback(() => { void load(); }, [load]));
+
+  async function commitDelete() {
+    if (!pendingDelete) return;
+    setBusy(true);
+    try {
+      await deleteDraft(pendingDelete.id);
+      // Drop it locally rather than refetching, so the row goes at once.
+      setRecipes((cur) => (cur ?? []).filter((r) => r.id !== pendingDelete.id));
+      setToast('Draft deleted');
+      setPendingDelete(null);
+    } catch (e) {
+      setToast(e instanceof Error ? e.message : 'Could not delete that draft');
+    } finally {
+      setBusy(false);
+    }
+  }
 
   if (recipes === null) return <Screen><Loading /></Screen>;
 
@@ -75,7 +95,9 @@ export default function Create() {
               <RecipeCover uri={item.coverImageUrl} seed={item.id} title={item.title}
                            style={s.thumb} />
               <View style={{ flex: 1, gap: 3 }}>
-                <Text style={s.rowTitle} numberOfLines={1}>{item.title}</Text>
+                <Text style={[s.rowTitle, !item.title && s.rowTitleEmpty]} numberOfLines={1}>
+                  {item.title || 'Untitled draft'}
+                </Text>
                 <Text style={s.rowMeta}>
                   {item.ingredientCount} ingredient{item.ingredientCount === 1 ? '' : 's'}
                   {' · '}{item.stepCount} step{item.stepCount === 1 ? '' : 's'}
@@ -83,10 +105,32 @@ export default function Create() {
                 </Text>
               </View>
               <StatusPill status={item.status} />
+              {/* Only drafts: a published recipe may be in someone's Cookbook,
+                  so taking it down is unpublish, from inside the composer. */}
+              {item.status === 'draft' ? (
+                <Pressable onPress={() => setPendingDelete(item)} hitSlop={10}
+                           accessibilityRole="button"
+                           accessibilityLabel={`Delete ${item.title || 'this untitled draft'}`}
+                           style={s.deleteBtn}>
+                  <Feather name="trash-2" size={16} color={colors.textFaint} />
+                </Pressable>
+              ) : null}
             </Pressable>
           )}
         />
       </SafeAreaView>
+
+      <ConfirmDialog
+        visible={!!pendingDelete}
+        title={`Delete “${pendingDelete?.title || 'Untitled draft'}”?`}
+        body="This draft has never been published, so nothing else links to it. It goes for good."
+        confirmLabel="Delete draft"
+        busy={busy}
+        onConfirm={() => void commitDelete()}
+        onCancel={() => setPendingDelete(null)}
+      />
+
+      <Toast message={toast} onDismiss={() => setToast(null)} />
     </Screen>
   );
 }
@@ -112,6 +156,8 @@ const s = StyleSheet.create({
     backgroundColor: colors.surface, borderRadius: radius.lg, padding: space.lg,
     borderWidth: 1, borderColor: colors.mintDeep,
   },
+  rowTitleEmpty: { color: colors.textFaint, fontStyle: 'italic' },
+  deleteBtn: { padding: space.xs, marginLeft: space.xs },
   scanTitle: { ...type.bodyStrong, color: colors.text },
   scanBody: { ...type.small, color: colors.textMuted, lineHeight: 17 },
   row: {

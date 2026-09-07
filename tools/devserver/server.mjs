@@ -23,6 +23,17 @@ const DEV = {
     { id: 'col2', name: 'Want to Try', visibility: 'private' },
   ],
   items: { col1: [], col2: [] },
+  myRecipes: [
+    { id: 'draft-1', title: 'Nonna\u2019s ragu', status: 'draft', coverImageUrl: null,
+      totalMinutes: 210, updatedAt: new Date().toISOString(),
+      ingredientCount: 11, stepCount: 7 },
+    { id: 'draft-2', title: '', status: 'draft', coverImageUrl: null,
+      totalMinutes: 0, updatedAt: new Date().toISOString(),
+      ingredientCount: 0, stepCount: 0 },
+    { id: 'pub-1', title: 'Charred cabbage with brown butter', status: 'published',
+      coverImageUrl: null, totalMinutes: 35, updatedAt: new Date().toISOString(),
+      ingredientCount: 8, stepCount: 5 },
+  ],
   adminUsers: [
     { id: 'u-me', username: 'blachtb627', displayName: 'blachtb627',
       email: 'blachtb627@gmail.com', status: 'active', isCreator: true,
@@ -80,7 +91,14 @@ function rpc(name, body) {
                                     email: 'dev@example.com', savedCount: 0,
                                     isAdmin: true, adminRole: 'super_admin',
                                     preferences: {} };
-    case 'my_recipes':    return [];
+    case 'my_recipes':    return DEV.myRecipes;
+    case 'delete_draft': {
+      const r = DEV.myRecipes.find((x) => x.id === body?.p_recipe_id);
+      if (!r) throw new Error('draft not found');
+      if (r.status !== 'draft') throw new Error('only an unpublished draft can be deleted');
+      DEV.myRecipes = DEV.myRecipes.filter((x) => x.id !== r.id);
+      return { deleted: true, id: r.id };
+    }
     case 'my_collections': return DEV.collections.map((c) => ({
       ...c, recipeCount: (DEV.items[c.id] ?? []).length, coverImageUrl: null }));
     case 'recipe_collections': return DEV.collections
@@ -236,7 +254,20 @@ function rpc(name, body) {
         actor: 'blachtb627' }];
     case 'save_draft':    return { id: '00000000-0000-4000-8000-0000000000cc',
                                    savedAt: new Date().toISOString() };
-    case 'get_draft':     return null;
+    case 'get_draft': {
+      const r = DEV.myRecipes.find((x) => x.id === body?.p_recipe_id);
+      if (!r) return null;
+      return {
+        id: r.id, title: r.title, description: '', coverImageUrl: r.coverImageUrl,
+        category: 'comfort', cuisine: 'Italian', prepMinutes: 25, cookMinutes: 180,
+        servings: 6, difficulty: 'medium', attribution: '', nutrition: null,
+        status: r.status, rightsConfirmedAt: r.status === 'published'
+          ? new Date().toISOString() : null,
+        ingredients: [{ quantity: { numerator: 2, denominator: 1 }, unit: 'lb',
+                        ingredient: 'beef chuck', note: '' }],
+        steps: ['Brown the beef.'], tags: [],
+      };
+    }
     case 'publish_recipe':return { published: false,
                                    missing: ['cover photo', 'rights confirmation'] };
     default:              return null;
@@ -256,7 +287,9 @@ createServer((req, res) => {
   req.on('data', (c) => (raw += c));
   req.on('end', () => {
     const url = new URL(req.url ?? '/', 'http://localhost');
-    const body = raw ? JSON.parse(raw) : null;
+    // Storage uploads arrive as multipart, so a failed parse is not an error.
+    let body = null;
+    if (raw) { try { body = JSON.parse(raw); } catch { body = null; } }
 
     // Mimics GoTrue with "Confirm email" enabled: the account is created and a
     // user is returned, but the session is withheld until the link is clicked.
@@ -300,8 +333,58 @@ createServer((req, res) => {
     if (url.pathname.startsWith('/rest/v1/rpc/')) {
       const name = url.pathname.split('/').pop();
       if (process.env.DEV_LOG) console.log(name, JSON.stringify(body)?.slice(0, 160));
+      try {
+        const out = rpc(name, body);
+        res.writeHead(200, cors);
+        return res.end(JSON.stringify(out));
+      } catch (e) {
+        // PostgREST reports a raised exception as 400 with this body shape.
+        res.writeHead(400, cors);
+        return res.end(JSON.stringify({ code: 'P0001', message: e.message }));
+      }
+    }
+
+    // Storage uploads. The real bucket returns the key; the client then builds
+    // the public URL from it, so echoing the path is enough to drive the flow.
+    if (url.pathname.startsWith('/storage/v1/object/')) {
+      const key = url.pathname.replace('/storage/v1/object/', '');
       res.writeHead(200, cors);
-      return res.end(JSON.stringify(rpc(name, body)));
+      return res.end(JSON.stringify({ Key: key, Id: 'dev-object' }));
+    }
+
+    // Edge functions. DEV_SCAN=off replays the 503 the real function returns
+    // when ANTHROPIC_API_KEY is missing, so both paths can be driven.
+    if (url.pathname === '/functions/v1/scan-recipe') {
+      if (process.env.DEV_SCAN === 'off') {
+        res.writeHead(503, cors);
+        return res.end(JSON.stringify({
+          error: 'not_configured',
+          message: 'Recipe scanning is not set up yet. An ANTHROPIC_API_KEY secret needs to be added to this project.',
+        }));
+      }
+      res.writeHead(200, cors);
+      return res.end(JSON.stringify({ recipe: {
+        title: 'Nonna\u2019s Sunday Ragu',
+        description: 'The long-simmered one, written on the back of an envelope.',
+        category: 'comfort', cuisine: 'Italian',
+        prepMinutes: 25, cookMinutes: 180, servings: 6, difficulty: 'medium',
+        ingredients: [
+          { quantity: { numerator: 2, denominator: 1 }, unit: 'lb',
+            ingredient: 'beef chuck', note: 'cut into cubes' },
+          { quantity: { numerator: 1, denominator: 3 }, unit: 'cup',
+            ingredient: 'olive oil', note: '' },
+          { quantity: { numerator: 3, denominator: 1 }, unit: 'clove',
+            ingredient: 'garlic', note: 'crushed' },
+        ],
+        steps: [
+          'Brown the beef in the oil, in batches, until deeply coloured.',
+          'Add the garlic and cook until fragrant.',
+          'Simmer, covered, for three hours.',
+        ],
+        tags: ['weeknight'],
+        confidence: 'medium',
+        notes: 'The oven temperature was smudged — check it before publishing.',
+      } }));
     }
     if (url.pathname.startsWith('/rest/v1/saves')) {
       res.writeHead(200, cors);

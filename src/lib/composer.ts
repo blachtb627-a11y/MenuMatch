@@ -80,37 +80,68 @@ export async function unpublishRecipe(id: string): Promise<void> {
   if (error) throw new Error(error.message);
 }
 
+/**
+ * Deletes a draft outright. The server refuses anything that has ever been
+ * published — that is unpublishRecipe's job, since a published recipe may be
+ * sitting in someone's Cookbook.
+ */
+export async function deleteDraft(id: string): Promise<void> {
+  const { error } = await supabase.rpc('delete_draft', { p_recipe_id: id });
+  if (error) throw new Error(error.message);
+}
+
 export type ScannedRecipe = Partial<Draft> & {
   confidence: 'high' | 'medium' | 'low';
   notes: string;
 };
 
+/** Carries the function's error code so the caller can tell apart the reasons. */
+export class ScanError extends Error {
+  constructor(message: string, readonly code: string) {
+    super(message);
+    this.name = 'ScanError';
+  }
+}
+
 /**
  * Sends a photo of the creator's own recipe to the scan-recipe function, which
  * holds the model API key server-side. Returns fields to review, never to
  * publish blind — the rights confirmation is untouched by this.
+ *
+ * The bytes go inline rather than via storage: a scan is a means to an end, so
+ * the photo of someone's notebook has no business becoming a public URL that
+ * outlives the request — and a failed scan then leaves nothing behind.
  */
-export async function scanRecipe(imageUrl: string): Promise<ScannedRecipe> {
+export async function scanRecipe(image: {
+  base64: string; mimeType: string;
+}): Promise<ScannedRecipe> {
   const { data, error } = await supabase.functions.invoke('scan-recipe', {
-    body: { imageUrl },
+    body: { imageBase64: image.base64, mimeType: image.mimeType },
   });
 
   if (error) {
     // Edge function errors carry a useful body; surface it rather than "failed".
     let detail = error.message;
+    let code = 'scan_failed';
     const context = (error as { context?: Response }).context;
     if (context && typeof context.json === 'function') {
       try {
         const body = await context.json();
         if (body?.message) detail = body.message;
+        if (body?.error) code = body.error;
       } catch {
         // keep the original message
       }
     }
-    throw new Error(detail);
+    throw new ScanError(detail, code);
   }
 
-  const result = data as { recipe?: ScannedRecipe; message?: string };
-  if (!result?.recipe) throw new Error(result?.message ?? 'Nothing could be read from that photo.');
+  const result = data as { recipe?: ScannedRecipe; message?: string; error?: string };
+  if (!result?.recipe) {
+    throw new ScanError(
+      result?.message ?? 'Nothing could be read from that photo.',
+      result?.error ?? 'no_recipe_found',
+    );
+  }
   return result.recipe;
 }

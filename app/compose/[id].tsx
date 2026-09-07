@@ -8,14 +8,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from '@/components/RecipeCover';
 import { Toast } from '@/components/Toast';
-import { Button, Loading, Screen } from '@/components/ui';
+import { Button, ConfirmDialog, Loading, Screen } from '@/components/ui';
 import { ChoiceRow, Input, Labelled, RowActions } from '@/components/composer/Fields';
 import {
-  emptyDraft, getDraft, publishRecipe, saveDraft, scanRecipe,
+  deleteDraft, emptyDraft, getDraft, publishRecipe, saveDraft, scanRecipe, ScanError,
   type Draft, type DraftIngredient,
 } from '@/lib/composer';
 import { parseIngredientList, parseSteps } from '@/lib/parseIngredients';
-import { pickImage, uploadImage } from '@/lib/media';
+import { pickImage, readAsBase64, uploadImage } from '@/lib/media';
 import { fetchConfig } from '@/lib/api';
 import { supabase } from '@/lib/supabase';
 import { formatQuantity } from '@/lib/quantity';
@@ -40,10 +40,15 @@ export default function Compose() {
   const [savedAt, setSavedAt] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
   const [rightsConfirmed, setRightsConfirmed] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const [missing, setMissing] = useState<string[]>([]);
   const [pasteOpen, setPasteOpen] = useState<'ingredients' | 'steps' | null>(null);
   const [scanning, setScanning] = useState(false);
   const [scanNote, setScanNote] = useState<string | null>(null);
+  // Set once the server says scanning has no API key configured. Retrying would
+  // fail the same way every time, so the card collapses instead of teasing it.
+  const [scanUnavailable, setScanUnavailable] = useState(false);
   const [busyImage, setBusyImage] = useState(false);
 
   // The autosave timer reads the latest draft without re-arming on every keystroke.
@@ -143,8 +148,10 @@ export default function Compose() {
     try {
       const picked = await pickImage(source);
       if (!picked) return;
-      const url = await uploadImage(picked, 'scans');
-      const scanned = await scanRecipe(url);
+      const scanned = await scanRecipe({
+        base64: await readAsBase64(picked),
+        mimeType: picked.mimeType,
+      });
 
       const ingredients = (scanned.ingredients ?? []).length
         ? scanned.ingredients!
@@ -174,9 +181,28 @@ export default function Compose() {
           : `Scanned, but some of it was hard to read${scanned.notes ? `: ${scanned.notes}` : ''}. Check every field.`,
       );
     } catch (e) {
-      setToast(e instanceof Error ? e.message : 'Could not scan that photo');
+      if (e instanceof ScanError && e.code === 'not_configured') {
+        setScanUnavailable(true);
+      } else {
+        setToast(e instanceof Error ? e.message : 'Could not scan that photo');
+      }
     } finally {
       setScanning(false);
+    }
+  }
+
+  async function commitDelete() {
+    if (!draft?.id) return;
+    setDeleting(true);
+    try {
+      await deleteDraft(draft.id);
+      setConfirmDelete(false);
+      router.replace('/(tabs)/create');
+    } catch (e) {
+      setConfirmDelete(false);
+      setToast(e instanceof Error ? e.message : 'Could not delete that draft');
+    } finally {
+      setDeleting(false);
     }
   }
 
@@ -217,16 +243,27 @@ export default function Compose() {
                 <Feather name="camera" size={17} color={colors.mint} />
                 <Text style={s.scanTitle}>Scan your recipe</Text>
               </View>
-              <Text style={s.scanBody}>
-                Photograph a recipe you wrote — a card, a notebook page, your own
-                printout — and we'll fill these fields in for you to check.
-              </Text>
-              <View style={{ flexDirection: 'row', gap: space.sm, flexWrap: 'wrap' }}>
-                <Button label={scanning ? 'Reading…' : 'Take a photo'}
-                        onPress={() => void runScan('camera')} disabled={scanning} />
-                <Button label="Choose an image" variant="secondary"
-                        onPress={() => void runScan('library')} disabled={scanning} />
-              </View>
+              {scanUnavailable ? null : (
+                <Text style={s.scanBody}>
+                  Photograph a recipe you wrote — a card, a notebook page, your own
+                  printout — and we'll fill these fields in for you to check. The
+                  photo is read and discarded; it is not saved anywhere.
+                </Text>
+              )}
+              {scanUnavailable ? null : (
+                <View style={{ flexDirection: 'row', gap: space.sm, flexWrap: 'wrap' }}>
+                  <Button label={scanning ? 'Reading…' : 'Take a photo'}
+                          onPress={() => void runScan('camera')} disabled={scanning} />
+                  <Button label="Choose an image" variant="secondary"
+                          onPress={() => void runScan('library')} disabled={scanning} />
+                </View>
+              )}
+              {scanUnavailable ? (
+                <Text style={s.scanOff}>
+                  Scanning isn't switched on yet. Write the recipe out below in the
+                  meantime — nothing else here depends on it.
+                </Text>
+              ) : null}
               {scanning ? (
                 <View style={s.scanBusy}>
                   <ActivityIndicator color={colors.mint} size="small" />
@@ -453,6 +490,16 @@ export default function Compose() {
               </Text>
             </Pressable>
 
+            {/* Only an unpublished draft that exists on the server. Publishing
+                turns this into unpublish, which keeps it for anyone who saved. */}
+            {draft.id && draft.status === 'draft' ? (
+              <Pressable onPress={() => setConfirmDelete(true)} style={s.deleteRow}
+                         accessibilityRole="button" accessibilityLabel="Delete this draft">
+                <Feather name="trash-2" size={15} color={colors.danger} />
+                <Text style={s.deleteLabel}>Delete this draft</Text>
+              </Pressable>
+            ) : null}
+
             {missing.length ? (
               <View style={s.missingBox}>
                 <Text style={s.missingTitle}>Still needed before publishing</Text>
@@ -470,6 +517,16 @@ export default function Compose() {
           <Button label="Publish" onPress={onPublish} style={{ flex: 1 }} />
         </View>
       </SafeAreaView>
+
+      <ConfirmDialog
+        visible={confirmDelete}
+        title={`Delete “${draft.title || 'Untitled draft'}”?`}
+        body="This draft has never been published, so nothing else links to it. It goes for good."
+        confirmLabel="Delete draft"
+        busy={deleting}
+        onConfirm={() => void commitDelete()}
+        onCancel={() => setConfirmDelete(false)}
+      />
 
       <PasteSheet
         mode={pasteOpen}
@@ -613,6 +670,12 @@ const s = StyleSheet.create({
   missingTitle: { ...type.bodyStrong, color: colors.clay },
   missingItem: { ...type.small, color: colors.text },
 
+  scanOff: { ...type.small, color: colors.textFaint, lineHeight: 18 },
+  deleteRow: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
+    gap: space.sm, paddingVertical: space.md,
+  },
+  deleteLabel: { ...type.body, color: colors.danger },
   footer: {
     flexDirection: 'row', gap: space.md, padding: space.lg,
     borderTopWidth: 1, borderTopColor: colors.border, backgroundColor: colors.surface,

@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  ActivityIndicator, Pressable, StyleSheet, Text, View,
+  ActivityIndicator, Modal, Pressable, StyleSheet, Text, View,
   type StyleProp, type TextStyle, type ViewStyle,
 } from 'react-native';
-import { colors, radius, space, type } from '@/theme';
+import { colors, fill, radius, space, type } from '@/theme';
 
 export function Button({
   label, onPress, variant = 'primary', disabled, style, accessibilityHint,
@@ -92,6 +92,43 @@ export function Disclaimer({ children }: { children: React.ReactNode }) {
   return <Text style={s.disclaimer}>{children}</Text>;
 }
 
+/**
+ * A destructive confirmation. The cancel label says what keeping it means and
+ * the body says what is actually lost, so the choice can be made from the
+ * dialog alone rather than from the button colours.
+ */
+export function ConfirmDialog({
+  visible, title, body, confirmLabel, cancelLabel = 'Keep it',
+  busy, onConfirm, onCancel,
+}: {
+  visible: boolean;
+  title: string;
+  body: React.ReactNode;
+  confirmLabel: string;
+  cancelLabel?: string;
+  busy?: boolean;
+  onConfirm: () => void;
+  onCancel: () => void;
+}) {
+  return (
+    <Modal visible={visible} transparent animationType="fade" onRequestClose={onCancel}>
+      <Pressable style={s.scrim} onPress={onCancel} accessibilityLabel="Close" />
+      <View style={s.dialogWrap}>
+        <View style={s.dialog}>
+          <Text style={s.dialogTitle}>{title}</Text>
+          {typeof body === 'string' ? <Text style={s.dialogBody}>{body}</Text> : body}
+          <View style={{ flexDirection: 'row', gap: space.md }}>
+            <Button label={cancelLabel} variant="secondary" style={{ flex: 1 }}
+                    onPress={onCancel} />
+            <Button label={confirmLabel} variant="danger" style={{ flex: 1 }}
+                    onPress={onConfirm} disabled={busy} />
+          </View>
+        </View>
+      </View>
+    </Modal>
+  );
+}
+
 const s = StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.ground },
   button: {
@@ -108,4 +145,13 @@ const s = StyleSheet.create({
   emptyTitle: { ...type.title, color: colors.text, textAlign: 'center' },
   muted: { ...type.body, color: colors.textMuted },
   disclaimer: { ...type.small, color: colors.textFaint, lineHeight: 18 },
+  scrim: { ...fill, backgroundColor: colors.overlay },
+  dialogWrap: { ...fill, alignItems: 'center', justifyContent: 'center', padding: space.xl },
+  dialog: {
+    backgroundColor: colors.surface, borderRadius: radius.xl, padding: space.xl,
+    gap: space.lg, width: '100%', maxWidth: 420,
+    borderWidth: 1, borderColor: colors.border,
+  },
+  dialogTitle: { ...type.heading, color: colors.text },
+  dialogBody: { ...type.body, color: colors.textMuted, lineHeight: 21 },
 });

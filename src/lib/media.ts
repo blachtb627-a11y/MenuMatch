@@ -42,6 +42,26 @@ export async function pickImage(source: 'library' | 'camera'): Promise<PickedIma
  * segment against the caller, so a creator can only write inside their own
  * prefix.
  */
+/**
+ * Reads a picked image as base64, for callers that need the bytes rather than a
+ * hosted URL. fetch() on a local file URI yields the bytes on native and web
+ * alike; FileReader is the one path available in both runtimes.
+ */
+export async function readAsBase64(image: PickedImage): Promise<string> {
+  const blob = await (await fetch(image.uri)).blob();
+  if (blob.size > 10 * 1024 * 1024) {
+    throw new Error('That image is over 10MB. Try a smaller one.');
+  }
+  const dataUrl = await new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error('Could not read that image.'));
+    reader.onload = () => resolve(String(reader.result));
+    reader.readAsDataURL(blob);
+  });
+  // Strip the "data:image/jpeg;base64," prefix the API does not want.
+  return dataUrl.slice(dataUrl.indexOf(',') + 1);
+}
+
 export async function uploadImage(
   image: PickedImage,
   folder: string,

@@ -177,9 +177,43 @@ export type ScannedRecipe = Omit<Partial<Draft>, 'ingredients'> & {
    * parseIngredientList, the same code a pasted list goes through.
    */
   ingredients?: string[];
+  /**
+   * The fields the model worked out rather than read off the page.
+   *
+   * The scan fills the composer in completely now — an empty field was just
+   * work handed back to the creator — so this is what keeps "estimated" and
+   * "printed on the page" from looking identical once they are both sitting in
+   * the same text box.
+   */
+  estimated: ScannedField[];
   confidence: 'high' | 'medium' | 'low';
   notes: string;
 };
+
+export type ScannedField =
+  | 'description' | 'category' | 'cuisine' | 'prepMinutes' | 'cookMinutes'
+  | 'servings' | 'difficulty' | 'tags' | 'nutrition';
+
+/** What each field is called on screen, for the "check these" line. */
+const FIELD_LABELS: Record<ScannedField, string> = {
+  description: 'the description',
+  category: 'the meal',
+  cuisine: 'the cuisine',
+  prepMinutes: 'prep time',
+  cookMinutes: 'cook time',
+  servings: 'servings',
+  difficulty: 'difficulty',
+  tags: 'the tags',
+  nutrition: 'nutrition',
+};
+
+/** "prep time, cook time and servings" — an Oxford-free list of field names. */
+export function describeEstimates(fields: ScannedField[]): string {
+  const names = fields.map((f) => FIELD_LABELS[f]).filter(Boolean);
+  if (names.length === 0) return '';
+  if (names.length === 1) return names[0]!;
+  return `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`;
+}
 
 /** Long enough for a slow uplink, short enough not to look frozen. */
 const SCAN_TIMEOUT_MS = 60_000;
@@ -270,5 +304,9 @@ export async function scanRecipe(image: {
       payload.error ?? 'no_recipe_found',
     );
   }
-  return payload.recipe;
+  // An older deployment of the function does not send `estimated`; treating
+  // that as "nothing was estimated" would quietly promote guesses to readings,
+  // so an absent list becomes an empty one and the caller says nothing rather
+  // than something false.
+  return { ...payload.recipe, estimated: payload.recipe.estimated ?? [] };
 }

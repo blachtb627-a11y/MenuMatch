@@ -12,7 +12,8 @@ import { BackButton, Button, ConfirmDialog, Loading, Screen } from '@/components
 import { ChoiceRow, Input, Labelled, RowActions } from '@/components/composer/Fields';
 import { CuisineField } from '@/components/composer/CuisinePicker';
 import {
-  deleteRecipe, emptyDraft, estimateNutrition, getDraft, publishRecipe, saveDraft,
+  deleteRecipe, describeEstimates, emptyDraft, estimateNutrition, getDraft,
+  publishRecipe, saveDraft,
   scanRecipe, ScanError, unpublishRecipe,
   type Draft, type DraftIngredient,
 } from '@/lib/composer';
@@ -217,15 +218,22 @@ export default function Compose() {
         ingredients,
         steps,
         tags: scanned.tags?.length ? scanned.tags : d.tags,
-        // Only when the page printed it; the scan never calculates nutrition.
+        // The scan estimates nutrition now when the page does not print it,
+        // and marks which of the two it was; the recipe screen shows the
+        // difference.
         nutrition: scanned.nutrition ?? d.nutrition,
       } : d));
 
       await persist();
+      // Naming the estimated fields is the point of filling them in at all: it
+      // turns "check everything" — which nobody does — into a short list.
+      const guessed = describeEstimates(scanned.estimated);
       setScanNote(
-        scanned.confidence === 'high'
-          ? 'Scanned. Check it over before publishing.'
-          : `Scanned, but some of it was hard to read${scanned.notes ? `: ${scanned.notes}` : ''}. Check every field.`,
+        scanned.confidence === 'low'
+          ? `Some of that was hard to read${scanned.notes ? `: ${scanned.notes}` : ''}. Check every field before publishing.`
+          : guessed
+            ? `Scanned. We estimated ${guessed} — worth a look before you publish.`
+            : 'Scanned, straight off the page. Check it over before publishing.',
       );
     } catch (e) {
       if (e instanceof ScanError && e.code === 'not_configured') {
@@ -358,8 +366,10 @@ export default function Compose() {
               </View>
               <Text style={s.scanBody}>
                 Photograph a recipe you wrote — a card, a notebook page, your own
-                printout — and we'll fill these fields in for you to check. The
-                photo is read and discarded; it is not saved anywhere.
+                printout — and we'll fill in every field below, estimating the
+                times, servings and nutrition when the page does not give them.
+                We'll tell you which ones we estimated. The photo is read and
+                discarded; it is not saved anywhere.
               </Text>
               <View style={{ flexDirection: 'row', gap: space.sm, flexWrap: 'wrap' }}>
                 <Button label={scanning ? 'Reading…' : 'Take a photo'}

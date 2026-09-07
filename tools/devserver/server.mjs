@@ -545,9 +545,14 @@ createServer((req, res) => {
         ],
         tags: ['weeknight'],
         nutrition: { perServing: true, calories: 720, proteinG: 48,
-                     carbsG: 22, fatG: 44, source: 'scanned' },
+                     carbsG: 22, fatG: 44, source: 'estimated' },
+        // The envelope gave the times and nothing else, so everything the
+        // model worked out is named back — this is what the composer turns
+        // into "we estimated X and Y".
+        estimated: ['description', 'cuisine', 'servings', 'difficulty',
+                    'tags', 'nutrition'],
         confidence: 'medium',
-        notes: 'The oven temperature was smudged \u2014 check it before publishing.',
+        notes: '',
       } }));
     }
     // Profile edits go straight to the users table (0005 grants exactly those

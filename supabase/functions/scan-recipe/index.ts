@@ -126,28 +126,69 @@ async function taxonomy(authHeader: string) {
   return taxonomyCache;
 }
 
+/**
+ * Fields the model works out when the page does not state them. Every one is
+ * required, so a scan comes back with the composer filled in rather than with
+ * half of it blank — and every one is listed back in `estimated`, so the
+ * creator is told which numbers came from the page and which came from us.
+ */
+const ESTIMABLE = [
+  'description', 'category', 'cuisine', 'prepMinutes', 'cookMinutes',
+  'servings', 'difficulty', 'tags', 'nutrition',
+] as const;
+
 function recipeSchema(categories: string[], tags: string[]) {
   return {
     type: 'object',
     additionalProperties: false,
-    required: ['title', 'ingredients', 'steps'],
+    // Required, not optional: an omitted field used to mean "the page did not
+    // say", which left the creator typing it in themselves. Now the model has
+    // to commit to a value and declare it as read or estimated.
+    required: [
+      'title', 'ingredients', 'steps', 'description', 'cuisine', 'prepMinutes',
+      'cookMinutes', 'servings', 'difficulty', 'nutrition', 'estimated',
+      'confidence',
+      ...(categories.length ? ['category'] : []),
+      ...(tags.length ? ['tags'] : []),
+    ],
     properties: {
       title: { type: 'string', description: 'The dish name, as written.' },
       description: {
         type: 'string',
         description:
-          'A one or two sentence headnote, only if the source has one. Do not invent one.',
+          'A one or two sentence headnote. Use the source\'s own if it has one; '
+          + 'otherwise write one from the dish itself.',
       },
       // An empty enum is not a valid schema, so the field is dropped entirely
       // rather than shipped broken if the taxonomy lookup came back empty.
       ...(categories.length ? { category: { type: 'string', enum: categories } } : {}),
-      cuisine: { type: 'string', description: 'e.g. Italian, Thai. Omit if unclear.' },
+      cuisine: {
+        type: 'string',
+        description: 'Adjectival: Italian, Thai, Sicilian. Infer it from the '
+          + 'ingredients and method when the page does not say.',
+      },
       // Strict tool use rejects minimum/maximum on an integer, so the ranges
       // are enforced in normalise() on the way out instead.
-      prepMinutes: { type: 'integer', description: 'Minutes of hands-on prep.' },
-      cookMinutes: { type: 'integer', description: 'Minutes of cooking time.' },
-      servings: { type: 'integer', description: 'How many the recipe serves.' },
-      difficulty: { type: 'string', enum: ['easy', 'medium', 'hard'] },
+      prepMinutes: {
+        type: 'integer',
+        description: 'Minutes of hands-on prep. Estimate it from the '
+          + 'ingredient list if the page does not state it.',
+      },
+      cookMinutes: {
+        type: 'integer',
+        description: 'Minutes of cooking. Add up the times in the method if '
+          + 'the page does not state a total.',
+      },
+      servings: {
+        type: 'integer',
+        description: 'How many it serves. Estimate from the quantities if the '
+          + 'page does not say.',
+      },
+      difficulty: {
+        type: 'string',
+        enum: ['easy', 'medium', 'hard'],
+        description: 'Judge it from the technique and the number of steps.',
+      },
       // Plain lines rather than structured objects. Latency here is almost
       // entirely output-token generation, and the JSON scaffolding around every
       // ingredient cost roughly three times what the line itself does. The app
@@ -167,23 +208,39 @@ function recipeSchema(categories: string[], tags: string[]) {
           + 'steps; keep every time, temperature and doneness cue verbatim.',
         items: { type: 'string' },
       },
-      ...(tags.length ? { tags: { type: 'array', items: { type: 'string', enum: tags } } } : {}),
-      // Only if the page actually prints it. Estimating from the ingredients is
-      // a separate, opt-in action the creator takes — a number invented here
-      // would be indistinguishable from one the source vouched for.
+      ...(tags.length ? {
+        tags: {
+          type: 'array',
+          description: 'Every tag that genuinely applies to the dish, whether '
+            + 'or not the page uses the word.',
+          items: { type: 'string', enum: tags },
+        },
+      } : {}),
       nutrition: {
         type: 'object',
         additionalProperties: false,
+        required: ['perServing', 'calories', 'proteinG', 'carbsG', 'fatG'],
         description:
-          'Only if the photograph states nutrition. Omit entirely otherwise; '
-          + 'never calculate it from the ingredients.',
+          'Per serving. Read it off the page when printed; otherwise work it '
+          + 'out from the ingredients and the serving count.',
         properties: {
-          perServing: { type: 'boolean', description: 'True if stated per serving.' },
+          perServing: { type: 'boolean', description: 'True when the figures are per serving.' },
           calories: { type: 'integer' },
           proteinG: { type: 'integer' },
           carbsG: { type: 'integer' },
           fatG: { type: 'integer' },
         },
+      },
+      // The honest half of estimating everything: the creator is told which
+      // fields the page stated and which the model worked out, so "check this"
+      // points somewhere specific instead of at the whole form.
+      estimated: {
+        type: 'array',
+        description:
+          'Every field you worked out rather than read off the page. Name the '
+          + 'field exactly. Leave a field out of this list only when the '
+          + 'photograph actually states it.',
+        items: { type: 'string', enum: [...ESTIMABLE] },
       },
       confidence: {
         type: 'string',
@@ -198,8 +255,15 @@ function recipeSchema(categories: string[], tags: string[]) {
   };
 }
 
-const SYSTEM = `You read a photograph of a recipe and turn it into the fields of a
+const SYSTEM = `You read a photograph of a recipe and fill in every field of a
 recipe app's composer, for the person who wrote it.
+
+There are two jobs here and they have opposite rules. The recipe itself — the
+ingredients and the method — is transcribed and never invented. Everything
+around it — times, servings, difficulty, cuisine, category, tags, nutrition, a
+headnote — is filled in whether or not the page states it, estimating where it
+does not. The creator reviews all of it before publishing, so a sensible
+estimate they can correct beats an empty field they have to research.
 
 INGREDIENTS — copy exactly.
 One line per ingredient, in the order written, with the amount, unit and any
@@ -219,19 +283,43 @@ can follow one at a time, looking up from the phone between each:
 - Keep every time, temperature, quantity and doneness cue exactly as given.
   "180C", "simmer 20 minutes", "until the juices run clear" are safety
   information, not phrasing, and survive word for word.
-- Add nothing. No technique, equipment, seasoning or advice the page does not
-  give, however obvious the omission seems.
+- Add no technique, equipment or seasoning the page does not give, however
+  obvious the omission seems.
 
-NUTRITION — only if it is printed.
-Fill in nutrition solely when the photograph states those numbers. Never
-calculate them from the ingredients: a figure you worked out would look
-identical to one the source stood behind, and the two are not the same thing.
+EVERYTHING ELSE — fill it in, estimating where the page is silent.
+- prepMinutes: hands-on work. Count the chopping, mixing and shaping in the
+  ingredient list and the method.
+- cookMinutes: time on heat or in the oven. Add up the durations the method
+  gives; where it says "until tender", judge it from the ingredient and the cut.
+- servings: from the quantities. A pound of pasta serves four; a whole chicken
+  serves four; a tray bake serves what the tin holds.
+- difficulty: easy if it is one pan and no technique; medium for several
+  components or a technique that can fail; hard for pastry, tempering,
+  emulsions, laminating, or anything with a step that ruins the dish.
+- cuisine: adjectival — "Italian", "Sicilian", "Tex-Mex" — inferred from the
+  ingredients and method. Say what a cook would say, not the nearest country.
+- category and tags: everything that genuinely applies to the finished dish,
+  whether or not the page uses the word. Tag an allergen only when it is
+  actually in the ingredients, and a dietary tag only when nothing in the list
+  contradicts it — stock, butter and fish sauce all count.
+- description: the source's own headnote when it has one; otherwise one or two
+  plain sentences on what the dish is and why it is worth cooking. No sales
+  copy.
+- nutrition: per serving. Read it off the page when printed; otherwise work it
+  out from the ingredients and your serving count. Round calories to the
+  nearest 5 and grams to the nearest whole number — false precision reads as
+  authority these numbers have not earned.
 
-Omit any field the photograph does not show. Never guess times, servings or
-difficulty — leaving them out is correct and expected.
+ESTIMATED — say which ones you worked out.
+List in "estimated" every field you inferred rather than read. A field belongs
+in that list unless the photograph actually states it. This is what lets the app
+tell the creator which numbers to check, so being honest here matters more than
+looking thorough: claiming you read a time you guessed is the one failure that
+misleads someone.
 
-Set confidence honestly: handwriting you had to interpret is medium at best, and
-anything you could not read cleanly is low, with what was unclear in notes.
+Set confidence from how legible the source was, not from how sure you are of
+your estimates: handwriting you had to interpret is medium at best, and anything
+you could not read cleanly is low, with what was unclear in notes.
 
 If the image is not a recipe, return empty ingredients and steps with confidence
 "low".`;
@@ -381,11 +469,14 @@ Deno.serve(async (req) => {
 });
 
 /**
- * Nutrition only survives when the page actually stated something. Marked
- * `scanned` so the app can tell it apart from a creator's own figures and from
- * an estimate, all three of which display under the same §19.3 disclaimer.
+ * Nutrition, tagged with where it came from.
+ *
+ * `scanned` and `estimated` display under the same §19.3 disclaimer but are not
+ * the same claim, and the recipe screen says which — so the distinction the old
+ * "never calculate it" rule protected is kept by labelling rather than by
+ * leaving the field empty.
  */
-function nutritionOf(raw: unknown) {
+function nutritionOf(raw: unknown, wasEstimated: boolean) {
   if (!raw || typeof raw !== 'object') return null;
   const n = raw as Record<string, unknown>;
   const macros = {
@@ -395,7 +486,11 @@ function nutritionOf(raw: unknown) {
     fatG: intInRange(n.fatG, 0, 2000),
   };
   if (Object.values(macros).every((v) => v === null)) return null;
-  return { ...macros, perServing: n.perServing !== false, source: 'scanned' };
+  return {
+    ...macros,
+    perServing: n.perServing !== false,
+    source: wasEstimated ? 'estimated' : 'scanned',
+  };
 }
 
 /** Bounds an integer, or drops it. Carries the ranges the schema cannot. */
@@ -409,6 +504,12 @@ function intInRange(value: unknown, min: number, max: number): number | null {
 function normalise(input: Record<string, unknown>) {
   const ingredients = Array.isArray(input.ingredients) ? input.ingredients : [];
   const steps = Array.isArray(input.steps) ? input.steps : [];
+  // Filtered against the known field names: this drives what the composer tells
+  // the creator to check, and a stray value would name a field that is not on
+  // the screen.
+  const estimated = (Array.isArray(input.estimated) ? input.estimated : [])
+    .filter((f): f is string => typeof f === 'string'
+      && (ESTIMABLE as readonly string[]).includes(f));
 
   return {
     title: typeof input.title === 'string' ? input.title.slice(0, 100) : '',
@@ -428,7 +529,8 @@ function normalise(input: Record<string, unknown>) {
       .filter((s): s is string => typeof s === 'string' && s.trim() !== '')
       .map((s) => s.slice(0, 2000)),
     tags: Array.isArray(input.tags) ? input.tags.filter((t) => typeof t === 'string') : [],
-    nutrition: nutritionOf(input.nutrition),
+    nutrition: nutritionOf(input.nutrition, estimated.includes('nutrition')),
+    estimated,
     confidence: typeof input.confidence === 'string' ? input.confidence : 'medium',
     notes: typeof input.notes === 'string' ? input.notes : '',
   };

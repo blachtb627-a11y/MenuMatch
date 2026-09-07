@@ -41,7 +41,16 @@ function rpc(name, body) {
     case 'unsave_recipe': return { saved: false, recipeId: body?.p_recipe_id };
     case 'record_cook':   return { recorded: true };
     case 'less_like_this':return { recorded: true };
-    case 'me':            return null;
+    case 'me':            return { id: '00000000-0000-4000-8000-0000000000bb',
+                                    username: 'devuser', displayName: 'Dev User',
+                                    email: 'dev@example.com', savedCount: 0,
+                                    isAdmin: false, preferences: {} };
+    case 'my_recipes':    return [];
+    case 'save_draft':    return { id: '00000000-0000-4000-8000-0000000000cc',
+                                   savedAt: new Date().toISOString() };
+    case 'get_draft':     return null;
+    case 'publish_recipe':return { published: false,
+                                   missing: ['cover photo', 'rights confirmation'] };
     default:              return null;
   }
 }
@@ -79,6 +88,22 @@ createServer((req, res) => {
         session: null,
       }));
     }
+    if (url.pathname === '/auth/v1/token' || url.pathname === '/auth/v1/user') {
+      const now = Math.floor(Date.now() / 1000);
+      const user = {
+        id: '00000000-0000-4000-8000-0000000000bb', aud: 'authenticated',
+        role: 'authenticated', email: 'dev@example.com',
+        email_confirmed_at: new Date().toISOString(),
+        app_metadata: { provider: 'email' }, user_metadata: {}, identities: [],
+        created_at: new Date().toISOString(), updated_at: new Date().toISOString(),
+      };
+      res.writeHead(200, cors);
+      return res.end(JSON.stringify(
+        url.pathname === '/auth/v1/user' ? user : {
+          access_token: 'dev.dev.dev', token_type: 'bearer', expires_in: 3600,
+          expires_at: now + 3600, refresh_token: 'dev-refresh', user,
+        }));
+    }
     if (url.pathname === '/auth/v1/resend') {
       res.writeHead(200, cors);
       return res.end(JSON.stringify({}));
@@ -90,6 +115,16 @@ createServer((req, res) => {
       res.writeHead(200, cors);
       return res.end(JSON.stringify(rpc(name, body)));
     }
+    if (url.pathname.startsWith('/rest/v1/tags')) {
+      res.writeHead(200, cors);
+      return res.end(JSON.stringify([
+        { slug: 'vegetarian', name: 'Vegetarian', type: 'dietary' },
+        { slug: 'gluten-free', name: 'Gluten-free', type: 'dietary' },
+        { slug: 'sheet-pan', name: 'Sheet pan', type: 'equipment' },
+        { slug: 'weeknight', name: 'Weeknight', type: 'occasion' },
+      ]));
+    }
+
     // bare table reads (saves, collections, recipes) return empty sets
     res.writeHead(200, cors);
     res.end('[]');

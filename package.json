@@ -9,7 +9,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
-    "test": "tsc src/lib/quantity.ts src/lib/timers.ts --outDir dist-test --module esnext --target es2022 --moduleResolution bundler --strict && echo '{\"type\":\"module\"}' > dist-test/package.json && node --test tests/*.test.mjs",
+    "test": "tsc src/lib/quantity.ts src/lib/timers.ts src/lib/parseIngredients.ts --outDir dist-test --module esnext --target es2022 --moduleResolution bundler --strict && echo '{\"type\":\"module\"}' > dist-test/package.json && node --test tests/*.test.mjs",
     "export:web": "expo export --platform web"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "expo-constants": "~57.0.17",
     "expo-haptics": "~57.0.2",
     "expo-image": "~57.0.4",
+    "expo-image-picker": "~57.0.16",
     "expo-keep-awake": "~57.0.1",
     "expo-linear-gradient": "~15.0.7",
     "expo-linking": "~57.0.9",

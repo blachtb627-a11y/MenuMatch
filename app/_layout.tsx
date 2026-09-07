@@ -24,6 +24,7 @@ export default function RootLayout() {
             <Stack.Screen name="onboarding" />
             <Stack.Screen name="auth" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="recipe/[id]" options={{ animation: 'slide_from_right' }} />
+            <Stack.Screen name="compose/[id]" options={{ animation: 'slide_from_bottom' }} />
             <Stack.Screen name="cook/[id]" options={{ animation: 'slide_from_bottom' }} />
           </Stack>
         </SessionProvider>

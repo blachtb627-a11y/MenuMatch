@@ -31,6 +31,7 @@ export default function RootLayout() {
             <Stack.Screen name="settings/preferences" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="settings/blocked" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="settings/export" options={{ animation: 'slide_from_right' }} />
+            <Stack.Screen name="leaderboard" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="report/problem" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="legal/terms" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="legal/privacy" options={{ animation: 'slide_from_right' }} />

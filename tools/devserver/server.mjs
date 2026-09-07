@@ -158,6 +158,45 @@ function rpc(name, body) {
       if (!dup) DEV.problemReports = [...DEV.problemReports, key];
       return { ok: true, id: 'rep-' + DEV.problemReports.length, duplicate: dup };
     }
+    // DEV_BOARD picks which of the board's states to serve: the interesting
+    // ones are the people who did not place, which is most of them.
+    case 'weekly_board': {
+      const now = Date.now();
+      const iso = (d) => new Date(d).toISOString();
+      const entry = (i, saves, mine = false) => ({
+        id: `rec${i}`, title: [
+          'Charred cabbage with brown butter', 'Slow ragu', 'Green chilli chicken',
+          'Miso butter noodles', 'Roast tomato soup',
+        ][i - 1] ?? `Recipe ${i}`,
+        coverImageUrl: null, cuisine: ['British','Italian','Indian','Japanese','French'][i - 1],
+        saves, position: i, isMine: mine,
+        creator: { id: mine ? 'u-me' : `u${i}`, username: mine ? 'devuser' : `cook${i}`,
+                   displayName: mine ? 'Dev User' : `Cook ${i}` },
+      });
+      const mode = process.env.DEV_BOARD ?? 'placed';
+      const me =
+        mode === 'guest' ? null
+        : mode === 'nothing' ? { saves: 0, savesPriorWeek: 0, published: 0,
+                                 bestPosition: null, best: null }
+        : mode === 'quiet' ? { saves: 0, savesPriorWeek: 4, published: 3,
+                               bestPosition: null, best: null }
+        : mode === 'unplaced' ? { saves: 6, savesPriorWeek: 2, published: 3,
+                                  bestPosition: null, best: null }
+        : { saves: 41, savesPriorWeek: 28, published: 3, bestPosition: 2,
+            best: { id: 'rec2', title: 'Slow ragu', saves: 41, position: 2 } };
+      const empty = mode === 'empty';
+      return {
+        from: iso(now - 7 * 864e5), to: iso(now + 864e5),
+        top: empty ? [] : [entry(1, 63), entry(2, 41, mode === 'placed'),
+                           entry(3, 22), entry(4, 9), entry(5, 4)],
+        rising: empty ? [] : [
+          { id: 'rec9', title: 'Anchovy butter beans', coverImageUrl: null,
+            saves: 11, impressions: 34, isMine: false,
+            creator: { id: 'u9', username: 'newcook', displayName: 'New Cook' } },
+        ],
+        me,
+      };
+    }
     case 'search_all': {
       const q = String(body?.p_query ?? '').toLowerCase();
       const cap = body?.p_max_minutes;

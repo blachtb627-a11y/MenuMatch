@@ -81,6 +81,20 @@ export default function Create() {
                 </View>
                 <Feather name="chevron-right" size={18} color={colors.textFaint} />
               </Pressable>
+              {/* Sits with the creating tools rather than in a tab of its own:
+                  it is a reason to post, not another thing to browse. */}
+              <Pressable style={s.scanRow} onPress={() => router.push('/leaderboard')}
+                         accessibilityRole="button"
+                         accessibilityLabel="This week's most saved recipes">
+                <Feather name="award" size={17} color={colors.mint} />
+                <View style={{ flex: 1 }}>
+                  <Text style={s.scanTitle}>This week</Text>
+                  <Text style={s.scanBody}>
+                    The most saved recipes of the last seven days, and how yours did.
+                  </Text>
+                </View>
+                <Feather name="chevron-right" size={18} color={colors.textFaint} />
+              </Pressable>
             </View>
           }
           ListEmptyComponent={

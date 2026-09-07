@@ -7,7 +7,7 @@ import { RecipeCover } from '@/components/RecipeCover';
 import { Toast } from '@/components/Toast';
 import { Button, ConfirmDialog, EmptyState, Loading, Screen } from '@/components/ui';
 import { Header } from './cookbook';
-import { deleteDraft, listMyRecipes, type RecipeSummary } from '@/lib/composer';
+import { deleteRecipe, listMyRecipes, type RecipeSummary } from '@/lib/composer';
 import { formatTotalTime } from '@/lib/timers';
 import { colors, radius, space, type } from '@/theme';
 
@@ -35,13 +35,13 @@ export default function Create() {
     if (!pendingDelete) return;
     setBusy(true);
     try {
-      await deleteDraft(pendingDelete.id);
+      await deleteRecipe(pendingDelete.id);
       // Drop it locally rather than refetching, so the row goes at once.
       setRecipes((cur) => (cur ?? []).filter((r) => r.id !== pendingDelete.id));
-      setToast('Draft deleted');
+      setToast(pendingDelete.status === 'draft' ? 'Draft deleted' : 'Recipe deleted');
       setPendingDelete(null);
     } catch (e) {
-      setToast(e instanceof Error ? e.message : 'Could not delete that draft');
+      setToast(e instanceof Error ? e.message : 'Could not delete that recipe');
     } finally {
       setBusy(false);
     }
@@ -105,16 +105,12 @@ export default function Create() {
                 </Text>
               </View>
               <StatusPill status={item.status} />
-              {/* Only drafts: a published recipe may be in someone's Cookbook,
-                  so taking it down is unpublish, from inside the composer. */}
-              {item.status === 'draft' ? (
-                <Pressable onPress={() => setPendingDelete(item)} hitSlop={10}
-                           accessibilityRole="button"
-                           accessibilityLabel={`Delete ${item.title || 'this untitled draft'}`}
-                           style={s.deleteBtn}>
-                  <Feather name="trash-2" size={16} color={colors.textFaint} />
-                </Pressable>
-              ) : null}
+              <Pressable onPress={() => setPendingDelete(item)} hitSlop={10}
+                         accessibilityRole="button"
+                         accessibilityLabel={`Delete ${item.title || 'this untitled draft'}`}
+                         style={s.deleteBtn}>
+                <Feather name="trash-2" size={16} color={colors.textFaint} />
+              </Pressable>
             </Pressable>
           )}
         />
@@ -123,8 +119,11 @@ export default function Create() {
       <ConfirmDialog
         visible={!!pendingDelete}
         title={`Delete “${pendingDelete?.title || 'Untitled draft'}”?`}
-        body="This draft has never been published, so nothing else links to it. It goes for good."
-        confirmLabel="Delete draft"
+        body={pendingDelete?.status === 'draft'
+          ? 'This draft has never been published, so nothing else links to it. It goes for good.'
+          : 'It disappears everywhere, including the Cookbook of anyone who saved it. '
+            + 'Open it instead to take it out of Discover and leave it for them.'}
+        confirmLabel={pendingDelete?.status === 'draft' ? 'Delete draft' : 'Delete recipe'}
         busy={busy}
         onConfirm={() => void commitDelete()}
         onCancel={() => setPendingDelete(null)}

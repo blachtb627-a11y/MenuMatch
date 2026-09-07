@@ -11,7 +11,8 @@ import { Toast } from '@/components/Toast';
 import { Button, ConfirmDialog, Loading, Screen } from '@/components/ui';
 import { ChoiceRow, Input, Labelled, RowActions } from '@/components/composer/Fields';
 import {
-  deleteDraft, emptyDraft, getDraft, publishRecipe, saveDraft, scanRecipe, ScanError,
+  deleteRecipe, emptyDraft, getDraft, publishRecipe, saveDraft, scanRecipe, ScanError,
+  unpublishRecipe,
   type Draft, type DraftIngredient,
 } from '@/lib/composer';
 import { parseIngredientList, parseSteps } from '@/lib/parseIngredients';
@@ -43,6 +44,7 @@ export default function Compose() {
   const [toast, setToast] = useState<string | null>(null);
   const [rightsConfirmed, setRightsConfirmed] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const [confirmUnpublish, setConfirmUnpublish] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [missing, setMissing] = useState<string[]>([]);
   const [pasteOpen, setPasteOpen] = useState<'ingredients' | 'steps' | null>(null);
@@ -224,12 +226,28 @@ export default function Compose() {
     if (!draft?.id) return;
     setDeleting(true);
     try {
-      await deleteDraft(draft.id);
+      await deleteRecipe(draft.id);
       setConfirmDelete(false);
       router.replace('/(tabs)/create');
     } catch (e) {
       setConfirmDelete(false);
-      setToast(e instanceof Error ? e.message : 'Could not delete that draft');
+      setToast(e instanceof Error ? e.message : 'Could not delete that recipe');
+    } finally {
+      setDeleting(false);
+    }
+  }
+
+  async function commitUnpublish() {
+    if (!draft?.id) return;
+    setDeleting(true);
+    try {
+      await unpublishRecipe(draft.id);
+      setConfirmUnpublish(false);
+      setDraft((d) => (d ? { ...d, status: 'unpublished' } : d));
+      setToast('Taken out of Discover');
+    } catch (e) {
+      setConfirmUnpublish(false);
+      setToast(e instanceof Error ? e.message : 'Could not unpublish that recipe');
     } finally {
       setDeleting(false);
     }
@@ -528,14 +546,31 @@ export default function Compose() {
               </Text>
             </Pressable>
 
-            {/* Only an unpublished draft that exists on the server. Publishing
-                turns this into unpublish, which keeps it for anyone who saved. */}
-            {draft.id && draft.status === 'draft' ? (
-              <Pressable onPress={() => setConfirmDelete(true)} style={s.deleteRow}
-                         accessibilityRole="button" accessibilityLabel="Delete this draft">
-                <Feather name="trash-2" size={15} color={colors.danger} />
-                <Text style={s.deleteLabel}>Delete this draft</Text>
-              </Pressable>
+            {/* Taking it down. Unpublish is offered first for anything live,
+                because it is the reversible one and keeps the recipe for
+                whoever already saved it. */}
+            {draft.id ? (
+              <View style={{ gap: space.xs }}>
+                {draft.status === 'published' ? (
+                  <Pressable onPress={() => setConfirmUnpublish(true)} style={s.deleteRow}
+                             accessibilityRole="button"
+                             accessibilityLabel="Take this out of Discover">
+                    <Feather name="eye-off" size={15} color={colors.clay} />
+                    <Text style={[s.deleteLabel, { color: colors.clay }]}>
+                      Take out of Discover
+                    </Text>
+                  </Pressable>
+                ) : null}
+                <Pressable onPress={() => setConfirmDelete(true)} style={s.deleteRow}
+                           accessibilityRole="button"
+                           accessibilityLabel={draft.status === 'draft'
+                             ? 'Delete this draft' : 'Delete this recipe'}>
+                  <Feather name="trash-2" size={15} color={colors.danger} />
+                  <Text style={s.deleteLabel}>
+                    {draft.status === 'draft' ? 'Delete this draft' : 'Delete this recipe'}
+                  </Text>
+                </Pressable>
+              </View>
             ) : null}
 
             {missing.length ? (
@@ -559,11 +594,25 @@ export default function Compose() {
       <ConfirmDialog
         visible={confirmDelete}
         title={`Delete “${draft.title || 'Untitled draft'}”?`}
-        body="This draft has never been published, so nothing else links to it. It goes for good."
-        confirmLabel="Delete draft"
+        body={draft.status === 'draft'
+          ? 'This draft has never been published, so nothing else links to it. It goes for good.'
+          : 'It disappears everywhere, including the Cookbook of anyone who saved it. '
+            + 'To take it out of Discover but leave it for them, use Take out of Discover instead.'}
+        confirmLabel={draft.status === 'draft' ? 'Delete draft' : 'Delete recipe'}
         busy={deleting}
         onConfirm={() => void commitDelete()}
         onCancel={() => setConfirmDelete(false)}
+      />
+
+      <ConfirmDialog
+        visible={confirmUnpublish}
+        title={`Take “${draft.title || 'this recipe'}” out of Discover?`}
+        body="It stops appearing in the deck and in search. Anyone who already saved it keeps it, and you can publish it again whenever you like."
+        confirmLabel="Take it out"
+        cancelLabel="Leave it up"
+        busy={deleting}
+        onConfirm={() => void commitUnpublish()}
+        onCancel={() => setConfirmUnpublish(false)}
       />
 
       <PasteSheet

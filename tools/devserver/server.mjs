@@ -93,12 +93,20 @@ function rpc(name, body) {
                                     isAdmin: true, adminRole: 'super_admin',
                                     preferences: {} };
     case 'my_recipes':    return DEV.myRecipes;
-    case 'delete_draft': {
+    case 'delete_recipe': {
       const r = DEV.myRecipes.find((x) => x.id === body?.p_recipe_id);
-      if (!r) throw new Error('draft not found');
-      if (r.status !== 'draft') throw new Error('only an unpublished draft can be deleted');
+      if (!r) throw new Error('recipe not found');
       DEV.myRecipes = DEV.myRecipes.filter((x) => x.id !== r.id);
-      return { deleted: true, id: r.id, coverImageUrl: r.coverImageUrl };
+      const hard = r.status === 'draft';
+      return { deleted: true, id: r.id, hard,
+               coverImageUrl: hard ? r.coverImageUrl : null,
+               savedByOthers: hard ? 0 : 4 };
+    }
+    case 'unpublish_recipe': {
+      const r = DEV.myRecipes.find((x) => x.id === body?.p_recipe_id);
+      if (!r) throw new Error('recipe not found');
+      r.status = 'unpublished';
+      return { published: false };
     }
     case 'my_collections': return DEV.collections.map((c) => ({
       ...c, recipeCount: (DEV.items[c.id] ?? []).length, coverImageUrl: null }));

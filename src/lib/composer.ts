@@ -81,20 +81,32 @@ export async function unpublishRecipe(id: string): Promise<void> {
   if (error) throw new Error(error.message);
 }
 
+export type DeleteResult = {
+  /** True when the row was actually removed, false when it was tombstoned. */
+  hard: boolean;
+  savedByOthers: number;
+};
+
 /**
- * Deletes a draft outright. The server refuses anything that has ever been
- * published — that is unpublishRecipe's job, since a published recipe may be
- * sitting in someone's Cookbook.
+ * Deletes a recipe the caller owns. The server decides what "delete" means from
+ * the recipe's own history — a real delete for something never published, a
+ * tombstone for anything that was, since saves and cook records point at it.
  *
  * The row goes first, transactionally; the cover image is then cleared through
- * the storage API, which is the only way files can be removed. That second step
- * is best effort, so a stray file never turns into a failed delete.
+ * the storage API, which is the only way files can be removed, and only when
+ * the row is gone for good. That second step is best effort, so a stray file
+ * never turns into a failed delete.
  */
-export async function deleteDraft(id: string): Promise<void> {
-  const { data, error } = await supabase.rpc('delete_draft', { p_recipe_id: id });
+export async function deleteRecipe(id: string): Promise<DeleteResult> {
+  const { data, error } = await supabase.rpc('delete_recipe', { p_recipe_id: id });
   if (error) throw new Error(error.message);
-  await removeUploadedImage((data as { coverImageUrl?: string | null })?.coverImageUrl ?? null);
+  const result = data as {
+    hard?: boolean; savedByOthers?: number; coverImageUrl?: string | null;
+  };
+  await removeUploadedImage(result?.coverImageUrl ?? null);
+  return { hard: !!result?.hard, savedByOthers: result?.savedByOthers ?? 0 };
 }
+
 
 export type ScannedRecipe = Omit<Partial<Draft>, 'ingredients'> & {
   /**

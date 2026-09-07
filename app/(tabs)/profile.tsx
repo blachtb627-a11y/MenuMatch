@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { router } from 'expo-router';
+import { router, useFocusEffect } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { Button, Screen } from '@/components/ui';
 import { Header } from './cookbook';
+import { listMyRecipes } from '@/lib/composer';
 import { useSession } from '@/state/session';
 import { colors, radius, space, type } from '@/theme';
 
 export default function Profile() {
   const { isGuest, me, signOut } = useSession();
+  const [counts, setCounts] = useState({ published: 0, drafts: 0 });
+
+  // The numbers here were hardcoded zeros, which read as "you have published
+  // nothing" to someone who had.
+  useFocusEffect(useCallback(() => {
+    if (isGuest) return;
+    void listMyRecipes()
+      .then((rows) => setCounts({
+        published: rows.filter((r) => r.status === 'published').length,
+        drafts: rows.filter((r) => r.status === 'draft').length,
+      }))
+      .catch(() => {});
+  }, [isGuest]));
 
   if (isGuest) {
     return (
@@ -45,10 +59,23 @@ export default function Profile() {
           </View>
 
           <View style={s.stats}>
-            <Stat label="Saved" value={String(me?.savedCount ?? 0)} />
-            <Stat label="Published" value="0" />
-            <Stat label="Followers" value="0" />
+            <Stat label="Saved" value={String(me?.savedCount ?? 0)}
+                  onPress={() => router.push('/(tabs)/cookbook')} />
+            <Stat label="Published" value={String(counts.published)}
+                  onPress={() => router.push('/(tabs)/create')} />
+            <Stat label="Drafts" value={String(counts.drafts)}
+                  onPress={() => router.push('/(tabs)/create')} />
           </View>
+
+          <Section title="Your recipes">
+            <Row icon="book-open"
+                 label={counts.published || counts.drafts
+                   ? `${counts.published} published · ${counts.drafts} draft${counts.drafts === 1 ? '' : 's'}`
+                   : 'Nothing written yet'}
+                 onPress={() => router.push('/(tabs)/create')} />
+            <Row icon="plus-square" label="Write a new recipe"
+                 onPress={() => router.push('/compose/new')} />
+          </Section>
 
           {me?.isAdmin ? (
             <Section title="Moderation">
@@ -124,12 +151,16 @@ function Row({
   );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+function Stat({
+  label, value, onPress,
+}: { label: string; value: string; onPress?: () => void }) {
   return (
-    <View style={s.stat}>
+    <Pressable style={s.stat} onPress={onPress} disabled={!onPress}
+               accessibilityRole={onPress ? 'button' : undefined}
+               accessibilityLabel={onPress ? `${value} ${label}` : undefined}>
       <Text style={s.statValue}>{value}</Text>
       <Text style={s.statLabel}>{label}</Text>
-    </View>
+    </Pressable>
   );
 }
 

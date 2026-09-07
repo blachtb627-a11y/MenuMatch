@@ -229,7 +229,14 @@ export default function RecipeDetail() {
                 {recipe.nutrition.carbsG != null ? <Stat label="Carbs" value={`${recipe.nutrition.carbsG}g`} /> : null}
                 {recipe.nutrition.fatG != null ? <Stat label="Fat" value={`${recipe.nutrition.fatG}g`} /> : null}
               </View>
-              {/* §19.3, verbatim requirement */}
+              {/* §19.3, verbatim requirement. Where the figures came from is
+                  said plainly first, because "estimated by AI" and "copied off
+                  the packet" deserve different amounts of trust. */}
+              {recipe.nutrition.source === 'estimated' ? (
+                <Text style={s.nutritionSource}>
+                  Estimated from the ingredients, not measured.
+                </Text>
+              ) : null}
               <Disclaimer>
                 Nutrition information is provided by the recipe creator and is an
                 estimate. It has not been verified by MenuMatch.
@@ -391,6 +398,7 @@ const s = StyleSheet.create({
 
   section: { gap: space.md },
   sectionHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: space.md },
+  nutritionSource: { ...type.small, color: colors.clay },
   sectionTitle: { ...type.heading, color: colors.text },
 
   scaler: { flexDirection: 'row', alignItems: 'center', gap: space.md },

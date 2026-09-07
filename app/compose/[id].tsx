@@ -11,8 +11,8 @@ import { Toast } from '@/components/Toast';
 import { Button, ConfirmDialog, Loading, Screen } from '@/components/ui';
 import { ChoiceRow, Input, Labelled, RowActions } from '@/components/composer/Fields';
 import {
-  deleteRecipe, emptyDraft, getDraft, publishRecipe, saveDraft, scanRecipe, ScanError,
-  unpublishRecipe,
+  deleteRecipe, emptyDraft, estimateNutrition, getDraft, publishRecipe, saveDraft,
+  scanRecipe, ScanError, unpublishRecipe,
   type Draft, type DraftIngredient,
 } from '@/lib/composer';
 import { parseIngredientList, parseSteps } from '@/lib/parseIngredients';
@@ -21,7 +21,7 @@ import {
 } from '@/lib/media';
 import { fetchConfig } from '@/lib/api';
 import { supabase } from '@/lib/supabase';
-import { formatQuantity } from '@/lib/quantity';
+import { formatQuantity, renderIngredient } from '@/lib/quantity';
 import { colors, fill, radius, space, type } from '@/theme';
 
 /** §15: autosave every 10 seconds and on every field blur. */
@@ -52,6 +52,8 @@ export default function Compose() {
   const [scanStage, setScanStage] = useState('');
   const [scanSeconds, setScanSeconds] = useState(0);
   const [scanError, setScanError] = useState<string | null>(null);
+  const [estimating, setEstimating] = useState(false);
+  const [nutritionNote, setNutritionNote] = useState<string | null>(null);
   const [scanNote, setScanNote] = useState<string | null>(null);
   // Set once the server says scanning has no API key configured. Retrying would
   // fail the same way every time, so the card collapses instead of teasing it.
@@ -200,6 +202,8 @@ export default function Compose() {
         ingredients,
         steps,
         tags: scanned.tags?.length ? scanned.tags : d.tags,
+        // Only when the page printed it; the scan never calculates nutrition.
+        nutrition: scanned.nutrition ?? d.nutrition,
       } : d));
 
       await persist();
@@ -235,6 +239,55 @@ export default function Compose() {
     } finally {
       setDeleting(false);
     }
+  }
+
+  /** §19.3: an estimate, stored as one, and every number stays editable. */
+  async function runEstimate() {
+    if (!draft) return;
+    setEstimating(true);
+    setNutritionNote(null);
+    try {
+      // Rendered at 1:1 so the estimator sees the amounts as written.
+      const servings = draft.servings ?? 4;
+      const lines = draft.ingredients
+        .filter((i) => i.ingredient.trim() !== '')
+        .map((i) => {
+          const line = renderIngredient(
+            { quantity: i.quantity, unit: i.unit, ingredient: i.ingredient, note: i.note },
+            servings, servings,
+          );
+          return i.note ? `${line}, ${i.note}` : line;
+        });
+      const result = await estimateNutrition({
+        ingredients: lines,
+        servings: draft.servings,
+        title: draft.title,
+      });
+      update({ nutrition: result.nutrition });
+      await persist();
+      setNutritionNote(
+        (result.confidence === 'low'
+          ? 'A rough estimate — check every number before publishing.'
+          : 'An estimate. Check it before publishing.')
+        + (result.assumptions ? ` ${result.assumptions}` : ''),
+      );
+    } catch (e) {
+      setNutritionNote(e instanceof Error ? e.message : 'Could not estimate that.');
+    } finally {
+      setEstimating(false);
+    }
+  }
+
+  function setMacro(key: 'calories' | 'proteinG' | 'carbsG' | 'fatG', text: string) {
+    const n = text.trim() === '' ? null : Number.parseInt(text, 10);
+    const next = {
+      ...(draft?.nutrition ?? { perServing: true, source: 'creator' }),
+      [key]: Number.isFinite(n as number) ? n : null,
+    };
+    // All four cleared means there is no nutrition, not a row of empty fields.
+    const empty = (['calories', 'proteinG', 'carbsG', 'fatG'] as const)
+      .every((k) => next[k] == null);
+    update({ nutrition: empty ? null : next });
   }
 
   async function commitUnpublish() {
@@ -525,6 +578,33 @@ export default function Compose() {
               </View>
             </Labelled>
 
+            {/* §19.3: MenuMatch does not verify nutrition, so the estimate is
+                labelled as one everywhere it appears and the creator can edit
+                or clear any of it. Publishing without it is fine. */}
+            <Labelled label="Nutrition, per serving"
+                      hint="Optional. Shown to cooks as an unverified estimate, and required for the High Protein category.">
+              <View style={s.macroRow}>
+                <Macro label="Calories" value={draft.nutrition?.calories}
+                       onChange={(t) => setMacro('calories', t)} onBlur={onBlur} />
+                <Macro label="Protein" suffix="g" value={draft.nutrition?.proteinG}
+                       onChange={(t) => setMacro('proteinG', t)} onBlur={onBlur} />
+                <Macro label="Carbs" suffix="g" value={draft.nutrition?.carbsG}
+                       onChange={(t) => setMacro('carbsG', t)} onBlur={onBlur} />
+                <Macro label="Fat" suffix="g" value={draft.nutrition?.fatG}
+                       onChange={(t) => setMacro('fatG', t)} onBlur={onBlur} />
+              </View>
+              <View style={{ flexDirection: 'row', gap: space.sm, flexWrap: 'wrap' }}>
+                <Button label={estimating ? 'Estimating…' : 'Estimate from ingredients'}
+                        variant="secondary" disabled={estimating}
+                        onPress={() => void runEstimate()} />
+                {draft.nutrition ? (
+                  <Button label="Clear" variant="ghost"
+                          onPress={() => { update({ nutrition: null }); setNutritionNote(null); }} />
+                ) : null}
+              </View>
+              {nutritionNote ? <Text style={s.scanNote}>{nutritionNote}</Text> : null}
+            </Labelled>
+
             <Labelled label="Adapted from"
                       hint="If this started as someone else's recipe, credit them here.">
               <Input value={draft.attribution} onChangeText={(t) => update({ attribution: t })}
@@ -682,6 +762,32 @@ function PasteSheet({
   );
 }
 
+/** One macro cell. Empty means "not stated", which is a valid recipe. */
+function Macro({
+  label, suffix, value, onChange, onBlur,
+}: {
+  label: string;
+  suffix?: string;
+  value: number | null | undefined;
+  onChange: (text: string) => void;
+  onBlur: () => void;
+}) {
+  return (
+    <View style={s.macro}>
+      <Text style={s.macroLabel}>{suffix ? `${label} (${suffix})`.toUpperCase() : label.toUpperCase()}</Text>
+      <Input
+        value={value == null ? '' : String(value)}
+        onChangeText={onChange}
+        onBlur={onBlur}
+        keyboardType="number-pad"
+        placeholder="—"
+        maxLength={5}
+        accessibilityLabel={`${label} per serving`}
+      />
+    </View>
+  );
+}
+
 const s = StyleSheet.create({
   bar: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
@@ -758,6 +864,9 @@ const s = StyleSheet.create({
   missingItem: { ...type.small, color: colors.text },
 
   scanOff: { ...type.small, color: colors.textFaint, lineHeight: 18 },
+  macroRow: { flexDirection: 'row', gap: space.sm },
+  macro: { flex: 1, gap: 4 },
+  macroLabel: { ...type.micro, color: colors.textFaint },
   scanErrorBox: {
     flexDirection: 'row', gap: space.sm, alignItems: 'flex-start',
     backgroundColor: colors.dangerWash, borderRadius: radius.md, padding: space.md,

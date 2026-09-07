@@ -168,6 +168,23 @@ function recipeSchema(categories: string[], tags: string[]) {
         items: { type: 'string' },
       },
       ...(tags.length ? { tags: { type: 'array', items: { type: 'string', enum: tags } } } : {}),
+      // Only if the page actually prints it. Estimating from the ingredients is
+      // a separate, opt-in action the creator takes — a number invented here
+      // would be indistinguishable from one the source vouched for.
+      nutrition: {
+        type: 'object',
+        additionalProperties: false,
+        description:
+          'Only if the photograph states nutrition. Omit entirely otherwise; '
+          + 'never calculate it from the ingredients.',
+        properties: {
+          perServing: { type: 'boolean', description: 'True if stated per serving.' },
+          calories: { type: 'integer' },
+          proteinG: { type: 'integer' },
+          carbsG: { type: 'integer' },
+          fatG: { type: 'integer' },
+        },
+      },
       confidence: {
         type: 'string',
         enum: ['high', 'medium', 'low'],
@@ -204,6 +221,11 @@ can follow one at a time, looking up from the phone between each:
   information, not phrasing, and survive word for word.
 - Add nothing. No technique, equipment, seasoning or advice the page does not
   give, however obvious the omission seems.
+
+NUTRITION — only if it is printed.
+Fill in nutrition solely when the photograph states those numbers. Never
+calculate them from the ingredients: a figure you worked out would look
+identical to one the source stood behind, and the two are not the same thing.
 
 Omit any field the photograph does not show. Never guess times, servings or
 difficulty — leaving them out is correct and expected.
@@ -333,6 +355,24 @@ Deno.serve(async (req) => {
   }
 });
 
+/**
+ * Nutrition only survives when the page actually stated something. Marked
+ * `scanned` so the app can tell it apart from a creator's own figures and from
+ * an estimate, all three of which display under the same §19.3 disclaimer.
+ */
+function nutritionOf(raw: unknown) {
+  if (!raw || typeof raw !== 'object') return null;
+  const n = raw as Record<string, unknown>;
+  const macros = {
+    calories: intInRange(n.calories, 0, 20000),
+    proteinG: intInRange(n.proteinG, 0, 2000),
+    carbsG: intInRange(n.carbsG, 0, 2000),
+    fatG: intInRange(n.fatG, 0, 2000),
+  };
+  if (Object.values(macros).every((v) => v === null)) return null;
+  return { ...macros, perServing: n.perServing !== false, source: 'scanned' };
+}
+
 /** Bounds an integer, or drops it. Carries the ranges the schema cannot. */
 function intInRange(value: unknown, min: number, max: number): number | null {
   if (!Number.isInteger(value)) return null;
@@ -363,6 +403,7 @@ function normalise(input: Record<string, unknown>) {
       .filter((s): s is string => typeof s === 'string' && s.trim() !== '')
       .map((s) => s.slice(0, 2000)),
     tags: Array.isArray(input.tags) ? input.tags.filter((t) => typeof t === 'string') : [],
+    nutrition: nutritionOf(input.nutrition),
     confidence: typeof input.confidence === 'string' ? input.confidence : 'medium',
     notes: typeof input.notes === 'string' ? input.notes : '',
   };

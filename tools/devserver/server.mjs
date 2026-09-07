@@ -373,6 +373,16 @@ createServer((req, res) => {
     }
 
     // DEV_SCAN=fail replays a server-side failure so the error surfaces.
+    if (url.pathname === '/functions/v1/estimate-nutrition') {
+      res.writeHead(200, cors);
+      return res.end(JSON.stringify({
+        nutrition: { perServing: true, calories: 615, proteinG: 42,
+                     carbsG: 18, fatG: 39, source: 'estimated' },
+        confidence: 'medium',
+        assumptions: 'Assumed a standard 400g tin of tomatoes.',
+      }));
+    }
+
     // Edge functions. DEV_SCAN=off replays the 503 the real function returns
     // when ANTHROPIC_API_KEY is missing, so both paths can be driven.
     if (url.pathname === '/functions/v1/scan-recipe') {
@@ -414,6 +424,8 @@ createServer((req, res) => {
           'Simmer, covered, for three hours.',
         ],
         tags: ['weeknight'],
+        nutrition: { perServing: true, calories: 720, proteinG: 48,
+                     carbsG: 22, fatG: 44, source: 'scanned' },
         confidence: 'medium',
         notes: 'The oven temperature was smudged \u2014 check it before publishing.',
       } }));

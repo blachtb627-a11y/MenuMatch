@@ -1,6 +1,7 @@
 import { supabase, SUPABASE_KEY, SUPABASE_URL } from './supabase';
 import { removeUploadedImage } from './media';
 import type { ParsedIngredient } from './parseIngredients';
+import type { Nutrition } from './types';
 
 export type DraftIngredient = ParsedIngredient;
 
@@ -16,6 +17,8 @@ export type Draft = {
   servings: number | null;
   difficulty: '' | 'easy' | 'medium' | 'hard';
   attribution: string;
+  /** Null until the creator fills it in, estimates it, or a scan finds it. */
+  nutrition: Nutrition | null;
   ingredients: DraftIngredient[];
   steps: string[];
   tags: string[];
@@ -26,7 +29,7 @@ export type Draft = {
 export const emptyDraft = (): Draft => ({
   id: null, title: '', description: '', coverImageUrl: null,
   category: '', cuisine: '', prepMinutes: null, cookMinutes: null,
-  servings: 4, difficulty: '', attribution: '',
+  servings: 4, difficulty: '', attribution: '', nutrition: null,
   ingredients: [
     { quantity: null, unit: '', ingredient: '', note: '' },
     { quantity: null, unit: '', ingredient: '', note: '' },
@@ -107,6 +110,63 @@ export async function deleteRecipe(id: string): Promise<DeleteResult> {
   return { hard: !!result?.hard, savedByOthers: result?.savedByOthers ?? 0 };
 }
 
+
+export type NutritionEstimate = {
+  nutrition: Nutrition;
+  confidence: 'high' | 'medium' | 'low';
+  assumptions: string;
+};
+
+/**
+ * Estimates per-serving macros from the ingredient list. §19.3 stands: the
+ * result is stored marked `source: 'estimated'`, every number stays editable,
+ * and cooks see it under the same unverified disclaimer as a creator's own.
+ */
+export async function estimateNutrition(input: {
+  ingredients: string[]; servings: number | null; title: string;
+}): Promise<NutritionEstimate> {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) throw new ScanError('Sign in again to estimate nutrition.', 'unauthorized');
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 45_000);
+  let response: Response;
+  try {
+    response = await fetch(`${SUPABASE_URL}/functions/v1/estimate-nutrition`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${session.access_token}`,
+        apikey: SUPABASE_KEY,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(input),
+      signal: controller.signal,
+    });
+  } catch (e) {
+    const aborted = e instanceof Error && e.name === 'AbortError';
+    throw new ScanError(
+      aborted ? 'That took too long. Try again.' : 'Could not reach the estimator.',
+      aborted ? 'timeout' : 'unreachable',
+    );
+  } finally {
+    clearTimeout(timer);
+  }
+
+  let payload: Partial<NutritionEstimate> & { message?: string; error?: string } = {};
+  try { payload = await response.json(); } catch { /* non-JSON body */ }
+
+  if (!response.ok || !payload.nutrition) {
+    throw new ScanError(
+      payload.message ?? `The estimator returned ${response.status}.`,
+      payload.error ?? 'estimate_failed',
+    );
+  }
+  return {
+    nutrition: payload.nutrition,
+    confidence: payload.confidence ?? 'medium',
+    assumptions: payload.assumptions ?? '',
+  };
+}
 
 export type ScannedRecipe = Omit<Partial<Draft>, 'ingredients'> & {
   /**

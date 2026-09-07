@@ -12,6 +12,7 @@ type Me = {
   email: string | null;
   savedCount: number;
   isAdmin: boolean;
+  adminRole: 'moderator' | 'content_admin' | 'super_admin' | null;
   preferences: { onboarding_complete?: boolean } | null;
 };
 

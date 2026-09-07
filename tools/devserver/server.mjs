@@ -44,8 +44,62 @@ function rpc(name, body) {
     case 'me':            return { id: '00000000-0000-4000-8000-0000000000bb',
                                     username: 'devuser', displayName: 'Dev User',
                                     email: 'dev@example.com', savedCount: 0,
-                                    isAdmin: false, preferences: {} };
+                                    isAdmin: true, adminRole: 'super_admin',
+                                    preferences: {} };
     case 'my_recipes':    return [];
+    case 'admin_stats':   return { openReports: 2, highPriorityOpen: 1, overdue: 1,
+                                   openAppeals: 1, copyrightOpen: 0, publishedRecipes: 32,
+                                   removedRecipes: 0, totalUsers: 1, suspendedUsers: 0,
+                                   actionsLast7d: 0 };
+    case 'admin_reports': return [
+      { id: 'r1', reason: 'unsafe_food', priority: 'high', status: 'open',
+        details: 'Says to water-bath can green beans, that is botulism risk.',
+        targetType: 'recipe', targetId: 'rec1',
+        createdAt: new Date(Date.now() - 36e5 * 30).toISOString(),
+        ageHours: 30, slaHours: 24, overdue: true, reportCount: 2,
+        targetTitle: 'Home Canned Green Beans', targetCreator: 'someone',
+        reporter: { username: 'reporter1', email: 'r@example.com' } },
+      { id: 'r2', reason: 'spam', priority: 'normal', status: 'open', details: null,
+        targetType: 'user', targetId: 'usr1',
+        createdAt: new Date(Date.now() - 36e5 * 4).toISOString(),
+        ageHours: 4, slaHours: 72, overdue: false, reportCount: 1,
+        targetTitle: 'Link Spammer', targetCreator: 'spammer',
+        reporter: { username: 'reporter2', email: null } }];
+    case 'admin_report_detail': return {
+      id: 'r1', reason: 'unsafe_food', priority: 'high', status: 'open',
+      details: 'Says to water-bath can green beans, that is botulism risk.',
+      targetType: 'recipe', targetId: 'rec1', createdAt: new Date().toISOString(),
+      ageHours: 30, slaHours: 24, overdue: true, reportCount: 2,
+      targetTitle: 'Home Canned Green Beans', targetCreator: 'someone',
+      reporter: { username: 'reporter1', email: 'r@example.com' },
+      recipe: { id: 'rec1', title: 'Home Canned Green Beans',
+                description: 'Grandma\u2019s method.', coverImageUrl: null,
+                status: 'published', moderationState: 'clear',
+                creator: { id: 'u1', username: 'someone', displayName: 'Someone', isSeed: false },
+                ingredients: ['green beans', 'salt', 'water'],
+                steps: ['Pack jars.', 'Boil in a water bath for 25 minutes.'] },
+      user: null, otherReports: [{ reason: 'unsafe_food', details: 'Same concern', createdAt: new Date().toISOString() }],
+      priorActions: [] };
+    case 'admin_act':     return { ok: true, actionId: 'a1' };
+    case 'admin_appeals': return [
+      { id: 'ap1', statement: 'I followed a tested USDA recipe, this was a mistake.',
+        status: 'open', createdAt: new Date().toISOString(),
+        user: { username: 'someone', displayName: 'Someone' },
+        action: { action: 'remove', reason: 'Unsafe canning', targetType: 'recipe', targetId: 'rec1' },
+        sameModerator: true }];
+    case 'admin_list_admins': return [
+      { userId: 'u-me', role: 'super_admin', createdAt: new Date().toISOString(),
+        username: 'blachtb627', displayName: 'blachtb627',
+        email: 'blachtb627@gmail.com', grantedBy: null }];
+    case 'admin_find_user': return [
+      { id: 'u2', username: 'sofia.reyes', displayName: 'Sofia Reyes',
+        email: 'sofia@example.com', status: 'active', role: null }];
+    case 'admin_grant_role':  return { ok: true };
+    case 'admin_revoke_role': return { ok: true };
+    case 'admin_audit':   return [
+      { id: 'al1', action: 'moderation.remove', targetType: 'recipe', targetId: 'rec1',
+        metadata: { reason: 'Unsafe canning' }, createdAt: new Date().toISOString(),
+        actor: 'blachtb627' }];
     case 'save_draft':    return { id: '00000000-0000-4000-8000-0000000000cc',
                                    savedAt: new Date().toISOString() };
     case 'get_draft':     return null;

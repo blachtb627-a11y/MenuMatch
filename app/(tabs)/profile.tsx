@@ -50,6 +50,21 @@ export default function Profile() {
             <Stat label="Followers" value="0" />
           </View>
 
+          {me?.isAdmin ? (
+            <Section title="Moderation">
+              <Row icon="shield" label="Moderation queue"
+                   onPress={() => router.push('/admin')} />
+              <Row icon="message-square" label="Appeals"
+                   onPress={() => router.push('/admin/appeals')} />
+              <Row icon="users" label="Team"
+                   onPress={() => router.push('/admin/team')} />
+              {me.adminRole === 'super_admin' ? (
+                <Row icon="list" label="Audit log"
+                     onPress={() => router.push('/admin/audit')} />
+              ) : null}
+            </Section>
+          ) : null}
+
           {/* §28.1 settings. §20.6 and §28.4 make deletion and reporting
               in-app requirements, not email-support paths. */}
           <Section title="Settings">

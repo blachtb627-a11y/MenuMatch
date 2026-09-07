@@ -18,6 +18,7 @@ const PORT = Number(process.env.PORT ?? 8787);
 
 // In-memory collection state so the picker and reorder can be exercised.
 const DEV = {
+  problemReports: [],
   collections: [
     { id: 'col1', name: 'Weeknight Dinners', visibility: 'private' },
     { id: 'col2', name: 'Want to Try', visibility: 'private' },
@@ -140,6 +141,15 @@ function rpc(name, body) {
       blocked: DEV.blocks,
       swipes: { total: 42, mostRecent: [] },
     };
+    case 'report_problem': {
+      const t = body?.p_target_type;
+      if (t !== 'user' && t !== 'app') throw new Error('bad target');
+      if (t === 'user' && !body?.p_target_id) throw new Error('no account named');
+      const key = `${t}:${body?.p_target_id ?? ''}`;
+      const dup = DEV.problemReports.includes(key);
+      if (!dup) DEV.problemReports = [...DEV.problemReports, key];
+      return { ok: true, id: 'rep-' + DEV.problemReports.length, duplicate: dup };
+    }
     case 'search_all': {
       const q = String(body?.p_query ?? '').toLowerCase();
       const cap = body?.p_max_minutes;

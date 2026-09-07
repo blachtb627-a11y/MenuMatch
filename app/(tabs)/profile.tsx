@@ -106,7 +106,8 @@ export default function Profile() {
           </Section>
 
           <Section title="Trust and safety">
-            <Row icon="flag" label="Report a problem" />
+            <Row icon="flag" label="Report a problem"
+                 onPress={() => router.push('/report/problem')} />
             <Row icon="shield" label="Community Guidelines"
                  onPress={() => router.push('/legal/guidelines')} />
             <Row icon="file-text" label="Terms of Service"

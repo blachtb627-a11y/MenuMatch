@@ -130,9 +130,11 @@ function recipeSchema(categories: string[], tags: string[]) {
       // rather than shipped broken if the taxonomy lookup came back empty.
       ...(categories.length ? { category: { type: 'string', enum: categories } } : {}),
       cuisine: { type: 'string', description: 'e.g. Italian, Thai. Omit if unclear.' },
-      prepMinutes: { type: 'integer', minimum: 0, maximum: 6000 },
-      cookMinutes: { type: 'integer', minimum: 0, maximum: 6000 },
-      servings: { type: 'integer', minimum: 1, maximum: 100 },
+      // Strict tool use rejects minimum/maximum on an integer, so the ranges
+      // are enforced in normalise() on the way out instead.
+      prepMinutes: { type: 'integer', description: 'Minutes of hands-on prep.' },
+      cookMinutes: { type: 'integer', description: 'Minutes of cooking time.' },
+      servings: { type: 'integer', description: 'How many the recipe serves.' },
       difficulty: { type: 'string', enum: ['easy', 'medium', 'hard'] },
       ingredients: {
         type: 'array',
@@ -143,8 +145,8 @@ function recipeSchema(categories: string[], tags: string[]) {
           required: ['ingredient'],
           properties: {
             // Quantities stay exact fractions so 1/3 cup survives scaling.
-            numerator: { type: 'integer', minimum: 0 },
-            denominator: { type: 'integer', minimum: 1 },
+            numerator: { type: 'integer' },
+            denominator: { type: 'integer' },
             unit: { type: 'string', enum: UNITS },
             ingredient: { type: 'string' },
             note: { type: 'string', description: 'e.g. "finely chopped", "skin on".' },
@@ -310,6 +312,13 @@ Deno.serve(async (req) => {
   }
 });
 
+/** Bounds an integer, or drops it. Carries the ranges the schema cannot. */
+function intInRange(value: unknown, min: number, max: number): number | null {
+  if (!Number.isInteger(value)) return null;
+  const n = value as number;
+  return n < min || n > max ? null : n;
+}
+
 /** Reshapes the model's output into exactly what save_draft expects. */
 function normalise(input: Record<string, unknown>) {
   const ingredients = Array.isArray(input.ingredients) ? input.ingredients : [];
@@ -320,16 +329,14 @@ function normalise(input: Record<string, unknown>) {
     description: typeof input.description === 'string' ? input.description.slice(0, 1000) : '',
     category: typeof input.category === 'string' ? input.category : '',
     cuisine: typeof input.cuisine === 'string' ? input.cuisine : '',
-    prepMinutes: Number.isInteger(input.prepMinutes) ? input.prepMinutes : null,
-    cookMinutes: Number.isInteger(input.cookMinutes) ? input.cookMinutes : null,
-    servings: Number.isInteger(input.servings) ? input.servings : null,
+    prepMinutes: intInRange(input.prepMinutes, 0, 6000),
+    cookMinutes: intInRange(input.cookMinutes, 0, 6000),
+    servings: intInRange(input.servings, 1, 100),
     difficulty: typeof input.difficulty === 'string' ? input.difficulty : '',
     ingredients: ingredients.map((raw) => {
       const r = raw as Record<string, unknown>;
-      const numerator = Number.isInteger(r.numerator) ? (r.numerator as number) : null;
-      const denominator = Number.isInteger(r.denominator) && (r.denominator as number) > 0
-        ? (r.denominator as number)
-        : 1;
+      const numerator = intInRange(r.numerator, 0, 1_000_000);
+      const denominator = intInRange(r.denominator, 1, 1_000_000) ?? 1;
       return {
         quantity: numerator === null ? null : { numerator, denominator },
         unit: typeof r.unit === 'string' && UNITS.includes(r.unit) ? r.unit : '',

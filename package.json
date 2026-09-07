@@ -9,7 +9,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
-    "test": "tsc src/lib/quantity.ts src/lib/timers.ts src/lib/parseIngredients.ts --outDir dist-test --module esnext --target es2022 --moduleResolution bundler --strict && echo '{\"type\":\"module\"}' > dist-test/package.json && node --test tests/*.test.mjs",
+    "test": "tsc src/lib/quantity.ts src/lib/timers.ts src/lib/parseIngredients.ts src/lib/time.ts --outDir dist-test --module esnext --target es2022 --moduleResolution bundler --strict && echo '{\"type\":\"module\"}' > dist-test/package.json && node --test tests/*.test.mjs",
     "export:web": "expo export --platform web"
   },
   "dependencies": {

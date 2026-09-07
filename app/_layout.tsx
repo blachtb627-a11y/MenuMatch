@@ -28,6 +28,8 @@ export default function RootLayout() {
             <Stack.Screen name="collection/[id]" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="admin/index" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="admin/report/[id]" options={{ animation: 'slide_from_right' }} />
+            <Stack.Screen name="admin/users" options={{ animation: 'slide_from_right' }} />
+            <Stack.Screen name="admin/user/[id]" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="admin/appeals" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="admin/team" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="admin/audit" options={{ animation: 'slide_from_right' }} />

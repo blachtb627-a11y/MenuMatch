@@ -141,6 +141,9 @@ app/            expo-router screens
   recipe/[id]   detail with the serving scaler
   cook/[id]     Cook Mode
   report/[id]   §20.6 in-app reporting
+  compose/[id]  §15 composer, with AI recipe scan
+  collection/   §12 collection detail and management
+  admin/        §20.3 report queue, appeals, accounts, team, audit log
 src/
   lib/          supabase client, API, offline queue, quantity + timer logic
   state/        session (guest, pending save) and deck controller

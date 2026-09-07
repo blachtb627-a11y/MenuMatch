@@ -71,10 +71,12 @@ export default function AdminDashboard() {
               <View style={s.tiles}>
                 <StatTile label="Published" value={stats.publishedRecipes} />
                 <StatTile label="Removed" value={stats.removedRecipes} />
-                <StatTile label="Suspended" value={stats.suspendedUsers} />
+                <StatTile label="Accounts" value={stats.totalUsers} />
               </View>
 
               <View style={s.linkRow}>
+                <LinkCard icon="user" label="Accounts"
+                          onPress={() => router.push('/admin/users')} />
                 <LinkCard icon="message-square" label="Appeals"
                           count={stats.openAppeals} onPress={() => router.push('/admin/appeals')} />
                 <LinkCard icon="users" label="Team"

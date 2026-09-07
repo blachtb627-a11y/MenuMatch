@@ -23,6 +23,31 @@ const DEV = {
     { id: 'col2', name: 'Want to Try', visibility: 'private' },
   ],
   items: { col1: [], col2: [] },
+  adminUsers: [
+    { id: 'u-me', username: 'blachtb627', displayName: 'blachtb627',
+      email: 'blachtb627@gmail.com', status: 'active', isCreator: true,
+      isSeedAccount: false, deletedAt: null,
+      createdAt: '2026-01-04T10:00:00Z', lastActiveAt: new Date().toISOString(),
+      adminRole: 'super_admin', recipeCount: 4, saveCount: 21, strikes: 0, reportsAgainst: 0 },
+    { id: 'u2', username: 'sofia.reyes', displayName: 'Sofia Reyes',
+      email: 'sofia@example.com', status: 'active', isCreator: true,
+      isSeedAccount: false, deletedAt: null,
+      createdAt: '2026-03-11T10:00:00Z',
+      lastActiveAt: new Date(Date.now() - 3 * 864e5).toISOString(),
+      adminRole: null, recipeCount: 12, saveCount: 64, strikes: 0, reportsAgainst: 0 },
+    { id: 'u3', username: 'linkspammer', displayName: 'Deals Daily',
+      email: 'deals@example.com', status: 'active', isCreator: false,
+      isSeedAccount: false, deletedAt: null,
+      createdAt: '2026-08-30T10:00:00Z',
+      lastActiveAt: new Date(Date.now() - 40 * 6e4).toISOString(),
+      adminRole: null, recipeCount: 2, saveCount: 0, strikes: 1, reportsAgainst: 3 },
+    { id: 'u4', username: 'old.account', displayName: 'Marek Novak',
+      email: 'marek@example.com', status: 'suspended', isCreator: false,
+      isSeedAccount: false, deletedAt: null,
+      createdAt: '2025-11-02T10:00:00Z',
+      lastActiveAt: new Date(Date.now() - 200 * 864e5).toISOString(),
+      adminRole: null, recipeCount: 0, saveCount: 9, strikes: 2, reportsAgainst: 1 },
+  ],
 };
 
 function rpc(name, body) {
@@ -50,7 +75,7 @@ function rpc(name, body) {
     case 'unsave_recipe': return { saved: false, recipeId: body?.p_recipe_id };
     case 'record_cook':   return { recorded: true };
     case 'less_like_this':return { recorded: true };
-    case 'me':            return { id: '00000000-0000-4000-8000-0000000000bb',
+    case 'me':            return { id: 'u-me',
                                     username: 'devuser', displayName: 'Dev User',
                                     email: 'dev@example.com', savedCount: 0,
                                     isAdmin: true, adminRole: 'super_admin',
@@ -156,6 +181,46 @@ function rpc(name, body) {
         user: { username: 'someone', displayName: 'Someone' },
         action: { action: 'remove', reason: 'Unsafe canning', targetType: 'recipe', targetId: 'rec1' },
         sameModerator: true }];
+    case 'admin_users': {
+      const q = (body?.p_query ?? '').toLowerCase();
+      const st = body?.p_status ?? 'all';
+      const rows = DEV.adminUsers
+        .filter((u) => st === 'all' || u.status === st)
+        .filter((u) => !q || u.username.includes(q) || u.displayName.toLowerCase().includes(q)
+                       || (u.email ?? '').toLowerCase().includes(q));
+      return { total: rows.length, users: rows };
+    }
+    case 'admin_user_detail': {
+      const u = DEV.adminUsers.find((x) => x.id === body?.p_user_id) ?? DEV.adminUsers[0];
+      return {
+        ...u, bio: 'Weeknight cooking, mostly one pan.', ageBand: '18_plus',
+        counts: { recipes: u.recipeCount, published: u.recipeCount, saves: u.saveCount,
+                  cooks: 3, collections: 2, reportsFiled: 0, reportsAgainst: u.reportsAgainst },
+        recipes: u.recipeCount
+          ? [{ id: 'rec1', title: 'Charred cabbage with brown butter', status: 'published',
+               moderationState: 'clear', coverImageUrl: null,
+               createdAt: new Date().toISOString() }]
+          : [],
+        strikes: u.strikes
+          ? [{ reason: 'unsafe_food', createdAt: new Date().toISOString() }] : [],
+        reports: u.reportsAgainst
+          ? [{ id: 'r1', reason: 'spam', status: 'open', details: 'Posts the same link',
+               createdAt: new Date().toISOString(), targetType: 'user' }] : [],
+        moderationHistory: u.strikes
+          ? [{ action: 'warn', reason: 'Unsafe canning', targetType: 'user',
+               createdAt: new Date().toISOString(), moderator: 'blachtb627' }] : [],
+      };
+    }
+    case 'admin_set_user_status': {
+      const u = DEV.adminUsers.find((x) => x.id === body?.p_user_id);
+      if (u) u.status = body?.p_status;
+      return { ok: true, status: body?.p_status };
+    }
+    case 'admin_delete_user': {
+      const u = DEV.adminUsers.find((x) => x.id === body?.p_user_id);
+      if (u) { u.status = 'deleted'; u.deletedAt = new Date().toISOString(); }
+      return { ok: true, recipesDeleted: u?.recipeCount ?? 0 };
+    }
     case 'admin_list_admins': return [
       { userId: 'u-me', role: 'super_admin', createdAt: new Date().toISOString(),
         username: 'blachtb627', displayName: 'blachtb627',

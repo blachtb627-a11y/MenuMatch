@@ -30,6 +30,7 @@ export const colors = {
   textFaint: '#66766F',
 
   danger: '#D9635C',
+  dangerWash: 'rgba(217,99,92,0.14)',
   scrim: 'rgba(6,10,8,0.72)',
   overlay: 'rgba(6,10,8,0.92)',
 } as const;

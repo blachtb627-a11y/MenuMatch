@@ -54,6 +54,8 @@ export default function Profile() {
             <Section title="Moderation">
               <Row icon="shield" label="Moderation queue"
                    onPress={() => router.push('/admin')} />
+              <Row icon="user" label="Accounts"
+                   onPress={() => router.push('/admin/users')} />
               <Row icon="message-square" label="Appeals"
                    onPress={() => router.push('/admin/appeals')} />
               <Row icon="users" label="Team"

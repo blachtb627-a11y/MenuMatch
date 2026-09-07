@@ -1,5 +1,7 @@
 import { supabase } from './supabase';
 
+export { relativeTime } from './time';
+
 /** Client wrapper for the admin RPCs. Every one is role-gated server-side. */
 
 export type AdminRole = 'moderator' | 'content_admin' | 'super_admin';
@@ -105,4 +107,68 @@ export const ROLE_DESCRIPTIONS: Record<AdminRole, string> = {
   moderator: 'Reviews the report queue and takes action. No access to emails or roles.',
   content_admin: 'Everything a moderator can do, plus copyright complaints.',
   super_admin: 'Full access, including granting roles and reading the audit log.',
+};
+
+// ---------------------------------------------------------------- user admin
+
+export type UserStatus = 'active' | 'suspended' | 'banned' | 'deleted';
+
+export type AdminUserRow = {
+  id: string; username: string; displayName: string;
+  /** Only populated for super admins — §29 keeps PII off the moderator surface. */
+  email: string | null;
+  status: UserStatus; isCreator: boolean; isSeedAccount: boolean;
+  deletedAt: string | null; createdAt: string; lastActiveAt: string | null;
+  adminRole: AdminRole | null;
+  recipeCount: number; saveCount: number; strikes: number; reportsAgainst: number;
+};
+
+export type AdminUserPage = { total: number; users: AdminUserRow[] };
+
+export type AdminUserDetail = {
+  id: string; username: string; displayName: string; email: string | null;
+  bio: string | null; status: UserStatus; isCreator: boolean; isSeedAccount: boolean;
+  ageBand: string | null; createdAt: string; deletedAt: string | null;
+  lastActiveAt: string | null; adminRole: AdminRole | null;
+  counts: {
+    recipes: number; published: number; saves: number; cooks: number;
+    collections: number; reportsFiled: number; reportsAgainst: number;
+  };
+  recipes: {
+    id: string; title: string; status: string; moderationState: string;
+    coverImageUrl: string | null; createdAt: string;
+  }[];
+  strikes: { reason: string; createdAt: string }[];
+  reports: {
+    id: string; reason: string; status: string; details: string | null;
+    createdAt: string; targetType: string;
+  }[];
+  moderationHistory: {
+    action: string; reason: string | null; targetType: string;
+    createdAt: string; moderator: string | null;
+  }[];
+};
+
+export const adminUsers = (
+  query = '', status = 'all', limit = 50, offset = 0,
+) => rpc<AdminUserPage>('admin_users', {
+  p_query: query, p_status: status, p_limit: limit, p_offset: offset,
+});
+export const adminUserDetail = (id: string) =>
+  rpc<AdminUserDetail>('admin_user_detail', { p_user_id: id });
+export const adminSetUserStatus = (
+  id: string, status: 'active' | 'suspended' | 'banned', reason: string,
+) => rpc<{ ok: boolean; status: string }>('admin_set_user_status', {
+  p_user_id: id, p_status: status, p_reason: reason,
+});
+export const adminDeleteUser = (id: string, reason: string) =>
+  rpc<{ ok: boolean; recipesDeleted: number }>('admin_delete_user', {
+    p_user_id: id, p_reason: reason,
+  });
+
+export const STATUS_LABELS: Record<UserStatus, string> = {
+  active: 'Active',
+  suspended: 'Suspended',
+  banned: 'Banned',
+  deleted: 'Deleted',
 };

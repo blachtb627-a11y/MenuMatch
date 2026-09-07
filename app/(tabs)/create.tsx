@@ -8,6 +8,7 @@ import { Toast } from '@/components/Toast';
 import { Button, ConfirmDialog, EmptyState, Loading, Screen } from '@/components/ui';
 import { Header } from './cookbook';
 import { deleteRecipe, listMyRecipes, type RecipeSummary } from '@/lib/composer';
+import { formatCount } from '@/lib/search';
 import { formatTotalTime } from '@/lib/timers';
 import { colors, radius, space, type } from '@/theme';
 
@@ -103,6 +104,16 @@ export default function Create() {
                   {' · '}{item.stepCount} step{item.stepCount === 1 ? '' : 's'}
                   {item.totalMinutes ? ` · ${formatTotalTime(item.totalMinutes)}` : ''}
                 </Text>
+                {/* Only once live: a draft has no audience, so a zero there
+                    would read as failure rather than as not-yet. */}
+                {item.status === 'published' ? (
+                  <View style={s.saveCount}>
+                    <Feather name="bookmark" size={11} color={colors.mint} />
+                    <Text style={s.saveCountLabel}>
+                      {formatCount(item.saveCount ?? 0)} save{item.saveCount === 1 ? '' : 's'}
+                    </Text>
+                  </View>
+                ) : null}
               </View>
               <StatusPill status={item.status} />
               <Pressable onPress={() => setPendingDelete(item)} hitSlop={10}
@@ -156,6 +167,8 @@ const s = StyleSheet.create({
     borderWidth: 1, borderColor: colors.mintDeep,
   },
   rowTitleEmpty: { color: colors.textFaint, fontStyle: 'italic' },
+  saveCount: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 2 },
+  saveCountLabel: { fontSize: 11, fontWeight: '700', color: colors.mint },
   deleteBtn: { padding: space.xs, marginLeft: space.xs },
   scanTitle: { ...type.bodyStrong, color: colors.text },
   scanBody: { ...type.small, color: colors.textMuted, lineHeight: 17 },

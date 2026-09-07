@@ -11,6 +11,7 @@ import { Button, Disclaimer, EmptyState, Loading, Screen } from '@/components/ui
 import { fetchRecipe } from '@/lib/api';
 import { queueSave, queueUnsave, queueCook } from '@/lib/queue';
 import { renderIngredient } from '@/lib/quantity';
+import { formatCount } from '@/lib/search';
 import { formatTotalTime } from '@/lib/timers';
 import { useSession } from '@/state/session';
 import { colors, radius, space, type } from '@/theme';
@@ -130,6 +131,9 @@ export default function RecipeDetail() {
             <Pressable
               accessibilityRole="button"
               accessibilityLabel={`Creator ${recipe.creator.displayName}`}
+              // The row looked tappable and did nothing; it now opens the
+              // creator's page, which is where the rest of their work is.
+              onPress={() => router.push(`/creator/${recipe.creator.id}`)}
               style={s.creatorRow}
             >
               <View style={s.avatar}>
@@ -140,6 +144,14 @@ export default function RecipeDetail() {
               <Text style={s.creatorName}>{recipe.creator.displayName}</Text>
               {recipe.creator.isSeedAccount ? (
                 <View style={s.seedBadge}><Text style={s.seedBadgeLabel}>MENUMATCH</Text></View>
+              ) : null}
+              {/* §3's lexicon is Save, not Like — the count is of the same act
+                  the swipe records and the ranking reads. */}
+              {recipe.saveCount > 0 ? (
+                <View style={s.saveCount}>
+                  <Feather name="bookmark" size={12} color={colors.mint} />
+                  <Text style={s.saveCountLabel}>{formatCount(recipe.saveCount)}</Text>
+                </View>
               ) : null}
             </Pressable>
             {recipe.description ? <Text style={s.description}>{recipe.description}</Text> : null}
@@ -384,6 +396,12 @@ const s = StyleSheet.create({
   avatarLetter: { ...type.small, color: colors.mint, fontWeight: '700' },
   creatorName: { ...type.small, color: colors.text },
   seedBadge: { backgroundColor: colors.mintWash, paddingHorizontal: 7, paddingVertical: 3, borderRadius: radius.sm },
+  saveCount: {
+    flexDirection: 'row', alignItems: 'center', gap: 4, marginLeft: 'auto',
+    paddingHorizontal: space.sm, paddingVertical: 3,
+    borderRadius: radius.pill, backgroundColor: colors.mintWash,
+  },
+  saveCountLabel: { ...type.small, color: colors.mint, fontWeight: '700' },
   seedBadgeLabel: { fontSize: 9, fontWeight: '800', letterSpacing: 0.7, color: colors.mint },
   description: { ...type.body, color: colors.textMuted, lineHeight: 22 },
 

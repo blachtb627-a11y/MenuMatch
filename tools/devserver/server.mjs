@@ -28,13 +28,13 @@ const DEV = {
     { id: 'draft-1', title: 'Nonna\u2019s ragu', status: 'draft',
       coverImageUrl: 'http://localhost:8787/storage/v1/object/public/recipe-media/u-me/covers/ragu.jpg',
       totalMinutes: 210, updatedAt: new Date().toISOString(),
-      ingredientCount: 11, stepCount: 7 },
+      ingredientCount: 11, stepCount: 7, saveCount: 0 },
     { id: 'draft-2', title: '', status: 'draft', coverImageUrl: null,
       totalMinutes: 0, updatedAt: new Date().toISOString(),
-      ingredientCount: 0, stepCount: 0 },
+      ingredientCount: 0, stepCount: 0, saveCount: 0 },
     { id: 'pub-1', title: 'Charred cabbage with brown butter', status: 'published',
       coverImageUrl: null, totalMinutes: 35, updatedAt: new Date().toISOString(),
-      ingredientCount: 8, stepCount: 5 },
+      ingredientCount: 8, stepCount: 5, saveCount: 412 },
   ],
   adminUsers: [
     { id: 'u-me', username: 'blachtb627', displayName: 'blachtb627',
@@ -103,6 +103,42 @@ function rpc(name, body) {
                                     isAdmin: true, adminRole: 'super_admin',
                                     preferences: {} };
     case 'my_recipes':    return DEV.myRecipes;
+    case 'search_all': {
+      const q = String(body?.p_query ?? '').toLowerCase();
+      const cap = body?.p_max_minutes;
+      const creators = [
+        { id: 'u2', username: 'sofia.reyes', displayName: 'Sofia Reyes',
+          bio: 'Weeknight cooking, mostly one pan.', avatarUrl: null,
+          isSeedAccount: false, recipes: 12, saves: 1840 },
+        { id: 'u3', username: 'marco.rossi', displayName: 'Marco Rossi',
+          bio: null, avatarUrl: null, isSeedAccount: false, recipes: 3, saves: 12 },
+      ].filter((c) => c.username.includes(q) || c.displayName.toLowerCase().includes(q));
+      const recipes = [
+        { id: 'rec1', title: 'Charred cabbage with brown butter', coverImageUrl: null,
+          totalMinutes: 35, cuisine: 'British', saveCount: 412,
+          creator: { id: 'u2', username: 'sofia.reyes', displayName: 'Sofia Reyes' } },
+        { id: 'rec2', title: 'Slow ragu', coverImageUrl: null,
+          totalMinutes: 200, cuisine: 'Italian', saveCount: 7,
+          creator: { id: 'u3', username: 'marco.rossi', displayName: 'Marco Rossi' } },
+      ].filter((r) => (r.title.toLowerCase().includes(q)
+                       || r.cuisine.toLowerCase().includes(q)
+                       || r.creator.username.includes(q))
+                    && (!cap || r.totalMinutes <= cap));
+      return { recipes, creators };
+    }
+    case 'creator_profile': {
+      return {
+        id: body?.p_creator, username: 'sofia.reyes', displayName: 'Sofia Reyes',
+        bio: 'Weeknight cooking, mostly one pan.', avatarUrl: null,
+        isSeedAccount: false, joinedAt: '2026-03-11T10:00:00Z', saves: 1840,
+        recipes: [
+          { id: 'rec1', title: 'Charred cabbage with brown butter', coverImageUrl: null,
+            totalMinutes: 35, cuisine: 'British', saveCount: 412 },
+          { id: 'rec3', title: 'Lemon orzo', coverImageUrl: null,
+            totalMinutes: 25, cuisine: 'Greek', saveCount: 88 },
+        ],
+      };
+    }
     case 'delete_recipe': {
       const r = DEV.myRecipes.find((x) => x.id === body?.p_recipe_id);
       if (!r) throw new Error('recipe not found');

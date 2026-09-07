@@ -26,6 +26,7 @@ export default function RootLayout() {
             <Stack.Screen name="recipe/[id]" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="compose/[id]" options={{ animation: 'slide_from_bottom' }} />
             <Stack.Screen name="collection/[id]" options={{ animation: 'slide_from_right' }} />
+            <Stack.Screen name="creator/[id]" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="admin/index" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="admin/report/[id]" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="admin/users" options={{ animation: 'slide_from_right' }} />

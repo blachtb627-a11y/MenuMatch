@@ -42,6 +42,8 @@ export type RecipeSummary = {
   id: string; title: string; status: string;
   coverImageUrl: string | null; totalMinutes: number;
   updatedAt: string; ingredientCount: number; stepCount: number;
+  /** Saves this recipe has collected. Zero until it is published. */
+  saveCount: number;
 };
 
 export async function saveDraft(draft: Draft): Promise<{ id: string; savedAt: string }> {

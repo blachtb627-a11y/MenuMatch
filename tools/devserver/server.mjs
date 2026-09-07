@@ -564,6 +564,39 @@ createServer((req, res) => {
           message: 'Recipe scanning is not set up yet. An ANTHROPIC_API_KEY secret needs to be added to this project.',
         }));
       }
+      // Dish mode is the same endpoint with a different prompt behind it, so
+      // the mock answers on the same shape and only the content differs.
+      if (body?.mode === 'dish') {
+        res.writeHead(200, cors);
+        return res.end(JSON.stringify({ recipe: {
+          title: 'Charred cabbage with brown butter',
+          description: 'Wedges roasted hard until the edges catch, finished in nutty butter.',
+          category: 'dinner', cuisine: 'British',
+          prepMinutes: 10, cookMinutes: 30, servings: 2, difficulty: 'easy',
+          ingredients: [
+            '1 small green cabbage, cut into 6 wedges',
+            '3 tbsp unsalted butter',
+            '1 tbsp olive oil',
+            '1 tbsp lemon juice',
+            'sea salt and black pepper',
+          ],
+          steps: [
+            'Heat the oven to 220C.',
+            'Rub the cabbage wedges with the oil and season them well.',
+            'Roast cut side down for 25 minutes, until the edges are blackened.',
+            'Brown the butter in a small pan until it smells nutty, about 3 minutes.',
+            'Stir the lemon juice into the butter and spoon it over the cabbage.',
+          ],
+          tags: ['vegetarian'],
+          nutrition: { perServing: true, calories: 265, proteinG: 4,
+                       carbsG: 14, fatG: 22, source: 'estimated' },
+          estimated: ['description','category','cuisine','prepMinutes','cookMinutes',
+                      'servings','difficulty','tags','nutrition'],
+          mode: 'dish',
+          confidence: 'medium',
+          notes: 'There may be an anchovy or a stock in the butter I cannot see.',
+        } }));
+      }
       res.writeHead(200, cors);
       return res.end(JSON.stringify({ recipe: {
         title: 'Nonna\u2019s Sunday Ragu',
@@ -590,6 +623,7 @@ createServer((req, res) => {
         // into "we estimated X and Y".
         estimated: ['description', 'cuisine', 'servings', 'difficulty',
                     'tags', 'nutrition'],
+        mode: 'page',
         confidence: 'medium',
         notes: '',
       } }));

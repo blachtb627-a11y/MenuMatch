@@ -186,9 +186,18 @@ export type ScannedRecipe = Omit<Partial<Draft>, 'ingredients'> & {
    * the same text box.
    */
   estimated: ScannedField[];
+  /** Which prompt produced this: a written page, or a photograph of the dish. */
+  mode: ScanMode;
   confidence: 'high' | 'medium' | 'low';
   notes: string;
 };
+
+/**
+ * `page` reads a recipe someone wrote down; `dish` reconstructs one from a
+ * photograph of the finished food. Same endpoint, because everything except
+ * the prompt is shared — auth, CORS, the schema, the normalising.
+ */
+export type ScanMode = 'page' | 'dish';
 
 export type ScannedField =
   | 'description' | 'category' | 'cuisine' | 'prepMinutes' | 'cookMinutes'
@@ -245,7 +254,7 @@ export class ScanError extends Error {
  * no server-side trace. Three headers, chosen here, cannot drift.
  */
 export async function scanRecipe(image: {
-  base64: string; mimeType: string;
+  base64: string; mimeType: string; mode?: ScanMode;
 }): Promise<ScannedRecipe> {
   const bytes = Math.round(image.base64.length * 0.75);
   if (bytes > MAX_SCAN_BYTES) {
@@ -270,7 +279,11 @@ export async function scanRecipe(image: {
         apikey: SUPABASE_KEY,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ imageBase64: image.base64, mimeType: image.mimeType }),
+      body: JSON.stringify({
+        imageBase64: image.base64,
+        mimeType: image.mimeType,
+        mode: image.mode ?? 'page',
+      }),
       signal: controller.signal,
     });
   } catch (e) {
@@ -308,5 +321,9 @@ export async function scanRecipe(image: {
   // that as "nothing was estimated" would quietly promote guesses to readings,
   // so an absent list becomes an empty one and the caller says nothing rather
   // than something false.
-  return { ...payload.recipe, estimated: payload.recipe.estimated ?? [] };
+  return {
+    ...payload.recipe,
+    estimated: payload.recipe.estimated ?? [],
+    mode: payload.recipe.mode ?? image.mode ?? 'page',
+  };
 }

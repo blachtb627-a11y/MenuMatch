@@ -15,7 +15,7 @@ import {
   deleteRecipe, describeEstimates, emptyDraft, estimateNutrition, getDraft,
   publishRecipe, saveDraft,
   scanRecipe, ScanError, unpublishRecipe,
-  type Draft, type DraftIngredient,
+  type Draft, type DraftIngredient, type ScanMode,
 } from '@/lib/composer';
 import { parseIngredientList, parseSteps } from '@/lib/parseIngredients';
 import {
@@ -175,8 +175,11 @@ export default function Compose() {
     }
   }
 
-  /** Scan the creator's own written recipe and fill the fields for review. */
-  async function runScan(source: 'library' | 'camera') {
+  /**
+   * Fills the composer from a photograph — of the recipe as written, or of the
+   * finished dish, which is the same request with a different prompt behind it.
+   */
+  async function runScan(source: 'library' | 'camera', mode: ScanMode = 'page') {
     setScanNote(null);
     setScanError(null);
     let picked;
@@ -198,15 +201,31 @@ export default function Compose() {
       const scanned = await scanRecipe({
         base64: await readAsBase64(small),
         mimeType: small.mimeType,
+        mode,
       });
 
       const parsed = parseIngredientList((scanned.ingredients ?? []).join('\n'));
       const ingredients = parsed.length ? parsed : draft!.ingredients;
       const steps = (scanned.steps ?? []).length ? scanned.steps! : draft!.steps;
 
+      // A photograph of the dish is already the picture this recipe wants on
+      // its card, so it becomes the cover instead of being thrown away — the
+      // scan version is downscaled for the model, so the cover is uploaded
+      // from the original. A written page is never a cover, and is discarded.
+      let cover: string | null = null;
+      if (mode === 'dish' && !draft!.coverImageUrl) {
+        setScanStage('Saving the photo…');
+        try {
+          cover = await uploadImage(await downscale(picked, COVER_EDGE), 'covers');
+        } catch {
+          // A cover that failed to upload is not worth losing the scan over.
+        }
+      }
+
       dirty.current = true;
       setDraft((d) => (d ? {
         ...d,
+        coverImageUrl: cover ?? d.coverImageUrl,
         title: scanned.title || d.title,
         description: scanned.description || d.description,
         category: scanned.category || d.category,
@@ -229,11 +248,19 @@ export default function Compose() {
       // turns "check everything" — which nobody does — into a short list.
       const guessed = describeEstimates(scanned.estimated);
       setScanNote(
-        scanned.confidence === 'low'
-          ? `Some of that was hard to read${scanned.notes ? `: ${scanned.notes}` : ''}. Check every field before publishing.`
-          : guessed
-            ? `Scanned. We estimated ${guessed} — worth a look before you publish.`
-            : 'Scanned, straight off the page. Check it over before publishing.',
+        mode === 'dish'
+          // Nothing here was read off anything, so naming individual estimated
+          // fields would understate it. The whole recipe is a proposal.
+          ? `This is our best guess at how that was made — every line of it, `
+            + `including the ingredients and the method. Go through it and `
+            + `correct anything that is not how you cooked it.`
+            + (scanned.notes ? ` We were unsure about: ${scanned.notes}` : '')
+            + (cover ? ' Your photo is now the cover.' : '')
+          : scanned.confidence === 'low'
+            ? `Some of that was hard to read${scanned.notes ? `: ${scanned.notes}` : ''}. Check every field before publishing.`
+            : guessed
+              ? `Scanned. We estimated ${guessed} — worth a look before you publish.`
+              : 'Scanned, straight off the page. Check it over before publishing.',
       );
     } catch (e) {
       if (e instanceof ScanError && e.code === 'not_configured') {
@@ -376,6 +403,25 @@ export default function Compose() {
                         onPress={() => void runScan('camera')} disabled={scanning} />
                 <Button label="Choose an image" variant="secondary"
                         onPress={() => void runScan('library')} disabled={scanning} />
+              </View>
+
+              {/* Kept as a second action inside the same card rather than a
+                  card of its own: it is the same "fill this in for me", and a
+                  creator picks between them by what they have to hand. */}
+              <View style={s.scanAlt}>
+                <Text style={s.scanAltTitle}>Didn't write it down?</Text>
+                <Text style={s.scanBody}>
+                  Photograph the finished dish instead and we'll work backwards
+                  to a recipe — ingredients, amounts and method, all of it a
+                  guess for you to correct. Your photo becomes the cover.
+                </Text>
+                <View style={{ flexDirection: 'row', gap: space.sm, flexWrap: 'wrap' }}>
+                  <Button label={scanning ? 'Reading…' : 'Photograph the dish'}
+                          variant="secondary" disabled={scanning}
+                          onPress={() => void runScan('camera', 'dish')} />
+                  <Button label="Choose a photo" variant="ghost" disabled={scanning}
+                          onPress={() => void runScan('library', 'dish')} />
+                </View>
               </View>
               {/* The buttons stay: this is a server-side switch that can be
                   turned on at any moment, and hiding them would mean reloading
@@ -831,6 +877,11 @@ const s = StyleSheet.create({
   scanBody: { ...type.small, color: colors.textMuted, lineHeight: 19 },
   scanBusy: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
   scanBusyLabel: { ...type.small, color: colors.textMuted },
+  scanAlt: {
+    gap: space.sm, marginTop: space.sm, paddingTop: space.lg,
+    borderTopWidth: 1, borderTopColor: colors.border,
+  },
+  scanAltTitle: { ...type.bodyStrong, color: colors.text },
   scanNote: { ...type.small, color: colors.mint, lineHeight: 18 },
 
   coverPicker: {

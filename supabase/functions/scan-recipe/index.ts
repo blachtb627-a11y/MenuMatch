@@ -324,6 +324,68 @@ you could not read cleanly is low, with what was unclear in notes.
 If the image is not a recipe, return empty ingredients and steps with confidence
 "low".`;
 
+/**
+ * Reading a finished dish is not the same job as reading a page, and the two
+ * prompts have to disagree.
+ *
+ * A written recipe has a source to be faithful to, so the rule there is "copy
+ * exactly, add nothing". A photograph of dinner has no source at all: the
+ * ingredients, the amounts and the method are all reconstruction. Handing the
+ * page prompt a plate would produce a confident transcription of something
+ * nobody wrote.
+ */
+const SYSTEM_DISH = `You are looking at a photograph of a finished dish, taken by
+the person who cooked it. Reconstruct a recipe that would produce what you can
+see, for them to correct.
+
+Everything you return here is inference. There is no written source, so nothing
+is being transcribed — you are proposing a recipe, and the cook reviews every
+line of it before anything is published. A specific, plausible recipe they can
+correct is far more use than a vague one that avoids committing.
+
+WHAT THE DISH IS.
+Name it the way a cook would write it on their own recipe — "Charred cabbage
+with brown butter", not "Vegetable Dish". Say what you can actually see, and do
+not claim a regional specificity the photograph does not support: if it could
+be one of several closely related dishes, choose the plainest name that is true.
+
+INGREDIENTS.
+List what the dish visibly contains, plus what it must contain to look like
+that — a glossy pan sauce implies fat and an acid, a crumb implies a binder.
+Give a real amount and unit for every line, sized to the serving count you
+choose. "Some olive oil" is not usable; "2 tbsp olive oil" is. Order them the
+way a cook would shop for them: the main components first, seasonings last.
+Do not invent an ingredient you cannot see and the dish does not require.
+
+METHOD.
+Write the steps that produce it, one action per step, imperative and present
+tense — the same shape as any other recipe in this app.
+- Give real times and temperatures. A method without them cannot be cooked.
+- Where an ingredient carries a food-safety threshold, state it: poultry cooked
+  through, pork and mince to temperature, eggs set unless the dish is meant to
+  be soft. Never leave that to inference, and never soften it.
+- Do not pad. A dish that is genuinely six steps should not be written as
+  twelve.
+
+EVERYTHING ELSE.
+Fill in times, servings, difficulty, cuisine, category, tags, a headnote and
+per-serving nutrition, exactly as you would for a written recipe. Base them on
+the reconstruction you just produced, so the numbers and the ingredient list
+agree with each other.
+
+CONFIDENCE.
+Here it means how sure you are of the dish, not how legible anything was. High
+only when the dish is unmistakable and its components are visible. Medium when
+you have the category right but the specifics are open — which sauce, which
+cut, which spice. Low when the photograph is dark, partial, or could be several
+different things. Put what you were unsure of in notes: "could be pork or
+veal", "there may be a stock in the sauce I cannot see". That note is the most
+useful thing you produce, because it tells the cook exactly where to look
+first.
+
+If the photograph is not food, return empty ingredients and steps with
+confidence "low".`;
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return preflight(req);
   if (req.method !== 'POST') return json({ error: 'POST only' }, 405);
@@ -349,7 +411,10 @@ Deno.serve(async (req) => {
   const authHeader = req.headers.get('Authorization') ?? '';
   if (!subjectOf(authHeader)) return json({ error: 'unauthorized' }, 401);
 
-  let payload: { imageUrl?: string; imageBase64?: string; mimeType?: string };
+  let payload: {
+    imageUrl?: string; imageBase64?: string; mimeType?: string;
+    mode?: 'page' | 'dish';
+  };
   try {
     payload = await req.json();
   } catch {
@@ -362,6 +427,9 @@ Deno.serve(async (req) => {
   // oversized image is the first thing to check when one hangs.
   const started = Date.now();
   const imageKb = Math.round((payload.imageBase64?.length ?? 0) * 0.75 / 1024);
+  // Anything other than an explicit 'dish' reads as a written page, so an old
+  // client that does not know about modes keeps its existing behaviour.
+  const mode: 'page' | 'dish' = payload.mode === 'dish' ? 'dish' : 'page';
 
   const { categories, tags } = await taxonomy(authHeader);
 
@@ -405,7 +473,7 @@ Deno.serve(async (req) => {
       return res;
     },
   });
-  console.log(`scan-recipe: ${imageKb}kb image, config loaded at ${Date.now() - started}ms`);
+  console.log(`scan-recipe: ${mode} mode, ${imageKb}kb image, config loaded at ${Date.now() - started}ms`);
 
   try {
     // Streamed so a longer recipe cannot trip the request timeout, then
@@ -416,10 +484,12 @@ Deno.serve(async (req) => {
       // Reading the page is the whole task, so reasoning about it first is pure
       // latency. Only sent to models that accept these parameters.
       ...tuning,
-      system: SYSTEM,
+      system: mode === 'dish' ? SYSTEM_DISH : SYSTEM,
       tools: [{
         name: 'record_recipe',
-        description: 'Records the recipe transcribed from the image.',
+        description: mode === 'dish'
+          ? 'Records the recipe reconstructed from a photograph of the dish.'
+          : 'Records the recipe transcribed from the image.',
         input_schema: recipeSchema(categories, tags),
         // Guarantees the arguments validate against the schema exactly.
         strict: true,
@@ -430,7 +500,9 @@ Deno.serve(async (req) => {
           { type: 'image', source: image },
           {
             type: 'text',
-            text: 'Transcribe this recipe and record it by calling record_recipe.',
+            text: mode === 'dish'
+              ? 'Work out how this dish was made and record it by calling record_recipe.'
+              : 'Transcribe this recipe and record it by calling record_recipe.',
           },
         ],
       }],
@@ -451,9 +523,9 @@ Deno.serve(async (req) => {
       }, 422);
     }
 
-    console.log(`scan-recipe ok: ${MODEL}, ${imageKb}kb image, ${Date.now() - started}ms, ` +
+    console.log(`scan-recipe ok: ${mode}, ${MODEL}, ${imageKb}kb image, ${Date.now() - started}ms, ` +
       `${response.usage.input_tokens} in / ${response.usage.output_tokens} out`);
-    return json({ recipe: normalise(call.input as Record<string, unknown>) });
+    return json({ recipe: normalise(call.input as Record<string, unknown>, mode) });
   } catch (e) {
     const message = e instanceof Error ? e.message : 'Unknown error';
     console.error(`scan-recipe failed after ${Date.now() - started}ms ` +
@@ -501,15 +573,18 @@ function intInRange(value: unknown, min: number, max: number): number | null {
 }
 
 /** Reshapes the model's output into exactly what save_draft expects. */
-function normalise(input: Record<string, unknown>) {
+function normalise(input: Record<string, unknown>, mode: 'page' | 'dish') {
   const ingredients = Array.isArray(input.ingredients) ? input.ingredients : [];
   const steps = Array.isArray(input.steps) ? input.steps : [];
-  // Filtered against the known field names: this drives what the composer tells
-  // the creator to check, and a stray value would name a field that is not on
-  // the screen.
-  const estimated = (Array.isArray(input.estimated) ? input.estimated : [])
-    .filter((f): f is string => typeof f === 'string'
-      && (ESTIMABLE as readonly string[]).includes(f));
+  // From a dish there is nothing to have read, so every field is estimated by
+  // construction and the model is not asked to be the judge of that. From a
+  // page its answer is filtered against the known names, because a stray value
+  // would tell the creator to check a field that is not on the screen.
+  const estimated = mode === 'dish'
+    ? [...ESTIMABLE]
+    : (Array.isArray(input.estimated) ? input.estimated : [])
+        .filter((f): f is string => typeof f === 'string'
+          && (ESTIMABLE as readonly string[]).includes(f));
 
   return {
     title: typeof input.title === 'string' ? input.title.slice(0, 100) : '',
@@ -531,6 +606,7 @@ function normalise(input: Record<string, unknown>) {
     tags: Array.isArray(input.tags) ? input.tags.filter((t) => typeof t === 'string') : [],
     nutrition: nutritionOf(input.nutrition, estimated.includes('nutrition')),
     estimated,
+    mode,
     confidence: typeof input.confidence === 'string' ? input.confidence : 'medium',
     notes: typeof input.notes === 'string' ? input.notes : '',
   };

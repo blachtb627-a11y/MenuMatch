@@ -285,12 +285,37 @@ Deno.serve(async (req) => {
       }
     : { type: 'url' as const, url: payload.imageUrl! };
 
+  /**
+   * Every HTTP attempt is logged, not just the outcome. Two scans with
+   * identical input have differed by 2.5x in wall time, which no amount of
+   * token counting explains — but a 429 and the SDK's backoff would, and that
+   * is invisible from the outside.
+   *
+   * The response streams, so this fetch resolves at the first byte: the number
+   * below is time-to-first-token, and the gap between it and the total is
+   * generation. Which of the two moves tells you where a slow scan went.
+   */
+  let attempt = 0;
   const anthropic = new Anthropic({
     apiKey,
     timeout: MODEL_TIMEOUT_MS,
-    // A retry storm inside a worker that is already against the clock turns one
-    // slow call into a guaranteed timeout.
+    // A retry storm inside a worker already against the clock turns one slow
+    // call into a guaranteed timeout.
     maxRetries: 1,
+    fetch: async (url: string | URL | Request, init?: RequestInit) => {
+      const n = ++attempt;
+      const at = Date.now();
+      const res = await fetch(url as string, init);
+      const remaining = res.headers.get('anthropic-ratelimit-input-tokens-remaining');
+      const retryAfter = res.headers.get('retry-after');
+      console.log(
+        `scan-recipe: attempt ${n} -> ${res.status}, first byte ${Date.now() - at}ms`
+        + (retryAfter ? `, retry-after ${retryAfter}s` : '')
+        + (remaining ? `, input-tokens-remaining ${remaining}` : '')
+        + `, req ${res.headers.get('request-id') ?? '?'}`,
+      );
+      return res;
+    },
   });
   console.log(`scan-recipe: ${imageKb}kb image, config loaded at ${Date.now() - started}ms`);
 

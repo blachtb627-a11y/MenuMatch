@@ -6,12 +6,16 @@ import { newOpaqueId } from './device';
 const BUCKET = 'recipe-media';
 
 /**
- * Long-edge cap for an image sent to the model. Well under the point where
- * Claude downscales it anyway, so the pixels cost upload time and image tokens
- * without buying accuracy on printed or handwritten text. A 4000px photo
- * base64-encoded into a JSON body is what made scanning hang in the first place.
+ * Long-edge cap for an image sent to the model.
+ *
+ * Image tokens go roughly as area, and at 1280px the photograph was about half
+ * the whole request — 1600 of 3094 input tokens. 1024px is still comfortably
+ * legible for printed and handwritten recipe text and costs about a third
+ * less, which is a third less to upload, to process, and to count against a
+ * rate limit. A 4000px photo base64-encoded into a JSON body is what made
+ * scanning hang in the first place.
  */
-const SCAN_MAX_EDGE = 1280;
+const SCAN_MAX_EDGE = 1024;
 
 /** Cover photos are displayed, so they keep more detail than a scan needs. */
 const COVER_MAX_EDGE = 2048;

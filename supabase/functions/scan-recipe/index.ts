@@ -12,7 +12,18 @@
 import Anthropic from 'npm:@anthropic-ai/sdk@^0.70';
 import { createClient } from 'npm:@supabase/supabase-js@^2';
 
-const MODEL = 'claude-opus-5';
+// Sonnet over Opus deliberately: this is transcription from a clear photo, not
+// reasoning, and the edge runtime kills a worker on wall-clock time — a scan
+// that returns in a few seconds beats a slightly better one that never returns.
+const MODEL = 'claude-sonnet-5';
+
+/**
+ * Hard ceiling on the model call. The platform terminates the worker on wall
+ * clock with no chance to reply, which is what made scans hang forever with
+ * nothing in the logs; failing our own deadline first turns that into an error
+ * the creator can actually see.
+ */
+const MODEL_TIMEOUT_MS = 45_000;
 
 // Mirrors the measurement_unit enum. Anything outside this set is dropped.
 const UNITS = [
@@ -57,6 +68,54 @@ function preflight(req: Request): Response {
   });
 }
 
+/** The `sub` claim, without verifying — the gateway already did that. */
+function subjectOf(authHeader: string): string | null {
+  const token = authHeader.replace(/^Bearer /i, '');
+  const body = token.split('.')[1];
+  if (!body) return null;
+  try {
+    const pad = body.replace(/-/g, '+').replace(/_/g, '/');
+    const claims = JSON.parse(atob(pad + '='.repeat((4 - pad.length % 4) % 4)));
+    return typeof claims.sub === 'string' ? claims.sub : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Categories and tags are backend-configured (§6), so the allowed values come
+ * from the database rather than being frozen into this function — but they
+ * change rarely, so a warm worker reuses them instead of paying two round trips
+ * on every scan. A lookup failure falls back to the last known good set rather
+ * than failing the scan.
+ */
+let taxonomyCache: { at: number; categories: string[]; tags: string[] } | null = null;
+const TAXONOMY_TTL_MS = 10 * 60 * 1000;
+
+async function taxonomy(authHeader: string) {
+  if (taxonomyCache && Date.now() - taxonomyCache.at < TAXONOMY_TTL_MS) return taxonomyCache;
+  try {
+    const supabase = createClient(
+      Deno.env.get('SUPABASE_URL')!,
+      Deno.env.get('SUPABASE_ANON_KEY')!,
+      { global: { headers: { Authorization: authHeader } } },
+    );
+    const [{ data: cats }, { data: tagRows }] = await Promise.all([
+      supabase.from('categories').select('slug').eq('is_enabled', true),
+      supabase.from('tags').select('slug').in('type', ['dietary', 'equipment', 'occasion']),
+    ]);
+    taxonomyCache = {
+      at: Date.now(),
+      categories: (cats ?? []).map((c: { slug: string }) => c.slug)
+        .filter((slug: string) => !['for_you', 'following'].includes(slug)),
+      tags: (tagRows ?? []).map((t: { slug: string }) => t.slug),
+    };
+  } catch {
+    taxonomyCache ??= { at: Date.now(), categories: [], tags: [] };
+  }
+  return taxonomyCache;
+}
+
 function recipeSchema(categories: string[], tags: string[]) {
   return {
     type: 'object',
@@ -69,7 +128,9 @@ function recipeSchema(categories: string[], tags: string[]) {
         description:
           'A one or two sentence headnote, only if the source has one. Do not invent one.',
       },
-      category: { type: 'string', enum: categories },
+      // An empty enum is not a valid schema, so the field is dropped entirely
+      // rather than shipped broken if the taxonomy lookup came back empty.
+      ...(categories.length ? { category: { type: 'string', enum: categories } } : {}),
       cuisine: { type: 'string', description: 'e.g. Italian, Thai. Omit if unclear.' },
       prepMinutes: { type: 'integer', minimum: 0, maximum: 6000 },
       cookMinutes: { type: 'integer', minimum: 0, maximum: 6000 },
@@ -97,7 +158,7 @@ function recipeSchema(categories: string[], tags: string[]) {
         description: 'One entry per instruction step, in order.',
         items: { type: 'string' },
       },
-      tags: { type: 'array', items: { type: 'string', enum: tags } },
+      ...(tags.length ? { tags: { type: 'array', items: { type: 'string', enum: tags } } } : {}),
       confidence: {
         type: 'string',
         enum: ['high', 'medium', 'low'],
@@ -148,14 +209,11 @@ Deno.serve(async (req) => {
   }
 
   // The caller must be a signed-in user; this endpoint costs money to run.
+  // The gateway has already verified the signature (verify_jwt), so reading the
+  // subject out of the token is enough — and unlike auth.getUser() it is not a
+  // network call, which matters inside a worker that is racing a wall clock.
   const authHeader = req.headers.get('Authorization') ?? '';
-  const supabase = createClient(
-    Deno.env.get('SUPABASE_URL')!,
-    Deno.env.get('SUPABASE_ANON_KEY')!,
-    { global: { headers: { Authorization: authHeader } } },
-  );
-  const { data: auth } = await supabase.auth.getUser();
-  if (!auth?.user) return json({ error: 'unauthorized' }, 401);
+  if (!subjectOf(authHeader)) return json({ error: 'unauthorized' }, 401);
 
   let payload: { imageUrl?: string; imageBase64?: string; mimeType?: string };
   try {
@@ -171,15 +229,7 @@ Deno.serve(async (req) => {
   const started = Date.now();
   const imageKb = Math.round((payload.imageBase64?.length ?? 0) * 0.75 / 1024);
 
-  // Categories and tags are backend-configured (§6), so the allowed values come
-  // from the database rather than being frozen into this function.
-  const [{ data: cats }, { data: tagRows }] = await Promise.all([
-    supabase.from('categories').select('slug').eq('is_enabled', true),
-    supabase.from('tags').select('slug').in('type', ['dietary', 'equipment', 'occasion']),
-  ]);
-  const categories = (cats ?? []).map((c: { slug: string }) => c.slug)
-    .filter((s: string) => !['for_you', 'following'].includes(s));
-  const tags = (tagRows ?? []).map((t: { slug: string }) => t.slug);
+  const { categories, tags } = await taxonomy(authHeader);
 
   const image = payload.imageBase64
     ? {
@@ -189,7 +239,14 @@ Deno.serve(async (req) => {
       }
     : { type: 'url' as const, url: payload.imageUrl! };
 
-  const anthropic = new Anthropic({ apiKey });
+  const anthropic = new Anthropic({
+    apiKey,
+    timeout: MODEL_TIMEOUT_MS,
+    // A retry storm inside a worker that is already against the clock turns one
+    // slow call into a guaranteed timeout.
+    maxRetries: 1,
+  });
+  console.log(`scan-recipe: ${imageKb}kb image, config loaded at ${Date.now() - started}ms`);
 
   try {
     // Streamed so a longer recipe cannot trip the request timeout, then
@@ -198,8 +255,8 @@ Deno.serve(async (req) => {
       model: MODEL,
       max_tokens: 8000,
       // Transcription is mechanical: reading the page is the whole task, so
-      // reasoning about it first only adds latency. Opus 5 thinks by default,
-      // hence turning it off explicitly.
+      // reasoning about it first only adds latency. These models think by
+      // default, hence turning it off explicitly.
       thinking: { type: 'disabled' },
       output_config: { effort: 'low' },
       system: SYSTEM,
@@ -221,6 +278,7 @@ Deno.serve(async (req) => {
         ],
       }],
     }).finalMessage();
+    console.log(`scan-recipe: model replied at ${Date.now() - started}ms`);
 
     if (response.stop_reason === 'refusal') {
       return json({ error: 'refused', message: 'That image could not be processed.' }, 422);
@@ -243,7 +301,13 @@ Deno.serve(async (req) => {
     const message = e instanceof Error ? e.message : 'Unknown error';
     console.error(`scan-recipe failed after ${Date.now() - started}ms ` +
       `on a ${imageKb}kb image:`, message);
-    return json({ error: 'scan_failed', message }, 502);
+    const timedOut = /timeout|timed out|aborted/i.test(message);
+    return json({
+      error: timedOut ? 'model_timeout' : 'scan_failed',
+      message: timedOut
+        ? 'The scanner took too long to read that photo. Try a clearer, straight-on shot.'
+        : message,
+    }, timedOut ? 504 : 502);
   }
 });
 

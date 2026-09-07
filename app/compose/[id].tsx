@@ -48,6 +48,7 @@ export default function Compose() {
   const [pasteOpen, setPasteOpen] = useState<'ingredients' | 'steps' | null>(null);
   const [scanning, setScanning] = useState(false);
   const [scanStage, setScanStage] = useState('');
+  const [scanSeconds, setScanSeconds] = useState(0);
   const [scanError, setScanError] = useState<string | null>(null);
   const [scanNote, setScanNote] = useState<string | null>(null);
   // Set once the server says scanning has no API key configured. Retrying would
@@ -105,6 +106,15 @@ export default function Compose() {
     const t = setInterval(() => { if (dirty.current) void persist(); }, AUTOSAVE_MS);
     return () => clearInterval(t);
   }, [persist]);
+
+  // A count-up is the difference between "still working" and "frozen".
+  useEffect(() => {
+    if (!scanning) { setScanSeconds(0); return; }
+    const startedAt = Date.now();
+    const t = setInterval(
+      () => setScanSeconds(Math.round((Date.now() - startedAt) / 1000)), 1000);
+    return () => clearInterval(t);
+  }, [scanning]);
 
   const update = useCallback((patch: Partial<Draft>) => {
     dirty.current = true;
@@ -287,7 +297,10 @@ export default function Compose() {
               {scanning ? (
                 <View style={s.scanBusy}>
                   <ActivityIndicator color={colors.mint} size="small" />
-                  <Text style={s.scanBusyLabel}>{scanStage || 'Reading the photo…'}</Text>
+                  <Text style={s.scanBusyLabel}>
+                    {scanStage || 'Reading the photo…'}
+                    {scanSeconds > 3 ? `  ${scanSeconds}s` : ''}
+                  </Text>
                 </View>
               ) : null}
               {scanNote ? <Text style={s.scanNote}>{scanNote}</Text> : null}

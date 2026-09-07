@@ -6,12 +6,12 @@ import { newOpaqueId } from './device';
 const BUCKET = 'recipe-media';
 
 /**
- * Long-edge cap for an image sent to the model. Claude downscales anything
- * larger than this itself, so the extra pixels buy no accuracy and cost upload
- * time on a phone connection — which is what made scanning hang: a 4000px
- * photo, base64-encoded into a JSON body, never finished uploading.
+ * Long-edge cap for an image sent to the model. Well under the point where
+ * Claude downscales it anyway, so the pixels cost upload time and image tokens
+ * without buying accuracy on printed or handwritten text. A 4000px photo
+ * base64-encoded into a JSON body is what made scanning hang in the first place.
  */
-const SCAN_MAX_EDGE = 1568;
+const SCAN_MAX_EDGE = 1280;
 
 /** Cover photos are displayed, so they keep more detail than a scan needs. */
 const COVER_MAX_EDGE = 2048;

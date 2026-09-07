@@ -102,7 +102,7 @@ export type ScannedRecipe = Partial<Draft> & {
 };
 
 /** Long enough for a slow uplink, short enough not to look frozen. */
-const SCAN_TIMEOUT_MS = 90_000;
+const SCAN_TIMEOUT_MS = 60_000;
 
 /** Anything above this never reaches the function, so say so rather than hang. */
 const MAX_SCAN_BYTES = 4 * 1024 * 1024;

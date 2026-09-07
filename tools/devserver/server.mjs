@@ -368,6 +368,13 @@ createServer((req, res) => {
     // Edge functions. DEV_SCAN=off replays the 503 the real function returns
     // when ANTHROPIC_API_KEY is missing, so both paths can be driven.
     if (url.pathname === '/functions/v1/scan-recipe') {
+      if (process.env.DEV_SCAN === 'slow') {
+        return setTimeout(() => {
+          res.writeHead(504, cors);
+          res.end(JSON.stringify({ error: 'model_timeout',
+            message: 'The scanner took too long to read that photo.' }));
+        }, 8000);
+      }
       if (process.env.DEV_SCAN === 'fail') {
         res.writeHead(502, cors);
         return res.end(JSON.stringify({

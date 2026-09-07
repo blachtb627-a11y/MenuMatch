@@ -15,7 +15,9 @@ import {
   type Draft, type DraftIngredient,
 } from '@/lib/composer';
 import { parseIngredientList, parseSteps } from '@/lib/parseIngredients';
-import { pickImage, readAsBase64, uploadImage } from '@/lib/media';
+import {
+  COVER_EDGE, downscale, pickImage, readAsBase64, SCAN_EDGE, uploadImage,
+} from '@/lib/media';
 import { fetchConfig } from '@/lib/api';
 import { supabase } from '@/lib/supabase';
 import { formatQuantity } from '@/lib/quantity';
@@ -45,6 +47,7 @@ export default function Compose() {
   const [missing, setMissing] = useState<string[]>([]);
   const [pasteOpen, setPasteOpen] = useState<'ingredients' | 'steps' | null>(null);
   const [scanning, setScanning] = useState(false);
+  const [scanStage, setScanStage] = useState('');
   const [scanNote, setScanNote] = useState<string | null>(null);
   // Set once the server says scanning has no API key configured. Retrying would
   // fail the same way every time, so the card collapses instead of teasing it.
@@ -130,7 +133,7 @@ export default function Compose() {
     try {
       const picked = await pickImage(source);
       if (!picked) return;
-      const url = await uploadImage(picked, 'covers');
+      const url = await uploadImage(await downscale(picked, COVER_EDGE), 'covers');
       update({ coverImageUrl: url });
       await persist();
       setToast('Cover photo added');
@@ -143,14 +146,26 @@ export default function Compose() {
 
   /** Scan the creator's own written recipe and fill the fields for review. */
   async function runScan(source: 'library' | 'camera') {
-    setScanning(true);
     setScanNote(null);
+    let picked;
     try {
-      const picked = await pickImage(source);
-      if (!picked) return;
+      picked = await pickImage(source);
+    } catch (e) {
+      setToast(e instanceof Error ? e.message : 'Could not open the camera');
+      return;
+    }
+    if (!picked) return;
+
+    setScanning(true);
+    try {
+      // Shrink on the device first. Sending a full-size camera photo is what
+      // made this hang: the request never finished uploading.
+      setScanStage('Preparing the photo…');
+      const small = await downscale(picked, SCAN_EDGE, true);
+      setScanStage('Reading the recipe…');
       const scanned = await scanRecipe({
-        base64: await readAsBase64(picked),
-        mimeType: picked.mimeType,
+        base64: await readAsBase64(small),
+        mimeType: small.mimeType,
       });
 
       const ingredients = (scanned.ingredients ?? []).length
@@ -188,6 +203,7 @@ export default function Compose() {
       }
     } finally {
       setScanning(false);
+      setScanStage('');
     }
   }
 
@@ -267,7 +283,7 @@ export default function Compose() {
               {scanning ? (
                 <View style={s.scanBusy}>
                   <ActivityIndicator color={colors.mint} size="small" />
-                  <Text style={s.scanBusyLabel}>Reading the photo…</Text>
+                  <Text style={s.scanBusyLabel}>{scanStage || 'Reading the photo…'}</Text>
                 </View>
               ) : null}
               {scanNote ? <Text style={s.scanNote}>{scanNote}</Text> : null}

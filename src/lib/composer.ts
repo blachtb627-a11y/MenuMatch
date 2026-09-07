@@ -101,6 +101,9 @@ export type ScannedRecipe = Partial<Draft> & {
   notes: string;
 };
 
+/** Long enough for a slow uplink, short enough not to look frozen. */
+const SCAN_TIMEOUT_MS = 90_000;
+
 /** Carries the function's error code so the caller can tell apart the reasons. */
 export class ScanError extends Error {
   constructor(message: string, readonly code: string) {
@@ -121,9 +124,20 @@ export class ScanError extends Error {
 export async function scanRecipe(image: {
   base64: string; mimeType: string;
 }): Promise<ScannedRecipe> {
-  const { data, error } = await supabase.functions.invoke('scan-recipe', {
+  const call = supabase.functions.invoke('scan-recipe', {
     body: { imageBase64: image.base64, mimeType: image.mimeType },
   });
+
+  // Without this the spinner runs forever when a request never lands. Long
+  // enough for a slow connection, short enough to admit defeat and say so.
+  const { data, error } = await Promise.race([
+    call,
+    new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new ScanError(
+        'That took too long. Try again on a stronger connection, or type the recipe in below.',
+        'timeout',
+      )), SCAN_TIMEOUT_MS)),
+  ]);
 
   if (error) {
     // Edge function errors carry a useful body; surface it rather than "failed".

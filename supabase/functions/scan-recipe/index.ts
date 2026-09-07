@@ -137,6 +137,10 @@ Deno.serve(async (req) => {
   if (!payload.imageUrl && !payload.imageBase64) {
     return json({ error: 'missing_image' }, 400);
   }
+  // Logged because a scan that never arrives is otherwise invisible: an
+  // oversized image is the first thing to check when one hangs.
+  const started = Date.now();
+  const imageKb = Math.round((payload.imageBase64?.length ?? 0) * 0.75 / 1024);
 
   // Categories and tags are backend-configured (§6), so the allowed values come
   // from the database rather than being frozen into this function.
@@ -159,10 +163,15 @@ Deno.serve(async (req) => {
   const anthropic = new Anthropic({ apiKey });
 
   try {
-    const response = await anthropic.messages.create({
+    // Streamed so a longer recipe cannot trip the request timeout, then
+    // collected — nothing here is shown to the creator until it is complete.
+    const response = await anthropic.messages.stream({
       model: MODEL,
-      max_tokens: 16000,
-      // Extraction is mechanical; low effort keeps it fast and cheap.
+      max_tokens: 8000,
+      // Transcription is mechanical: reading the page is the whole task, so
+      // reasoning about it first only adds latency. Opus 5 thinks by default,
+      // hence turning it off explicitly.
+      thinking: { type: 'disabled' },
       output_config: { effort: 'low' },
       system: SYSTEM,
       tools: [{
@@ -182,7 +191,7 @@ Deno.serve(async (req) => {
           },
         ],
       }],
-    });
+    }).finalMessage();
 
     if (response.stop_reason === 'refusal') {
       return json({ error: 'refused', message: 'That image could not be processed.' }, 422);
@@ -198,10 +207,13 @@ Deno.serve(async (req) => {
       }, 422);
     }
 
+    console.log(`scan-recipe ok: ${imageKb}kb image, ${Date.now() - started}ms, ` +
+      `${response.usage.input_tokens} in / ${response.usage.output_tokens} out`);
     return json({ recipe: normalise(call.input as Record<string, unknown>) });
   } catch (e) {
     const message = e instanceof Error ? e.message : 'Unknown error';
-    console.error('scan-recipe failed:', message);
+    console.error(`scan-recipe failed after ${Date.now() - started}ms ` +
+      `on a ${imageKb}kb image:`, message);
     return json({ error: 'scan_failed', message }, 502);
   }
 });

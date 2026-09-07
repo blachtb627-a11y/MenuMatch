@@ -149,7 +149,16 @@ export default function Auth() {
 
             <Text style={s.legal}>
               You must be at least 13 to use MenuMatch. By continuing you agree to
-              the Terms of Service and Privacy Policy.
+              the{' '}
+              <Text style={s.legalLink} accessibilityRole="link"
+                    onPress={() => router.push('/legal/terms')}>
+                Terms of Service
+              </Text>
+              {' '}and{' '}
+              <Text style={s.legalLink} accessibilityRole="link"
+                    onPress={() => router.push('/legal/privacy')}>
+                Privacy Policy
+              </Text>.
             </Text>
           </ScrollView>
         </KeyboardAvoidingView>
@@ -201,4 +210,5 @@ const s = StyleSheet.create({
   switch: { alignItems: 'center', paddingVertical: space.sm },
   switchLabel: { ...type.small, color: colors.mint },
   legal: { ...type.small, color: colors.textFaint, textAlign: 'center', lineHeight: 18 },
+  legalLink: { color: colors.textMuted, textDecorationLine: 'underline' },
 });

@@ -107,8 +107,12 @@ export default function Profile() {
 
           <Section title="Trust and safety">
             <Row icon="flag" label="Report a problem" />
-            <Row icon="shield" label="Community Guidelines" />
-            <Row icon="file-text" label="Terms and Privacy Policy" />
+            <Row icon="shield" label="Community Guidelines"
+                 onPress={() => router.push('/legal/guidelines')} />
+            <Row icon="file-text" label="Terms of Service"
+                 onPress={() => router.push('/legal/terms')} />
+            <Row icon="lock" label="Privacy Policy"
+                 onPress={() => router.push('/legal/privacy')} />
             <Row icon="mail" label="Contact MenuMatch" />
           </Section>
 

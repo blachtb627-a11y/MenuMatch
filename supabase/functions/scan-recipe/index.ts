@@ -12,9 +12,28 @@
 import Anthropic from 'npm:@anthropic-ai/sdk@^0.70';
 import { createClient } from 'npm:@supabase/supabase-js@^2';
 
-// Sonnet over Opus for latency: this is transcription from a photograph, not
-// reasoning, and scanning is a step someone is waiting on with a phone in hand.
-const MODEL = 'claude-sonnet-5';
+/**
+ * Scanning is latency-bound on output generation, so the model choice is the
+ * biggest single lever on how long a creator waits. Haiku by default: reading a
+ * photograph of a page is not a reasoning task, and it generates several times
+ * faster than the Sonnet tier.
+ *
+ * Overridable with a SCAN_MODEL secret, so a swap back to
+ * `claude-sonnet-5` for accuracy on bad handwriting needs no deploy.
+ */
+const MODEL = Deno.env.get('SCAN_MODEL') ?? 'claude-haiku-4-5-20251001';
+
+/**
+ * `output_config.effort` and `thinking: {type:'disabled'}` arrived with the 4.6
+ * generation; sending either to a 4.5-generation model is a 400. Haiku 4.5 does
+ * not think by default, so omitting them there is also the behaviour we want.
+ */
+const TUNABLE_MODELS = new Set([
+  'claude-sonnet-5', 'claude-opus-5', 'claude-opus-4-8', 'claude-fable-5-1',
+]);
+const tuning = TUNABLE_MODELS.has(MODEL)
+  ? { thinking: { type: 'disabled' as const }, output_config: { effort: 'low' as const } }
+  : {};
 
 /**
  * Hard ceiling on the model call, well inside the runtime's own limit, so a
@@ -259,11 +278,9 @@ Deno.serve(async (req) => {
     const response = await anthropic.messages.stream({
       model: MODEL,
       max_tokens: 8000,
-      // Transcription is mechanical: reading the page is the whole task, so
-      // reasoning about it first only adds latency. These models think by
-      // default, hence turning it off explicitly.
-      thinking: { type: 'disabled' },
-      output_config: { effort: 'low' },
+      // Reading the page is the whole task, so reasoning about it first is pure
+      // latency. Only sent to models that accept these parameters.
+      ...tuning,
       system: SYSTEM,
       tools: [{
         name: 'record_recipe',
@@ -299,7 +316,7 @@ Deno.serve(async (req) => {
       }, 422);
     }
 
-    console.log(`scan-recipe ok: ${imageKb}kb image, ${Date.now() - started}ms, ` +
+    console.log(`scan-recipe ok: ${MODEL}, ${imageKb}kb image, ${Date.now() - started}ms, ` +
       `${response.usage.input_tokens} in / ${response.usage.output_tokens} out`);
     return json({ recipe: normalise(call.input as Record<string, unknown>) });
   } catch (e) {

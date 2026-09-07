@@ -6,6 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from '@/components/RecipeCover';
 import { Toast } from '@/components/Toast';
+import { CollectionSheet } from '@/components/CollectionSheet';
 import { Button, Disclaimer, EmptyState, Loading, Screen } from '@/components/ui';
 import { fetchRecipe } from '@/lib/api';
 import { queueSave, queueUnsave, queueCook } from '@/lib/queue';
@@ -24,6 +25,7 @@ export default function RecipeDetail() {
   const [checked, setChecked] = useState<Set<string>>(new Set());
   const [saved, setSaved] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
+  const [organising, setOrganising] = useState(false);
 
   useEffect(() => {
     if (!id) return;
@@ -110,6 +112,11 @@ export default function RecipeDetail() {
             <View style={{ flexDirection: 'row', gap: space.sm }}>
               <IconButton icon="flag" label="Report this recipe"
                           onPress={() => router.push(`/report/${recipe.id}`)} />
+              <IconButton icon="folder-plus" label="Add to a collection"
+                          onPress={() => {
+                            if (isGuest) { router.push('/auth'); return; }
+                            setOrganising(true);
+                          }} />
               <IconButton icon={saved ? 'check' : 'bookmark'}
                           label={saved ? 'Remove from Cookbook' : 'Save to Cookbook'}
                           active={saved} onPress={onSave} />
@@ -272,6 +279,14 @@ export default function RecipeDetail() {
         <Button label="Cook Mode" onPress={() => router.push(`/cook/${recipe.id}`)} style={{ flex: 1 }} />
         <Button label="Cooked it" variant="secondary" onPress={onCooked} style={{ flex: 1 }} />
       </SafeAreaView>
+
+      {/* §12: saving puts a recipe in the Cookbook; collections organise it. */}
+      <CollectionSheet
+        recipeId={organising ? recipe.id : null}
+        recipeTitle={recipe.title}
+        onClose={() => setOrganising(false)}
+        onSaved={(message) => { setOrganising(false); setSaved(true); setToast(message); }}
+      />
 
       <Toast message={toast} onDismiss={() => setToast(null)} />
     </Screen>

@@ -1,12 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { router, useFocusEffect } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from '@/components/RecipeCover';
 import { Button, EmptyState, Loading, Screen } from '@/components/ui';
-import { fetchCookbook, fetchCollections, createCollection, type Collection, type SavedRecipe } from '@/lib/api';
+import { fetchCookbook, type SavedRecipe } from '@/lib/api';
+import { CollectionSheet } from '@/components/CollectionSheet';
+import {
+  SUGGESTED_COLLECTIONS, createCollection, myCollections, type Collection,
+} from '@/lib/collections';
 import { onQueueChange, pendingCount, drain } from '@/lib/queue';
+import { Toast } from '@/components/Toast';
 import { useSession } from '@/state/session';
 import { formatTotalTime } from '@/lib/timers';
 import { colors, fill, radius, space, type } from '@/theme';
@@ -18,11 +23,13 @@ export default function Cookbook() {
   const [collections, setCollections] = useState<Collection[]>([]);
   const [pending, setPending] = useState(pendingCount());
   const [error, setError] = useState<string | null>(null);
+  const [organising, setOrganising] = useState<SavedRecipe | null>(null);
+  const [toast, setToast] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     if (isGuest) { setSaved([]); return; }
     try {
-      const [recipes, cols] = await Promise.all([fetchCookbook(), fetchCollections()]);
+      const [recipes, cols] = await Promise.all([fetchCookbook(), myCollections()]);
       setSaved(recipes);
       setCollections(cols);
       setError(null);
@@ -86,14 +93,26 @@ export default function Cookbook() {
               action={<Button label="Open the deck" onPress={() => router.push('/(tabs)')} />}
             />
           }
-          renderItem={({ item }) => <SavedTile item={item} />}
+          renderItem={({ item }) => (
+            <SavedTile item={item} onOrganise={() => setOrganising(item)} />
+          )}
         />
       </SafeAreaView>
+
+      {/* §12: a recipe can live in several collections, so this replaces
+          membership wholesale rather than adding one at a time. */}
+      <CollectionSheet
+        recipeId={organising?.id ?? null}
+        recipeTitle={organising?.title}
+        onClose={() => setOrganising(null)}
+        onSaved={(message) => { setOrganising(null); setToast(message); void load(); }}
+      />
+      <Toast message={toast} onDismiss={() => setToast(null)} />
     </Screen>
   );
 }
 
-function SavedTile({ item }: { item: SavedRecipe }) {
+function SavedTile({ item, onOrganise }: { item: SavedRecipe; onOrganise: () => void }) {
   // §17: a removed recipe stays in the Cookbook with a clear state.
   if (item.unavailable) {
     return (
@@ -117,6 +136,15 @@ function SavedTile({ item }: { item: SavedRecipe }) {
         <Text style={s.tileTitle} numberOfLines={2}>{item.title}</Text>
         <Text style={s.tileMeta}>{formatTotalTime(item.totalMinutes)}</Text>
       </View>
+      <Pressable
+        onPress={onOrganise}
+        accessibilityRole="button"
+        accessibilityLabel={`Add ${item.title} to a collection`}
+        hitSlop={8}
+        style={s.organiseBtn}
+      >
+        <Feather name="folder-plus" size={15} color={colors.text} />
+      </Pressable>
     </Pressable>
   );
 }
@@ -124,31 +152,63 @@ function SavedTile({ item }: { item: SavedRecipe }) {
 function CollectionsRow({
   collections, onCreate,
 }: { collections: Collection[]; onCreate: (name: string) => Promise<void> }) {
+  const [adding, setAdding] = useState(false);
+  const [name, setName] = useState('');
   // §12: default suggestions offered on first collection creation.
-  const suggestions = ['Weeknight Dinners', 'Meal Prep', 'Want to Try', 'Desserts']
-    .filter((name) => !collections.some((c) => c.name === name));
+  const suggestions = SUGGESTED_COLLECTIONS.filter(
+    (n) => !collections.some((c) => c.name === n),
+  );
 
   return (
     <View style={{ gap: space.md, marginBottom: space.lg }}>
       <Text style={s.sectionLabel}>COLLECTIONS</Text>
       <View style={s.collectionWrap}>
         {collections.map((c) => (
-          <View key={c.id} style={s.collection}>
+          <Pressable key={c.id} style={s.collection}
+                     onPress={() => router.push(`/collection/${c.id}`)}
+                     accessibilityRole="button"
+                     accessibilityLabel={`Open ${c.name}, ${c.recipeCount} recipes`}>
             <Text style={s.collectionName}>{c.name}</Text>
             <Text style={s.collectionCount}>{c.recipeCount}</Text>
-          </View>
+          </Pressable>
         ))}
+
         {collections.length === 0
-          ? suggestions.slice(0, 4).map((name) => (
-              <Pressable key={name} style={[s.collection, s.collectionSuggested]}
-                         onPress={() => void onCreate(name)} accessibilityRole="button"
-                         accessibilityLabel={`Create collection ${name}`}>
+          ? suggestions.slice(0, 4).map((n) => (
+              <Pressable key={n} style={[s.collection, s.collectionSuggested]}
+                         onPress={() => void onCreate(n)} accessibilityRole="button"
+                         accessibilityLabel={`Create collection ${n}`}>
                 <Feather name="plus" size={13} color={colors.mint} />
-                <Text style={[s.collectionName, { color: colors.mint }]}>{name}</Text>
+                <Text style={[s.collectionName, { color: colors.mint }]}>{n}</Text>
               </Pressable>
             ))
-          : null}
+          : (
+            <Pressable style={[s.collection, s.collectionSuggested]}
+                       onPress={() => setAdding(true)} accessibilityRole="button"
+                       accessibilityLabel="Create a collection">
+              <Feather name="plus" size={13} color={colors.mint} />
+              <Text style={[s.collectionName, { color: colors.mint }]}>New</Text>
+            </Pressable>
+          )}
       </View>
+
+      {adding ? (
+        <View style={s.addRow}>
+          <TextInput value={name} onChangeText={setName} autoFocus style={s.addInput}
+                     placeholder="Collection name" placeholderTextColor={colors.textFaint}
+                     accessibilityLabel="New collection name" maxLength={60}
+                     returnKeyType="done"
+                     onSubmitEditing={async () => {
+                       if (name.trim()) await onCreate(name.trim());
+                       setName(''); setAdding(false);
+                     }} />
+          <Pressable onPress={() => { setName(''); setAdding(false); }}
+                     accessibilityRole="button" accessibilityLabel="Cancel"
+                     style={s.addCancel}>
+            <Feather name="x" size={16} color={colors.textMuted} />
+          </Pressable>
+        </View>
+      ) : null}
     </View>
   );
 }
@@ -198,6 +258,18 @@ const s = StyleSheet.create({
   unavailableText: { ...type.small, color: colors.textFaint, textAlign: 'center' },
   tileScrim: { ...fill, backgroundColor: 'rgba(6,10,8,0.35)' },
   tileText: { padding: space.md, gap: 2 },
+  organiseBtn: {
+    position: 'absolute', top: space.sm, right: space.sm,
+    width: 30, height: 30, borderRadius: 15,
+    backgroundColor: 'rgba(6,10,8,0.65)', alignItems: 'center', justifyContent: 'center',
+  },
+  addRow: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
+  addInput: {
+    flex: 1, backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.mint,
+    borderRadius: radius.md, paddingHorizontal: space.md, height: 42,
+    color: colors.text, fontSize: 15,
+  },
+  addCancel: { width: 32, height: 32, alignItems: 'center', justifyContent: 'center' },
   tileTitle: { ...type.bodyStrong, color: colors.text },
   tileMeta: { ...type.small, color: colors.textMuted },
 });

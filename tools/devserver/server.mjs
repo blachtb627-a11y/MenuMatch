@@ -16,6 +16,15 @@ const here = dirname(fileURLToPath(import.meta.url));
 const fx = JSON.parse(readFileSync(join(here, 'fixtures.json'), 'utf8'));
 const PORT = Number(process.env.PORT ?? 8787);
 
+// In-memory collection state so the picker and reorder can be exercised.
+const DEV = {
+  collections: [
+    { id: 'col1', name: 'Weeknight Dinners', visibility: 'private' },
+    { id: 'col2', name: 'Want to Try', visibility: 'private' },
+  ],
+  items: { col1: [], col2: [] },
+};
+
 function rpc(name, body) {
   switch (name) {
     case 'get_config':
@@ -47,6 +56,66 @@ function rpc(name, body) {
                                     isAdmin: true, adminRole: 'super_admin',
                                     preferences: {} };
     case 'my_recipes':    return [];
+    case 'my_collections': return DEV.collections.map((c) => ({
+      ...c, recipeCount: (DEV.items[c.id] ?? []).length, coverImageUrl: null }));
+    case 'recipe_collections': return DEV.collections
+      .filter((c) => (DEV.items[c.id] ?? []).includes(body?.p_recipe_id))
+      .map((c) => c.id);
+    case 'create_collection': {
+      const existing = DEV.collections.find((c) => c.name === body?.p_name);
+      if (existing) return { id: existing.id, existed: true };
+      const c = { id: 'col' + (DEV.collections.length + 1), name: body.p_name,
+                  visibility: 'private' };
+      DEV.collections.push(c); DEV.items[c.id] = [];
+      return { id: c.id, existed: false };
+    }
+    case 'rename_collection': {
+      const c = DEV.collections.find((x) => x.id === body?.p_id);
+      if (DEV.collections.some((x) => x.name === body?.p_name && x.id !== body?.p_id)) {
+        throw new Error('duplicate');
+      }
+      if (c) c.name = body.p_name;
+      return { ok: true, name: body?.p_name };
+    }
+    case 'delete_collection': {
+      DEV.collections = DEV.collections.filter((c) => c.id !== body?.p_id);
+      delete DEV.items[body?.p_id];
+      return { ok: true };
+    }
+    case 'set_recipe_collections': {
+      const ids = body?.p_collection_ids ?? [];
+      for (const c of DEV.collections) {
+        const has = ids.includes(c.id);
+        const list = DEV.items[c.id] ?? (DEV.items[c.id] = []);
+        const at = list.indexOf(body.p_recipe_id);
+        if (has && at === -1) list.push(body.p_recipe_id);
+        if (!has && at !== -1) list.splice(at, 1);
+      }
+      return { ok: true };
+    }
+    case 'remove_from_collection': {
+      const list = DEV.items[body?.p_collection_id] ?? [];
+      const at = list.indexOf(body?.p_recipe_id);
+      if (at !== -1) list.splice(at, 1);
+      return { ok: true };
+    }
+    case 'reorder_collection_item': {
+      const list = DEV.items[body?.p_collection_id] ?? [];
+      const at = list.indexOf(body?.p_recipe_id);
+      const to = at + (body?.p_direction ?? 0);
+      if (at === -1 || to < 0 || to >= list.length) return { ok: true, moved: false };
+      [list[at], list[to]] = [list[to], list[at]];
+      return { ok: true, moved: true };
+    }
+    case 'collection_detail': {
+      const c = DEV.collections.find((x) => x.id === body?.p_id);
+      if (!c) throw new Error('collection not found');
+      return { id: c.id, name: c.name, visibility: c.visibility,
+               recipes: (DEV.items[c.id] ?? []).map((rid, i) => {
+                 const card = fx.feed.cards.find((x) => x.id === rid) ?? fx.recipe;
+                 return { ...card, position: i, unavailable: false };
+               }) };
+    }
     case 'admin_stats':   return { openReports: 2, highPriorityOpen: 1, overdue: 1,
                                    openAppeals: 1, copyrightOpen: 0, publishedRecipes: 32,
                                    removedRecipes: 0, totalUsers: 1, suspendedUsers: 0,
@@ -168,6 +237,12 @@ createServer((req, res) => {
       if (process.env.DEV_LOG) console.log(name, JSON.stringify(body)?.slice(0, 160));
       res.writeHead(200, cors);
       return res.end(JSON.stringify(rpc(name, body)));
+    }
+    if (url.pathname.startsWith('/rest/v1/saves')) {
+      res.writeHead(200, cors);
+      return res.end(JSON.stringify(fx.feed.cards.map((c) => ({
+        recipe_id: c.id, created_at: new Date().toISOString(),
+      }))));
     }
     if (url.pathname.startsWith('/rest/v1/tags')) {
       res.writeHead(200, cors);

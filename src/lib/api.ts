@@ -111,54 +111,8 @@ export async function fetchCookbook(): Promise<SavedRecipe[]> {
   }
 }
 
-export type Collection = {
-  id: string;
-  name: string;
-  visibility: 'private' | 'public';
-  recipeCount: number;
-};
-
-export async function fetchCollections(): Promise<Collection[]> {
-  const { data, error } = await supabase
-    .from('collections')
-    .select('id, name, visibility, collection_items(count)')
-    .order('position');
-  if (error) throw new Error(error.message);
-  return ((data ?? []) as unknown as {
-    id: string; name: string; visibility: 'private' | 'public';
-    collection_items: { count: number }[];
-  }[]).map((c) => ({
-    id: c.id,
-    name: c.name,
-    visibility: c.visibility,
-    recipeCount: c.collection_items?.[0]?.count ?? 0,
-  }));
-}
-
-export async function createCollection(name: string): Promise<void> {
-  const { data: me, error: meErr } = await supabase.rpc('me');
-  if (meErr) throw new Error(meErr.message);
-  const userId = (me as { id: string } | null)?.id;
-  if (!userId) throw new Error('authentication required');
-  const { error } = await supabase.from('collections').insert({ user_id: userId, name });
-  if (error) throw new Error(error.message);
-}
-
-export async function addToCollection(collectionId: string, recipeId: string): Promise<void> {
-  const { error } = await supabase
-    .from('collection_items')
-    .upsert({ collection_id: collectionId, recipe_id: recipeId });
-  if (error) throw new Error(error.message);
-}
-
-export async function removeFromCollection(collectionId: string, recipeId: string): Promise<void> {
-  const { error } = await supabase
-    .from('collection_items')
-    .delete()
-    .eq('collection_id', collectionId)
-    .eq('recipe_id', recipeId);
-  if (error) throw new Error(error.message);
-}
+// Collections moved to src/lib/collections.ts, which covers create, rename,
+// delete, reorder and multi-collection membership (§12).
 
 export async function savePreferences(prefs: {
   favoriteCategories: string[];

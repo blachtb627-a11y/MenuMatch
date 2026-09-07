@@ -180,9 +180,8 @@ export default function Compose() {
         mimeType: small.mimeType,
       });
 
-      const ingredients = (scanned.ingredients ?? []).length
-        ? scanned.ingredients!
-        : draft!.ingredients;
+      const parsed = parseIngredientList((scanned.ingredients ?? []).join('\n'));
+      const ingredients = parsed.length ? parsed : draft!.ingredients;
       const steps = (scanned.steps ?? []).length ? scanned.steps! : draft!.steps;
 
       dirty.current = true;

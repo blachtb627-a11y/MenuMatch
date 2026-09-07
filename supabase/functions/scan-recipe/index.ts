@@ -23,13 +23,6 @@ const MODEL = 'claude-sonnet-5';
  */
 const MODEL_TIMEOUT_MS = 45_000;
 
-// Mirrors the measurement_unit enum. Anything outside this set is dropped.
-const UNITS = [
-  'tsp', 'tbsp', 'fl_oz', 'cup', 'pint', 'quart', 'gallon', 'ml', 'l',
-  'oz', 'lb', 'g', 'kg',
-  'piece', 'clove', 'slice', 'bunch', 'can', 'package', 'sprig', 'head', 'stalk',
-  'pinch', 'dash', 'to_taste', 'handful',
-];
 
 // The full set the Supabase SDK may attach — it has grown over releases, and a
 // single header the browser asks for that is not named here makes the preflight
@@ -136,26 +129,23 @@ function recipeSchema(categories: string[], tags: string[]) {
       cookMinutes: { type: 'integer', description: 'Minutes of cooking time.' },
       servings: { type: 'integer', description: 'How many the recipe serves.' },
       difficulty: { type: 'string', enum: ['easy', 'medium', 'hard'] },
+      // Plain lines rather than structured objects. Latency here is almost
+      // entirely output-token generation, and the JSON scaffolding around every
+      // ingredient cost roughly three times what the line itself does. The app
+      // parses these with the same code that handles a pasted ingredient list.
       ingredients: {
         type: 'array',
-        description: 'One entry per ingredient line, in the order written.',
-        items: {
-          type: 'object',
-          additionalProperties: false,
-          required: ['ingredient'],
-          properties: {
-            // Quantities stay exact fractions so 1/3 cup survives scaling.
-            numerator: { type: 'integer' },
-            denominator: { type: 'integer' },
-            unit: { type: 'string', enum: UNITS },
-            ingredient: { type: 'string' },
-            note: { type: 'string', description: 'e.g. "finely chopped", "skin on".' },
-          },
-        },
+        description:
+          'One entry per ingredient line, exactly as written, in order. '
+          + 'Include the amount, unit and any preparation note, e.g. '
+          + '"1 1/2 lb bone-in chicken thighs, skin on" or "2 cloves garlic, crushed".',
+        items: { type: 'string' },
       },
       steps: {
         type: 'array',
-        description: 'One entry per instruction step, in order.',
+        description:
+          'One action per step, in order. Split a run-on method into separate '
+          + 'steps; keep every time, temperature and doneness cue verbatim.',
         items: { type: 'string' },
       },
       ...(tags.length ? { tags: { type: 'array', items: { type: 'string', enum: tags } } } : {}),
@@ -172,24 +162,38 @@ function recipeSchema(categories: string[], tags: string[]) {
   };
 }
 
-const SYSTEM = `You transcribe a photograph of a recipe into structured fields for a
-recipe app's composer.
+const SYSTEM = `You read a photograph of a recipe and turn it into the fields of a
+recipe app's composer, for the person who wrote it.
 
-Transcribe only. Do not improve, rewrite, modernise, or add anything that is not
-in the image. If the image does not show a recipe, say so via the tool with an
-empty ingredients and steps array and confidence "low".
+INGREDIENTS — copy exactly.
+One line per ingredient, in the order written, with the amount, unit and any
+preparation note kept together: "2 cloves garlic, crushed". Never convert, round,
+scale or correct a measurement. If an amount is unreadable, give the line without
+it rather than guessing.
 
-Rules:
-- Quantities are exact fractions: "1 1/2" is numerator 3, denominator 2; "1/3" is
-  numerator 1, denominator 3; "2" is numerator 2, denominator 1.
-- Use only units from the provided enum. If a unit is not in it (for example
-  "knob" or "splash"), leave the unit out and keep the wording in the note.
-- Separate preparation from the ingredient: "2 cloves garlic, crushed" becomes
-  ingredient "garlic", unit "clove", numerator 2, note "crushed".
-- Keep step text as written, one step per entry. Do not merge or split steps.
-- Omit any field the image does not show. Never guess times, servings or
-  difficulty; leaving them out is correct and expected.
-- Set confidence honestly. Handwriting you had to interpret is medium at best.`;
+METHOD — read faithfully, then structure it.
+A recipe written for a page is usually a wall of text. Turn it into steps a cook
+can follow one at a time, looking up from the phone between each:
+- One action per step. Split a run-on paragraph wherever a new action starts, and
+  never merge two actions into one step.
+- Imperative and present tense. "Brown the beef in batches", not "the beef should
+  then be browned in batches".
+- Cut filler — "now", "at this point", "you will want to" — but never cut an
+  instruction. Every action on the page appears in your steps.
+- Keep every time, temperature, quantity and doneness cue exactly as given.
+  "180C", "simmer 20 minutes", "until the juices run clear" are safety
+  information, not phrasing, and survive word for word.
+- Add nothing. No technique, equipment, seasoning or advice the page does not
+  give, however obvious the omission seems.
+
+Omit any field the photograph does not show. Never guess times, servings or
+difficulty — leaving them out is correct and expected.
+
+Set confidence honestly: handwriting you had to interpret is medium at best, and
+anything you could not read cleanly is low, with what was unclear in notes.
+
+If the image is not a recipe, return empty ingredients and steps with confidence
+"low".`;
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return preflight(req);
@@ -333,17 +337,11 @@ function normalise(input: Record<string, unknown>) {
     cookMinutes: intInRange(input.cookMinutes, 0, 6000),
     servings: intInRange(input.servings, 1, 100),
     difficulty: typeof input.difficulty === 'string' ? input.difficulty : '',
-    ingredients: ingredients.map((raw) => {
-      const r = raw as Record<string, unknown>;
-      const numerator = intInRange(r.numerator, 0, 1_000_000);
-      const denominator = intInRange(r.denominator, 1, 1_000_000) ?? 1;
-      return {
-        quantity: numerator === null ? null : { numerator, denominator },
-        unit: typeof r.unit === 'string' && UNITS.includes(r.unit) ? r.unit : '',
-        ingredient: typeof r.ingredient === 'string' ? r.ingredient.slice(0, 120) : '',
-        note: typeof r.note === 'string' ? r.note.slice(0, 120) : '',
-      };
-    }).filter((i) => i.ingredient.trim() !== ''),
+    // Lines, not structured rows: the app parses them with the same code that
+    // handles a pasted ingredient list, so there is one parser, not two.
+    ingredients: ingredients
+      .filter((i): i is string => typeof i === 'string' && i.trim() !== '')
+      .map((i) => i.trim().slice(0, 200)),
     steps: steps
       .filter((s): s is string => typeof s === 'string' && s.trim() !== '')
       .map((s) => s.slice(0, 2000)),

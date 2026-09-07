@@ -135,7 +135,16 @@ export function parseIngredientLine(line: string): ParsedIngredient | null {
     : head;
 
   const tokens = normalisedHead.split(/\s+/).filter(Boolean);
-  const { quantity, rest } = takeQuantity(tokens);
+  let { quantity, rest } = takeQuantity(tokens);
+
+  // "a pinch of salt": an article in front of a unit means one of that unit.
+  // Only when a unit actually follows — "a few sprigs" names no quantity, and
+  // guessing one there would be exactly the wrong kind of help.
+  if (!quantity && /^an?$/i.test(rest[0] ?? '')
+      && UNIT_ALIASES[(rest[1] ?? '').toLowerCase().replace(/\.$/, '')]) {
+    quantity = { numerator: 1, denominator: 1 };
+    rest = rest.slice(1);
+  }
 
   let unit = '';
   let words = rest;

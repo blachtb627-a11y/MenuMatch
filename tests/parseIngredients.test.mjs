@@ -88,3 +88,15 @@ test('splits one long pasted paragraph into sentences', () => {
   assert.equal(steps.length, 3);
   assert.match(steps[2], /^Roast for 25 minutes/);
 });
+
+test('reads "a pinch of salt" as one pinch, but leaves "a few" alone', () => {
+  assert.deepEqual(parseIngredientLine('a pinch of salt'), {
+    quantity: q(1), unit: 'pinch', ingredient: 'salt', note: '',
+  });
+  assert.deepEqual(parseIngredientLine('a handful of parsley'), {
+    quantity: q(1), unit: 'handful', ingredient: 'parsley', note: '',
+  });
+  // No unit follows the article, so no quantity is invented.
+  assert.equal(parseIngredientLine('a few sprigs of thyme').quantity, null);
+  assert.equal(parseIngredientLine('an onion').quantity, null);
+});

@@ -96,7 +96,13 @@ export async function deleteDraft(id: string): Promise<void> {
   await removeUploadedImage((data as { coverImageUrl?: string | null })?.coverImageUrl ?? null);
 }
 
-export type ScannedRecipe = Partial<Draft> & {
+export type ScannedRecipe = Omit<Partial<Draft>, 'ingredients'> & {
+  /**
+   * Plain lines, not structured rows. The model writes far fewer tokens this
+   * way — which is what scan latency is made of — and the app parses them with
+   * parseIngredientList, the same code a pasted list goes through.
+   */
+  ingredients?: string[];
   confidence: 'high' | 'medium' | 'low';
   notes: string;
 };

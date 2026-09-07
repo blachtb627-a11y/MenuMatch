@@ -393,13 +393,12 @@ createServer((req, res) => {
         description: 'The long-simmered one, written on the back of an envelope.',
         category: 'comfort', cuisine: 'Italian',
         prepMinutes: 25, cookMinutes: 180, servings: 6, difficulty: 'medium',
+        // Plain lines now, as the real function returns them.
         ingredients: [
-          { quantity: { numerator: 2, denominator: 1 }, unit: 'lb',
-            ingredient: 'beef chuck', note: 'cut into cubes' },
-          { quantity: { numerator: 1, denominator: 3 }, unit: 'cup',
-            ingredient: 'olive oil', note: '' },
-          { quantity: { numerator: 3, denominator: 1 }, unit: 'clove',
-            ingredient: 'garlic', note: 'crushed' },
+          '2 lb beef chuck, cut into cubes',
+          '1/3 cup olive oil',
+          '3 cloves garlic, crushed',
+          'a pinch of salt',
         ],
         steps: [
           'Brown the beef in the oil, in batches, until deeply coloured.',
@@ -408,7 +407,7 @@ createServer((req, res) => {
         ],
         tags: ['weeknight'],
         confidence: 'medium',
-        notes: 'The oven temperature was smudged — check it before publishing.',
+        notes: 'The oven temperature was smudged \u2014 check it before publishing.',
       } }));
     }
     if (url.pathname.startsWith('/rest/v1/saves')) {

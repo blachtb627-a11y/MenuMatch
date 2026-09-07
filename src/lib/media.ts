@@ -89,3 +89,25 @@ export async function uploadImage(
 
   return supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
 }
+
+/**
+ * Removes an uploaded image, given the public URL that uploadImage returned.
+ * Files can only go through the storage API — storage.objects rejects a direct
+ * SQL delete — and the bucket policy scopes this to the caller's own prefix.
+ *
+ * Best effort by design: callers use it to tidy up after the row it belonged to
+ * is already gone, and a file left behind must never fail that operation.
+ */
+export async function removeUploadedImage(publicUrl: string | null): Promise<void> {
+  if (!publicUrl) return;
+  const marker = `/${BUCKET}/`;
+  const at = publicUrl.indexOf(marker);
+  if (at === -1) return;
+  const path = publicUrl.slice(at + marker.length);
+  if (!path) return;
+  try {
+    await supabase.storage.from(BUCKET).remove([path]);
+  } catch {
+    // An orphaned file is not worth surfacing to the person deleting a draft.
+  }
+}

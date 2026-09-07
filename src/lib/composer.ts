@@ -1,4 +1,5 @@
 import { supabase } from './supabase';
+import { removeUploadedImage } from './media';
 import type { ParsedIngredient } from './parseIngredients';
 
 export type DraftIngredient = ParsedIngredient;
@@ -84,10 +85,15 @@ export async function unpublishRecipe(id: string): Promise<void> {
  * Deletes a draft outright. The server refuses anything that has ever been
  * published — that is unpublishRecipe's job, since a published recipe may be
  * sitting in someone's Cookbook.
+ *
+ * The row goes first, transactionally; the cover image is then cleared through
+ * the storage API, which is the only way files can be removed. That second step
+ * is best effort, so a stray file never turns into a failed delete.
  */
 export async function deleteDraft(id: string): Promise<void> {
-  const { error } = await supabase.rpc('delete_draft', { p_recipe_id: id });
+  const { data, error } = await supabase.rpc('delete_draft', { p_recipe_id: id });
   if (error) throw new Error(error.message);
+  await removeUploadedImage((data as { coverImageUrl?: string | null })?.coverImageUrl ?? null);
 }
 
 export type ScannedRecipe = Partial<Draft> & {

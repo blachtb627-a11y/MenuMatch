@@ -24,7 +24,8 @@ const DEV = {
   ],
   items: { col1: [], col2: [] },
   myRecipes: [
-    { id: 'draft-1', title: 'Nonna\u2019s ragu', status: 'draft', coverImageUrl: null,
+    { id: 'draft-1', title: 'Nonna\u2019s ragu', status: 'draft',
+      coverImageUrl: 'http://localhost:8787/storage/v1/object/public/recipe-media/u-me/covers/ragu.jpg',
       totalMinutes: 210, updatedAt: new Date().toISOString(),
       ingredientCount: 11, stepCount: 7 },
     { id: 'draft-2', title: '', status: 'draft', coverImageUrl: null,
@@ -97,7 +98,7 @@ function rpc(name, body) {
       if (!r) throw new Error('draft not found');
       if (r.status !== 'draft') throw new Error('only an unpublished draft can be deleted');
       DEV.myRecipes = DEV.myRecipes.filter((x) => x.id !== r.id);
-      return { deleted: true, id: r.id };
+      return { deleted: true, id: r.id, coverImageUrl: r.coverImageUrl };
     }
     case 'my_collections': return DEV.collections.map((c) => ({
       ...c, recipeCount: (DEV.items[c.id] ?? []).length, coverImageUrl: null }));

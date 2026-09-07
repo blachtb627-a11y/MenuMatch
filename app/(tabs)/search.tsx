@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   Pressable, ScrollView, StyleSheet, Text, TextInput, View,
 } from 'react-native';
@@ -14,28 +14,17 @@ import {
 import { formatTotalTime } from '@/lib/timers';
 import { colors, fill, radius, space, type } from '@/theme';
 
-const TIME_FILTERS = [15, 30, 45];
-
-type Scope = 'all' | 'recipes' | 'creators';
-const SCOPES: { value: Scope; label: string }[] = [
-  { value: 'all', label: 'All' },
-  { value: 'recipes', label: 'Recipes' },
-  { value: 'creators', label: 'Creators' },
-];
-
 /**
  * §13. One search across recipes and creators, ranked server-side.
  *
- * The previous version queried the recipes table straight from the client,
- * which meant a creator could never be found however you spelled their name,
- * and the ranking was whatever order Postgres felt like. Both now come from
- * search_all, which ranks on text match and save rate together.
+ * No filter chips: a query and a ranked list of what matches it. The server
+ * still takes a time cap — search_all keeps the parameter — but nothing in the
+ * UI sets one, so the field is the only control and there is nothing to leave
+ * switched on by accident.
  */
 export default function Search() {
   const [query, setQuery] = useState('');
   const [debounced, setDebounced] = useState('');
-  const [scope, setScope] = useState<Scope>('all');
-  const [maxMinutes, setMaxMinutes] = useState<number | null>(null);
   const [results, setResults] = useState<SearchResults | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -45,11 +34,11 @@ export default function Search() {
     return () => clearTimeout(t);
   }, [query]);
 
-  const run = useCallback(async (q: string, cap: number | null) => {
+  const run = useCallback(async (q: string) => {
     if (q.length < 2) { setResults(null); setError(null); return; }
     setLoading(true);
     try {
-      setResults(await searchAll(q, cap));
+      setResults(await searchAll(q, null));
       setError(null);
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Could not search just now');
@@ -59,18 +48,10 @@ export default function Search() {
     }
   }, []);
 
-  useEffect(() => { void run(debounced, maxMinutes); }, [debounced, maxMinutes, run]);
+  useEffect(() => { void run(debounced); }, [debounced, run]);
 
-  // A time filter is about recipes; applying it to people would just empty the
-  // list for no reason a searcher could infer.
-  const creators = useMemo(
-    () => (scope === 'recipes' ? [] : results?.creators ?? []),
-    [results, scope],
-  );
-  const recipes = useMemo(
-    () => (scope === 'creators' ? [] : results?.recipes ?? []),
-    [results, scope],
-  );
+  const creators = results?.creators ?? [];
+  const recipes = results?.recipes ?? [];
   const nothing = results !== null && creators.length === 0 && recipes.length === 0;
 
   return (
@@ -99,37 +80,6 @@ export default function Search() {
           ) : null}
         </View>
 
-        <View style={s.scopeRow}>
-          {SCOPES.map((sc) => (
-            <Pressable key={sc.value} onPress={() => setScope(sc.value)}
-                       accessibilityRole="tab"
-                       accessibilityState={{ selected: scope === sc.value }}
-                       style={[s.scope, scope === sc.value && s.scopeOn]}>
-              <Text style={[s.scopeLabel, scope === sc.value && { color: colors.mint }]}>
-                {sc.label}
-              </Text>
-            </Pressable>
-          ))}
-        </View>
-
-        {scope !== 'creators' ? (
-          <View style={s.filterRow}>
-            {TIME_FILTERS.map((m) => (
-              <Pressable
-                key={m}
-                onPress={() => setMaxMinutes(maxMinutes === m ? null : m)}
-                accessibilityRole="checkbox"
-                accessibilityState={{ checked: maxMinutes === m }}
-                style={[s.filter, maxMinutes === m && s.filterOn]}
-              >
-                <Text style={[s.filterLabel, maxMinutes === m && { color: colors.mint }]}>
-                  Under {m} min
-                </Text>
-              </Pressable>
-            ))}
-          </View>
-        ) : null}
-
         {loading && results === null ? (
           <Loading />
         ) : results === null ? (
@@ -138,9 +88,7 @@ export default function Search() {
         ) : nothing ? (
           <EmptyState
             title={`Nothing for “${debounced}”`}
-            body={maxMinutes
-              ? 'Try a broader term, or clear the time filter.'
-              : 'Try a broader term. If nobody has published it yet, that is a gap worth filling.'}
+            body="Try a broader term. If nobody has published it yet, that is a gap worth filling."
           />
         ) : (
           <ScrollView contentContainerStyle={s.body} keyboardShouldPersistTaps="handled">
@@ -228,26 +176,6 @@ const s = StyleSheet.create({
     borderWidth: 1, borderColor: colors.border,
   },
   input: { flex: 1, color: colors.text, fontSize: 15 },
-  scopeRow: {
-    flexDirection: 'row', gap: space.sm,
-    paddingHorizontal: space.xl, paddingTop: space.md,
-  },
-  scope: {
-    paddingHorizontal: space.lg, paddingVertical: 7, borderRadius: radius.pill,
-    backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border,
-  },
-  scopeOn: { borderColor: colors.mint, backgroundColor: colors.mintWash },
-  scopeLabel: { ...type.small, color: colors.textMuted },
-  filterRow: {
-    flexDirection: 'row', gap: space.sm,
-    paddingHorizontal: space.xl, paddingTop: space.md,
-  },
-  filter: {
-    paddingHorizontal: space.lg, paddingVertical: 8, borderRadius: radius.pill,
-    backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border,
-  },
-  filterOn: { borderColor: colors.mint, backgroundColor: colors.mintWash },
-  filterLabel: { ...type.small, color: colors.textMuted },
   body: { padding: space.xl, gap: space.xl, paddingBottom: space.xxxl },
   error: { ...type.small, color: colors.danger },
   sectionLabel: { ...type.micro, color: colors.textFaint },

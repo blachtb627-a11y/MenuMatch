@@ -1407,7 +1407,7 @@
    "Add the wine and reduce by half, then the porcini liquid, leaving the grit behind.",
    "Simmer 20 minutes, until thick. Toss with the pasta and a splash of its cooking water."
   ],
-  "photoQuery": "Mushroom ragu pasta"
+  "photoQuery": "Pappardelle mushroom"
  },
  {
   "creator": "mirasplate",
@@ -1613,94 +1613,6 @@
  },
  {
   "creator": "mirasplate",
-  "slug": "beetroot-walnut-dip",
-  "title": "Beetroot and Walnut Dip",
-  "description": "Roast the beetroot rather than boiling it. Boiled beetroot tastes of water.",
-  "category": "snacks",
-  "cuisine": "Turkish",
-  "prep": 10,
-  "cook": 60,
-  "servings": 6,
-  "difficulty": "easy",
-  "ageDays": 50,
-  "alcohol": false,
-  "nutrition": {
-   "perServing": true,
-   "calories": 180,
-   "proteinG": 4,
-   "carbsG": 12,
-   "fatG": 13,
-   "source": "creator"
-  },
-  "tags": [
-   "snack",
-   "vegetarian",
-   "gluten-free",
-   "allergen-milk",
-   "allergen-tree-nuts"
-  ],
-  "ingredients": [
-   [
-    4,
-    1,
-    "piece",
-    "beetroot",
-    "whole, unpeeled"
-   ],
-   [
-    1,
-    2,
-    "cup",
-    "walnuts",
-    "toasted"
-   ],
-   [
-    1,
-    2,
-    "cup",
-    "Greek yoghurt",
-    null
-   ],
-   [
-    1,
-    1,
-    "clove",
-    "garlic",
-    null
-   ],
-   [
-    1,
-    1,
-    "tbsp",
-    "red wine vinegar",
-    null
-   ],
-   [
-    2,
-    1,
-    "tbsp",
-    "olive oil",
-    null
-   ],
-   [
-    1,
-    1,
-    "tsp",
-    "ground cumin",
-    null
-   ]
-  ],
-  "steps": [
-   "Wrap the beetroot in foil and roast at 200C for 60 minutes, until a knife goes through easily.",
-   "Cool, then rub the skins off under running water.",
-   "Blitz with the walnuts, garlic, vinegar and cumin until almost smooth.",
-   "Fold in the yoghurt by hand so it stays streaky rather than uniformly pink.",
-   "Season and finish with the oil."
-  ],
-  "photoQuery": "Beetroot dip"
- },
- {
-  "creator": "mirasplate",
   "slug": "white-bean-soup",
   "title": "Tuscan White Bean Soup",
   "description": "Blend a cupful and return it. That is how it thickens without any flour.",
@@ -1894,7 +1806,7 @@
    "Bake at 190C for 35 minutes, until browned and bubbling at the edges.",
    "Rest 20 minutes before cutting or it will not hold together."
   ],
-  "photoQuery": "Melanzane parmigiana"
+  "photoQuery": "Parmigiana di melanzane"
  },
  {
   "creator": "mirasplate",
@@ -1971,5 +1883,109 @@
    "Scatter with za'atar and serve with warm flatbread."
   ],
   "photoQuery": "Labneh za'atar"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "greek-salad",
+  "title": "Village Greek Salad",
+  "description": "No lettuce. The tomatoes have to be good because there is nowhere for them to hide.",
+  "category": "lunch",
+  "cuisine": "Greek",
+  "prep": 15,
+  "cook": 0,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 50,
+  "alcohol": false,
+  "photoQuery": "Greek salad",
+  "nutrition": {
+   "perServing": true,
+   "calories": 280,
+   "proteinG": 8,
+   "carbsG": 12,
+   "fatG": 23,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "mediterranean",
+   "vegetarian",
+   "gluten-free",
+   "no-cook",
+   "quick",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "ripe tomatoes",
+    "cut into wedges"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "cucumber",
+    "cut into thick half moons"
+   ],
+   [
+    1,
+    2,
+    "piece",
+    "red onion",
+    "sliced thin"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "green pepper",
+    "sliced"
+   ],
+   [
+    7,
+    1,
+    "oz",
+    "feta",
+    "in one slab, not crumbled"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "Kalamata olives",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "dried oregano",
+    null
+   ],
+   [
+    5,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "red wine vinegar",
+    null
+   ]
+  ],
+  "steps": [
+   "Salt the tomato wedges and leave them 10 minutes; the juice they give up becomes part of the dressing.",
+   "Add the cucumber, onion, pepper and olives and turn everything together.",
+   "Pour over the oil and vinegar and toss once, gently.",
+   "Lay the feta on top in one piece and crush the oregano over it between your fingers.",
+   "Serve with bread, and do not let anyone leave the juice in the bowl."
+  ]
  }
 ]

@@ -340,94 +340,6 @@
  },
  {
   "creator": "cookduck",
-  "slug": "harissa-chicken-traybake",
-  "title": "Harissa Chicken Traybake",
-  "description": "Yoghurt keeps the chicken from drying and harissa does everything else. One tray.",
-  "category": "dinner",
-  "cuisine": "Moroccan",
-  "prep": 10,
-  "cook": 40,
-  "servings": 4,
-  "difficulty": "easy",
-  "ageDays": 9,
-  "alcohol": false,
-  "nutrition": {
-   "perServing": true,
-   "calories": 520,
-   "proteinG": 42,
-   "carbsG": 28,
-   "fatG": 26,
-   "source": "creator"
-  },
-  "tags": [
-   "dinner",
-   "sheet-pan",
-   "weeknight",
-   "high-protein",
-   "allergen-milk"
-  ],
-  "ingredients": [
-   [
-    8,
-    1,
-    "piece",
-    "chicken thighs",
-    "bone in, skin on"
-   ],
-   [
-    3,
-    1,
-    "tbsp",
-    "rose harissa",
-    null
-   ],
-   [
-    3,
-    1,
-    "tbsp",
-    "Greek yoghurt",
-    null
-   ],
-   [
-    1,
-    1,
-    "lb",
-    "new potatoes",
-    "halved"
-   ],
-   [
-    1,
-    1,
-    "piece",
-    "red onion",
-    "cut into wedges"
-   ],
-   [
-    1,
-    1,
-    "piece",
-    "lemon",
-    "juiced"
-   ],
-   [
-    2,
-    1,
-    "tbsp",
-    "olive oil",
-    null
-   ]
-  ],
-  "steps": [
-   "Heat the oven to 200C.",
-   "Mix the harissa, yoghurt and lemon juice and rub it all over the chicken.",
-   "Toss the potatoes and onion with the oil on a large tray and season.",
-   "Sit the chicken on top, skin up, and roast for 40 minutes, until the potatoes are tender and the chicken is cooked through — the juices should run clear.",
-   "Rest for 5 minutes before serving."
-  ],
-  "photoQuery": "Harissa chicken tray bake"
- },
- {
-  "creator": "cookduck",
   "slug": "black-bean-quesadillas",
   "title": "Black Bean Quesadillas",
   "description": "Store-cupboard dinner. Mash half the beans so the filling holds together instead of falling out.",
@@ -1694,7 +1606,7 @@
    "Stir in the herbs, lemon juice, oil and plenty of pepper.",
    "Top with the halloumi and the pomegranate."
   ],
-  "photoQuery": "Halloumi couscous salad"
+  "photoQuery": "Halloumi salad"
  },
  {
   "creator": "cookduck",
@@ -1800,5 +1712,124 @@
    "Spoon into lettuce leaves."
   ],
   "photoQuery": "Larb moo"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "chicken-shawarma-wraps",
+  "title": "Chicken Shawarma Wraps",
+  "description": "The spice mix does the work and the pan does the rest. No spit required.",
+  "category": "dinner",
+  "cuisine": "Levantine",
+  "prep": 15,
+  "cook": 15,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 9,
+  "alcohol": false,
+  "photoQuery": "Chicken shawarma",
+  "nutrition": {
+   "perServing": true,
+   "calories": 560,
+   "proteinG": 38,
+   "carbsG": 48,
+   "fatG": 24,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "middle-eastern",
+   "weeknight",
+   "high-protein",
+   "allergen-wheat",
+   "allergen-milk",
+   "allergen-sesame"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "chicken thighs",
+    "sliced"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "sweet paprika",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground coriander",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "ground cinnamon",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "juiced"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "flatbreads",
+    "warmed"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "tahini",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "tomato",
+    "sliced"
+   ],
+   [
+    1,
+    2,
+    "piece",
+    "red onion",
+    "sliced thin"
+   ]
+  ],
+  "steps": [
+   "Toss the chicken with the spices, lemon juice, oil and a good pinch of salt. Leave 15 minutes.",
+   "Get a heavy pan very hot and cook the chicken in one layer, in two batches, for 4 minutes a side.",
+   "It should be charred at the edges and cooked through with no pink at the thickest part.",
+   "Loosen the tahini with cold water, a spoonful at a time, until it pours.",
+   "Pile the chicken into warm flatbreads with the tomato and onion.",
+   "Pour the tahini over and roll tightly."
+  ]
  }
 ]

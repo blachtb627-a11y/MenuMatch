@@ -1,0 +1,2175 @@
+[
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "cacio-e-pepe",
+  "title": "Cacio e Pepe",
+  "description": "Four ingredients and no room to hide. The sauce is made from pasta water and cheese, off the heat, or it splits.",
+  "category": "dinner",
+  "cuisine": "Italian",
+  "prep": 5,
+  "cook": 15,
+  "servings": 2,
+  "difficulty": "medium",
+  "ageDays": 2,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 610,
+   "proteinG": 26,
+   "carbsG": 72,
+   "fatG": 24,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "italian",
+   "vegetarian",
+   "allergen-milk",
+   "allergen-wheat",
+   "weeknight"
+  ],
+  "ingredients": [
+   [
+    7,
+    2,
+    "oz",
+    "tonnarelli or spaghetti",
+    null
+   ],
+   [
+    4,
+    3,
+    "oz",
+    "Pecorino Romano",
+    "finely grated"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "black peppercorns",
+    "coarsely cracked"
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "sea salt",
+    "for the pasta water"
+   ]
+  ],
+  "steps": [
+   "Bring a shallow pan of well-salted water to the boil — use less water than usual so it ends up starchy.",
+   "Toast the cracked pepper in a dry frying pan over medium heat for 1 minute, until it smells sharp.",
+   "Cook the pasta 1 minute short of the packet time, then lift it into the pepper pan with a cup of the water reserved.",
+   "Take the pan off the heat and let it stop sizzling, about 30 seconds. This is the step that decides whether the sauce works.",
+   "Add the pecorino with a splash of pasta water and toss hard until it turns glossy, adding water a spoonful at a time.",
+   "Serve at once, with more pepper."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "chicken-katsu-curry",
+  "title": "Chicken Katsu Curry",
+  "description": "Crisp panko cutlets over a dark, faintly sweet curry sauce. The sauce is better made a day ahead.",
+  "category": "dinner",
+  "cuisine": "Japanese",
+  "prep": 20,
+  "cook": 35,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 5,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 780,
+   "proteinG": 42,
+   "carbsG": 68,
+   "fatG": 36,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "japanese",
+   "allergen-eggs",
+   "allergen-wheat",
+   "company-worthy"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "boneless chicken breasts",
+    "butterflied and flattened"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "panko breadcrumbs",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "eggs",
+    "beaten"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "onions",
+    "sliced thin"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "carrots",
+    "cut into chunks"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "curry powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "garam masala",
+    null
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "chicken stock",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "honey",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "soy sauce",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "short-grain rice",
+    "cooked, to serve"
+   ]
+  ],
+  "steps": [
+   "Soften the onion and carrot in oil over medium heat for 10 minutes, until the onion is translucent.",
+   "Stir in the curry powder and garam masala and cook for 1 minute, until fragrant.",
+   "Add the stock, honey and soy, bring to a simmer and cook for 20 minutes, until the carrot is soft.",
+   "Blend the sauce smooth and keep it warm. It should coat a spoon; loosen with water if not.",
+   "Dredge each cutlet in flour, then egg, then panko, pressing the crumbs on firmly.",
+   "Shallow-fry in 1cm of oil over medium-high heat for 3 to 4 minutes a side, until deep gold and cooked through — no pink at the thickest point.",
+   "Rest on a rack for 2 minutes, slice, and serve over rice with the sauce poured alongside."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "pork-carnitas-tacos",
+  "title": "Pork Carnitas Tacos",
+  "description": "Shoulder cooked slowly in its own fat until it shreds, then crisped under the grill. Worth the afternoon.",
+  "category": "dinner",
+  "cuisine": "Mexican",
+  "prep": 20,
+  "cook": 210,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 8,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 640,
+   "proteinG": 45,
+   "carbsG": 28,
+   "fatG": 38,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "mexican",
+   "gluten-free",
+   "batch-cooking",
+   "company-worthy"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "lb",
+    "pork shoulder",
+    "cut into large chunks"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "orange",
+    "halved"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "quartered"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "smashed"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "dried oregano",
+    null
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "sea salt",
+    null
+   ],
+   [
+    12,
+    1,
+    "piece",
+    "corn tortillas",
+    "warmed"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "white onion",
+    "finely diced, to serve"
+   ],
+   [
+    1,
+    1,
+    "bunch",
+    "coriander",
+    "chopped, to serve"
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 150C.",
+   "Season the pork all over with the salt, cumin and oregano.",
+   "Put it in a heavy casserole with the onion, garlic and the squeezed orange halves, and add water to come a third of the way up.",
+   "Cover and cook for 3 hours, until the meat gives completely to a fork.",
+   "Shred the pork coarsely and discard the aromatics. Keep the fat and juices.",
+   "Spread the meat on a tray, spoon over some of the fat, and grill on high for 5 minutes until the edges crisp.",
+   "Pile into warm tortillas with raw onion and coriander."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "chana-masala",
+  "title": "Chana Masala",
+  "description": "A weeknight chickpea curry that gets its depth from cooking the onions properly and finishing with amchur.",
+  "category": "dinner",
+  "cuisine": "Indian",
+  "prep": 10,
+  "cook": 35,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 11,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 390,
+   "proteinG": 16,
+   "carbsG": 52,
+   "fatG": 13,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "indian",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "one-pot",
+   "weeknight",
+   "meal-prep"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "can",
+    "chickpeas",
+    "drained and rinsed"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "onions",
+    "finely chopped"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "chopped tomatoes",
+    null
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fresh ginger",
+    "grated"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "ground coriander",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "ground turmeric",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "garam masala",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "amchur",
+    "or a squeeze of lemon"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "sea salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Cook the onion in the oil over medium heat for 12 minutes, stirring, until genuinely golden — this is most of the flavour.",
+   "Add the garlic and ginger and cook for 2 minutes.",
+   "Stir in the cumin, coriander and turmeric and cook for 30 seconds, until fragrant.",
+   "Add the tomatoes and cook for 8 minutes, until the oil separates at the edges.",
+   "Add the chickpeas and a splash of water, and simmer for 12 minutes.",
+   "Crush a few chickpeas against the side to thicken the sauce.",
+   "Finish off the heat with the garam masala and amchur, and season."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "thai-green-curry",
+  "title": "Thai Green Curry with Chicken",
+  "description": "Fry the paste in coconut cream until it splits and smells of nothing else. That step is the whole dish.",
+  "category": "dinner",
+  "cuisine": "Thai",
+  "prep": 15,
+  "cook": 25,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 14,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 34,
+   "carbsG": 18,
+   "fatG": 36,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "thai",
+   "gluten-free",
+   "dairy-free",
+   "weeknight",
+   "one-pot"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "chicken thighs",
+    "sliced"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "green curry paste",
+    null
+   ],
+   [
+    2,
+    1,
+    "can",
+    "coconut milk",
+    "not shaken"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fish sauce",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "palm sugar",
+    "or brown sugar"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "aubergine",
+    "cubed"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "Thai basil",
+    "leaves picked"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "kaffir lime leaves",
+    "torn"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "red chilli",
+    "sliced, to serve"
+   ]
+  ],
+  "steps": [
+   "Spoon the thick cream from the top of one can into a wide pan and heat it over medium-high.",
+   "Add the curry paste and fry for 3 to 4 minutes, until the oil separates and the paste darkens.",
+   "Add the chicken and turn it in the paste for 2 minutes.",
+   "Pour in the rest of the coconut milk, add the aubergine and lime leaves, and simmer for 15 minutes, until the chicken is cooked through and the aubergine is soft.",
+   "Season with the fish sauce and sugar — it should taste salty, sweet and hot in that order.",
+   "Stir through the basil off the heat and scatter with chilli."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "bun-cha",
+  "title": "Bún Chả",
+  "description": "Grilled pork patties dropped into a sweet-sour dipping broth, with cold noodles and a pile of herbs.",
+  "category": "lunch",
+  "cuisine": "Vietnamese",
+  "prep": 30,
+  "cook": 15,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 17,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 560,
+   "proteinG": 32,
+   "carbsG": 54,
+   "fatG": 24,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "dairy-free",
+   "allergen-fish",
+   "company-worthy"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "minced pork",
+    "not too lean"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "minced"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fish sauce",
+    null
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "sugar",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "shallot",
+    "finely chopped"
+   ],
+   [
+    7,
+    1,
+    "oz",
+    "rice vermicelli",
+    "cooked and cooled"
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "fish sauce",
+    "for the broth"
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "rice vinegar",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "sugar",
+    "for the broth"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "warm water",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "carrot",
+    "shaved"
+   ],
+   [
+    1,
+    1,
+    "bunch",
+    "mixed herbs",
+    "mint, coriander, perilla"
+   ]
+  ],
+  "steps": [
+   "Mix the pork with the garlic, shallot, 1 tbsp fish sauce and 2 tsp sugar. Rest it for 20 minutes.",
+   "Whisk the broth: 4 tbsp fish sauce, the vinegar, 3 tbsp sugar and the warm water. Add the shaved carrot and set aside.",
+   "Shape the pork into small flat patties, about 4cm across.",
+   "Grill over high heat for 3 minutes a side, until charred at the edges and cooked all the way through.",
+   "Drop the hot patties straight into bowls of the dipping broth.",
+   "Serve with the cold noodles and the herbs, dipping as you go."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "kimchi-jjigae",
+  "title": "Kimchi Jjigae",
+  "description": "The stew you make when the kimchi has gone too sour to eat straight. Sourer is better here.",
+  "category": "dinner",
+  "cuisine": "Korean",
+  "prep": 10,
+  "cook": 30,
+  "servings": 3,
+  "difficulty": "easy",
+  "ageDays": 20,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 430,
+   "proteinG": 26,
+   "carbsG": 22,
+   "fatG": 26,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "korean",
+   "dairy-free",
+   "one-pot",
+   "weeknight"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "aged kimchi",
+    "roughly chopped, with its juice"
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "pork belly",
+    "sliced thin"
+   ],
+   [
+    1,
+    1,
+    "package",
+    "firm tofu",
+    "cubed"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "gochujang",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "gochugaru",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "water",
+    "or anchovy stock"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "spring onions",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "toasted sesame oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "sugar",
+    null
+   ]
+  ],
+  "steps": [
+   "Render the pork belly in a dry pot over medium-high heat for 4 minutes, until the fat runs and the edges brown.",
+   "Add the kimchi and fry it in the fat for 5 minutes — do not skip this, raw kimchi tastes thin in the finished stew.",
+   "Stir in the gochujang, gochugaru and sugar.",
+   "Add the kimchi juice and the water, bring to the boil and simmer for 15 minutes.",
+   "Slide in the tofu and simmer for 5 minutes more without stirring, so it stays whole.",
+   "Finish with the sesame oil and spring onions."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "mapo-tofu",
+  "title": "Mapo Tofu",
+  "description": "Numbing, hot, and on the table in twenty minutes. The Sichuan pepper goes in at the end, ground fresh.",
+  "category": "dinner",
+  "cuisine": "Sichuan",
+  "prep": 10,
+  "cook": 15,
+  "servings": 3,
+  "difficulty": "easy",
+  "ageDays": 23,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 410,
+   "proteinG": 24,
+   "carbsG": 16,
+   "fatG": 28,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "chinese",
+   "allergen-soy",
+   "weeknight",
+   "one-pot"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "package",
+    "silken tofu",
+    "cut into 2cm cubes"
+   ],
+   [
+    5,
+    1,
+    "oz",
+    "minced pork",
+    "or omit for a vegetarian version"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "doubanjiang",
+    "chilli bean paste"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fermented black beans",
+    "rinsed and chopped"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "minced"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "chicken stock",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "cornflour",
+    "slaked in 2 tbsp water"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "Sichuan peppercorns",
+    "toasted and ground"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "spring onions",
+    "sliced"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "neutral oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Slide the tofu into barely simmering salted water and leave it while you cook — it firms up and seasons through.",
+   "Fry the pork in the oil over high heat for 3 minutes, until it is no longer pink and starting to crisp.",
+   "Turn the heat to medium, add the doubanjiang and fry for 1 minute, until the oil turns red.",
+   "Add the black beans and garlic and cook for 30 seconds.",
+   "Pour in the stock and bring to a simmer.",
+   "Drain the tofu and add it, then push it gently with the back of a spoon rather than stirring.",
+   "Add the cornflour slurry and simmer for 1 minute, until it thickens and clings.",
+   "Off the heat, scatter over the ground Sichuan pepper and the spring onions."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "coq-au-vin",
+  "title": "Coq au Vin",
+  "description": "A braise that rewards browning properly and then leaving it alone. Better reheated the next day.",
+  "category": "dinner",
+  "cuisine": "French",
+  "prep": 30,
+  "cook": 105,
+  "servings": 6,
+  "difficulty": "hard",
+  "ageDays": 26,
+  "alcohol": true,
+  "nutrition": {
+   "perServing": true,
+   "calories": 620,
+   "proteinG": 44,
+   "carbsG": 18,
+   "fatG": 34,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "french",
+   "company-worthy",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "lb",
+    "chicken thighs and drumsticks",
+    "bone in, skin on"
+   ],
+   [
+    6,
+    1,
+    "oz",
+    "smoked bacon lardons",
+    null
+   ],
+   [
+    10,
+    1,
+    "piece",
+    "shallots",
+    "peeled, left whole"
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "chestnut mushrooms",
+    "halved"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "red wine",
+    "something you would drink"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "chicken stock",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "tomato purée",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "plain flour",
+    null
+   ],
+   [
+    3,
+    1,
+    "sprig",
+    "thyme",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "bay leaf",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 160C.",
+   "Render the lardons in a heavy casserole over medium heat for 6 minutes, then lift them out.",
+   "Brown the chicken in the fat, skin side down first, for 5 minutes a side. Do it in batches — crowding steams it.",
+   "Set the chicken aside and brown the shallots and mushrooms in the same pot for 6 minutes.",
+   "Stir in the flour and tomato purée and cook for 1 minute.",
+   "Pour in the wine, scraping the bottom, and let it bubble for 3 minutes.",
+   "Return the chicken and lardons, add the stock, thyme and bay, and bring to a simmer.",
+   "Cover and cook in the oven for 90 minutes, until the meat pulls from the bone.",
+   "Lift the chicken out, reduce the sauce on the hob until it coats a spoon, and whisk in the butter off the heat."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "lamb-souvlaki",
+  "title": "Lamb Souvlaki with Tzatziki",
+  "description": "Marinate the day before if you can. The yoghurt in the marinade does more than the lemon.",
+  "category": "dinner",
+  "cuisine": "Greek",
+  "prep": 25,
+  "cook": 15,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 29,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 590,
+   "proteinG": 38,
+   "carbsG": 26,
+   "fatG": 38,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "mediterranean",
+   "allergen-milk",
+   "company-worthy",
+   "high-protein"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "lamb leg",
+    "cut into 3cm cubes"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "Greek yoghurt",
+    "for the marinade"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "zested and juiced"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "dried oregano",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "Greek yoghurt",
+    "for the tzatziki"
+   ],
+   [
+    1,
+    2,
+    "piece",
+    "cucumber",
+    "grated and squeezed dry"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fresh dill",
+    "chopped"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "pitta breads",
+    "warmed"
+   ]
+  ],
+  "steps": [
+   "Mix the lamb with the half cup of yoghurt, garlic, lemon zest, oregano and oil. Chill for at least 2 hours, ideally overnight.",
+   "Make the tzatziki: stir the grated cucumber, dill and lemon juice into the cup of yoghurt and season. Keep it cold.",
+   "Thread the lamb onto skewers, leaving a little space between the cubes.",
+   "Grill over high heat for 3 to 4 minutes a side, until well charred outside and pink within.",
+   "Rest the skewers for 5 minutes — they carry on cooking.",
+   "Serve in warm pitta with the tzatziki."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "chicken-tagine",
+  "title": "Chicken Tagine with Olives and Preserved Lemon",
+  "description": "Salty, sour and barely sweet. The preserved lemon is not optional; nothing else does that job.",
+  "category": "dinner",
+  "cuisine": "Moroccan",
+  "prep": 20,
+  "cook": 60,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 32,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 540,
+   "proteinG": 40,
+   "carbsG": 22,
+   "fatG": 32,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "gluten-free",
+   "company-worthy",
+   "one-pot"
+  ],
+  "ingredients": [
+   [
+    8,
+    1,
+    "piece",
+    "chicken thighs",
+    "bone in, skin on"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "onions",
+    "sliced"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground ginger",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground turmeric",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "saffron",
+    "soaked in a little warm water"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "green olives",
+    "pitted"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "preserved lemon",
+    "rind only, sliced"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "chicken stock",
+    null
+   ],
+   [
+    1,
+    1,
+    "bunch",
+    "coriander",
+    "chopped"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Brown the chicken skin side down in the oil over medium-high heat for 6 minutes, then turn and give it 3 more. Set aside.",
+   "Cook the onions in the same pan for 10 minutes, until soft and golden.",
+   "Add the garlic and dry spices and cook for 1 minute.",
+   "Return the chicken skin side up, add the stock and the saffron with its water, and bring to a simmer.",
+   "Cover and cook gently for 40 minutes, until the chicken is falling off the bone and cooked through.",
+   "Add the olives and preserved lemon and cook uncovered for 10 minutes to reduce.",
+   "Scatter with coriander."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "mujadara",
+  "title": "Mujadara",
+  "description": "Lentils, rice and a great deal of onion cooked far past golden. Cheap, filling, and better warm than hot.",
+  "category": "dinner",
+  "cuisine": "Lebanese",
+  "prep": 15,
+  "cook": 50,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 35,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 420,
+   "proteinG": 14,
+   "carbsG": 66,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "middle-eastern",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "batch-cooking",
+   "meal-prep"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "brown lentils",
+    "rinsed"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "basmati rice",
+    "rinsed"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "onions",
+    "sliced thin"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "ground allspice",
+    null
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "sea salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "Greek yoghurt",
+    "to serve, optional"
+   ]
+  ],
+  "steps": [
+   "Cook the lentils in plenty of unsalted water for 20 minutes, until tender but not collapsing. Drain.",
+   "Fry the onions in the oil over medium heat for 25 minutes, stirring often, until deep brown and sweet. Take a third out for the top and keep them crisp.",
+   "Add the cumin and allspice to the pan and cook for 30 seconds.",
+   "Stir in the rice, then the lentils, then the water and a good pinch of salt.",
+   "Bring to the boil, cover, and cook on the lowest heat for 15 minutes.",
+   "Rest off the heat, still covered, for 10 minutes, then fork through.",
+   "Top with the reserved onions, and yoghurt if you want it."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "seafood-paella",
+  "title": "Seafood Paella",
+  "description": "Cook it wide and shallow and stop stirring. The crust on the bottom is the point of the dish.",
+  "category": "dinner",
+  "cuisine": "Spanish",
+  "prep": 25,
+  "cook": 35,
+  "servings": 4,
+  "difficulty": "hard",
+  "ageDays": 38,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 610,
+   "proteinG": 38,
+   "carbsG": 64,
+   "fatG": 18,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "allergen-shellfish",
+   "allergen-fish",
+   "gluten-free",
+   "company-worthy"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "bomba rice",
+    "or another short-grain paella rice"
+   ],
+   [
+    12,
+    1,
+    "piece",
+    "mussels",
+    "scrubbed, beards removed"
+   ],
+   [
+    8,
+    1,
+    "piece",
+    "large prawns",
+    "shell on"
+   ],
+   [
+    6,
+    1,
+    "oz",
+    "squid",
+    "cut into rings"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "finely chopped"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "minced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "red pepper",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "tomato",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "saffron",
+    "soaked in warm water"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "sweet paprika",
+    null
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "fish stock",
+    "hot"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Discard any mussels that stay open when tapped.",
+   "Fry the prawns in the oil in a wide pan for 1 minute a side, then set them aside.",
+   "Cook the onion and pepper for 8 minutes, until soft.",
+   "Add the garlic, grated tomato and paprika and cook for 3 minutes, until it darkens and thickens.",
+   "Stir in the rice for 1 minute, then pour in the hot stock and the saffron water and season.",
+   "Simmer without stirring for 15 minutes, turning the pan for even heat.",
+   "Push in the mussels and squid and cook for 5 minutes, until the mussels open. Discard any that stay shut.",
+   "Lay the prawns back on top, cook 2 minutes more, then rest off the heat for 5 minutes before serving."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "misir-wot",
+  "title": "Misir Wot",
+  "description": "Ethiopian red lentil stew. It tastes of berbere and slowly cooked onion and almost nothing else.",
+  "category": "dinner",
+  "cuisine": "Ethiopian",
+  "prep": 10,
+  "cook": 45,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 41,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 16,
+   "carbsG": 48,
+   "fatG": 10,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "gluten-free",
+   "one-pot",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "red lentils",
+    "rinsed"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "onions",
+    "very finely chopped"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "berbere",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "oil",
+    "or niter kibbeh"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "minced"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fresh ginger",
+    "grated"
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "sea salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Cook the onions dry in a heavy pan over medium-low heat for 10 minutes, stirring, until they collapse and release their water.",
+   "Add the oil and keep cooking for 10 minutes more, until deep gold.",
+   "Stir in the garlic, ginger and berbere and cook for 2 minutes — keep it moving, berbere catches easily.",
+   "Add the lentils and water, bring to a simmer, and cook for 25 minutes, stirring now and then, until the lentils have broken down completely.",
+   "Season, and loosen with water if it has gone past thick into stiff."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "menemen",
+  "title": "Menemen",
+  "description": "Turkish soft-scrambled eggs in stewed peppers and tomato. Eaten from the pan with bread, never plated.",
+  "category": "breakfast",
+  "cuisine": "Turkish",
+  "prep": 5,
+  "cook": 15,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 44,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 16,
+   "carbsG": 18,
+   "fatG": 24,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "vegetarian",
+   "allergen-eggs",
+   "gluten-free",
+   "weeknight",
+   "one-pot"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "eggs",
+    "beaten lightly"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "green peppers",
+    "finely chopped"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "ripe tomatoes",
+    "grated or skinned and chopped"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "Aleppo pepper",
+    null
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "sea salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "crusty bread",
+    "to serve"
+   ]
+  ],
+  "steps": [
+   "Cook the peppers in the oil in a small frying pan over medium heat for 6 minutes, until soft.",
+   "Add the tomatoes and Aleppo pepper and cook for 6 minutes, until the liquid has mostly gone.",
+   "Turn the heat to low and pour in the eggs.",
+   "Fold them slowly through the tomato for 2 to 3 minutes, until just set and still glossy. Take it off before you think it is ready.",
+   "Season and bring the pan to the table with the bread."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "biscuits-sausage-gravy",
+  "title": "Buttermilk Biscuits and Sausage Gravy",
+  "description": "Cold butter, a light hand, and a gravy that needs more pepper than feels reasonable.",
+  "category": "breakfast",
+  "cuisine": "American",
+  "prep": 20,
+  "cook": 25,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 47,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 760,
+   "proteinG": 26,
+   "carbsG": 58,
+   "fatG": 48,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "american",
+   "allergen-milk",
+   "allergen-wheat",
+   "company-worthy"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "baking powder",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "bicarbonate of soda",
+    null
+   ],
+   [
+    6,
+    1,
+    "tbsp",
+    "cold butter",
+    "cubed"
+   ],
+   [
+    3,
+    4,
+    "cup",
+    "buttermilk",
+    "cold"
+   ],
+   [
+    1,
+    1,
+    "lb",
+    "pork breakfast sausage",
+    "casings removed"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "plain flour",
+    "for the gravy"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "whole milk",
+    null
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "black pepper",
+    "coarsely ground"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "sea salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 220C.",
+   "Rub the cold butter into the flour, baking powder, bicarbonate and salt until it looks like rough gravel with some pea-sized pieces left.",
+   "Stir in the buttermilk until it just comes together. Handle it as little as you can.",
+   "Pat out to 2cm, cut rounds without twisting the cutter, and bake for 14 minutes, until risen and golden.",
+   "Meanwhile brown the sausage in a heavy pan over medium-high heat for 8 minutes, breaking it up, until cooked through with no pink.",
+   "Sprinkle over the flour and cook for 2 minutes, stirring.",
+   "Pour in the milk slowly and simmer for 6 minutes, until it thickens enough to coat a spoon.",
+   "Add the pepper, taste, and add more. Split the biscuits and pour the gravy over."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "steak-and-ale-pie",
+  "title": "Steak and Ale Pie",
+  "description": "The filling wants to be made a day ahead and gone cold before the pastry goes on, or the base will not crisp.",
+  "category": "dinner",
+  "cuisine": "British",
+  "prep": 30,
+  "cook": 180,
+  "servings": 6,
+  "difficulty": "hard",
+  "ageDays": 50,
+  "alcohol": true,
+  "nutrition": {
+   "perServing": true,
+   "calories": 720,
+   "proteinG": 42,
+   "carbsG": 52,
+   "fatG": 36,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "british",
+   "allergen-wheat",
+   "allergen-milk",
+   "company-worthy",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "beef chuck",
+    "cut into 4cm cubes"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "onions",
+    "chopped"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "carrots",
+    "chopped"
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "chestnut mushrooms",
+    "quartered"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "brown ale",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "beef stock",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "Worcestershire sauce",
+    null
+   ],
+   [
+    3,
+    1,
+    "sprig",
+    "thyme",
+    null
+   ],
+   [
+    14,
+    1,
+    "oz",
+    "shortcrust pastry",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "egg",
+    "beaten, to glaze"
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 150C.",
+   "Toss the beef in the flour and brown it hard in oil, in batches, about 4 minutes a batch. Set aside.",
+   "Cook the onion, carrot and mushrooms in the same pot for 8 minutes.",
+   "Pour in the ale and let it bubble for 3 minutes, scraping the base.",
+   "Return the beef, add the stock, Worcestershire and thyme, cover, and cook in the oven for 2 hours 30 minutes, until the beef shreds under a fork.",
+   "Cool the filling completely — ideally overnight in the fridge.",
+   "Line a pie dish with two thirds of the pastry, fill it, and lid it. Crimp, cut a vent, and glaze with egg.",
+   "Bake at 200C for 35 minutes, until the pastry is deep gold underneath as well as on top."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "lomo-saltado",
+  "title": "Lomo Saltado",
+  "description": "A Peruvian stir-fry that puts the chips in the pan. Get the wok properly hot before anything goes near it.",
+  "category": "dinner",
+  "cuisine": "Peruvian",
+  "prep": 20,
+  "cook": 15,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 53,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 650,
+   "proteinG": 38,
+   "carbsG": 52,
+   "fatG": 32,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "allergen-soy",
+   "dairy-free",
+   "weeknight"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "sirloin steak",
+    "cut into thick strips"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "red onions",
+    "cut into wedges"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "tomatoes",
+    "cut into wedges"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "yellow chilli",
+    "sliced, seeds out"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "soy sauce",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "red wine vinegar",
+    null
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "minced"
+   ],
+   [
+    1,
+    1,
+    "lb",
+    "floury potatoes",
+    "cut into chips and fried"
+   ],
+   [
+    1,
+    1,
+    "bunch",
+    "coriander",
+    "chopped"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "white rice",
+    "cooked, to serve"
+   ]
+  ],
+  "steps": [
+   "Fry the chips until golden and crisp, drain them, and keep them somewhere warm.",
+   "Season the beef and get a wok or wide pan as hot as it will go.",
+   "Sear the beef in two batches, 90 seconds each, until browned outside and still rare within. Set aside.",
+   "Add the onion and chilli to the pan and cook for 2 minutes — they should stay crunchy.",
+   "Add the garlic, then the soy and vinegar, and let them hiss and reduce for 30 seconds.",
+   "Return the beef with the tomatoes and toss for 1 minute, no longer.",
+   "Fold the chips through at the very last second and serve with rice and coriander."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "pierogi-ruskie",
+  "title": "Pierogi Ruskie",
+  "description": "Potato and cheese dumplings, boiled then fried in butter with onions. Make a lot; they freeze raw.",
+  "category": "dinner",
+  "cuisine": "Polish",
+  "prep": 50,
+  "cook": 30,
+  "servings": 4,
+  "difficulty": "hard",
+  "ageDays": 56,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 580,
+   "proteinG": 18,
+   "carbsG": 78,
+   "fatG": 22,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "vegetarian",
+   "allergen-wheat",
+   "allergen-milk",
+   "allergen-eggs",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "egg",
+    null
+   ],
+   [
+    3,
+    4,
+    "cup",
+    "warm water",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "melted butter",
+    "for the dough"
+   ],
+   [
+    2,
+    1,
+    "lb",
+    "floury potatoes",
+    "peeled and boiled"
+   ],
+   [
+    7,
+    1,
+    "oz",
+    "twaróg or curd cheese",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "onions",
+    "one for the filling, one to serve"
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "butter",
+    "for frying"
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "sea salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "soured cream",
+    "to serve"
+   ]
+  ],
+  "steps": [
+   "Make the dough: mix the flour, egg, melted butter, water and a pinch of salt, then knead for 8 minutes until smooth and elastic. Rest it, covered, for 30 minutes.",
+   "Fry one chopped onion in butter for 8 minutes until golden, and mash it into the potatoes with the curd cheese. Season it more than feels right — the dough is bland.",
+   "Roll the dough thin, cut 8cm rounds, and put a spoon of filling on each.",
+   "Fold and pinch the edges firmly, making sure no air is trapped inside.",
+   "Boil in batches of eight in well-salted water for 3 minutes from when they float.",
+   "Fry the second onion in butter until golden.",
+   "Fry the drained pierogi in the same pan for 2 minutes a side, until blistered, and serve with the onions and soured cream."
+  ]
+ },
+ {
+  "creator": "menumatch.kitchen",
+  "slug": "tarte-tatin",
+  "title": "Tarte Tatin",
+  "description": "Caramel first, apples second, pastry last, and do not touch it until it is out of the oven and turned over.",
+  "category": "dessert",
+  "cuisine": "French",
+  "prep": 25,
+  "cook": 45,
+  "servings": 8,
+  "difficulty": "hard",
+  "ageDays": 59,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 390,
+   "proteinG": 3,
+   "carbsG": 52,
+   "fatG": 20,
+   "source": "creator"
+  },
+  "tags": [
+   "dessert",
+   "french",
+   "vegetarian",
+   "allergen-milk",
+   "allergen-wheat",
+   "company-worthy"
+  ],
+  "ingredients": [
+   [
+    6,
+    1,
+    "piece",
+    "firm apples",
+    "peeled, halved and cored"
+   ],
+   [
+    3,
+    4,
+    "cup",
+    "caster sugar",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "butter",
+    "cubed"
+   ],
+   [
+    10,
+    1,
+    "oz",
+    "all-butter puff pastry",
+    "rolled to a 26cm round"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "lemon juice",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "sea salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 200C.",
+   "Toss the apple halves with the lemon juice.",
+   "Melt the sugar in a 24cm ovenproof frying pan over medium heat, without stirring, for 8 minutes, until it turns amber.",
+   "Take it off the heat, whisk in the butter and salt, and let the bubbling settle.",
+   "Pack the apples in cut side up, tightly — they shrink a great deal.",
+   "Cook on the hob over medium-low heat for 15 minutes, until the apples soften and the caramel thickens.",
+   "Lay the pastry over, tucking the edge down inside the pan, and cut a small vent.",
+   "Bake for 30 minutes, until the pastry is deep gold and firm.",
+   "Rest for 5 minutes only, then turn out onto a plate in one confident movement."
+  ]
+ }
+]

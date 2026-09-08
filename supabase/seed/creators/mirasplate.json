@@ -1987,5 +1987,140 @@
    "Lay the feta on top in one piece and crush the oregano over it between your fingers.",
    "Serve with bread, and do not let anyone leave the juice in the bowl."
   ]
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "mint-tea",
+  "title": "Moroccan Mint Tea",
+  "description": "Pour from a height. It is not for show — it aerates the tea and puts a head on it.",
+  "category": "drinks",
+  "cuisine": "Moroccan",
+  "prep": 5,
+  "cook": 10,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 16,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 90,
+   "proteinG": 0,
+   "carbsG": 22,
+   "fatG": 0,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "gluten-free",
+   "quick"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "tbsp",
+    "gunpowder green tea",
+    null
+   ],
+   [
+    1,
+    1,
+    "bunch",
+    "fresh mint",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "sugar",
+    "or to taste"
+   ],
+   [
+    4,
+    1,
+    "cup",
+    "boiling water",
+    null
+   ]
+  ],
+  "steps": [
+   "Rinse the tea leaves with a splash of boiling water and pour it away — this takes the bitterness off.",
+   "Add the rest of the boiling water and steep for 4 minutes.",
+   "Push in the mint and the sugar and leave for 3 minutes more.",
+   "Pour a glass and return it to the pot twice, to mix.",
+   "Pour from as high as you can manage into small glasses."
+  ],
+  "photoQuery": "Moroccan mint tea"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "ayran",
+  "title": "Ayran",
+  "description": "Yoghurt, water, salt. Salted, not sweet, and it goes with grilled meat better than anything.",
+  "category": "drinks",
+  "cuisine": "Turkish",
+  "prep": 5,
+  "cook": 0,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 19,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 70,
+   "proteinG": 5,
+   "carbsG": 6,
+   "fatG": 3,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "vegetarian",
+   "no-cook",
+   "quick",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "full-fat yoghurt",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "cold water",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "fine salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "ice",
+    null
+   ]
+  ],
+  "steps": [
+   "Whisk the yoghurt with a little of the water until completely smooth.",
+   "Add the rest of the water and the salt and whisk hard for 30 seconds to froth it.",
+   "Taste — it should be noticeably salty, not faintly so.",
+   "Pour over ice."
+  ],
+  "photoQuery": "Ayran drink"
  }
 ]

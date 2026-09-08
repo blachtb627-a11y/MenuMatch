@@ -1844,5 +1844,80 @@
    "Cool completely before cutting."
   ],
   "photoQuery": "Bakewell tart"
+ },
+ {
+  "creator": "flourhands",
+  "slug": "hot-chocolate",
+  "title": "Proper Hot Chocolate",
+  "description": "Real chocolate melted into milk, not powder. Thicker and far less sweet.",
+  "category": "drinks",
+  "cuisine": "French",
+  "prep": 5,
+  "cook": 10,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 25,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 320,
+   "proteinG": 9,
+   "carbsG": 28,
+   "fatG": 20,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "french",
+   "vegetarian",
+   "quick",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "oz",
+    "dark chocolate",
+    "70%, chopped"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "whole milk",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "cornflour",
+    "slaked in a little milk"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "fine salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "caster sugar",
+    "only if needed"
+   ]
+  ],
+  "steps": [
+   "Heat the milk until steaming but not boiling.",
+   "Take it off the heat and add the chopped chocolate. Leave it 2 minutes without stirring.",
+   "Whisk until smooth and glossy.",
+   "Return to low heat, add the slaked cornflour, and cook for 2 minutes until it thickens enough to coat a spoon.",
+   "Add the salt, taste, and sweeten only if it needs it."
+  ],
+  "photoQuery": "Hot chocolate cup"
  }
 ]

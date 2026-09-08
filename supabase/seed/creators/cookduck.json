@@ -1831,5 +1831,289 @@
    "Pile the chicken into warm flatbreads with the tomato and onion.",
    "Pour the tahini over and roll tightly."
   ]
+ },
+ {
+  "creator": "cookduck",
+  "slug": "iced-matcha-latte",
+  "title": "Iced Matcha Latte",
+  "description": "Sift the matcha and whisk it with a little water first, or you drink lumps.",
+  "category": "drinks",
+  "cuisine": "Japanese",
+  "prep": 5,
+  "cook": 0,
+  "servings": 1,
+  "difficulty": "easy",
+  "ageDays": 4,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 140,
+   "proteinG": 6,
+   "carbsG": 14,
+   "fatG": 6,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "japanese",
+   "vegetarian",
+   "no-cook",
+   "quick",
+   "allergen-milk",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "tsp",
+    "matcha powder",
+    "sifted"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "hot water",
+    "not boiling"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "whole milk",
+    "cold"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "honey",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "ice",
+    null
+   ]
+  ],
+  "steps": [
+   "Sift the matcha into a bowl — this is the step everyone skips and it is why the drink goes lumpy.",
+   "Add the hot water, about 80C, and whisk in a W motion for 30 seconds until it foams.",
+   "Stir the honey into the paste while it is still warm.",
+   "Fill a glass with ice, pour over the milk, then float the matcha on top.",
+   "Stir before drinking, or drink it in layers."
+  ],
+  "photoQuery": "Matcha latte"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "classic-lemonade",
+  "title": "Real Lemonade",
+  "description": "Make a syrup first. Sugar stirred into cold lemon juice never dissolves and you taste the grit.",
+  "category": "drinks",
+  "cuisine": "American",
+  "prep": 10,
+  "cook": 5,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 7,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 110,
+   "proteinG": 0,
+   "carbsG": 28,
+   "fatG": 0,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "american",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "gluten-free",
+   "no-cook"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "caster sugar",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "water",
+    "for the syrup"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "lemon juice",
+    "about 6 lemons"
+   ],
+   [
+    4,
+    1,
+    "cup",
+    "cold water",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "mint",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the sugar and 1 cup water together for 3 minutes, stirring, until completely clear. Cool it.",
+   "Squeeze the lemons and strain out the pips but keep some pulp.",
+   "Mix the syrup, lemon juice and cold water.",
+   "Chill for at least an hour — lemonade tastes flat when it is not properly cold.",
+   "Serve over ice with the mint bruised between your palms first."
+  ],
+  "photoQuery": "Lemonade glass"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "mango-lassi",
+  "title": "Mango Lassi",
+  "description": "Use ripe alphonso if you can find it. Frozen mango works and needs no ice.",
+  "category": "drinks",
+  "cuisine": "Indian",
+  "prep": 5,
+  "cook": 0,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 10,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 210,
+   "proteinG": 6,
+   "carbsG": 38,
+   "fatG": 4,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "indian",
+   "vegetarian",
+   "no-cook",
+   "quick",
+   "blender",
+   "allergen-milk",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "ripe mango",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "full-fat yoghurt",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "whole milk",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "honey",
+    "to taste"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "ground cardamom",
+    null
+   ]
+  ],
+  "steps": [
+   "Blend the mango, yoghurt and milk for 45 seconds, until completely smooth.",
+   "Taste before sweetening — a ripe mango often needs nothing.",
+   "Add the cardamom and blend for 5 seconds more.",
+   "Serve cold, in chilled glasses if you have thought ahead."
+  ],
+  "photoQuery": "Mango lassi"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "cold-brew",
+  "title": "Cold Brew Coffee",
+  "description": "Sixteen hours on the counter and no heat at all. It is a different drink from iced coffee.",
+  "category": "drinks",
+  "cuisine": "American",
+  "prep": 5,
+  "cook": 0,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 13,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 10,
+   "proteinG": 0,
+   "carbsG": 2,
+   "fatG": 0,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "american",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "gluten-free",
+   "no-cook",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "coarsely ground coffee",
+    null
+   ],
+   [
+    4,
+    1,
+    "cup",
+    "cold water",
+    null
+   ]
+  ],
+  "steps": [
+   "Grind the coffee coarse, like sea salt. Fine grounds turn it bitter and cloudy.",
+   "Stir the grounds into the cold water in a jar and make sure they are all wet.",
+   "Leave at room temperature for 16 hours.",
+   "Strain through a fine sieve lined with a cloth, slowly, without pressing the grounds.",
+   "Keep in the fridge for up to a week and dilute to taste."
+  ],
+  "photoQuery": "Cold brew coffee"
  }
 ]

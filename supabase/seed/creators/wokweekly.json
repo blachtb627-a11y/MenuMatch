@@ -2088,5 +2088,72 @@
    "Serve the rice with the mango alongside, the thickened milk poured over, and sesame seeds on top."
   ],
   "photoQuery": "Mango sticky rice"
+ },
+ {
+  "creator": "wokweekly",
+  "slug": "vietnamese-iced-coffee",
+  "title": "Vietnamese Iced Coffee",
+  "description": "Condensed milk in the bottom, coffee dripped slowly on top. Stir it only at the end.",
+  "category": "drinks",
+  "cuisine": "Vietnamese",
+  "prep": 5,
+  "cook": 5,
+  "servings": 1,
+  "difficulty": "easy",
+  "ageDays": 22,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 180,
+   "proteinG": 4,
+   "carbsG": 28,
+   "fatG": 6,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "vegetarian",
+   "quick",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "tbsp",
+    "dark roast coffee",
+    "coarsely ground"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "condensed milk",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "boiling water",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "ice",
+    null
+   ]
+  ],
+  "steps": [
+   "Spoon the condensed milk into the bottom of a glass.",
+   "Put the coffee in a phin filter set over the glass, or use a small cafetiere.",
+   "Add a splash of boiling water to bloom the grounds for 30 seconds.",
+   "Add the rest and let it drip through for 4 minutes — rushing it makes it thin.",
+   "Stir the coffee and milk together, then pour over a glass of ice."
+  ],
+  "photoQuery": "Vietnamese iced coffee"
  }
 ]

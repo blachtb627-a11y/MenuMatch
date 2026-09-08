@@ -1,0 +1,1804 @@
+[
+ {
+  "creator": "cookduck",
+  "slug": "one-pan-chorizo-orzo",
+  "title": "One-Pan Chorizo Orzo",
+  "description": "The orzo cooks in the stock and the chorizo oil. One pan, twenty minutes, no draining.",
+  "category": "dinner",
+  "cuisine": "Spanish",
+  "prep": 5,
+  "cook": 20,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 1,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 610,
+   "proteinG": 28,
+   "carbsG": 62,
+   "fatG": 28,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "one-pot",
+   "weeknight",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    7,
+    1,
+    "oz",
+    "cooking chorizo",
+    "skinned and crumbled"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "chopped"
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "orzo",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "chicken stock",
+    "hot"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "red pepper",
+    "diced"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "parsley",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Fry the chorizo in the oil over medium-high heat for 4 minutes, until the fat runs red.",
+   "Add the onion and pepper and cook for 6 minutes, until soft.",
+   "Stir in the garlic for 30 seconds.",
+   "Add the orzo and turn it in the oil for 1 minute.",
+   "Pour in the hot stock, bring to a simmer and cook for 9 minutes, stirring now and then, until the orzo is tender and the liquid has gone.",
+   "Rest off the heat for 2 minutes, then stir through the parsley."
+  ],
+  "photoQuery": "Chorizo orzo"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "garlic-butter-gnocchi",
+  "title": "Crisp Garlic Butter Gnocchi",
+  "description": "Shop-bought gnocchi, fried not boiled, until the outsides blister. Faster than pasta and better.",
+  "category": "dinner",
+  "cuisine": "Italian",
+  "prep": 5,
+  "cook": 12,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 3,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 540,
+   "proteinG": 14,
+   "carbsG": 68,
+   "fatG": 24,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "vegetarian",
+   "quick",
+   "weeknight",
+   "allergen-milk",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "package",
+    "potato gnocchi",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "sliced thin"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "spinach",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "Parmesan",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "chilli flakes",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the butter in a wide frying pan over medium-high heat until it foams.",
+   "Add the gnocchi straight from the packet, in one layer, and leave them alone for 4 minutes so they colour.",
+   "Turn and cook for 3 minutes more, until crisp on both sides.",
+   "Add the garlic and chilli and cook for 45 seconds — it burns fast.",
+   "Fold in the spinach until it wilts, about 1 minute.",
+   "Off the heat, toss with the Parmesan."
+  ],
+  "photoQuery": "Fried gnocchi"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "sheet-pan-sausage-fennel",
+  "title": "Sheet-Pan Sausages with Fennel",
+  "description": "Everything on one tray at one temperature. The fennel goes sweet and the sausage skins split.",
+  "category": "dinner",
+  "cuisine": "Italian",
+  "prep": 10,
+  "cook": 35,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 5,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 590,
+   "proteinG": 32,
+   "carbsG": 26,
+   "fatG": 42,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "sheet-pan",
+   "weeknight",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    6,
+    1,
+    "piece",
+    "Italian sausages",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "fennel bulbs",
+    "cut into wedges"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "red onion",
+    "cut into wedges"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "cut into wedges"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "fennel seeds",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 210C.",
+   "Toss the fennel, onion and lemon with the oil, fennel seeds and plenty of salt on a large tray.",
+   "Nestle the sausages among them, leaving space between everything.",
+   "Roast for 20 minutes.",
+   "Turn the sausages and roast for 15 minutes more, until browned all over and cooked through with no pink in the middle.",
+   "Squeeze the roasted lemon over before serving."
+  ],
+  "photoQuery": "Roasted sausage and fennel"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "miso-butter-noodles",
+  "title": "Miso Butter Noodles",
+  "description": "Four minutes of work. The miso and butter make a sauce out of nothing but noodle water.",
+  "category": "lunch",
+  "cuisine": "Japanese",
+  "prep": 3,
+  "cook": 7,
+  "servings": 1,
+  "difficulty": "easy",
+  "ageDays": 7,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 480,
+   "proteinG": 14,
+   "carbsG": 62,
+   "fatG": 20,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "quick",
+   "vegetarian",
+   "allergen-soy",
+   "allergen-milk",
+   "weeknight"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "oz",
+    "udon or ramen noodles",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "white miso",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "soy sauce",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "spring onion",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "toasted sesame seeds",
+    null
+   ]
+  ],
+  "steps": [
+   "Boil the noodles per the packet, then lift them out with tongs and keep a mugful of the water.",
+   "Mash the miso and butter together in the bowl you will eat from.",
+   "Add the hot noodles and 3 tbsp of the cooking water and toss until it turns into a sauce.",
+   "Add the soy, then the spring onion and sesame."
+  ]
+ },
+ {
+  "creator": "cookduck",
+  "slug": "harissa-chicken-traybake",
+  "title": "Harissa Chicken Traybake",
+  "description": "Yoghurt keeps the chicken from drying and harissa does everything else. One tray.",
+  "category": "dinner",
+  "cuisine": "Moroccan",
+  "prep": 10,
+  "cook": 40,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 9,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 42,
+   "carbsG": 28,
+   "fatG": 26,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "sheet-pan",
+   "weeknight",
+   "high-protein",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    8,
+    1,
+    "piece",
+    "chicken thighs",
+    "bone in, skin on"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "rose harissa",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "Greek yoghurt",
+    null
+   ],
+   [
+    1,
+    1,
+    "lb",
+    "new potatoes",
+    "halved"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "red onion",
+    "cut into wedges"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "juiced"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 200C.",
+   "Mix the harissa, yoghurt and lemon juice and rub it all over the chicken.",
+   "Toss the potatoes and onion with the oil on a large tray and season.",
+   "Sit the chicken on top, skin up, and roast for 40 minutes, until the potatoes are tender and the chicken is cooked through — the juices should run clear.",
+   "Rest for 5 minutes before serving."
+  ],
+  "photoQuery": "Harissa chicken tray bake"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "black-bean-quesadillas",
+  "title": "Black Bean Quesadillas",
+  "description": "Store-cupboard dinner. Mash half the beans so the filling holds together instead of falling out.",
+  "category": "dinner",
+  "cuisine": "Mexican",
+  "prep": 10,
+  "cook": 10,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 12,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 20,
+   "carbsG": 58,
+   "fatG": 22,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "vegetarian",
+   "quick",
+   "weeknight",
+   "allergen-milk",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "can",
+    "black beans",
+    "drained"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "flour tortillas",
+    null
+   ],
+   [
+    5,
+    1,
+    "oz",
+    "Cheddar",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lime",
+    "juiced"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "spring onions",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Mash half the beans with the cumin, lime juice and salt; leave the rest whole and fold them in.",
+   "Spread over two tortillas, scatter with cheese and spring onion, and top with the others.",
+   "Cook in a dry pan over medium heat for 3 minutes, pressing down, until the underside is golden.",
+   "Flip carefully and cook 3 minutes more, until the cheese has melted through.",
+   "Rest for 1 minute before cutting, or the filling runs."
+  ]
+ },
+ {
+  "creator": "cookduck",
+  "slug": "tomato-butter-beans",
+  "title": "Tomato Butter Beans",
+  "description": "Twenty minutes, one tin, and it tastes like it took an hour. Good with bread, better with an egg on top.",
+  "category": "dinner",
+  "cuisine": "Mediterranean",
+  "prep": 5,
+  "cook": 20,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 15,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 380,
+   "proteinG": 14,
+   "carbsG": 42,
+   "fatG": 18,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "vegan",
+   "vegetarian",
+   "one-pot",
+   "quick",
+   "dairy-free"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "can",
+    "butter beans",
+    "drained"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "chopped tomatoes",
+    null
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "smoked paprika",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "chilli flakes",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "parsley",
+    "chopped"
+   ]
+  ],
+  "steps": [
+   "Warm the oil over medium-low heat and cook the garlic and chilli for 2 minutes, until the garlic is pale gold — not brown.",
+   "Add the paprika and stir for 20 seconds.",
+   "Pour in the tomatoes and simmer for 10 minutes, until they darken and thicken.",
+   "Add the beans and cook for 8 minutes more, crushing a few against the side.",
+   "Season well and finish with the parsley and a last pour of oil."
+  ],
+  "photoQuery": "Butter beans in tomato sauce"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "crispy-chilli-eggs",
+  "title": "Crispy Chilli Eggs",
+  "description": "Fried in far more oil than feels right, which is the point. The whites go lacy at the edges.",
+  "category": "breakfast",
+  "cuisine": "Chinese",
+  "prep": 3,
+  "cook": 6,
+  "servings": 1,
+  "difficulty": "easy",
+  "ageDays": 18,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 360,
+   "proteinG": 14,
+   "carbsG": 6,
+   "fatG": 30,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "quick",
+   "allergen-eggs",
+   "vegetarian",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "piece",
+    "eggs",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "neutral oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "chilli crisp",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "black vinegar",
+    "or rice vinegar"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "spring onion",
+    "sliced"
+   ]
+  ],
+  "steps": [
+   "Heat the oil in a small frying pan over high heat until it shimmers.",
+   "Crack in the eggs and stand back. Spoon the hot oil over the whites for 90 seconds, until the edges are brown and lacy and the yolks are still soft.",
+   "Lift out onto kitchen paper.",
+   "Spoon over the chilli crisp and vinegar and scatter with spring onion."
+  ],
+  "photoQuery": "Fried egg chili oil"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "pesto-white-bean-salad",
+  "title": "Pesto White Bean Salad",
+  "description": "No cooking at all. Make it an hour ahead and it gets better sitting there.",
+  "category": "lunch",
+  "cuisine": "Italian",
+  "prep": 10,
+  "cook": 0,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 21,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 420,
+   "proteinG": 16,
+   "carbsG": 38,
+   "fatG": 24,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "no-cook",
+   "vegetarian",
+   "quick",
+   "meal-prep",
+   "allergen-milk",
+   "allergen-tree-nuts"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "can",
+    "cannellini beans",
+    "drained"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "basil pesto",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "cherry tomatoes",
+    "halved"
+   ],
+   [
+    1,
+    2,
+    "piece",
+    "cucumber",
+    "diced"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "rocket",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "red wine vinegar",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Stir the pesto, vinegar and oil together in a bowl with a good pinch of salt.",
+   "Add the beans and turn them until coated. Leave for 10 minutes if you have it.",
+   "Fold in the tomatoes and cucumber.",
+   "Add the rocket right before serving so it does not wilt."
+  ],
+  "photoQuery": "White bean salad"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "soy-butter-mushrooms",
+  "title": "Soy Butter Mushrooms on Toast",
+  "description": "Do not move the mushrooms for the first three minutes. That is the whole trick.",
+  "category": "breakfast",
+  "cuisine": "British",
+  "prep": 5,
+  "cook": 12,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 24,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 10,
+   "carbsG": 28,
+   "fatG": 22,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "vegetarian",
+   "quick",
+   "allergen-milk",
+   "allergen-soy",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    9,
+    1,
+    "oz",
+    "chestnut mushrooms",
+    "torn not sliced"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "soy sauce",
+    null
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    2,
+    1,
+    "slice",
+    "sourdough",
+    "toasted"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "parsley",
+    "chopped"
+   ]
+  ],
+  "steps": [
+   "Get a wide frying pan properly hot over high heat, then add half the butter.",
+   "Add the mushrooms in one layer and leave them for 3 minutes without touching them, until they are browned underneath.",
+   "Toss and cook for 3 minutes more.",
+   "Add the garlic and the rest of the butter and cook for 1 minute.",
+   "Pour in the soy and let it bubble away for 30 seconds.",
+   "Pile onto the toast with the parsley."
+  ],
+  "photoQuery": "Mushrooms on toast"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "peanut-noodles",
+  "title": "Cold Peanut Noodles",
+  "description": "Sauce in the bottom of the bowl, hot noodles on top, toss. Eats hot or cold out of the fridge.",
+  "category": "lunch",
+  "cuisine": "Chinese",
+  "prep": 8,
+  "cook": 8,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 27,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 610,
+   "proteinG": 20,
+   "carbsG": 68,
+   "fatG": 30,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "vegan",
+   "vegetarian",
+   "quick",
+   "meal-prep",
+   "allergen-peanuts",
+   "allergen-soy",
+   "dairy-free"
+  ],
+  "ingredients": [
+   [
+    6,
+    1,
+    "oz",
+    "egg or wheat noodles",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "peanut butter",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "soy sauce",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "rice vinegar",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "toasted sesame oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "honey",
+    "or maple syrup"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "cucumber",
+    "cut into matchsticks"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "spring onions",
+    "sliced"
+   ]
+  ],
+  "steps": [
+   "Whisk the peanut butter, soy, vinegar, sesame oil and honey with 3 tbsp warm water until smooth and pourable.",
+   "Cook the noodles per the packet, then rinse them under cold water so they stop cooking.",
+   "Toss the drained noodles through the sauce.",
+   "Fold in the cucumber and spring onion just before eating."
+  ],
+  "photoQuery": "Peanut noodles"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "smashed-potatoes",
+  "title": "Smashed Potatoes with Aioli",
+  "description": "Boil, squash, roast hot. Crisp all over instead of just on top.",
+  "category": "snacks",
+  "cuisine": "British",
+  "prep": 10,
+  "cook": 45,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 30,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 6,
+   "carbsG": 44,
+   "fatG": 16,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "vegetarian",
+   "gluten-free",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "new potatoes",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "flaky salt",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "mayonnaise",
+    null
+   ],
+   [
+    1,
+    1,
+    "clove",
+    "garlic",
+    "crushed to a paste"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "lemon juice",
+    null
+   ]
+  ],
+  "steps": [
+   "Boil the potatoes in salted water for 20 minutes, until a knife goes through with no resistance.",
+   "Drain and leave them to steam dry for 5 minutes — wet potatoes will not crisp.",
+   "Heat the oven to 220C.",
+   "Squash each potato flat with the base of a glass on an oiled tray.",
+   "Pour over the oil, season, and roast for 25 minutes, until the edges are deep brown and brittle.",
+   "Stir the garlic and lemon into the mayonnaise and serve alongside."
+  ],
+  "photoQuery": "Smashed roast potatoes"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "egg-fried-rice",
+  "title": "Proper Egg Fried Rice",
+  "description": "Cold rice, hot pan, and nothing else in the pan while the egg sets. Uses up yesterday's rice.",
+  "category": "dinner",
+  "cuisine": "Chinese",
+  "prep": 5,
+  "cook": 8,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 33,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 470,
+   "proteinG": 16,
+   "carbsG": 58,
+   "fatG": 20,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "quick",
+   "allergen-eggs",
+   "allergen-soy",
+   "weeknight",
+   "dairy-free"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "cup",
+    "cooked rice",
+    "cold, from the fridge"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "eggs",
+    "beaten"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "spring onions",
+    "white and green separated"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "neutral oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "soy sauce",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "frozen peas",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "toasted sesame oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Break the cold rice up with your hands so there are no clumps left.",
+   "Get a wok smoking hot, add half the oil, and pour in the eggs.",
+   "Let them set for 20 seconds, then scramble roughly and tip them out while still slightly wet.",
+   "Add the rest of the oil and the white parts of the spring onion, then the rice.",
+   "Fry for 3 minutes, pressing the rice against the pan and turning, until it starts to pop.",
+   "Add the peas and the egg back, then the soy down the side of the pan.",
+   "Finish off the heat with the sesame oil and the green spring onion."
+  ],
+  "photoQuery": "Egg fried rice"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "tuna-white-bean-melt",
+  "title": "Tuna and White Bean Melt",
+  "description": "The beans make it go further and stop it being all mayonnaise. Grilled, not toasted.",
+  "category": "lunch",
+  "cuisine": "American",
+  "prep": 8,
+  "cook": 6,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 36,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 560,
+   "proteinG": 34,
+   "carbsG": 42,
+   "fatG": 26,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "quick",
+   "allergen-fish",
+   "allergen-milk",
+   "allergen-wheat",
+   "high-protein"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "can",
+    "tuna",
+    "drained"
+   ],
+   [
+    1,
+    2,
+    "can",
+    "cannellini beans",
+    "drained"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "mayonnaise",
+    null
+   ],
+   [
+    1,
+    1,
+    "stalk",
+    "celery",
+    "finely chopped"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "capers",
+    "chopped"
+   ],
+   [
+    4,
+    1,
+    "slice",
+    "sourdough",
+    null
+   ],
+   [
+    3,
+    1,
+    "oz",
+    "Cheddar",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "lemon juice",
+    null
+   ]
+  ],
+  "steps": [
+   "Mash the beans roughly with a fork, leaving some whole.",
+   "Fold in the tuna, mayonnaise, celery, capers and lemon juice and season.",
+   "Pile onto two slices of bread, top with cheese and the other slices.",
+   "Cook in a dry pan over medium-low heat for 3 minutes a side, pressing down, until golden and the cheese has melted."
+  ],
+  "photoQuery": "Tuna melt sandwich"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "roast-tomato-soup",
+  "title": "Roast Tomato Soup",
+  "description": "Roasting the tomatoes first is the difference between soup and hot tomato juice.",
+  "category": "lunch",
+  "cuisine": "British",
+  "prep": 10,
+  "cook": 45,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 39,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 240,
+   "proteinG": 6,
+   "carbsG": 26,
+   "fatG": 14,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "gluten-free",
+   "batch-cooking",
+   "blender"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "ripe tomatoes",
+    "halved"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "quartered"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "unpeeled"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "sugar",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "vegetable stock",
+    "hot"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "basil",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 200C.",
+   "Toss the tomatoes, onion and garlic with the oil, sugar and salt on a tray, tomatoes cut side up.",
+   "Roast for 40 minutes, until the edges are blackened in places and the tomatoes have collapsed.",
+   "Squeeze the garlic out of its skins and scrape everything into a blender with the stock.",
+   "Blend until smooth, then reheat and check the seasoning.",
+   "Tear the basil in at the end."
+  ],
+  "photoQuery": "Roasted tomato soup"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "chicken-caesar-wrap",
+  "title": "Chicken Caesar Wrap",
+  "description": "Dressing made in the bowl you toss it in. No anchovy fillets to chop, just the paste.",
+  "category": "lunch",
+  "cuisine": "American",
+  "prep": 10,
+  "cook": 10,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 42,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 590,
+   "proteinG": 40,
+   "carbsG": 44,
+   "fatG": 28,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "quick",
+   "high-protein",
+   "allergen-eggs",
+   "allergen-fish",
+   "allergen-milk",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "piece",
+    "chicken breasts",
+    "sliced"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "mayonnaise",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "anchovy paste",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "Parmesan",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "Dijon mustard",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "lemon juice",
+    null
+   ],
+   [
+    1,
+    2,
+    "piece",
+    "romaine lettuce",
+    "shredded"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "large tortillas",
+    null
+   ]
+  ],
+  "steps": [
+   "Season the chicken and fry it in a little oil over medium-high heat for 4 minutes a side, until golden and cooked through with no pink.",
+   "Rest it for 3 minutes, then slice.",
+   "Whisk the mayonnaise, anchovy paste, Parmesan, mustard and lemon in a large bowl.",
+   "Toss the lettuce through the dressing.",
+   "Pile the lettuce and chicken into the tortillas and roll tightly, tucking the ends in."
+  ],
+  "photoQuery": "Chicken caesar wrap"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "shakshuka",
+  "title": "Shakshuka",
+  "description": "Get the sauce properly thick before the eggs go in or they will poach into soup.",
+  "category": "breakfast",
+  "cuisine": "Middle Eastern",
+  "prep": 10,
+  "cook": 30,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 45,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 380,
+   "proteinG": 18,
+   "carbsG": 24,
+   "fatG": 24,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "vegetarian",
+   "one-pot",
+   "allergen-eggs",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "eggs",
+    null
+   ],
+   [
+    1,
+    1,
+    "can",
+    "chopped tomatoes",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "red pepper",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "sliced"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "sweet paprika",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "coriander",
+    "chopped"
+   ]
+  ],
+  "steps": [
+   "Cook the onion and pepper in the oil over medium heat for 10 minutes, until soft.",
+   "Add the garlic, cumin and paprika and cook for 1 minute.",
+   "Pour in the tomatoes and simmer for 15 minutes, until thick enough that a spoon leaves a trail.",
+   "Make four wells and crack an egg into each.",
+   "Cover and cook for 5 to 7 minutes, until the whites are fully set and the yolks are still soft.",
+   "Scatter with coriander and eat from the pan."
+  ]
+ },
+ {
+  "creator": "cookduck",
+  "slug": "sticky-soy-salmon",
+  "title": "Sticky Soy Salmon",
+  "description": "Fifteen minutes. The glaze reduces in the pan while the salmon finishes in it.",
+  "category": "dinner",
+  "cuisine": "Japanese",
+  "prep": 5,
+  "cook": 12,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 48,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 460,
+   "proteinG": 38,
+   "carbsG": 14,
+   "fatG": 28,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "quick",
+   "high-protein",
+   "allergen-fish",
+   "allergen-soy",
+   "dairy-free",
+   "weeknight"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "piece",
+    "salmon fillets",
+    "skin on"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "soy sauce",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "honey",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "rice vinegar",
+    null
+   ],
+   [
+    1,
+    1,
+    "clove",
+    "garlic",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "fresh ginger",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "neutral oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "spring onion",
+    "sliced"
+   ]
+  ],
+  "steps": [
+   "Pat the salmon dry and season the skin well.",
+   "Fry skin side down in the oil over medium-high heat for 5 minutes, pressing flat, until the skin is crisp.",
+   "Turn and cook for 2 minutes more.",
+   "Mix the soy, honey, vinegar, garlic and ginger and pour it in.",
+   "Let it bubble and thicken for 2 minutes, spooning it over the fish, until the salmon is just opaque through the middle.",
+   "Scatter with spring onion."
+  ],
+  "photoQuery": "Teriyaki salmon"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "halloumi-couscous",
+  "title": "Halloumi and Herb Couscous",
+  "description": "Couscous does not need cooking, only hot stock and ten minutes alone.",
+  "category": "lunch",
+  "cuisine": "Middle Eastern",
+  "prep": 10,
+  "cook": 8,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 51,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 610,
+   "proteinG": 26,
+   "carbsG": 54,
+   "fatG": 32,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "vegetarian",
+   "quick",
+   "allergen-milk",
+   "allergen-wheat",
+   "meal-prep"
+  ],
+  "ingredients": [
+   [
+    7,
+    1,
+    "oz",
+    "halloumi",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "couscous",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "vegetable stock",
+    "boiling"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "mint",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "parsley",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "juiced"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "pomegranate seeds",
+    null
+   ]
+  ],
+  "steps": [
+   "Put the couscous in a bowl, pour over the boiling stock, cover and leave for 10 minutes.",
+   "Fry the halloumi in a dry non-stick pan over medium-high heat for 2 minutes a side, until deeply golden.",
+   "Fork the couscous through to separate the grains.",
+   "Stir in the herbs, lemon juice, oil and plenty of pepper.",
+   "Top with the halloumi and the pomegranate."
+  ],
+  "photoQuery": "Halloumi couscous salad"
+ },
+ {
+  "creator": "cookduck",
+  "slug": "pork-larb",
+  "title": "Quick Pork Larb",
+  "description": "Hot, sour, salty, and done in twelve minutes. The toasted rice powder is worth the extra two.",
+  "category": "dinner",
+  "cuisine": "Thai",
+  "prep": 10,
+  "cook": 12,
+  "servings": 3,
+  "difficulty": "easy",
+  "ageDays": 54,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 420,
+   "proteinG": 30,
+   "carbsG": 12,
+   "fatG": 28,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "quick",
+   "gluten-free",
+   "dairy-free",
+   "allergen-fish",
+   "high-protein",
+   "weeknight"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "minced pork",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "fish sauce",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "limes",
+    "juiced"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "jasmine rice",
+    "toasted and ground"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "shallots",
+    "sliced thin"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "chilli flakes",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "mint",
+    "leaves picked"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "coriander",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "head",
+    "lettuce",
+    "leaves separated, to serve"
+   ]
+  ],
+  "steps": [
+   "Toast the raw rice in a dry pan over medium heat for 4 minutes, until nut brown, then grind it coarsely.",
+   "Fry the pork in a hot dry pan for 6 minutes, breaking it up, until browned and cooked through with no pink.",
+   "Take it off the heat and let it stop sizzling.",
+   "Add the fish sauce, lime juice, chilli and shallots and toss.",
+   "Fold in the herbs and the rice powder at the last moment, or it goes soft.",
+   "Spoon into lettuce leaves."
+  ],
+  "photoQuery": "Larb moo"
+ }
+]

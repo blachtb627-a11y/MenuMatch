@@ -1,0 +1,1975 @@
+[
+ {
+  "creator": "mirasplate",
+  "slug": "baba-ganoush",
+  "title": "Baba Ganoush",
+  "description": "Char the aubergines directly on the flame until they collapse. Oven-roasted is a different, duller dip.",
+  "category": "snacks",
+  "cuisine": "Lebanese",
+  "prep": 15,
+  "cook": 25,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 2,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 180,
+   "proteinG": 4,
+   "carbsG": 12,
+   "fatG": 14,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "middle-eastern",
+   "vegan",
+   "vegetarian",
+   "gluten-free",
+   "dairy-free",
+   "allergen-sesame"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "piece",
+    "large aubergines",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "tahini",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "juiced"
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "parsley",
+    "chopped"
+   ]
+  ],
+  "steps": [
+   "Char the aubergines directly over a gas flame or under a very hot grill for 20 minutes, turning, until the skins are black all over and they have collapsed.",
+   "Put them in a bowl covered with a plate for 10 minutes to steam.",
+   "Peel off the skin and drain the flesh in a sieve for 15 minutes — this is what stops it being watery.",
+   "Chop it roughly with a knife rather than blending; it should have texture.",
+   "Stir in the tahini, lemon, garlic and salt.",
+   "Spread on a plate, pour over the oil and scatter with parsley."
+  ],
+  "photoQuery": "Baba ganoush"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "shakshuka-green",
+  "title": "Green Shakshuka",
+  "description": "No tomato at all. Herbs, greens and feta, with the eggs cooked the same way.",
+  "category": "breakfast",
+  "cuisine": "Middle Eastern",
+  "prep": 10,
+  "cook": 20,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 5,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 20,
+   "carbsG": 14,
+   "fatG": 24,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "vegetarian",
+   "gluten-free",
+   "allergen-eggs",
+   "allergen-milk",
+   "one-pot",
+   "quick"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "eggs",
+    null
+   ],
+   [
+    9,
+    1,
+    "oz",
+    "spinach",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "leek",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "dill",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "coriander",
+    "chopped"
+   ],
+   [
+    3,
+    1,
+    "oz",
+    "feta",
+    "crumbled"
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "sliced"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ]
+  ],
+  "steps": [
+   "Soften the leek in the oil over medium heat for 8 minutes.",
+   "Add the garlic and cumin for 1 minute.",
+   "Add the spinach in handfuls, letting each wilt before the next, about 4 minutes.",
+   "Stir through the herbs and season well.",
+   "Make four wells, crack in the eggs, and scatter the feta around them.",
+   "Cover and cook 6 minutes, until the whites are set and the yolks still soft."
+  ],
+  "photoQuery": "Green shakshuka"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "caponata",
+  "title": "Caponata",
+  "description": "Sweet, sour and better on day two. Fry the aubergine separately or it goes grey.",
+  "category": "dinner",
+  "cuisine": "Sicilian",
+  "prep": 20,
+  "cook": 40,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 8,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 290,
+   "proteinG": 4,
+   "carbsG": 26,
+   "fatG": 20,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "italian",
+   "vegan",
+   "vegetarian",
+   "gluten-free",
+   "dairy-free",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "piece",
+    "aubergines",
+    "cubed"
+   ],
+   [
+    2,
+    1,
+    "stalk",
+    "celery",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "chopped tomatoes",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "red wine vinegar",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "sugar",
+    null
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "green olives",
+    "pitted"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "capers",
+    "rinsed"
+   ],
+   [
+    5,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "basil",
+    null
+   ]
+  ],
+  "steps": [
+   "Fry the aubergine in most of the oil over high heat, in batches, for 6 minutes a batch until browned. Set aside.",
+   "Cook the onion and celery in the remaining oil for 10 minutes.",
+   "Add the tomatoes and simmer 12 minutes, until thickened.",
+   "Stir in the vinegar and sugar and cook 3 minutes more.",
+   "Return the aubergine with the olives and capers and cook 8 minutes.",
+   "Cool to room temperature and tear the basil through. Better still the next day."
+  ],
+  "photoQuery": "Caponata"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "lentil-soup",
+  "title": "Red Lentil and Lemon Soup",
+  "description": "Blend half and leave half. Fully smooth is baby food, fully chunky is stew.",
+  "category": "lunch",
+  "cuisine": "Turkish",
+  "prep": 10,
+  "cook": 35,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 11,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 310,
+   "proteinG": 16,
+   "carbsG": 44,
+   "fatG": 8,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "vegan",
+   "vegetarian",
+   "gluten-free",
+   "dairy-free",
+   "one-pot",
+   "batch-cooking",
+   "blender"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "red lentils",
+    "rinsed"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "carrot",
+    "chopped"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "sweet paprika",
+    null
+   ],
+   [
+    5,
+    1,
+    "cup",
+    "vegetable stock",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "juiced"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Cook the onion and carrot in the oil over medium heat for 10 minutes.",
+   "Add the garlic and spices for 1 minute.",
+   "Add the lentils and stock and simmer 25 minutes, until the lentils have collapsed.",
+   "Blend half the pot and stir it back in.",
+   "Add the lemon juice off the heat and season generously — lentils take a lot of salt."
+  ],
+  "photoQuery": "Red lentil soup"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "fattoush",
+  "title": "Fattoush",
+  "description": "The bread goes in at the last second. Soggy pita is the whole failure mode of this salad.",
+  "category": "lunch",
+  "cuisine": "Lebanese",
+  "prep": 20,
+  "cook": 10,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 14,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 260,
+   "proteinG": 6,
+   "carbsG": 28,
+   "fatG": 15,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "middle-eastern",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "allergen-wheat",
+   "no-cook"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "piece",
+    "pitta breads",
+    "torn"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "tomatoes",
+    "chunked"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "cucumber",
+    "chunked"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "radishes",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "head",
+    "little gem lettuce",
+    "torn"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "mint",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "parsley",
+    "chopped"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "pomegranate molasses",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "juiced"
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "sumac",
+    null
+   ]
+  ],
+  "steps": [
+   "Toast the torn pitta in a 200C oven for 8 minutes, until dry and snapping.",
+   "Whisk the pomegranate molasses, lemon juice, oil and sumac with plenty of salt.",
+   "Toss the vegetables and herbs through the dressing.",
+   "Add the bread and toss once more, then serve immediately."
+  ],
+  "photoQuery": "Fattoush salad"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "stuffed-peppers",
+  "title": "Rice and Herb Stuffed Peppers",
+  "description": "Undercook the rice on purpose; it finishes inside the pepper drinking the juices.",
+  "category": "dinner",
+  "cuisine": "Greek",
+  "prep": 25,
+  "cook": 55,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 17,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 380,
+   "proteinG": 9,
+   "carbsG": 52,
+   "fatG": 16,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "mediterranean",
+   "vegan",
+   "vegetarian",
+   "gluten-free",
+   "dairy-free",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "red peppers",
+    "tops cut off, seeded"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "short-grain rice",
+    "rinsed"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "finely chopped"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "tomatoes",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "dill",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "mint",
+    "chopped"
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cinnamon",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "hot water",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 190C.",
+   "Cook the onion in half the oil for 8 minutes, then add the rice and turn it for 2 minutes.",
+   "Add the grated tomato and cinnamon and cook 4 minutes — the rice should still be hard.",
+   "Stir in the herbs and season well.",
+   "Fill the peppers three quarters full, since the rice will swell, and put the tops back on.",
+   "Stand them in a dish, pour the hot water and remaining oil around them, and cover with foil.",
+   "Bake 45 minutes, then uncover for 10 more, until the rice is tender and the peppers have slumped."
+  ],
+  "photoQuery": "Stuffed peppers"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "falafel",
+  "title": "Falafel",
+  "description": "Dried chickpeas soaked overnight. Tinned chickpeas will fall apart in the oil, every time.",
+  "category": "lunch",
+  "cuisine": "Middle Eastern",
+  "prep": 30,
+  "cook": 15,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 20,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 420,
+   "proteinG": 16,
+   "carbsG": 38,
+   "fatG": 24,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "middle-eastern",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "allergen-sesame"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "dried chickpeas",
+    "soaked 24 hours, not cooked"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "quartered"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "parsley",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "coriander",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "ground cumin",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "baking powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "quart",
+    "neutral oil",
+    "for frying"
+   ]
+  ],
+  "steps": [
+   "Drain the soaked chickpeas thoroughly and pat them dry.",
+   "Blitz with the onion, garlic, herbs, cumin and 2 tsp salt until it looks like coarse couscous — not a paste.",
+   "Chill the mixture for 1 hour so it holds together.",
+   "Stir in the baking powder just before shaping and form into small flattened balls.",
+   "Heat the oil to 175C and fry in batches for 4 minutes, until deep brown and cooked through.",
+   "Drain on a rack and salt at once."
+  ],
+  "photoQuery": "Falafel"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "spanakopita",
+  "title": "Spanakopita",
+  "description": "Squeeze the spinach until you think you have broken it, then squeeze again.",
+  "category": "dinner",
+  "cuisine": "Greek",
+  "prep": 35,
+  "cook": 45,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 23,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 440,
+   "proteinG": 16,
+   "carbsG": 32,
+   "fatG": 28,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "mediterranean",
+   "vegetarian",
+   "allergen-eggs",
+   "allergen-milk",
+   "allergen-wheat",
+   "company-worthy"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "spinach",
+    "wilted"
+   ],
+   [
+    9,
+    1,
+    "oz",
+    "feta",
+    "crumbled"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "eggs",
+    null
+   ],
+   [
+    1,
+    1,
+    "bunch",
+    "spring onions",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "dill",
+    "chopped"
+   ],
+   [
+    12,
+    1,
+    "piece",
+    "filo sheets",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "nutmeg",
+    null
+   ]
+  ],
+  "steps": [
+   "Wilt the spinach, cool it, then squeeze it dry in a clean cloth, hard, in batches.",
+   "Chop it and mix with the feta, eggs, spring onions, dill and nutmeg. Season carefully — the feta is salty.",
+   "Brush a tin with oil and layer in six filo sheets, oiling each one.",
+   "Spread the filling and top with the remaining six, oiling as you go.",
+   "Score the top layers into portions before baking, or you will shatter it afterwards.",
+   "Bake at 180C for 45 minutes, until deep gold and crisp all over."
+  ],
+  "photoQuery": "Spanakopita"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "cauliflower-steaks",
+  "title": "Cauliflower Steaks with Tahini",
+  "description": "Only the two middle slices hold together. Roast the rest as florets alongside.",
+  "category": "dinner",
+  "cuisine": "Middle Eastern",
+  "prep": 15,
+  "cook": 35,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 26,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 11,
+   "carbsG": 26,
+   "fatG": 22,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "vegan",
+   "vegetarian",
+   "gluten-free",
+   "dairy-free",
+   "allergen-sesame",
+   "sheet-pan"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "head",
+    "cauliflower",
+    "cut into 3cm slabs"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "tahini",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "juiced"
+   ],
+   [
+    1,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "pomegranate seeds",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "parsley",
+    "chopped"
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 220C.",
+   "Brush the slabs with oil, season with the cumin and salt, and lay them on a hot tray.",
+   "Roast 20 minutes, turn carefully with a fish slice, and roast 15 minutes more until the edges are dark and the stem gives to a knife.",
+   "Loosen the tahini with the lemon juice, garlic and 3 tbsp cold water until it pours.",
+   "Spoon the tahini over and scatter with pomegranate and parsley."
+  ],
+  "photoQuery": "Roasted cauliflower steak"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "ratatouille",
+  "title": "Ratatouille",
+  "description": "Every vegetable cooked separately then brought together. It takes an hour and it is not the same otherwise.",
+  "category": "dinner",
+  "cuisine": "French",
+  "prep": 30,
+  "cook": 60,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 29,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 240,
+   "proteinG": 5,
+   "carbsG": 24,
+   "fatG": 15,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "french",
+   "vegan",
+   "vegetarian",
+   "gluten-free",
+   "dairy-free",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "piece",
+    "aubergine",
+    "cubed"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "courgettes",
+    "cubed"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "red peppers",
+    "chunked"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "sliced"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "tomatoes",
+    "chopped"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "sliced"
+   ],
+   [
+    6,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "basil",
+    null
+   ],
+   [
+    3,
+    1,
+    "sprig",
+    "thyme",
+    null
+   ]
+  ],
+  "steps": [
+   "Fry the aubergine in 3 tbsp oil over high heat for 8 minutes, until browned. Set aside.",
+   "Do the same with the courgette, 5 minutes, and the peppers, 8 minutes, each on its own.",
+   "Cook the onion gently in the last of the oil for 12 minutes, then add the garlic and thyme.",
+   "Add the tomatoes and cook 15 minutes, until they break down into a sauce.",
+   "Return everything to the pan and simmer together for 15 minutes.",
+   "Season, tear in the basil, and let it sit 20 minutes before eating."
+  ],
+  "photoQuery": "Ratatouille"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "hummus",
+  "title": "Proper Hummus",
+  "description": "Peel the chickpeas. It is tedious and it is the entire difference between good and silky.",
+  "category": "snacks",
+  "cuisine": "Lebanese",
+  "prep": 20,
+  "cook": 60,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 32,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 240,
+   "proteinG": 8,
+   "carbsG": 22,
+   "fatG": 14,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "middle-eastern",
+   "vegan",
+   "vegetarian",
+   "gluten-free",
+   "dairy-free",
+   "allergen-sesame"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "dried chickpeas",
+    "soaked overnight"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "bicarbonate of soda",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "tahini",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "juiced"
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Cook the drained chickpeas with the bicarbonate in fresh water for 50 minutes, until they squash between two fingers with no resistance.",
+   "Skim the skins off as they float, and pinch off any that remain.",
+   "Blend the garlic with the lemon juice first and leave it 10 minutes, then strain it — this takes the raw edge off.",
+   "Blend the hot chickpeas with the tahini, lemon liquid, cumin and salt for a full 3 minutes.",
+   "Add iced water a tablespoon at a time until it turns pale and loose; it firms as it cools.",
+   "Spread on a plate and pour the oil over."
+  ],
+  "photoQuery": "Hummus"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "tabbouleh",
+  "title": "Tabbouleh",
+  "description": "Parsley with some bulgur in it, not the other way round. Chop by hand; a processor bruises it.",
+  "category": "lunch",
+  "cuisine": "Lebanese",
+  "prep": 25,
+  "cook": 0,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 35,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 190,
+   "proteinG": 4,
+   "carbsG": 20,
+   "fatG": 11,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "middle-eastern",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "no-cook",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "bunch",
+    "flat-leaf parsley",
+    "very finely chopped"
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "fine bulgur",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "mint",
+    "chopped"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "tomatoes",
+    "finely diced"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "spring onions",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "juiced"
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Soak the bulgur in 3 tbsp of the lemon juice for 20 minutes; it needs no water and no cooking.",
+   "Chop the parsley by hand as finely as you can, stalks removed.",
+   "Drain the diced tomato in a sieve for 10 minutes so it does not flood the bowl.",
+   "Combine everything with the oil and remaining lemon and season well.",
+   "Eat within an hour, before the parsley darkens."
+  ],
+  "photoQuery": "Tabbouleh"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "orzo-lemon-feta",
+  "title": "Lemon and Feta Orzo",
+  "description": "Cooked like risotto so the starch makes the sauce. No cream anywhere near it.",
+  "category": "dinner",
+  "cuisine": "Greek",
+  "prep": 10,
+  "cook": 20,
+  "servings": 3,
+  "difficulty": "easy",
+  "ageDays": 38,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 480,
+   "proteinG": 16,
+   "carbsG": 62,
+   "fatG": 20,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "mediterranean",
+   "vegetarian",
+   "allergen-milk",
+   "allergen-wheat",
+   "one-pot",
+   "weeknight"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "orzo",
+    null
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "vegetable stock",
+    "hot"
+   ],
+   [
+    4,
+    1,
+    "oz",
+    "feta",
+    "crumbled"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "zested and juiced"
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "frozen peas",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "dill",
+    "chopped"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Warm the oil and cook the garlic gently for 1 minute without browning.",
+   "Add the orzo and turn it for 1 minute.",
+   "Add the stock a ladle at a time, stirring, for about 12 minutes, until the orzo is tender and creamy.",
+   "Stir in the peas for the last 3 minutes.",
+   "Off the heat, add the lemon zest and juice, half the feta and the dill.",
+   "Top with the rest of the feta."
+  ],
+  "photoQuery": "Orzo with feta"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "mushroom-ragu",
+  "title": "Mushroom Ragù",
+  "description": "Dried porcini and their soaking liquid do the work meat usually does.",
+  "category": "dinner",
+  "cuisine": "Italian",
+  "prep": 20,
+  "cook": 45,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 41,
+  "alcohol": true,
+  "nutrition": {
+   "perServing": true,
+   "calories": 420,
+   "proteinG": 14,
+   "carbsG": 52,
+   "fatG": 18,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "italian",
+   "vegetarian",
+   "vegan",
+   "dairy-free",
+   "allergen-wheat",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "oz",
+    "dried porcini",
+    null
+   ],
+   [
+    1,
+    1,
+    "lb",
+    "chestnut mushrooms",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "finely chopped"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "carrot",
+    "finely chopped"
+   ],
+   [
+    2,
+    1,
+    "stalk",
+    "celery",
+    "finely chopped"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "tomato purée",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "red wine",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    12,
+    1,
+    "oz",
+    "pappardelle",
+    null
+   ]
+  ],
+  "steps": [
+   "Soak the porcini in 1 cup of boiling water for 20 minutes, then chop them and keep the liquid.",
+   "Cook the onion, carrot and celery in the oil over medium-low heat for 15 minutes, until soft and sweet.",
+   "Add all the mushrooms and cook 10 minutes over higher heat, until they have released their water and it has gone.",
+   "Stir in the tomato purée for 2 minutes.",
+   "Add the wine and reduce by half, then the porcini liquid, leaving the grit behind.",
+   "Simmer 20 minutes, until thick. Toss with the pasta and a splash of its cooking water."
+  ],
+  "photoQuery": "Mushroom ragu pasta"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "gigantes-plaki",
+  "title": "Gigantes Plaki",
+  "description": "Butter beans baked in tomato until the top ones go crisp. Eat warm, not hot.",
+  "category": "dinner",
+  "cuisine": "Greek",
+  "prep": 15,
+  "cook": 75,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 44,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 14,
+   "carbsG": 44,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "mediterranean",
+   "vegan",
+   "vegetarian",
+   "gluten-free",
+   "dairy-free",
+   "one-pot",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "can",
+    "butter beans",
+    "drained"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "chopped"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "chopped tomatoes",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "tomato purée",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "dried oregano",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "dill",
+    "chopped"
+   ],
+   [
+    5,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "sugar",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 180C.",
+   "Cook the onion in the oil over medium heat for 10 minutes, then add the garlic for 1 minute.",
+   "Stir in the tomato purée, tomatoes, oregano and sugar and simmer 10 minutes.",
+   "Fold in the beans and season well, then tip into a baking dish.",
+   "Bake uncovered for 50 minutes, until the sauce has reduced and the beans on top have browned.",
+   "Stir the dill through and leave 15 minutes before eating."
+  ],
+  "photoQuery": "Gigantes plaki"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "courgette-fritters",
+  "title": "Courgette Fritters",
+  "description": "Salt and squeeze the courgette. Skip that and the batter never sets.",
+  "category": "snacks",
+  "cuisine": "Greek",
+  "prep": 20,
+  "cook": 15,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 47,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 260,
+   "proteinG": 9,
+   "carbsG": 20,
+   "fatG": 16,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "mediterranean",
+   "vegetarian",
+   "allergen-eggs",
+   "allergen-milk",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "piece",
+    "courgettes",
+    "coarsely grated"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "fine salt",
+    null
+   ],
+   [
+    3,
+    1,
+    "oz",
+    "feta",
+    "crumbled"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "eggs",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "dill",
+    "chopped"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "spring onions",
+    "sliced"
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "olive oil",
+    "for frying"
+   ]
+  ],
+  "steps": [
+   "Toss the grated courgette with the salt and leave 20 minutes in a colander.",
+   "Squeeze it dry in a cloth, as hard as you can — you should get out a surprising amount of water.",
+   "Mix with the feta, eggs, flour, dill and spring onion.",
+   "Fry heaped spoonfuls in the oil over medium heat for 3 minutes a side, flattening slightly, until deep gold and set through.",
+   "Drain on a rack and eat warm."
+  ],
+  "photoQuery": "Courgette fritters"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "beetroot-walnut-dip",
+  "title": "Beetroot and Walnut Dip",
+  "description": "Roast the beetroot rather than boiling it. Boiled beetroot tastes of water.",
+  "category": "snacks",
+  "cuisine": "Turkish",
+  "prep": 10,
+  "cook": 60,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 50,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 180,
+   "proteinG": 4,
+   "carbsG": 12,
+   "fatG": 13,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "vegetarian",
+   "gluten-free",
+   "allergen-milk",
+   "allergen-tree-nuts"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "beetroot",
+    "whole, unpeeled"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "walnuts",
+    "toasted"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "Greek yoghurt",
+    null
+   ],
+   [
+    1,
+    1,
+    "clove",
+    "garlic",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "red wine vinegar",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ]
+  ],
+  "steps": [
+   "Wrap the beetroot in foil and roast at 200C for 60 minutes, until a knife goes through easily.",
+   "Cool, then rub the skins off under running water.",
+   "Blitz with the walnuts, garlic, vinegar and cumin until almost smooth.",
+   "Fold in the yoghurt by hand so it stays streaky rather than uniformly pink.",
+   "Season and finish with the oil."
+  ],
+  "photoQuery": "Beetroot dip"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "white-bean-soup",
+  "title": "Tuscan White Bean Soup",
+  "description": "Blend a cupful and return it. That is how it thickens without any flour.",
+  "category": "lunch",
+  "cuisine": "Italian",
+  "prep": 15,
+  "cook": 40,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 53,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 320,
+   "proteinG": 15,
+   "carbsG": 42,
+   "fatG": 10,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "italian",
+   "vegan",
+   "vegetarian",
+   "gluten-free",
+   "dairy-free",
+   "one-pot",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "can",
+    "cannellini beans",
+    "drained"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "chopped"
+   ],
+   [
+    2,
+    1,
+    "stalk",
+    "celery",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "carrot",
+    "chopped"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "sliced"
+   ],
+   [
+    4,
+    1,
+    "cup",
+    "vegetable stock",
+    null
+   ],
+   [
+    3,
+    1,
+    "sprig",
+    "rosemary",
+    null
+   ],
+   [
+    7,
+    1,
+    "oz",
+    "cavolo nero",
+    "shredded"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Cook the onion, celery and carrot in the oil over medium-low heat for 15 minutes, until soft without colour.",
+   "Add the garlic and rosemary for 2 minutes.",
+   "Add the beans and stock and simmer 15 minutes.",
+   "Blend a cupful smooth and stir it back in to thicken the soup.",
+   "Add the cavolo nero and cook 8 minutes more, until tender.",
+   "Season hard and pour olive oil over each bowl."
+  ],
+  "photoQuery": "Tuscan bean soup"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "aubergine-parmigiana",
+  "title": "Aubergine Parmigiana",
+  "description": "Grill the aubergine instead of frying it. Less oil and it holds its shape in the layers.",
+  "category": "dinner",
+  "cuisine": "Italian",
+  "prep": 30,
+  "cook": 50,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 56,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 420,
+   "proteinG": 20,
+   "carbsG": 26,
+   "fatG": 26,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "italian",
+   "vegetarian",
+   "gluten-free",
+   "allergen-milk",
+   "company-worthy",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "piece",
+    "aubergines",
+    "sliced 1cm thick"
+   ],
+   [
+    2,
+    1,
+    "can",
+    "chopped tomatoes",
+    null
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "sliced"
+   ],
+   [
+    9,
+    1,
+    "oz",
+    "mozzarella",
+    "torn and drained"
+   ],
+   [
+    3,
+    1,
+    "oz",
+    "Parmesan",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "basil",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Brush the aubergine slices with oil and grill for 4 minutes a side, until soft and marked.",
+   "Cook the garlic gently in the rest of the oil for 1 minute, add the tomatoes, and simmer 25 minutes until thick.",
+   "Tear the basil into the sauce and season.",
+   "Layer aubergine, sauce, mozzarella and Parmesan in a dish, three times, finishing with Parmesan.",
+   "Bake at 190C for 35 minutes, until browned and bubbling at the edges.",
+   "Rest 20 minutes before cutting or it will not hold together."
+  ],
+  "photoQuery": "Melanzane parmigiana"
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "labneh",
+  "title": "Labneh with Za'atar",
+  "description": "Yoghurt strained overnight into cheese. One ingredient and a bit of patience.",
+  "category": "breakfast",
+  "cuisine": "Lebanese",
+  "prep": 10,
+  "cook": 0,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 59,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 160,
+   "proteinG": 8,
+   "carbsG": 6,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "middle-eastern",
+   "vegetarian",
+   "gluten-free",
+   "no-cook",
+   "allergen-milk",
+   "allergen-sesame"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "cup",
+    "Greek yoghurt",
+    "full fat"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "fine salt",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "za'atar",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "flatbreads",
+    "to serve"
+   ]
+  ],
+  "steps": [
+   "Stir the salt through the yoghurt.",
+   "Line a sieve with muslin or a clean cloth, tip the yoghurt in, and gather the corners.",
+   "Sit it over a bowl in the fridge for 24 hours, until it is firm enough to hold a shape.",
+   "Spread on a plate, make a well with the back of a spoon, and pour the oil in.",
+   "Scatter with za'atar and serve with warm flatbread."
+  ],
+  "photoQuery": "Labneh za'atar"
+ }
+]

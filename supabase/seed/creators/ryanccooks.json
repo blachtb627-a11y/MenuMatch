@@ -1,0 +1,1811 @@
+[
+ {
+  "creator": "ryanccooks",
+  "slug": "smash-burgers",
+  "title": "Smash Burgers",
+  "description": "Thin, hard-pressed, and cooked in ninety seconds a side. A thick patty is a different and worse sandwich.",
+  "category": "dinner",
+  "cuisine": "American",
+  "prep": 10,
+  "cook": 10,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 2,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 720,
+   "proteinG": 38,
+   "carbsG": 38,
+   "fatG": 44,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "american",
+   "quick",
+   "high-protein",
+   "allergen-milk",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "beef mince",
+    "20% fat, in four loose balls"
+   ],
+   [
+    4,
+    1,
+    "slice",
+    "American cheese",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "brioche buns",
+    "split and toasted"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "sliced paper thin"
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "burger sauce",
+    null
+   ],
+   [
+    8,
+    1,
+    "piece",
+    "pickle slices",
+    null
+   ]
+  ],
+  "steps": [
+   "Get a heavy pan or flat griddle as hot as it will go. No oil.",
+   "Put a ball of mince down and press it flat and thin with a spatula for a full 10 seconds.",
+   "Season the top and leave it for 90 seconds, until a dark crust forms and the edges go lacy.",
+   "Scrape underneath with the spatula so the crust comes with it, flip, and lay on the cheese.",
+   "Cook 60 seconds more, until the beef is cooked through and the cheese has slumped.",
+   "Build on the toasted buns with sauce, onion and pickles."
+  ],
+  "photoQuery": "Smash burger"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "dry-brined-wings",
+  "title": "Dry-Brined Baked Wings",
+  "description": "Baking powder in the rub and a night in the fridge. Crisper than frying and no oil to deal with.",
+  "category": "snacks",
+  "cuisine": "American",
+  "prep": 15,
+  "cook": 50,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 4,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 480,
+   "proteinG": 34,
+   "carbsG": 6,
+   "fatG": 36,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "american",
+   "gluten-free",
+   "high-protein",
+   "company-worthy"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "chicken wings",
+    "split at the joint"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "baking powder",
+    "not soda"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "fine salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "garlic powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "smoked paprika",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "black pepper",
+    null
+   ]
+  ],
+  "steps": [
+   "Pat the wings very dry with kitchen paper.",
+   "Toss with the baking powder, salt and spices until evenly coated.",
+   "Lay them on a rack over a tray and leave uncovered in the fridge overnight, or at least 4 hours.",
+   "Heat the oven to 120C and bake for 30 minutes to render the fat.",
+   "Turn the oven up to 220C and bake for 20 minutes more, until deep gold and blistered and cooked through to the bone.",
+   "Rest for 5 minutes — they crisp further as they cool."
+  ],
+  "photoQuery": "Chicken wings"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "reverse-sear-ribeye",
+  "title": "Reverse-Sear Ribeye",
+  "description": "Low oven first, screaming pan second. Edge to edge pink with a proper crust.",
+  "category": "dinner",
+  "cuisine": "American",
+  "prep": 10,
+  "cook": 45,
+  "servings": 2,
+  "difficulty": "medium",
+  "ageDays": 6,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 780,
+   "proteinG": 52,
+   "carbsG": 2,
+   "fatG": 64,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "american",
+   "gluten-free",
+   "high-protein",
+   "company-worthy",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "ribeye steak",
+    "at least 4cm thick"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "flaky salt",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    3,
+    1,
+    "sprig",
+    "thyme",
+    null
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "smashed"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "neutral oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Salt the steak all over and leave it on a rack at room temperature for 45 minutes.",
+   "Heat the oven to 110C and cook the steak on the rack for 35 minutes, until a probe reads 48C in the centre for medium rare.",
+   "Rest it while you get a heavy pan ripping hot with the oil.",
+   "Sear for 60 seconds a side, until a hard brown crust forms.",
+   "Add the butter, thyme and garlic and baste for 45 seconds.",
+   "Rest for 8 minutes before slicing against the grain."
+  ],
+  "photoQuery": "Ribeye steak"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "carolina-pulled-pork",
+  "title": "Carolina Pulled Pork",
+  "description": "Vinegar sauce, not sweet sauce. Six hours in a low oven does what a smoker does, nearly.",
+  "category": "dinner",
+  "cuisine": "American",
+  "prep": 20,
+  "cook": 360,
+  "servings": 8,
+  "difficulty": "medium",
+  "ageDays": 8,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 560,
+   "proteinG": 46,
+   "carbsG": 12,
+   "fatG": 36,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "american",
+   "gluten-free",
+   "batch-cooking",
+   "high-protein"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "lb",
+    "pork shoulder",
+    "bone in"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "brown sugar",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "smoked paprika",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fine salt",
+    null
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "black pepper",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "cider vinegar",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "chilli flakes",
+    null
+   ],
+   [
+    8,
+    1,
+    "piece",
+    "soft buns",
+    "to serve"
+   ]
+  ],
+  "steps": [
+   "Rub the pork all over with the sugar, paprika, salt and pepper. Leave it overnight if you can.",
+   "Heat the oven to 135C.",
+   "Sit the pork on a rack in a deep tray, add a cup of water to the tray, and cover tightly with foil.",
+   "Cook for 5 hours, then uncover and cook for 1 hour more, until the bone pulls clean out.",
+   "Rest for 30 minutes, then shred with two forks.",
+   "Stir the vinegar and chilli flakes together and pour it over the meat a little at a time until it tastes sharp.",
+   "Pile into buns."
+  ],
+  "photoQuery": "Pulled pork sandwich"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "charred-corn-salad",
+  "title": "Charred Corn Salad",
+  "description": "Cook the corn until it is genuinely black in places. Half-hearted charring tastes of nothing.",
+  "category": "lunch",
+  "cuisine": "Mexican",
+  "prep": 10,
+  "cook": 10,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 10,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 280,
+   "proteinG": 7,
+   "carbsG": 32,
+   "fatG": 15,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "vegetarian",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "corn cobs",
+    "husked"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "mayonnaise",
+    null
+   ],
+   [
+    2,
+    1,
+    "oz",
+    "feta",
+    "crumbled"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lime",
+    "juiced"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "chilli powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "coriander",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "red onion",
+    "finely diced"
+   ]
+  ],
+  "steps": [
+   "Get a griddle pan or barbecue very hot.",
+   "Cook the cobs for 10 minutes, turning, until blackened in patches all over.",
+   "Cool for 5 minutes, then stand each cob up and cut the kernels off.",
+   "Toss the hot kernels with the mayonnaise, lime, chilli powder and onion.",
+   "Fold in the feta and coriander and eat warm."
+  ],
+  "photoQuery": "Elote corn salad"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "beef-brisket-chilli",
+  "title": "Beef Brisket Chilli",
+  "description": "Cubed brisket instead of mince, so it shreds rather than crumbles. No beans, before anyone asks.",
+  "category": "dinner",
+  "cuisine": "American",
+  "prep": 25,
+  "cook": 210,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 13,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 610,
+   "proteinG": 48,
+   "carbsG": 18,
+   "fatG": 38,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "american",
+   "gluten-free",
+   "batch-cooking",
+   "one-pot",
+   "high-protein"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "lb",
+    "beef brisket",
+    "cut into 3cm cubes"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "onions",
+    "chopped"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "chilli powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "ground cumin",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "dried oregano",
+    null
+   ],
+   [
+    1,
+    1,
+    "can",
+    "chopped tomatoes",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "beef stock",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "cider vinegar",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Brown the beef hard in the oil, in batches, about 5 minutes a batch. Set aside.",
+   "Cook the onions in the same pot for 8 minutes, until soft and catching.",
+   "Add the garlic and the dry spices and cook for 90 seconds.",
+   "Return the beef, add the tomatoes and stock, and bring to a simmer.",
+   "Cover and cook gently for 3 hours, until the beef falls apart under a spoon.",
+   "Uncover and reduce for 20 minutes, then stir in the vinegar and season."
+  ],
+  "photoQuery": "Beef chili"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "buttermilk-fried-chicken",
+  "title": "Buttermilk Fried Chicken",
+  "description": "The brine does the tenderising, the double dredge does the crust. Thermometer, not guesswork.",
+  "category": "dinner",
+  "cuisine": "American",
+  "prep": 30,
+  "cook": 30,
+  "servings": 4,
+  "difficulty": "hard",
+  "ageDays": 16,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 720,
+   "proteinG": 44,
+   "carbsG": 42,
+   "fatG": 42,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "american",
+   "allergen-milk",
+   "allergen-wheat",
+   "company-worthy",
+   "high-protein"
+  ],
+  "ingredients": [
+   [
+    8,
+    1,
+    "piece",
+    "chicken thighs and drumsticks",
+    "bone in"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "buttermilk",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fine salt",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "garlic powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "smoked paprika",
+    null
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "black pepper",
+    null
+   ],
+   [
+    1,
+    1,
+    "quart",
+    "neutral oil",
+    "for frying"
+   ]
+  ],
+  "steps": [
+   "Mix the buttermilk with the salt and submerge the chicken. Chill for at least 4 hours, ideally overnight.",
+   "Season the flour heavily with the garlic powder, paprika and pepper.",
+   "Lift each piece out letting the excess drip, dredge in flour, dip back in the buttermilk, then dredge again.",
+   "Rest the coated pieces on a rack for 15 minutes so the crust sets.",
+   "Heat the oil to 165C in a deep heavy pot.",
+   "Fry in batches of three for 14 to 16 minutes, turning once, until deep gold and 74C at the bone.",
+   "Drain on a rack, never on paper, and salt straight away."
+  ],
+  "photoQuery": "Fried chicken"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "bbq-baked-beans",
+  "title": "BBQ Baked Beans",
+  "description": "Bacon, molasses and two hours. Cook them uncovered for the last half hour or they stay soupy.",
+  "category": "dinner",
+  "cuisine": "American",
+  "prep": 15,
+  "cook": 150,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 19,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 14,
+   "carbsG": 48,
+   "fatG": 10,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "american",
+   "batch-cooking",
+   "one-pot"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "can",
+    "haricot beans",
+    "drained"
+   ],
+   [
+    6,
+    1,
+    "oz",
+    "smoked bacon",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "finely chopped"
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "molasses",
+    "or dark treacle"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "tomato purée",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "cider vinegar",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "English mustard",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "water",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 150C.",
+   "Render the bacon in a casserole over medium heat for 6 minutes.",
+   "Add the onion and cook for 8 minutes, until soft.",
+   "Stir in the molasses, tomato purée, mustard and water.",
+   "Add the beans, cover, and cook in the oven for 2 hours.",
+   "Uncover and cook for 30 minutes more, until the sauce is thick and glossy.",
+   "Stir in the vinegar at the end to cut the sweetness."
+  ],
+  "photoQuery": "Baked beans"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "cornbread",
+  "title": "Skillet Cornbread",
+  "description": "Preheat the pan with the fat in it. The batter should hiss when it hits.",
+  "category": "snacks",
+  "cuisine": "American",
+  "prep": 10,
+  "cook": 25,
+  "servings": 8,
+  "difficulty": "easy",
+  "ageDays": 22,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 290,
+   "proteinG": 6,
+   "carbsG": 34,
+   "fatG": 15,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "american",
+   "vegetarian",
+   "allergen-eggs",
+   "allergen-milk",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "fine cornmeal",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "baking powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "fine salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "buttermilk",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "eggs",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "bacon fat",
+    "or butter"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "honey",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 220C with a cast-iron skillet inside and the fat in the skillet.",
+   "Whisk the dry ingredients in one bowl and the buttermilk, eggs and honey in another.",
+   "Combine them with as few strokes as you can — lumps are fine, overmixing is not.",
+   "Pour the batter into the hot skillet; it should sizzle at the edges.",
+   "Bake for 22 minutes, until the top is golden and a skewer comes out clean.",
+   "Turn out after 5 minutes so the bottom does not steam."
+  ],
+  "photoQuery": "Cornbread skillet"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "coleslaw",
+  "title": "Proper Coleslaw",
+  "description": "Salt the cabbage first and squeeze it. Otherwise you get watery slaw an hour later.",
+  "category": "snacks",
+  "cuisine": "American",
+  "prep": 20,
+  "cook": 0,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 25,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 180,
+   "proteinG": 2,
+   "carbsG": 14,
+   "fatG": 14,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "american",
+   "vegetarian",
+   "no-cook",
+   "gluten-free",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    1,
+    2,
+    "head",
+    "white cabbage",
+    "shredded very fine"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "carrots",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "fine salt",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "mayonnaise",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "soured cream",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "cider vinegar",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "celery seed",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "sugar",
+    null
+   ]
+  ],
+  "steps": [
+   "Toss the shredded cabbage with the salt and leave it in a colander for 30 minutes.",
+   "Squeeze it hard in your hands, a fistful at a time, to get the water out.",
+   "Whisk the mayonnaise, soured cream, vinegar, sugar and celery seed together.",
+   "Fold in the cabbage and carrot.",
+   "Chill for 30 minutes before serving."
+  ],
+  "photoQuery": "Coleslaw"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "st-louis-ribs",
+  "title": "Oven St. Louis Ribs",
+  "description": "Membrane off, low and slow, finished under the grill. No smoker required.",
+  "category": "dinner",
+  "cuisine": "American",
+  "prep": 20,
+  "cook": 180,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 28,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 690,
+   "proteinG": 42,
+   "carbsG": 22,
+   "fatG": 48,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "american",
+   "gluten-free",
+   "company-worthy",
+   "high-protein"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "piece",
+    "racks pork spare ribs",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "brown sugar",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "smoked paprika",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fine salt",
+    null
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "garlic powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "cayenne",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "barbecue sauce",
+    null
+   ]
+  ],
+  "steps": [
+   "Slide a knife under the membrane on the bone side and pull it off with kitchen paper.",
+   "Rub the racks all over with the sugar, paprika, salt, garlic powder and cayenne.",
+   "Heat the oven to 135C. Wrap each rack tightly in foil and bake for 2 hours 30 minutes.",
+   "Open the foil — the meat should have pulled back from the bone ends.",
+   "Brush with sauce and grill on high for 6 minutes, until the glaze bubbles and chars at the edges.",
+   "Rest 10 minutes, then cut between the bones."
+  ],
+  "photoQuery": "Pork ribs barbecue"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "philly-cheesesteak",
+  "title": "Philly Cheesesteak",
+  "description": "Freeze the beef for twenty minutes and it slices thin enough. That is most of the recipe.",
+  "category": "dinner",
+  "cuisine": "American",
+  "prep": 20,
+  "cook": 12,
+  "servings": 2,
+  "difficulty": "medium",
+  "ageDays": 31,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 780,
+   "proteinG": 44,
+   "carbsG": 54,
+   "fatG": 42,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "american",
+   "allergen-milk",
+   "allergen-wheat",
+   "high-protein"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "ribeye steak",
+    "part-frozen"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "green pepper",
+    "sliced"
+   ],
+   [
+    6,
+    1,
+    "slice",
+    "provolone",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "hoagie rolls",
+    "split"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "neutral oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Freeze the steak for 20 minutes, then slice it as thinly as you can against the grain.",
+   "Cook the onion and pepper in half the oil over medium-high heat for 8 minutes, then push them to one side.",
+   "Add the rest of the oil and the beef and cook for 3 minutes, chopping it with two spatulas as it browns, until no pink remains.",
+   "Mix the vegetables back through and divide into two piles.",
+   "Lay the cheese over each pile and let it melt for 1 minute.",
+   "Scoop each pile straight into a roll."
+  ],
+  "photoQuery": "Cheesesteak sandwich"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "mac-and-cheese",
+  "title": "Baked Mac and Cheese",
+  "description": "A real béchamel and two cheeses. The breadcrumb top is not optional.",
+  "category": "dinner",
+  "cuisine": "American",
+  "prep": 15,
+  "cook": 35,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 34,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 690,
+   "proteinG": 26,
+   "carbsG": 58,
+   "fatG": 40,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "american",
+   "vegetarian",
+   "allergen-milk",
+   "allergen-wheat",
+   "company-worthy"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "macaroni",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "plain flour",
+    null
+   ],
+   [
+    4,
+    1,
+    "cup",
+    "whole milk",
+    "warmed"
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "mature Cheddar",
+    "grated"
+   ],
+   [
+    4,
+    1,
+    "oz",
+    "Gruyère",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "English mustard",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "panko breadcrumbs",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 190C.",
+   "Cook the macaroni 2 minutes short of the packet time and drain.",
+   "Melt the butter, stir in the flour, and cook for 2 minutes without colouring.",
+   "Add the warm milk a ladle at a time, whisking, until smooth and thick enough to coat a spoon, about 8 minutes.",
+   "Off the heat, stir in the cheeses and mustard until melted. Do not boil it after the cheese goes in.",
+   "Fold in the pasta, tip into a dish, and scatter with the breadcrumbs.",
+   "Bake for 25 minutes, until bubbling at the edges and browned on top."
+  ],
+  "photoQuery": "Macaroni and cheese"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "buffalo-cauliflower",
+  "title": "Buffalo Cauliflower",
+  "description": "Roast it dry first, sauce it after. Battering it before roasting just makes it soggy.",
+  "category": "snacks",
+  "cuisine": "American",
+  "prep": 10,
+  "cook": 35,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 37,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 220,
+   "proteinG": 6,
+   "carbsG": 20,
+   "fatG": 14,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "vegetarian",
+   "american",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "head",
+    "cauliflower",
+    "cut into florets"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "hot sauce",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "butter",
+    "melted"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "garlic powder",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "blue cheese dressing",
+    "to serve"
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 220C.",
+   "Toss the florets with the oil and salt and spread them out on a tray, cut side down, well spaced.",
+   "Roast for 30 minutes, until deeply browned at the edges and tender.",
+   "Whisk the hot sauce, melted butter and garlic powder together.",
+   "Toss the hot cauliflower through the sauce and return to the oven for 5 minutes.",
+   "Serve with the dressing."
+  ],
+  "photoQuery": "Buffalo cauliflower"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "chicken-and-waffles",
+  "title": "Chicken and Waffles",
+  "description": "Sweet, salty, and a bit much, which is the point. Waffles hold in a low oven.",
+  "category": "breakfast",
+  "cuisine": "American",
+  "prep": 25,
+  "cook": 25,
+  "servings": 4,
+  "difficulty": "hard",
+  "ageDays": 40,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 880,
+   "proteinG": 42,
+   "carbsG": 68,
+   "fatG": 48,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "american",
+   "allergen-eggs",
+   "allergen-milk",
+   "allergen-wheat",
+   "company-worthy"
+  ],
+  "ingredients": [
+   [
+    8,
+    1,
+    "piece",
+    "chicken tenders",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "buttermilk",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "cayenne",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "waffle batter",
+    "your usual"
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "maple syrup",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    1,
+    1,
+    "quart",
+    "neutral oil",
+    "for frying"
+   ]
+  ],
+  "steps": [
+   "Soak the chicken in the buttermilk for 30 minutes.",
+   "Season the flour with the cayenne and plenty of salt, and dredge each tender heavily.",
+   "Heat the oil to 175C and fry in batches for 5 minutes, until golden and 74C in the centre.",
+   "Drain on a rack and keep warm in a 100C oven.",
+   "Cook the waffles until crisp.",
+   "Stack chicken on waffle, add butter, and pour the syrup over the lot."
+  ],
+  "photoQuery": "Chicken and waffles"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "potato-salad",
+  "title": "Mustard Potato Salad",
+  "description": "Dress the potatoes while they are hot so they drink it up. Cold potatoes just get coated.",
+  "category": "lunch",
+  "cuisine": "American",
+  "prep": 15,
+  "cook": 20,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 43,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 260,
+   "proteinG": 5,
+   "carbsG": 32,
+   "fatG": 13,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "american",
+   "vegetarian",
+   "gluten-free",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "waxy potatoes",
+    "cut into chunks"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "cider vinegar",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "mayonnaise",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "wholegrain mustard",
+    null
+   ],
+   [
+    3,
+    1,
+    "stalk",
+    "celery",
+    "finely chopped"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "spring onions",
+    "sliced"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "eggs",
+    "hard-boiled and chopped"
+   ]
+  ],
+  "steps": [
+   "Boil the potatoes in well-salted water for 15 minutes, until a knife slides in easily.",
+   "Drain and, while still steaming, toss them with the vinegar and a good pinch of salt.",
+   "Leave to cool for 20 minutes.",
+   "Fold through the mayonnaise, mustard, celery and spring onion.",
+   "Add the egg last and turn it through gently.",
+   "Chill for an hour before eating."
+  ],
+  "photoQuery": "Potato salad"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "grilled-shrimp-skewers",
+  "title": "Grilled Garlic Shrimp Skewers",
+  "description": "Four minutes total. Overcooked prawns are rubber and there is no coming back.",
+  "category": "dinner",
+  "cuisine": "American",
+  "prep": 15,
+  "cook": 5,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 46,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 220,
+   "proteinG": 28,
+   "carbsG": 3,
+   "fatG": 11,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "quick",
+   "gluten-free",
+   "high-protein",
+   "allergen-shellfish",
+   "dairy-free"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "large prawns",
+    "peeled, tails on"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "zested and juiced"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "smoked paprika",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "parsley",
+    "chopped"
+   ]
+  ],
+  "steps": [
+   "Toss the prawns with the garlic, oil, lemon zest and paprika. Leave 15 minutes, no longer, or the acid starts cooking them.",
+   "Thread onto skewers.",
+   "Grill over high heat for 2 minutes a side, until pink and opaque all the way through and curled into a loose C.",
+   "Squeeze over the lemon and scatter with parsley."
+  ],
+  "photoQuery": "Grilled shrimp skewers"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "pimento-cheese",
+  "title": "Pimento Cheese",
+  "description": "Grate the cheese yourself. Pre-grated is coated in starch and it never comes together properly.",
+  "category": "snacks",
+  "cuisine": "American",
+  "prep": 10,
+  "cook": 0,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 49,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 240,
+   "proteinG": 9,
+   "carbsG": 4,
+   "fatG": 21,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "american",
+   "vegetarian",
+   "no-cook",
+   "gluten-free",
+   "allergen-milk",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    8,
+    1,
+    "oz",
+    "mature Cheddar",
+    "grated"
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "mayonnaise",
+    null
+   ],
+   [
+    1,
+    1,
+    "jar",
+    "roasted red peppers",
+    "drained and chopped"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "English mustard",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "cayenne",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "black pepper",
+    null
+   ]
+  ],
+  "steps": [
+   "Grate the cheese on the coarse side of a box grater.",
+   "Mash the mayonnaise, mustard and cayenne together first, then fold in the cheese.",
+   "Stir in the peppers and plenty of black pepper.",
+   "Leave in the fridge for an hour so it firms up and the flavours settle."
+  ],
+  "photoQuery": "Pimento cheese"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "bourbon-glazed-salmon",
+  "title": "Bourbon Glazed Salmon",
+  "description": "The glaze reduces to a syrup in the pan. Watch it — it goes from glossy to burnt fast.",
+  "category": "dinner",
+  "cuisine": "American",
+  "prep": 5,
+  "cook": 15,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 52,
+  "alcohol": true,
+  "nutrition": {
+   "perServing": true,
+   "calories": 490,
+   "proteinG": 38,
+   "carbsG": 18,
+   "fatG": 28,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "quick",
+   "high-protein",
+   "allergen-fish",
+   "allergen-soy",
+   "dairy-free"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "piece",
+    "salmon fillets",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "bourbon",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "brown sugar",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "soy sauce",
+    null
+   ],
+   [
+    1,
+    1,
+    "clove",
+    "garlic",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "neutral oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Mix the bourbon, sugar, soy and garlic.",
+   "Sear the salmon in the oil over medium-high heat for 4 minutes on the first side.",
+   "Turn, pour in the glaze, and cook for 4 minutes, spooning it over, until the fish is just opaque through the centre and the glaze coats it.",
+   "Take the pan off the heat before the glaze darkens past amber."
+  ],
+  "photoQuery": "Glazed salmon"
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "banana-pudding",
+  "title": "Banana Pudding",
+  "description": "Proper custard, not instant. It needs six hours in the fridge before the wafers soften.",
+  "category": "dessert",
+  "cuisine": "American",
+  "prep": 25,
+  "cook": 15,
+  "servings": 8,
+  "difficulty": "medium",
+  "ageDays": 55,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 410,
+   "proteinG": 7,
+   "carbsG": 52,
+   "fatG": 19,
+   "source": "creator"
+  },
+  "tags": [
+   "dessert",
+   "american",
+   "vegetarian",
+   "allergen-eggs",
+   "allergen-milk",
+   "allergen-wheat",
+   "company-worthy"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "cup",
+    "whole milk",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "egg yolks",
+    null
+   ],
+   [
+    3,
+    4,
+    "cup",
+    "caster sugar",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "cornflour",
+    null
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "vanilla extract",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "ripe bananas",
+    "sliced"
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "vanilla wafers",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "double cream",
+    "whipped"
+   ]
+  ],
+  "steps": [
+   "Whisk the yolks, sugar and cornflour together until pale.",
+   "Heat the milk until steaming, then pour it slowly onto the yolks, whisking hard.",
+   "Return to the pan and cook over medium-low heat for 6 minutes, stirring constantly, until it thickens enough to hold a line on the back of a spoon.",
+   "Stir in the vanilla and press clingfilm onto the surface. Cool completely.",
+   "Layer wafers, banana and custard twice in a dish.",
+   "Chill for at least 6 hours, then top with the whipped cream."
+  ],
+  "photoQuery": "Banana pudding"
+ }
+]

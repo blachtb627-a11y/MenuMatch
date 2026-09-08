@@ -12,9 +12,22 @@ import { Button, EmptyState, Loading, Screen } from '@/components/ui';
 import { LessLikeThisSheet } from '@/components/LessLikeThisSheet';
 import { useDeck } from '@/state/deck';
 import { useSession } from '@/state/session';
-import { fetchConfig } from '@/lib/api';
+import { fetchConfig, fetchRecipe } from '@/lib/api';
 import { colors, fill, radius, space, type } from '@/theme';
-import type { Category, RecipeCard, SwipeAction } from '@/lib/types';
+import type { Category, Recipe, RecipeCard, SwipeAction } from '@/lib/types';
+
+/**
+ * A long session swipes through hundreds of recipes and every one of them is a
+ * few kilobytes of steps and ingredients, so the cache is bounded. Insertion
+ * order is oldest-first, and undo only ever goes back one card.
+ */
+const DETAIL_CACHE = 40;
+
+function keepRecent(all: Record<string, Recipe>): Record<string, Recipe> {
+  const rows = Object.entries(all);
+  if (rows.length <= DETAIL_CACHE) return all;
+  return Object.fromEntries(rows.slice(rows.length - DETAIL_CACHE));
+}
 
 export default function Discover() {
   const { isGuest, setPendingSave } = useSession();
@@ -33,6 +46,39 @@ export default function Discover() {
 
   const top = deck.cards[0];
   const next = deck.cards[1];
+
+  /**
+   * The full recipe for the card in front, so it can be read by scrolling
+   * rather than by tapping through.
+   *
+   * Kept per id rather than as one slot, so going back with undo does not
+   * re-fetch, and fetched for the card behind as well — by the time someone
+   * has swiped, its details are already there and the scroll never waits.
+   * fetchRecipe caches, so a second visit costs nothing.
+   */
+  const [details, setDetails] = useState<Record<string, Recipe>>({});
+
+  useEffect(() => {
+    const wanted = [top?.id, next?.id].filter(
+      (id): id is string => !!id && !details[id],
+    );
+    if (!wanted.length) return;
+    let live = true;
+    void Promise.all(
+      wanted.map((id) =>
+        fetchRecipe(id)
+          .then((r) => [id, r] as const)
+          // A card that will not load its details still swipes; the panel
+          // keeps its loading state rather than breaking the deck.
+          .catch(() => null),
+      ),
+    ).then((rows) => {
+      if (!live) return;
+      const got = rows.filter((r): r is readonly [string, Recipe] => r !== null);
+      if (got.length) setDetails((d) => keepRecent({ ...d, ...Object.fromEntries(got) }));
+    });
+    return () => { live = false; };
+  }, [top?.id, next?.id, details]);
 
   const handle = useCallback(
     async (action: SwipeAction, card?: RecipeCard) => {
@@ -110,6 +156,7 @@ export default function Discover() {
               <SwipeCard
                 key={top.id}
                 card={top}
+                details={details[top.id] ?? null}
                 interactive
                 onAction={(a) => void handle(a, top)}
                 onOpen={() => router.push(`/recipe/${top.id}`)}

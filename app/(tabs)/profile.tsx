@@ -106,6 +106,8 @@ export default function Profile() {
                  onPress={() => router.push('/settings/blocked')} />
             <Row icon="download" label="Export my data"
                  onPress={() => router.push('/settings/export')} />
+            <Row icon="help-circle" label="How MenuMatch works"
+                 onPress={() => router.push('/tutorial?replay=1')} />
           </Section>
 
           <Section title="Trust and safety">

@@ -62,7 +62,8 @@ export default function Onboarding() {
         JSON.stringify({ pickedCats, pickedCuisines, pickedDiets }),
       );
     }
-    router.replace('/(tabs)');
+    // The taste pass says what to show; the tutorial says how to use it.
+    router.replace('/tutorial');
   }
 
   function toggle(list: string[], set: (v: string[]) => void, value: string) {
@@ -105,7 +106,7 @@ export default function Onboarding() {
         </ScrollView>
 
         <View style={s.tasteFooter}>
-          <Button label="Start swiping" onPress={finish} />
+          <Button label="Continue" onPress={finish} />
           <Button label="Skip" variant="ghost" onPress={finish} />
         </View>
       </SafeAreaView>

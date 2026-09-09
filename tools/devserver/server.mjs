@@ -37,6 +37,7 @@ const DEV_PIXEL = Buffer.from(
 
 const DEV = {
   ...structuredClone(AD_SEED),
+  userRecipes: {},
   profile: { displayName: 'Dev User', bio: null, avatarUrl: null },
   problemReports: [],
   collections: [
@@ -304,6 +305,30 @@ function rpc(name, body) {
       }
       return { ok: true };
     }
+    case 'admin_moderate_recipe': {
+      const action = body?.p_action;
+      if (!['remove', 'restrict', 'reinstate'].includes(action)) {
+        throw new Error('this only removes, restricts or reinstates a recipe');
+      }
+      if (action !== 'reinstate' && !String(body?.p_reason ?? '').trim()) {
+        throw new Error('a reason is required so the creator can be told why');
+      }
+      const REASONS = ['unsafe_food','copyright','impersonation','harassment',
+                       'sexual','spam','not_recipe','other'];
+      if (action !== 'reinstate' && !REASONS.includes(body.p_reason)) {
+        throw new Error('unknown reason ' + body.p_reason);
+      }
+      let hit = null;
+      for (const list of Object.values(DEV.userRecipes)) {
+        const r = list.find((x) => x.id === body?.p_recipe_id);
+        if (r) { hit = r; break; }
+      }
+      if (!hit) throw new Error('recipe not found');
+      if (action === 'remove') { hit.status = 'removed'; hit.moderationState = 'removed'; }
+      else if (action === 'restrict') { hit.moderationState = 'under_review'; }
+      else { hit.status = 'published'; hit.moderationState = 'clear'; }
+      return { ok: true, actionId: 'act-' + Date.now(), action };
+    }
     case 'admin_advertisers':
       return DEV.advertisers.map((a) => ({
         ...a, campaignCount: DEV.campaigns.filter((c) => c.advertiserId === a.id).length }));
@@ -497,11 +522,14 @@ function rpc(name, body) {
         ...u, bio: 'Weeknight cooking, mostly one pan.', ageBand: '18_plus',
         counts: { recipes: u.recipeCount, published: u.recipeCount, saves: u.saveCount,
                   cooks: 3, collections: 2, reportsFiled: 0, reportsAgainst: u.reportsAgainst },
-        recipes: u.recipeCount
-          ? [{ id: 'rec1', title: 'Charred cabbage with brown butter', status: 'published',
-               moderationState: 'clear', coverImageUrl: null,
-               createdAt: new Date().toISOString() }]
-          : [],
+        recipes: u.recipeCount ? (DEV.userRecipes[u.id] ??= [
+          { id: 'rec1', title: 'Charred cabbage with brown butter', status: 'published',
+            moderationState: 'clear', coverImageUrl: null,
+            createdAt: new Date().toISOString() },
+          { id: 'rec2', title: 'Pressure-canned green beans', status: 'published',
+            moderationState: 'clear', coverImageUrl: null,
+            createdAt: new Date().toISOString() },
+        ]) : [],
         strikes: u.strikes
           ? [{ reason: 'unsafe_food', createdAt: new Date().toISOString() }] : [],
         reports: u.reportsAgainst

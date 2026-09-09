@@ -97,6 +97,25 @@ export const adminRevokeRole = (userId: string) =>
   rpc<{ ok: boolean }>('admin_revoke_role', { p_user_id: userId });
 export const adminAudit = (limit = 100) => rpc<AuditEntry[]>('admin_audit', { p_limit: limit });
 
+/**
+ * Acting on one recipe without a report behind it (§20.3).
+ *
+ * Deliberately the same enforcement the report queue applies, not a delete:
+ * the row survives, the creator is told why, and it can be reinstated. A
+ * moderator who is wrong needs to be able to be wrong reversibly.
+ */
+export type RecipeModeration = 'remove' | 'restrict' | 'reinstate';
+
+export const adminModerateRecipe = (
+  recipeId: string, action: RecipeModeration, reason?: string | null, notes?: string | null,
+) => rpc<{ ok: boolean; actionId: string; action: RecipeModeration }>(
+  'admin_moderate_recipe',
+  { p_recipe_id: recipeId, p_action: action, p_reason: reason ?? null, p_notes: notes ?? null },
+);
+
+/** The reasons that cost the creator a strike as well as the recipe (§18.2). */
+export const STRIKE_REASONS = ['copyright', 'unsafe_food', 'impersonation'];
+
 export const ROLE_LABELS: Record<AdminRole, string> = {
   moderator: 'Moderator',
   content_admin: 'Content admin',

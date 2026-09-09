@@ -9,6 +9,9 @@ import { Button, Loading, Screen } from '@/components/ui';
 import { AdminHeader, REASON_LABELS } from '@/components/admin/Shared';
 import { StatusPill } from '@/components/admin/StatusPill';
 import {
+  RecipeActionSheet, type ModerationTarget,
+} from '@/components/admin/RecipeActionSheet';
+import {
   adminDeleteUser, adminPurgeUser, adminSetUserStatus, adminUserDetail, relativeTime,
   ROLE_LABELS, type AdminUserDetail,
 } from '@/lib/admin';
@@ -31,6 +34,8 @@ export default function AdminUserScreen() {
   const [busy, setBusy] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  /** The recipe whose moderation sheet is open. */
+  const [moderating, setModerating] = useState<ModerationTarget | null>(null);
 
   const load = useCallback(async () => {
     if (!id) return;
@@ -204,18 +209,49 @@ export default function AdminUserScreen() {
           {user.recipes.length ? (
             <View style={s.card}>
               <Text style={s.sectionLabel}>THEIR RECIPES</Text>
-              {user.recipes.map((r) => (
-                <Pressable key={r.id} style={s.recipeRow}
-                           onPress={() => router.push(`/recipe/${r.id}`)}
-                           accessibilityRole="button" accessibilityLabel={r.title}>
-                  <RecipeCover uri={r.coverImageUrl} seed={r.id} title={r.title}
-                               style={s.thumb} />
-                  <View style={{ flex: 1, gap: 2 }}>
-                    <Text style={s.recipeTitle} numberOfLines={1}>{r.title}</Text>
-                    <Text style={s.cardMeta}>{r.status} · {r.moderationState}</Text>
+              <Text style={s.cardMeta}>
+                Taking one down does not delete it. The creator is told why and can
+                appeal, and you can put it back.
+              </Text>
+              {user.recipes.map((r) => {
+                const down = r.moderationState === 'removed';
+                const held = r.moderationState === 'under_review';
+                return (
+                  <View key={r.id} style={s.recipeRow}>
+                    {/* The row and its control are siblings: a button inside a
+                        button is invalid on web and swallows the inner one. */}
+                    <Pressable style={s.recipeMain}
+                               onPress={() => router.push(`/recipe/${r.id}`)}
+                               accessibilityRole="button" accessibilityLabel={r.title}>
+                      <RecipeCover uri={r.coverImageUrl} seed={r.id} title={r.title}
+                                   style={s.thumb} />
+                      <View style={{ flex: 1, gap: 2 }}>
+                        <Text style={s.recipeTitle} numberOfLines={1}>{r.title}</Text>
+                        <Text style={[s.cardMeta, down && { color: colors.danger },
+                                      held && { color: colors.clay }]}>
+                          {down ? 'Removed by moderation'
+                            : held ? 'Under review'
+                            : `${r.status} · ${r.moderationState}`}
+                        </Text>
+                      </View>
+                    </Pressable>
+
+                    <Pressable
+                      onPress={() => setModerating({
+                        id: r.id, title: r.title, moderationState: r.moderationState })}
+                      accessibilityRole="button"
+                      accessibilityLabel={down
+                        ? `Put ${r.title} back`
+                        : `Remove or restrict ${r.title}`}
+                      hitSlop={8}
+                      style={({ pressed }) => [s.recipeAction, pressed && { opacity: 0.6 }]}
+                    >
+                      <Feather name={down ? 'rotate-ccw' : 'trash-2'} size={15}
+                               color={down ? colors.mint : colors.danger} />
+                    </Pressable>
                   </View>
-                </Pressable>
-              ))}
+                );
+              })}
             </View>
           ) : null}
 
@@ -368,6 +404,12 @@ export default function AdminUserScreen() {
         ) : null}
       </SafeAreaView>
 
+      {/* Removing is enforcement, not deletion — see the sheet. */}
+      <RecipeActionSheet
+        recipe={moderating}
+        onClose={() => setModerating(null)}
+        onDone={(message) => { setModerating(null); setToast(message); void load(); }}
+      />
       <Toast message={toast} onDismiss={() => setToast(null)} />
     </Screen>
   );
@@ -424,7 +466,12 @@ const s = StyleSheet.create({
   line: { ...type.small, color: colors.text, lineHeight: 19 },
   link: { ...type.small, color: colors.mint, lineHeight: 19 },
   cardMeta: { ...type.small, color: colors.textMuted },
-  recipeRow: { flexDirection: 'row', gap: space.md, alignItems: 'center' },
+  recipeRow: { flexDirection: 'row', gap: space.sm, alignItems: 'center' },
+  recipeMain: { flexDirection: 'row', gap: space.md, alignItems: 'center', flex: 1 },
+  recipeAction: {
+    width: 36, height: 36, borderRadius: 18, alignItems: 'center',
+    justifyContent: 'center', backgroundColor: colors.raised,
+  },
   thumb: { width: 44, height: 44, borderRadius: radius.sm },
   recipeTitle: { ...type.body, color: colors.text },
   action: {

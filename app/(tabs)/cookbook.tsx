@@ -7,6 +7,7 @@ import { RecipeCover } from '@/components/RecipeCover';
 import { Button, EmptyState, Loading, Screen } from '@/components/ui';
 import { fetchCookbook, type SavedRecipe } from '@/lib/api';
 import { CollectionSheet } from '@/components/CollectionSheet';
+import { BulkCollectionSheet } from '@/components/BulkCollectionSheet';
 import {
   SUGGESTED_COLLECTIONS, createCollection, myCollections, type Collection,
 } from '@/lib/collections';
@@ -25,6 +26,23 @@ export default function Cookbook() {
   const [error, setError] = useState<string | null>(null);
   const [organising, setOrganising] = useState<SavedRecipe | null>(null);
   const [toast, setToast] = useState<string | null>(null);
+
+  /**
+   * Multi-select. Null means off — an empty Set would leave the action bar on
+   * screen with nothing to act on, and there is no way back out of that state
+   * that reads as "never mind".
+   */
+  const [picked, setPicked] = useState<Set<string> | null>(null);
+  const [filing, setFiling] = useState<string[] | null>(null);
+  const selecting = picked !== null;
+
+  const toggle = useCallback((id: string) => {
+    setPicked((prev) => {
+      const next = new Set(prev ?? []);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  }, []);
 
   const load = useCallback(async () => {
     if (isGuest) { setSaved([]); return; }
@@ -60,7 +78,32 @@ export default function Cookbook() {
   return (
     <Screen>
       <SafeAreaView style={{ flex: 1 }} edges={['top']}>
-        <Header title="Cookbook" subtitle={`${saved.length} saved`} />
+        {selecting ? (
+          <SelectionHeader
+            count={picked.size}
+            total={saved.length}
+            onSelectAll={() => setPicked(new Set(saved.map((r) => r.id)))}
+            onClear={() => setPicked(new Set())}
+            onCancel={() => setPicked(null)}
+          />
+        ) : (
+          <Header
+            title="Cookbook"
+            subtitle={`${saved.length} saved`}
+            action={saved.length ? (
+              <Pressable
+                onPress={() => setPicked(new Set())}
+                accessibilityRole="button"
+                accessibilityLabel="Select recipes to file into a collection"
+                hitSlop={10}
+                style={({ pressed }) => [s.selectBtn, pressed && { opacity: 0.6 }]}
+              >
+                <Feather name="check-square" size={14} color={colors.mint} />
+                <Text style={s.selectLabel}>Select</Text>
+              </Pressable>
+            ) : undefined}
+          />
+        )}
 
         {/* §23.2 / §27: writes queued offline are visible rather than silent. */}
         {pending > 0 ? (
@@ -75,16 +118,26 @@ export default function Cookbook() {
         {error ? <Text style={s.error}>{error}</Text> : null}
 
         <FlatList
-          data={saved}
-          keyExtractor={(item) => item.id}
+          // A lone item on the last row gets the whole width from FlatList,
+          // which turns an odd number of saves into one giant tile. The spacer
+          // fills the gap so every tile is the same size.
+          data={saved.length % 2 ? [...saved, null] : saved}
+          keyExtractor={(item, i) => item?.id ?? `spacer-${i}`}
           numColumns={2}
           columnWrapperStyle={{ gap: space.md }}
           contentContainerStyle={s.grid}
+          extraData={picked}
           ListHeaderComponent={
-            <CollectionsRow
-              collections={collections}
-              onCreate={async (name) => { await createCollection(name); void load(); }}
-            />
+            selecting ? (
+              <Text style={s.selectHint}>
+                Tap recipes to pick them, then choose a collection.
+              </Text>
+            ) : (
+              <CollectionsRow
+                collections={collections}
+                onCreate={async (name) => { await createCollection(name); void load(); }}
+              />
+            )
           }
           ListEmptyComponent={
             <EmptyState
@@ -93,10 +146,33 @@ export default function Cookbook() {
               action={<Button label="Open the deck" onPress={() => router.push('/(tabs)')} />}
             />
           }
-          renderItem={({ item }) => (
-            <SavedTile item={item} onOrganise={() => setOrganising(item)} />
-          )}
+          renderItem={({ item }) => (item === null ? (
+            <View style={{ flex: 1 }} />
+          ) : (
+            <SavedTile
+              item={item}
+              selecting={selecting}
+              selected={picked?.has(item.id) ?? false}
+              onToggle={() => toggle(item.id)}
+              // Long press is the other way in, and it picks what you pressed
+              // rather than starting you at zero.
+              onStartSelecting={() => setPicked(new Set([item.id]))}
+              onOrganise={() => setOrganising(item)}
+            />
+          ))}
         />
+
+        {selecting ? (
+          <View style={s.actionBar}>
+            <Button
+              label={picked.size
+                ? `Add ${picked.size} to a collection`
+                : 'Add to a collection'}
+              disabled={picked.size === 0}
+              onPress={() => setFiling(Array.from(picked))}
+            />
+          </View>
+        ) : null}
       </SafeAreaView>
 
       {/* §12: a recipe can live in several collections, so this replaces
@@ -107,38 +183,108 @@ export default function Cookbook() {
         onClose={() => setOrganising(null)}
         onSaved={(message) => { setOrganising(null); setToast(message); void load(); }}
       />
+      {/* Files the batch into one collection. Adding only — see the sheet. */}
+      <BulkCollectionSheet
+        recipeIds={filing}
+        onClose={() => setFiling(null)}
+        onDone={(message) => {
+          setFiling(null);
+          setPicked(null);
+          setToast(message);
+          void load();
+        }}
+      />
       <Toast message={toast} onDismiss={() => setToast(null)} />
     </Screen>
   );
 }
 
+function SelectionHeader({
+  count, total, onSelectAll, onClear, onCancel,
+}: {
+  count: number;
+  total: number;
+  onSelectAll: () => void;
+  onClear: () => void;
+  onCancel: () => void;
+}) {
+  const all = count === total && total > 0;
+  return (
+    <View style={s.selectHeader}>
+      <Pressable onPress={onCancel} accessibilityRole="button"
+                 accessibilityLabel="Stop selecting" hitSlop={10}
+                 style={({ pressed }) => pressed ? { opacity: 0.6 } : null}>
+        <Text style={s.selectAction}>Cancel</Text>
+      </Pressable>
+
+      <Text style={s.selectCount}>
+        {count ? `${count} selected` : 'Select recipes'}
+      </Text>
+
+      <Pressable onPress={all ? onClear : onSelectAll} accessibilityRole="button"
+                 accessibilityLabel={all ? 'Clear the selection' : 'Select all'}
+                 hitSlop={10}
+                 style={({ pressed }) => pressed ? { opacity: 0.6 } : null}>
+        <Text style={s.selectAction}>{all ? 'Clear' : 'Select all'}</Text>
+      </Pressable>
+    </View>
+  );
+}
+
 // A save whose recipe is gone never reaches here: fetchCookbook drops it and
 // prunes the row behind it, so there is no dead tile to render.
-function SavedTile({ item, onOrganise }: { item: SavedRecipe; onOrganise: () => void }) {
+function SavedTile({
+  item, selecting, selected, onToggle, onStartSelecting, onOrganise,
+}: {
+  item: SavedRecipe;
+  selecting: boolean;
+  selected: boolean;
+  onToggle: () => void;
+  onStartSelecting: () => void;
+  onOrganise: () => void;
+}) {
   return (
-    <Pressable
-      style={s.tile}
-      onPress={() => router.push(`/recipe/${item.id}`)}
-      accessibilityRole="button"
-      accessibilityLabel={item.title}
-    >
+    <View style={[s.tile, selected && s.tileSelected]}>
       <RecipeCover uri={item.coverImageUrl} seed={item.id} title={item.title}
                    style={StyleSheet.absoluteFill} />
       <View style={s.tileScrim} />
-      <View style={s.tileText}>
+
+      {/* The whole tile is the tap target, as its own layer rather than a
+          parent of the corner control — nesting one button inside another is
+          invalid on web and makes the inner one unreliable. */}
+      <Pressable
+        style={StyleSheet.absoluteFill}
+        onPress={selecting ? onToggle : () => router.push(`/recipe/${item.id}`)}
+        onLongPress={selecting ? undefined : onStartSelecting}
+        delayLongPress={300}
+        accessibilityRole={selecting ? 'checkbox' : 'button'}
+        accessibilityState={selecting ? { checked: selected } : undefined}
+        aria-checked={selecting ? selected : undefined}
+        accessibilityLabel={item.title}
+        accessibilityHint={selecting ? undefined : 'Long press to start selecting'}
+      />
+
+      <View style={s.tileText} pointerEvents="none">
         <Text style={s.tileTitle} numberOfLines={2}>{item.title}</Text>
         <Text style={s.tileMeta}>{formatTotalTime(item.totalMinutes)}</Text>
       </View>
-      <Pressable
-        onPress={onOrganise}
-        accessibilityRole="button"
-        accessibilityLabel={`Add ${item.title} to a collection`}
-        hitSlop={8}
-        style={s.organiseBtn}
-      >
-        <Feather name="folder-plus" size={15} color={colors.text} />
-      </Pressable>
-    </Pressable>
+
+      {selecting ? (
+        <View style={[s.check, selected && s.checkOn]} pointerEvents="none">
+          {selected ? <Feather name="check" size={15} color={colors.onMint} /> : null}
+        </View>
+      ) : (
+        <Pressable
+          onPress={onOrganise}
+          accessibilityRole="button"
+          accessibilityLabel={`Add ${item.title} to a collection`}
+          hitSlop={8}
+          style={s.organiseBtn}
+        >
+          <Feather name="folder-plus" size={15} color={colors.text} />
+        </Pressable>
+      )}
+    </View>
   );
 }
 
@@ -206,17 +352,50 @@ function CollectionsRow({
   );
 }
 
-export function Header({ title, subtitle }: { title: string; subtitle?: string }) {
+export function Header({
+  title, subtitle, action,
+}: { title: string; subtitle?: string; action?: React.ReactNode }) {
   return (
     <View style={s.header}>
-      <Text style={s.headerTitle}>{title}</Text>
-      {subtitle ? <Text style={s.headerSub}>{subtitle}</Text> : null}
+      <View style={{ flex: 1, gap: 2 }}>
+        <Text style={s.headerTitle}>{title}</Text>
+        {subtitle ? <Text style={s.headerSub}>{subtitle}</Text> : null}
+      </View>
+      {action}
     </View>
   );
 }
 
 const s = StyleSheet.create({
-  header: { paddingHorizontal: space.xl, paddingTop: space.lg, paddingBottom: space.md, gap: 2 },
+  header: {
+    flexDirection: 'row', alignItems: 'center', gap: space.md,
+    paddingHorizontal: space.xl, paddingTop: space.lg, paddingBottom: space.md,
+  },
+  selectBtn: {
+    flexDirection: 'row', alignItems: 'center', gap: 6,
+    paddingHorizontal: space.md, paddingVertical: 8, borderRadius: radius.pill,
+    borderWidth: 1, borderColor: colors.mintDeep, backgroundColor: colors.mintWash,
+  },
+  selectLabel: { ...type.small, color: colors.mint, fontWeight: '700' },
+
+  selectHeader: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+    paddingHorizontal: space.xl, paddingTop: space.lg, paddingBottom: space.md,
+  },
+  selectAction: { ...type.small, color: colors.mint, fontWeight: '600' },
+  selectCount: { ...type.bodyStrong, color: colors.text },
+  selectHint: { ...type.small, color: colors.textMuted, marginBottom: space.lg },
+  actionBar: {
+    padding: space.xl, paddingTop: space.md,
+    borderTopWidth: 1, borderTopColor: colors.border, backgroundColor: colors.ground,
+  },
+  check: {
+    position: 'absolute', top: space.sm, right: space.sm,
+    width: 26, height: 26, borderRadius: 13, borderWidth: 1.5,
+    borderColor: colors.text, backgroundColor: 'rgba(6,10,8,0.55)',
+    alignItems: 'center', justifyContent: 'center',
+  },
+  checkOn: { backgroundColor: colors.mint, borderColor: colors.mint },
   headerTitle: { ...type.title, color: colors.text },
   headerSub: { ...type.small, color: colors.textMuted },
 
@@ -244,6 +423,7 @@ const s = StyleSheet.create({
     flex: 1, aspectRatio: 0.78, borderRadius: radius.lg, overflow: 'hidden',
     backgroundColor: colors.surface, marginBottom: space.md, justifyContent: 'flex-end',
   },
+  tileSelected: { borderWidth: 2, borderColor: colors.mint },
   tileUnavailable: {
     alignItems: 'center', justifyContent: 'center', gap: space.sm,
     borderWidth: 1, borderColor: colors.border, borderStyle: 'dashed',

@@ -290,6 +290,19 @@ function rpc(name, body) {
       }
       return { ok: true };
     }
+    case 'add_recipes_to_collection': {
+      const col = DEV.collections.find((c) => c.id === body?.p_collection_id);
+      if (!col) throw new Error('collection not found');
+      const sent = body?.p_recipe_ids ?? [];
+      if (sent.length > 200) throw new Error('that is more than 200 recipes at once');
+      const list = DEV.items[col.id] ?? (DEV.items[col.id] = []);
+      const ids = [...new Set(sent)];
+      let added = 0, already = 0;
+      for (const id of ids) {
+        if (list.includes(id)) already++; else { list.push(id); added++; }
+      }
+      return { ok: true, name: col.name, added, already, skipped: sent.length - ids.length };
+    }
     case 'remove_from_collection': {
       const list = DEV.items[body?.p_collection_id] ?? [];
       const at = list.indexOf(body?.p_recipe_id);

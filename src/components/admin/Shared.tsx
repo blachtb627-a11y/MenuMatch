@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { goBack } from '@/lib/nav';
 import { Feather } from '@expo/vector-icons';
 import { colors, radius, space, type } from '@/theme';
@@ -98,4 +98,53 @@ const s = StyleSheet.create({
     backgroundColor: colors.raised,
   },
   priorityLabel: { fontSize: 9, fontWeight: '800', letterSpacing: 0.6, color: colors.textMuted },
+});
+
+/**
+ * A labelled text input, used across the ad screens.
+ *
+ * Lives here rather than beside its first caller because everything under app/
+ * is a route: an extra export from a route file is a trap for the next person
+ * who moves it.
+ */
+export function Field({
+  label, value, onChange, placeholder, multiline, autoFocus, keyboardType, hint,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+  multiline?: boolean;
+  autoFocus?: boolean;
+  keyboardType?: 'default' | 'email-address' | 'url' | 'number-pad';
+  hint?: string;
+}) {
+  return (
+    <View style={{ gap: 6 }}>
+      <Text style={f.label}>{label}</Text>
+      <TextInput
+        value={value}
+        onChangeText={onChange}
+        placeholder={placeholder}
+        placeholderTextColor={colors.textFaint}
+        accessibilityLabel={label}
+        autoFocus={autoFocus}
+        multiline={multiline}
+        keyboardType={keyboardType ?? 'default'}
+        autoCapitalize={keyboardType === 'email-address' || keyboardType === 'url' ? 'none' : 'sentences'}
+        style={[f.input, multiline && { height: 84, paddingTop: space.md }]}
+      />
+      {hint ? <Text style={f.hint}>{hint}</Text> : null}
+    </View>
+  );
+}
+
+const f = StyleSheet.create({
+  label: { ...type.micro, color: colors.textFaint },
+  hint: { ...type.small, color: colors.textFaint, lineHeight: 17 },
+  input: {
+    backgroundColor: colors.ground, borderWidth: 1, borderColor: colors.border,
+    borderRadius: radius.md, paddingHorizontal: space.md, height: 44,
+    color: colors.text, fontSize: 15,
+  },
 });

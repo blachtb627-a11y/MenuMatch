@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   Pressable, ScrollView, StyleSheet, Text, View,
 } from 'react-native';
@@ -13,6 +13,9 @@ import { LessLikeThisSheet } from '@/components/LessLikeThisSheet';
 import { useDeck } from '@/state/deck';
 import { useSession } from '@/state/session';
 import { fetchConfig, fetchRecipe } from '@/lib/api';
+import { AdCard } from '@/components/AdCard';
+import { fetchAd, type ServedAd } from '@/lib/ads';
+import { getDeviceKey } from '@/lib/device';
 import { colors, fill, radius, space, type } from '@/theme';
 import type { Category, Recipe, RecipeCard, SwipeAction } from '@/lib/types';
 
@@ -58,6 +61,39 @@ export default function Discover() {
    */
   const [details, setDetails] = useState<Record<string, Recipe>>({});
 
+  /**
+   * Paid placement (§38). The ad is a layer over the deck rather than an entry
+   * in it: the ranker, the undo stack and the save/pass counters all stay
+   * about recipes, and an ad can never be undone back into view or counted as
+   * a recipe someone passed on.
+   *
+   * How often it appears is the campaign's own deckInterval, so a light
+   * campaign can ask to be rarer without a deploy.
+   */
+  const [ad, setAd] = useState<ServedAd | null>(null);
+  const [adVisible, setAdVisible] = useState(false);
+  const [deviceKey, setDeviceKey] = useState<string | null>(null);
+  const swipes = useRef(0);
+  const nextAdAt = useRef(Number.POSITIVE_INFINITY);
+
+  useEffect(() => {
+    void getDeviceKey().then(setDeviceKey).catch(() => {});
+  }, []);
+
+  // Fetched ahead of the slot it will fill, so the ad never makes the deck
+  // wait. A null answer means nothing is eligible — no campaign, none running,
+  // or this person has already seen today's share.
+  useEffect(() => {
+    if (ad || adVisible) return;
+    void fetchAd(deviceKey)
+      .then((next) => {
+        if (!next) return;
+        setAd(next);
+        nextAdAt.current = swipes.current + next.deckInterval;
+      })
+      .catch(() => {});
+  }, [ad, adVisible, deviceKey]);
+
   useEffect(() => {
     const wanted = [top?.id, next?.id].filter(
       (id): id is string => !!id && !details[id],
@@ -94,10 +130,12 @@ export default function Discover() {
       }
 
       void Haptics.selectionAsync().catch(() => {});
+      swipes.current += 1;
+      if (ad && !adVisible && swipes.current >= nextAdAt.current) setAdVisible(true);
       await deck.act(action, target);
       if (action === 'save') setToast(`Saved to your Cookbook`);
     },
-    [deck, isGuest, setPendingSave],
+    [deck, isGuest, setPendingSave, ad, adVisible],
   );
 
   const onUndo = useCallback(async () => {
@@ -157,10 +195,21 @@ export default function Discover() {
                 key={top.id}
                 card={top}
                 details={details[top.id] ?? null}
-                interactive
+                interactive={!adVisible}
                 onAction={(a) => void handle(a, top)}
                 onOpen={() => router.push(`/recipe/${top.id}`)}
               />
+
+              {/* Over the stack, not in it. Dismissing clears the ad so the
+                  next one is fetched for the interval after this. */}
+              {adVisible && ad ? (
+                <AdCard
+                  key={ad.id}
+                  ad={ad}
+                  deviceKey={deviceKey}
+                  onDismiss={() => { setAdVisible(false); setAd(null); }}
+                />
+              ) : null}
             </>
           )}
         </View>
@@ -170,19 +219,19 @@ export default function Discover() {
         <View style={s.controls}>
           <ControlButton
             icon="rotate-ccw" label="Undo last action" tone="neutral"
-            disabled={!deck.canUndo} onPress={onUndo} small
+            disabled={!deck.canUndo || adVisible} onPress={onUndo} small
           />
           <ControlButton
             icon="x" label="Pass on this recipe" tone="clay"
-            disabled={!top} onPress={() => void handle('pass')}
+            disabled={!top || adVisible} onPress={() => void handle('pass')}
           />
           <ControlButton
             icon="bookmark" label="Save this recipe" tone="mint"
-            disabled={!top} onPress={() => void handle('save')}
+            disabled={!top || adVisible} onPress={() => void handle('save')}
           />
           <ControlButton
             icon="more-horizontal" label="More options" tone="neutral"
-            disabled={!top} onPress={() => setSheetFor(top ?? null)} small
+            disabled={!top || adVisible} onPress={() => setSheetFor(top ?? null)} small
           />
         </View>
       </SafeAreaView>

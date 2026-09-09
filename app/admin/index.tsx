@@ -81,6 +81,10 @@ export default function AdminDashboard() {
                           count={stats.openAppeals} onPress={() => router.push('/admin/appeals')} />
                 <LinkCard icon="users" label="Team"
                           onPress={() => router.push('/admin/team')} />
+                {me?.adminRole === 'content_admin' || me?.adminRole === 'super_admin' ? (
+                  <LinkCard icon="dollar-sign" label="Ads"
+                            onPress={() => router.push('/admin/ads')} />
+                ) : null}
                 {me?.adminRole === 'super_admin' ? (
                   <LinkCard icon="list" label="Audit log"
                             onPress={() => router.push('/admin/audit')} />

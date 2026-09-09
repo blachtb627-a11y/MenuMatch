@@ -44,6 +44,9 @@ export default function RootLayout() {
             <Stack.Screen name="admin/appeals" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="admin/team" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="admin/audit" options={{ animation: 'slide_from_right' }} />
+            <Stack.Screen name="admin/ads" options={{ animation: 'slide_from_right' }} />
+            <Stack.Screen name="admin/advertisers" options={{ animation: 'slide_from_right' }} />
+            <Stack.Screen name="admin/campaign/[id]" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="cook/[id]" options={{ animation: 'slide_from_bottom' }} />
           </Stack>
         </SessionProvider>

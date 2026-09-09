@@ -16,6 +16,19 @@ const here = dirname(fileURLToPath(import.meta.url));
 const fx = JSON.parse(readFileSync(join(here, 'fixtures.json'), 'utf8'));
 const PORT = Number(process.env.PORT ?? 8787);
 
+// In-memory ad state so the admin screens and the deck slot can be exercised.
+// seenByViewer stands in for the per-person frequency cap the database keeps
+// in ad_events.
+const AD_SEED = {
+  advertisers: [],
+  campaigns: [],
+  adDaily: [
+    { day: '2026-09-03', impressions: 41, clicks: 3 },
+    { day: '2026-09-04', impressions: 58, clicks: 5 },
+    { day: '2026-09-05', impressions: 33, clicks: 1 },
+  ],
+};
+
 // In-memory collection state so the picker and reorder can be exercised.
 /** 2x2 mint PNG — enough to prove an image rendered rather than fell back. */
 const DEV_PIXEL = Buffer.from(
@@ -23,6 +36,7 @@ const DEV_PIXEL = Buffer.from(
   + 'jIwMDAwMDAwMAB8sBAX7l6JnAAAAAElFTkSuQmCC', 'base64');
 
 const DEV = {
+  ...structuredClone(AD_SEED),
   profile: { displayName: 'Dev User', bio: null, avatarUrl: null },
   problemReports: [],
   collections: [
@@ -288,6 +302,108 @@ function rpc(name, body) {
         if (has && at === -1) list.push(body.p_recipe_id);
         if (!has && at !== -1) list.splice(at, 1);
       }
+      return { ok: true };
+    }
+    case 'admin_advertisers':
+      return DEV.advertisers.map((a) => ({
+        ...a, campaignCount: DEV.campaigns.filter((c) => c.advertiserId === a.id).length }));
+    case 'admin_save_advertiser': {
+      if (!body?.p_name?.trim()) throw new Error('a company needs a name');
+      const found = DEV.advertisers.find((a) => a.id === body?.p_id);
+      const row = found ?? { id: 'adv' + (DEV.advertisers.length + 1), createdAt: new Date().toISOString() };
+      Object.assign(row, {
+        name: body.p_name.trim(), contactName: body.p_contact_name || null,
+        contactEmail: body.p_contact_email || null, websiteUrl: body.p_website_url || null,
+        notes: body.p_notes || null });
+      if (!found) DEV.advertisers.push(row);
+      return { ok: true, id: row.id };
+    }
+    case 'admin_delete_advertiser': {
+      const ran = DEV.campaigns.filter((c) => c.advertiserId === body?.p_id)
+        .reduce((n, c) => n + c.impressions, 0);
+      if (ran > 0) throw new Error('this company has campaigns that have already run; archive them instead');
+      DEV.advertisers = DEV.advertisers.filter((a) => a.id !== body?.p_id);
+      DEV.campaigns = DEV.campaigns.filter((c) => c.advertiserId !== body?.p_id);
+      return { ok: true };
+    }
+    case 'admin_campaigns':
+      return DEV.campaigns
+        .filter((c) => !body?.p_advertiser_id || c.advertiserId === body.p_advertiser_id)
+        .map((c) => ({
+          ...c,
+          advertiser: DEV.advertisers.find((a) => a.id === c.advertiserId)?.name ?? '?',
+          dailyAllowance: c.impressionGoal
+            ? Math.max(Math.ceil((c.impressionGoal - c.impressions)
+                / Math.max(Math.ceil((new Date(c.endsAt) - Date.now()) / 86400000), 1)), 1)
+            : null,
+        }));
+    case 'admin_save_campaign': {
+      if (!body?.p_name?.trim()) throw new Error('the campaign needs a name');
+      if (!body?.p_headline?.trim()) throw new Error('the ad needs a headline');
+      if (!body?.p_image_url) throw new Error('the ad needs an image');
+      if (!/^https?:\/\/\S+$/i.test(body?.p_click_url ?? '')) {
+        throw new Error('the link must start with http:// or https://');
+      }
+      if (new Date(body.p_ends_at) <= new Date(body.p_starts_at)) {
+        throw new Error('the end date must be after the start');
+      }
+      const found = DEV.campaigns.find((c) => c.id === body?.p_id);
+      const row = found ?? {
+        id: 'camp' + (DEV.campaigns.length + 1), status: 'draft',
+        impressions: 0, clicks: 0, impressionsToday: 0, seenByViewer: 0,
+        createdAt: new Date().toISOString() };
+      Object.assign(row, {
+        advertiserId: body.p_advertiser_id, name: body.p_name.trim(),
+        headline: body.p_headline.trim(), body: body.p_body || null,
+        imageUrl: body.p_image_url, ctaLabel: body.p_cta_label || 'Learn more',
+        clickUrl: body.p_click_url, startsAt: body.p_starts_at, endsAt: body.p_ends_at,
+        impressionGoal: body.p_impression_goal ?? null,
+        dailyImpressionCap: body.p_daily_impression_cap ?? null,
+        frequencyCapPerDay: body.p_frequency_cap_per_day ?? 3,
+        deckInterval: body.p_deck_interval ?? 12 });
+      if (!found) DEV.campaigns.push(row);
+      return { ok: true, id: row.id };
+    }
+    case 'admin_set_campaign_status': {
+      const c = DEV.campaigns.find((x) => x.id === body?.p_id);
+      if (!c) throw new Error('campaign not found');
+      if (body?.p_status === 'active' && new Date(c.endsAt) <= new Date()) {
+        throw new Error("this campaign's end date has passed; change the dates first");
+      }
+      c.status = body.p_status;
+      return { ok: true, status: c.status };
+    }
+    case 'admin_delete_campaign': {
+      const c = DEV.campaigns.find((x) => x.id === body?.p_id);
+      if (!c) throw new Error('campaign not found');
+      if (c.impressions > 0) throw new Error('this campaign has already run; archive it instead of deleting it');
+      DEV.campaigns = DEV.campaigns.filter((x) => x.id !== body?.p_id);
+      return { ok: true };
+    }
+    case 'admin_campaign_daily': return DEV.adDaily;
+    case 'get_ad': {
+      const now = Date.now();
+      const c = DEV.campaigns.find((x) => x.status === 'active'
+        && new Date(x.startsAt) <= now && new Date(x.endsAt) >= now
+        && (!x.impressionGoal || x.impressions < x.impressionGoal)
+        && x.seenByViewer < x.frequencyCapPerDay);
+      if (!c) return null;
+      return { id: c.id, headline: c.headline, body: c.body, imageUrl: c.imageUrl,
+               ctaLabel: c.ctaLabel, clickUrl: c.clickUrl,
+               advertiser: DEV.advertisers.find((a) => a.id === c.advertiserId)?.name ?? '?',
+               deckInterval: c.deckInterval };
+    }
+    case 'record_ad_impression': {
+      const c = DEV.campaigns.find((x) => x.id === body?.p_campaign_id);
+      if (!c || c.status !== 'active') return { ok: false, counted: false };
+      c.impressions++; c.impressionsToday++; c.seenByViewer++;
+      if (c.impressionGoal && c.impressions >= c.impressionGoal) c.status = 'completed';
+      return { ok: true, counted: true };
+    }
+    case 'record_ad_click': {
+      const c = DEV.campaigns.find((x) => x.id === body?.p_campaign_id);
+      if (!c) return { ok: false };
+      c.clicks++;
       return { ok: true };
     }
     case 'add_recipes_to_collection': {

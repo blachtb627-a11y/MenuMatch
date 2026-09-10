@@ -80,6 +80,24 @@ export default function Search() {
           ) : null}
         </View>
 
+        <Pressable
+          onPress={() => router.push('/pantry')}
+          accessibilityRole="button"
+          accessibilityLabel="Find recipes from what you have in your kitchen"
+          style={({ pressed }) => [s.pantryRow, pressed && { opacity: 0.7 }]}
+        >
+          <View style={s.pantryIcon}>
+            <Feather name="box" size={17} color={colors.mint} />
+          </View>
+          <View style={{ flex: 1, gap: 2 }}>
+            <Text style={s.pantryTitle}>What can I make?</Text>
+            <Text style={s.pantryBody}>
+              Add or scan what you have, and see what it adds up to.
+            </Text>
+          </View>
+          <Feather name="chevron-right" size={17} color={colors.textFaint} />
+        </Pressable>
+
         {loading && results === null ? (
           <Loading />
         ) : results === null ? (
@@ -169,6 +187,20 @@ function RecipeTile({ recipe }: { recipe: SearchRecipe }) {
 }
 
 const s = StyleSheet.create({
+  pantryRow: {
+    flexDirection: 'row', alignItems: 'center', gap: space.md,
+    marginHorizontal: space.xl, marginBottom: space.md, padding: space.md,
+    borderRadius: radius.md, backgroundColor: colors.surface,
+    borderWidth: 1, borderColor: colors.border,
+  },
+  pantryIcon: {
+    width: 36, height: 36, borderRadius: 18, alignItems: 'center',
+    justifyContent: 'center', backgroundColor: colors.mintWash,
+    borderWidth: 1, borderColor: colors.mintDeep,
+  },
+  pantryTitle: { ...type.bodyStrong, color: colors.text },
+  pantryBody: { ...type.small, color: colors.textMuted },
+
   searchRow: {
     flexDirection: 'row', alignItems: 'center', gap: space.md,
     marginHorizontal: space.xl, paddingHorizontal: space.lg, height: 46,

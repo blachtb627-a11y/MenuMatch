@@ -38,6 +38,15 @@ const DEV_PIXEL = Buffer.from(
 const DEV = {
   ...structuredClone(AD_SEED),
   userRecipes: {},
+  pantry: [],
+  pantrySeq: 0,
+  // What each mock recipe needs, so the pantry screen has something to match.
+  recipeNeeds: {
+    default: ['chicken thighs', 'lemon', 'garlic', 'olive oil', 'thyme', 'sea salt'],
+    'devcard-01': ['salmon fillets', 'miso paste', 'butter', 'spring onion'],
+    'devcard-02': ['broccoli', 'orecchiette', 'garlic', 'chilli flakes', 'parmesan'],
+    'devcard-03': ['chicken', 'green chilli', 'onion', 'potato', 'stock'],
+  },
   profile: { displayName: 'Dev User', bio: null, avatarUrl: null },
   problemReports: [],
   collections: [
@@ -304,6 +313,50 @@ function rpc(name, body) {
         if (!has && at !== -1) list.splice(at, 1);
       }
       return { ok: true };
+    }
+    case 'my_pantry': return DEV.pantry;
+    case 'add_pantry_items': {
+      const sent = body?.p_names ?? [];
+      if (sent.length > 100) throw new Error('that is more than 100 items at once');
+      let added = 0;
+      for (const raw of sent) {
+        const name = String(raw ?? '').trim().slice(0, 60).toLowerCase();
+        if (!name || DEV.pantry.some((p) => p.name === name)) continue;
+        DEV.pantry.unshift({ id: 'pan' + (++DEV.pantrySeq), name,
+                             createdAt: new Date().toISOString() });
+        added++;
+      }
+      return { ok: true, added, skipped: sent.length - added };
+    }
+    case 'remove_pantry_item':
+      DEV.pantry = DEV.pantry.filter((p) => p.id !== body?.p_id);
+      return { ok: true };
+    case 'clear_pantry': {
+      const n = DEV.pantry.length;
+      DEV.pantry = [];
+      return { ok: true, removed: n };
+    }
+    case 'cook_from_pantry': {
+      // A stand-in for the database's stem matching: enough to drive the
+      // screen, not a second implementation of the rule.
+      const stems = (s) => String(s ?? '').toLowerCase().split(/[^a-z]+/)
+        .filter((w) => w.length >= 3).map((w) => w.replace(/s$/, ''));
+      const have = DEV.pantry.map((p) => stems(p.name));
+      if (body?.p_use_staples !== false) {
+        for (const s of ['salt', 'pepper', 'water', 'oil', 'sugar']) have.push(stems(s));
+      }
+      const rows = [];
+      for (const card of fx.feed.cards) {
+        const need = (DEV.recipeNeeds[card.id] ?? DEV.recipeNeeds.default);
+        const missing = need.filter((ing) => {
+          const t = stems(ing);
+          return !have.some((h) => h.length && h.every((w) => t.includes(w)));
+        });
+        if (missing.length > (body?.p_max_missing ?? 3)) continue;
+        rows.push({ card, total: need.length, have: need.length - missing.length, missing });
+      }
+      rows.sort((a, b) => (a.total - a.have) - (b.total - b.have));
+      return rows.slice(0, body?.p_limit ?? 30);
     }
     case 'admin_moderate_recipe': {
       const action = body?.p_action;

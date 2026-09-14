@@ -104,9 +104,13 @@ export default function Create() {
             />
           }
           renderItem={({ item }) => (
-            <Pressable style={s.row} onPress={() => router.push(`/compose/${item.id}`)}
-                       accessibilityRole="button"
-                       accessibilityLabel={`${item.title}, ${item.status}`}>
+            // The row and the delete control are siblings, not parent and
+            // child: a button inside a button is invalid HTML on the web build
+            // and makes the inner one unreliable.
+            <View style={s.row}>
+              <Pressable style={s.rowMain} onPress={() => router.push(`/compose/${item.id}`)}
+                         accessibilityRole="button"
+                         accessibilityLabel={`${item.title}, ${item.status}`}>
               <RecipeCover uri={item.coverImageUrl} seed={item.id} title={item.title}
                            style={s.thumb} />
               <View style={{ flex: 1, gap: 3 }}>
@@ -130,13 +134,15 @@ export default function Create() {
                 ) : null}
               </View>
               <StatusPill status={item.status} />
+              </Pressable>
+
               <Pressable onPress={() => setPendingDelete(item)} hitSlop={10}
                          accessibilityRole="button"
                          accessibilityLabel={`Delete ${item.title || 'this untitled draft'}`}
                          style={s.deleteBtn}>
                 <Feather name="trash-2" size={16} color={colors.textFaint} />
               </Pressable>
-            </Pressable>
+            </View>
           )}
         />
       </SafeAreaView>
@@ -190,6 +196,7 @@ const s = StyleSheet.create({
     flexDirection: 'row', alignItems: 'center', gap: space.md,
     paddingVertical: space.md, borderBottomWidth: 1, borderBottomColor: colors.border,
   },
+  rowMain: { flexDirection: 'row', alignItems: 'center', gap: space.md, flex: 1 },
   thumb: { width: 54, height: 54, borderRadius: radius.md },
   rowTitle: { ...type.bodyStrong, color: colors.text },
   rowMeta: { ...type.small, color: colors.textMuted },

@@ -227,6 +227,13 @@ $$;
  *
  * Every row carries what is missing by name, because "you can nearly make this"
  * is only useful alongside "you need parmesan".
+ *
+ * Every CTE here is MATERIALIZED on purpose, and that is the whole performance
+ * story. `have` is referenced from inside a correlated EXISTS, so an inlined
+ * CTE is re-executed once per ingredient row: 1126 rows each rebuilding the
+ * pantry and re-tokenising nine staples took 1.3 seconds. Computing it once
+ * takes 17ms for the same answer. `blocked` is hoisted for the same reason —
+ * it depends only on the ingredient, not on the pantry entry being tested.
  */
 create or replace function public.cook_from_pantry(
   p_max_missing  int     default 3,
@@ -242,14 +249,31 @@ begin
 
   return coalesce((
     -- Everything the cook counts as available: their own pantry, plus the
-    -- staples unless they asked to be asked about those too.
-    with have as (
-      select p.tokens as tokens from pantry_items p where p.user_id = v_user
+    -- staples unless they asked to be asked about those too. An entry with no
+    -- stems can never match anything, so it is dropped here rather than tested
+    -- a thousand times.
+    with have as materialized (
+      select p.tokens as tokens
+        from pantry_items p
+       where p.user_id = v_user and cardinality(p.tokens) > 0
       union all
       select public.food_tokens(s)
         from unnest(case when coalesce(p_use_staples, true)
                          then public.pantry_staples()
                          else '{}'::text[] end) as s
+    ),
+    block as materialized (select public.food_blocking_stems() as b),
+    need as materialized (
+      select ri.recipe_id, ri.ingredient_text, ri.position,
+             ri.food_tokens as toks,
+             -- identity-changing stems this ingredient carries, computed once
+             array(select unnest(ri.food_tokens) intersect select unnest(bb.b)) as blocked
+        from recipe_ingredients ri
+        join recipes r on r.id = ri.recipe_id
+        cross join block bb
+       where r.status = 'published'
+         and r.deleted_at is null
+         and r.moderation_state = 'clear'
     )
     select jsonb_agg(row order by ord)
     from (
@@ -271,26 +295,18 @@ begin
                  array_agg(n.ingredient_text order by n.position)
                    filter (where not n.satisfied), '{}'::text[]) as missing
         from (
-          select ri.recipe_id, ri.ingredient_text, ri.position,
-                 -- An ingredient with no stems at all cannot be matched either
-                 -- way, so it is not held against the recipe.
-                 cardinality(ri.food_tokens) = 0
+          select nn.recipe_id, nn.ingredient_text, nn.position,
+                 -- An ingredient with no stems cannot be matched either way, so
+                 -- it is not held against the recipe.
+                 cardinality(nn.toks) = 0
                  or exists (
                    select 1 from have h
-                    where cardinality(h.tokens) > 0
-                      and h.tokens <@ ri.food_tokens
+                    where h.tokens <@ nn.toks
                       -- every identity-changing stem in the ingredient has to
                       -- be in the pantry entry too
-                      and (array(select unnest(ri.food_tokens)
-                                 intersect
-                                 select unnest(public.food_blocking_stems())))
-                          <@ h.tokens
+                      and nn.blocked <@ h.tokens
                  ) as satisfied
-          from recipe_ingredients ri
-          join recipes r on r.id = ri.recipe_id
-          where r.status = 'published'
-            and r.deleted_at is null
-            and r.moderation_state = 'clear'
+          from need nn
         ) n
         group by n.recipe_id
       ) s

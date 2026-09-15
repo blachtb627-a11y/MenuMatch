@@ -1,0 +1,1702 @@
+[
+ {
+  "creator": "tenminutetable",
+  "slug": "croque-monsieur",
+  "title": "Croque Monsieur",
+  "description": "A cheese sandwich with a sauce on top, which sounds like too much and is exactly enough.",
+  "category": "lunch",
+  "cuisine": "French",
+  "prep": 10,
+  "cook": 10,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 0,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 620,
+   "proteinG": 32,
+   "carbsG": 42,
+   "fatG": 36,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "weeknight",
+   "allergen-wheat",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "slice",
+    "white bread",
+    "thick cut"
+   ],
+   [
+    4,
+    1,
+    "slice",
+    "ham",
+    null
+   ],
+   [
+    3,
+    1,
+    "oz",
+    "gruyere",
+    "grated"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "whole milk",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "dijon mustard",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "nutmeg",
+    "grated"
+   ]
+  ],
+  "steps": [
+   "Melt the butter, stir in the flour, and cook for a minute.",
+   "Whisk in the milk and cook to a thick bechamel, then add mustard and nutmeg.",
+   "Butter the bread on the outside, build the sandwiches with ham and half the cheese.",
+   "Fry them in a dry pan for 3 minutes a side until deep gold.",
+   "Spoon the bechamel over the tops and cover with the rest of the cheese.",
+   "Grill until blistered and bubbling, about 3 minutes."
+  ],
+  "photo": {
+   "query": "croque monsieur",
+   "must": "croque"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "caprese-salad",
+  "title": "Caprese Salad",
+  "description": "Three ingredients, so all three have to be good. Room temperature, not fridge cold.",
+  "category": "quick",
+  "cuisine": "Italian",
+  "prep": 10,
+  "cook": 0,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 2,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 18,
+   "carbsG": 10,
+   "fatG": 26,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "no-cook",
+   "vegetarian",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "piece",
+    "tomato",
+    "thickly sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "buffalo mozzarella",
+    "torn"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "basil",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "flaky sea salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Slice the tomatoes thick and lay them on a plate.",
+   "Salt them and leave for 5 minutes so they start to weep.",
+   "Tear the mozzarella over rather than slicing it, so it holds the oil.",
+   "Scatter the basil leaves whole.",
+   "Pour olive oil over everything and finish with flaky salt.",
+   "Serve at room temperature; cold mozzarella tastes of nothing."
+  ],
+  "photo": {
+   "query": "caprese salad",
+   "must": "caprese"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "avocado-toast",
+  "title": "Avocado Toast",
+  "description": "Toast it harder than feels right. Soft bread under wet avocado is the whole failure mode.",
+  "category": "breakfast",
+  "cuisine": "American",
+  "prep": 8,
+  "cook": 2,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 4,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 380,
+   "proteinG": 7,
+   "carbsG": 32,
+   "fatG": 26,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "weeknight",
+   "vegetarian",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "slice",
+    "sourdough",
+    "thick"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "avocado",
+    "ripe"
+   ],
+   [
+    1,
+    2,
+    "piece",
+    "lemon",
+    "juice only"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "chilli flakes",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "flaky sea salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Toast the sourdough hard, so it stays crisp under the topping.",
+   "Rub the hot toast with a cut clove of garlic if you have one.",
+   "Mash the avocado roughly with the lemon and salt; leave it lumpy.",
+   "Pile it on thick rather than spreading it thin.",
+   "Finish with olive oil, chilli flakes and more salt.",
+   "Eat immediately, while the toast is still crisp underneath."
+  ],
+  "photo": {
+   "query": "avocado toast",
+   "must": "avocado"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "french-omelette",
+  "title": "French Omelette",
+  "description": "Medium-low, and off the heat while the middle still looks underdone. Browning it is the only real mistake.",
+  "category": "breakfast",
+  "cuisine": "French",
+  "prep": 5,
+  "cook": 5,
+  "servings": 1,
+  "difficulty": "medium",
+  "ageDays": 6,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 320,
+   "proteinG": 19,
+   "carbsG": 2,
+   "fatG": 26,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "weeknight",
+   "vegetarian",
+   "gluten-free",
+   "allergen-eggs",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "piece",
+    "egg",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "chives",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Beat the eggs until completely uniform, with no streaks of white left.",
+   "Melt the butter in a non-stick pan over medium-low heat until it foams but does not colour.",
+   "Pour in the eggs and stir constantly with a spatula for 20 seconds.",
+   "Stop stirring and let the base set for 15 seconds while the top stays glossy.",
+   "Tilt the pan and roll the omelette over on itself towards the handle.",
+   "Turn it out seam down; it should be pale yellow with no browning anywhere."
+  ],
+  "photo": {
+   "query": "french omelette",
+   "must": "omelette"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "bruschetta-al-pomodoro",
+  "title": "Bruschetta al Pomodoro",
+  "description": "Drain the tomatoes and rub the garlic on hot bread. Both take a minute and both matter.",
+  "category": "snacks",
+  "cuisine": "Italian",
+  "prep": 10,
+  "cook": 5,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 8,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 240,
+   "proteinG": 5,
+   "carbsG": 28,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "weeknight",
+   "vegetarian",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "slice",
+    "ciabatta",
+    "thick"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "tomato",
+    "diced"
+   ],
+   [
+    1,
+    1,
+    "clove",
+    "garlic",
+    "halved"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "basil",
+    "torn"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Dice the tomatoes, salt them, and leave them in a sieve for 10 minutes to drain.",
+   "Grill or griddle the bread until it has dark bars on both sides.",
+   "Rub the hot bread firmly with the cut garlic; the toast grates it away.",
+   "Pour olive oil over the bread and let it soak in.",
+   "Spoon the drained tomatoes on and tear the basil over.",
+   "Assemble at the last second or the bread goes soft."
+  ],
+  "photo": {
+   "query": "bruschetta",
+   "must": "bruschetta"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "caesar-salad",
+  "title": "Caesar Salad",
+  "description": "The dressing is a mayonnaise. Add the oil slowly or it will split and there is no rescuing it in a salad bowl.",
+  "category": "lunch",
+  "cuisine": "American",
+  "prep": 15,
+  "cook": 0,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 10,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 420,
+   "proteinG": 12,
+   "carbsG": 16,
+   "fatG": 36,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "no-cook",
+   "allergen-eggs",
+   "allergen-fish",
+   "allergen-milk",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "piece",
+    "romaine lettuce",
+    "torn"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "anchovy fillet",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "egg yolk",
+    null
+   ],
+   [
+    1,
+    1,
+    "clove",
+    "garlic",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "dijon mustard",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "olive oil",
+    null
+   ],
+   [
+    2,
+    1,
+    "oz",
+    "parmesan",
+    "grated"
+   ],
+   [
+    2,
+    1,
+    "slice",
+    "stale bread",
+    "cubed"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "lemon juice",
+    null
+   ]
+  ],
+  "steps": [
+   "Fry the bread cubes in oil until crisp all over and drain them on paper.",
+   "Mash the anchovies and garlic to a paste with a little salt.",
+   "Whisk in the yolk, mustard and lemon juice.",
+   "Add the oil drop by drop at first, then in a thin stream, until it thickens.",
+   "Toss the lettuce through the dressing so every leaf is coated but not drowned.",
+   "Add the croutons and parmesan and toss once more."
+  ],
+  "photo": {
+   "query": "caesar salad",
+   "must": "caesar"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "club-sandwich",
+  "title": "Club Sandwich",
+  "description": "Sticks in before the knife, not after. Three layers will not hold otherwise.",
+  "category": "lunch",
+  "cuisine": "American",
+  "prep": 15,
+  "cook": 10,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 12,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 680,
+   "proteinG": 42,
+   "carbsG": 48,
+   "fatG": 34,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "allergen-wheat",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    6,
+    1,
+    "slice",
+    "white bread",
+    "toasted"
+   ],
+   [
+    6,
+    1,
+    "slice",
+    "bacon",
+    null
+   ],
+   [
+    6,
+    1,
+    "oz",
+    "roast chicken",
+    "sliced"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "tomato",
+    "sliced"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "lettuce leaf",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "mayonnaise",
+    null
+   ]
+  ],
+  "steps": [
+   "Fry the bacon until properly crisp and drain it.",
+   "Toast all six slices and spread mayonnaise on one side of each.",
+   "Build the first layer: chicken, lettuce, then a slice of toast mayonnaise up.",
+   "Build the second: bacon, tomato, lettuce, then the last slice.",
+   "Push a cocktail stick through each quarter before you cut it.",
+   "Cut corner to corner twice, into four triangles."
+  ],
+  "photo": {
+   "query": "club sandwich",
+   "must": "club sandwich"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "egg-salad-sandwich",
+  "title": "Egg Salad Sandwich",
+  "description": "Nine minutes and straight into ice. Overcooked yolks go grey and chalky and the whole thing turns dry.",
+  "category": "lunch",
+  "cuisine": "American",
+  "prep": 12,
+  "cook": 10,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 14,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 480,
+   "proteinG": 20,
+   "carbsG": 34,
+   "fatG": 28,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "vegetarian",
+   "allergen-eggs",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "egg",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "mayonnaise",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "dijon mustard",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "chives",
+    "chopped"
+   ],
+   [
+    4,
+    1,
+    "slice",
+    "white bread",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "white pepper",
+    null
+   ]
+  ],
+  "steps": [
+   "Lower the eggs into already boiling water and cook for 9 minutes.",
+   "Move them straight into iced water and leave until completely cold.",
+   "Peel and chop them roughly; some pieces should stay large.",
+   "Fold through the mayonnaise, mustard and chives.",
+   "Season hard with salt and white pepper — egg takes more than you think.",
+   "Pile onto soft bread, not toast."
+  ],
+  "photo": {
+   "query": "egg salad sandwich",
+   "must": "egg salad"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "tzatziki",
+  "title": "Tzatziki",
+  "description": "Wring the cucumber out properly. Skip it and you get soup within the hour.",
+  "category": "snacks",
+  "cuisine": "Greek",
+  "prep": 10,
+  "cook": 0,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 16,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 110,
+   "proteinG": 6,
+   "carbsG": 6,
+   "fatG": 7,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "no-cook",
+   "vegetarian",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "greek yoghurt",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "cucumber",
+    "grated"
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "dill",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "red wine vinegar",
+    null
+   ]
+  ],
+  "steps": [
+   "Grate the cucumber, salt it, and leave it in a sieve for 15 minutes.",
+   "Squeeze it out hard in a cloth; you want it almost dry.",
+   "Beat the garlic into the yoghurt with the vinegar.",
+   "Fold in the cucumber and dill.",
+   "Pour the olive oil over the top rather than stirring it in.",
+   "Rest it in the fridge for 30 minutes before serving."
+  ],
+  "photo": {
+   "query": "tzatziki",
+   "must": "tzatziki"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "smoked-salmon-bagel",
+  "title": "Smoked Salmon Bagel",
+  "description": "Fold the salmon rather than flattening it. It is the difference between a plate and a sandwich.",
+  "category": "breakfast",
+  "cuisine": "American",
+  "prep": 8,
+  "cook": 0,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 18,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 460,
+   "proteinG": 26,
+   "carbsG": 42,
+   "fatG": 20,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "no-cook",
+   "allergen-fish",
+   "allergen-wheat",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "piece",
+    "bagel",
+    "halved"
+   ],
+   [
+    4,
+    1,
+    "oz",
+    "smoked salmon",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "cream cheese",
+    null
+   ],
+   [
+    1,
+    4,
+    "piece",
+    "red onion",
+    "sliced paper thin"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "capers",
+    "drained"
+   ],
+   [
+    1,
+    2,
+    "piece",
+    "lemon",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "dill",
+    null
+   ]
+  ],
+  "steps": [
+   "Toast the bagel halves lightly, just enough to warm them.",
+   "Spread the cream cheese thickly on the bottom halves.",
+   "Drape the salmon over in loose folds rather than laying it flat.",
+   "Scatter the red onion, capers and dill.",
+   "Squeeze lemon over and grind black pepper on.",
+   "Leave the top half off and eat it open."
+  ],
+  "photo": {
+   "query": "smoked salmon bagel",
+   "must": "bagel"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "bircher-muesli",
+  "title": "Bircher Muesli",
+  "description": "Grate the apple in the morning, not the night before. Overnight it goes brown and tastes tired.",
+  "category": "breakfast",
+  "cuisine": "Swiss",
+  "prep": 10,
+  "cook": 0,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 20,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 380,
+   "proteinG": 12,
+   "carbsG": 58,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "no-cook",
+   "vegetarian",
+   "allergen-milk",
+   "allergen-tree-nuts"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "rolled oats",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "apple juice",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "apple",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "greek yoghurt",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "honey",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "hazelnuts",
+    "toasted and chopped"
+   ],
+   [
+    1,
+    2,
+    "piece",
+    "lemon",
+    "juice only"
+   ]
+  ],
+  "steps": [
+   "Stir the oats into the apple juice and refrigerate overnight.",
+   "In the morning, grate the apple straight into the bowl, skin and all.",
+   "Toss it with the lemon juice immediately so it does not brown.",
+   "Fold in the yoghurt and honey.",
+   "Loosen with a splash more juice if it has set too thick.",
+   "Top with the toasted hazelnuts just before eating so they stay crisp."
+  ],
+  "photo": {
+   "query": "bircher muesli",
+   "must": "muesli"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "honey-granola",
+  "title": "Honey Granola",
+  "description": "Press it down and do not stir it. Every stir breaks the clusters you are trying to make.",
+  "category": "breakfast",
+  "cuisine": "American",
+  "prep": 10,
+  "cook": 30,
+  "servings": 10,
+  "difficulty": "easy",
+  "ageDays": 22,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 420,
+   "proteinG": 10,
+   "carbsG": 48,
+   "fatG": 22,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "vegetarian",
+   "batch-cooking",
+   "allergen-tree-nuts"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "cup",
+    "rolled oats",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "almonds",
+    "roughly chopped"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "pumpkin seeds",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "honey",
+    null
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "coconut oil",
+    "melted"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "cinnamon",
+    "ground"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "dried cherries",
+    null
+   ]
+  ],
+  "steps": [
+   "Mix the oats, nuts, seeds, cinnamon and salt in a large bowl.",
+   "Warm the honey and coconut oil together until pourable and stir them through.",
+   "Spread it on a lined tray and press it down firmly with the back of a spoon.",
+   "Bake at 300F for 25 minutes, turning the tray once but not stirring.",
+   "Leave it to cool completely on the tray without touching it; that is how the clusters form.",
+   "Break it up and fold in the dried cherries."
+  ],
+  "photo": {
+   "query": "granola",
+   "must": "granola"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "spaghetti-aglio-e-olio",
+  "title": "Spaghetti Aglio e Olio",
+  "description": "Garlic into cold oil, and pasta water is the sauce. Brown garlic is bitter and there is no fixing it.",
+  "category": "quick",
+  "cuisine": "Italian",
+  "prep": 5,
+  "cook": 12,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 24,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 12,
+   "carbsG": 64,
+   "fatG": 24,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "weeknight",
+   "vegan",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    7,
+    1,
+    "oz",
+    "spaghetti",
+    null
+   ],
+   [
+    6,
+    1,
+    "clove",
+    "garlic",
+    "sliced paper thin"
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "chilli flakes",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "parsley",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Boil the pasta in heavily salted water and set a mug of the water aside before draining.",
+   "Start the garlic in cold oil over low heat so it toasts slowly rather than burning.",
+   "When it is pale gold — not brown — add the chilli flakes and take it off the heat.",
+   "Drain the pasta a minute early and add it to the pan with a splash of the water.",
+   "Toss hard over the heat until the oil and water emulsify and cling.",
+   "Add parsley and one more splash if it looks tight."
+  ],
+  "photo": {
+   "query": "spaghetti aglio e olio",
+   "must": "aglio"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "tortilla-espanola",
+  "title": "Tortilla Española",
+  "description": "Poached in oil, not fried, and still a little loose in the middle. Cooked through it is just a potato cake.",
+  "category": "dinner",
+  "cuisine": "Spanish",
+  "prep": 15,
+  "cook": 30,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 26,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 380,
+   "proteinG": 14,
+   "carbsG": 32,
+   "fatG": 22,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "vegetarian",
+   "gluten-free",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    6,
+    1,
+    "piece",
+    "potato",
+    "sliced thin"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "sliced"
+   ],
+   [
+    6,
+    1,
+    "piece",
+    "egg",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Cook the potato and onion gently in the oil for 20 minutes; they should soften, not fry.",
+   "Drain them well, keeping a spoonful of the oil.",
+   "Beat the eggs hard, season, then fold the warm potatoes in and rest 10 minutes.",
+   "Cook in the reserved oil over medium heat for 5 minutes until the edges set.",
+   "Slide it onto a plate, invert the pan over it, and flip the whole thing back.",
+   "Cook 4 minutes more; the middle should still be slightly loose."
+  ],
+  "photo": {
+   "query": "tortilla espanola",
+   "must": "tortilla"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "pico-de-gallo",
+  "title": "Pico de Gallo",
+  "description": "Rinse the onion and pour off the water. Both take seconds and stop it tasting harsh and watery.",
+  "category": "snacks",
+  "cuisine": "Mexican",
+  "prep": 10,
+  "cook": 0,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 28,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 40,
+   "proteinG": 1,
+   "carbsG": 8,
+   "fatG": 1,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "no-cook",
+   "vegan",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    6,
+    1,
+    "piece",
+    "tomato",
+    "diced small"
+   ],
+   [
+    1,
+    2,
+    "piece",
+    "white onion",
+    "diced small"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "jalapeno",
+    "deseeded and minced"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "coriander",
+    "chopped"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "lime",
+    "juice only"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Dice everything to the same size; it should sit evenly on a chip.",
+   "Rinse the diced onion under cold water for 30 seconds to take the raw bite off.",
+   "Toss the tomato, onion and jalapeno with the salt.",
+   "Leave it for 10 minutes, then pour off the liquid that collects.",
+   "Stir in the lime juice and coriander at the last moment.",
+   "Serve within the hour; it does not keep."
+  ],
+  "photo": {
+   "query": "pico de gallo",
+   "must": "pico"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "loaded-nachos",
+  "title": "Loaded Nachos",
+  "description": "Two thin layers, not one deep pile. Cold toppings go on after the oven, never before.",
+  "category": "snacks",
+  "cuisine": "Mexican",
+  "prep": 10,
+  "cook": 15,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 30,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 18,
+   "carbsG": 48,
+   "fatG": 28,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    8,
+    1,
+    "oz",
+    "tortilla chips",
+    null
+   ],
+   [
+    1,
+    1,
+    "can",
+    "black beans",
+    "drained"
+   ],
+   [
+    6,
+    1,
+    "oz",
+    "cheddar",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "jalapeno",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "avocado",
+    "diced"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "sour cream",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "cumin",
+    "ground"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "spring onion",
+    "sliced"
+   ]
+  ],
+  "steps": [
+   "Spread half the chips in a single layer on a tray, not a pile.",
+   "Scatter half the beans, cumin and cheese over them.",
+   "Repeat with the rest of the chips, beans and cheese.",
+   "Bake at 400F for 10 minutes until the cheese has fully melted.",
+   "Add the cold toppings — avocado, sour cream, spring onion — only after it comes out.",
+   "Eat straight off the tray."
+  ],
+  "photo": {
+   "query": "nachos",
+   "must": "nacho"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "deviled-eggs",
+  "title": "Deviled Eggs",
+  "description": "Push the yolks through a sieve. It is the only way the filling goes properly smooth.",
+  "category": "snacks",
+  "cuisine": "American",
+  "prep": 15,
+  "cook": 10,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 32,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 180,
+   "proteinG": 8,
+   "carbsG": 2,
+   "fatG": 15,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "gluten-free",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    6,
+    1,
+    "piece",
+    "egg",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "mayonnaise",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "dijon mustard",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "white wine vinegar",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "paprika",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "chives",
+    "chopped"
+   ]
+  ],
+  "steps": [
+   "Boil the eggs for 10 minutes and cool them completely in iced water.",
+   "Peel, halve lengthways, and lift the yolks into a sieve.",
+   "Push the yolks through the sieve so there are no lumps at all.",
+   "Beat in the mayonnaise, mustard and vinegar until smooth and glossy.",
+   "Pipe or spoon the filling back into the whites, mounded high.",
+   "Dust with paprika and scatter the chives."
+  ],
+  "photo": {
+   "query": "deviled eggs",
+   "must": "deviled"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "strawberry-milkshake",
+  "title": "Strawberry Milkshake",
+  "description": "Fruit first, ice cream second, and pulse. Blend it all at once and you get pink milk.",
+  "category": "drinks",
+  "cuisine": "American",
+  "prep": 5,
+  "cook": 0,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 34,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 8,
+   "carbsG": 48,
+   "fatG": 13,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "no-cook",
+   "vegetarian",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    8,
+    1,
+    "oz",
+    "strawberries",
+    "hulled"
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "vanilla ice cream",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "whole milk",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "honey",
+    "to taste"
+   ]
+  ],
+  "steps": [
+   "Hull the strawberries and freeze them for 20 minutes if they are very ripe.",
+   "Blend the strawberries with the milk first, until completely smooth.",
+   "Add the ice cream and pulse briefly — long blending melts it and thins the shake.",
+   "Taste and add honey only if the fruit needs it.",
+   "Pour into chilled glasses.",
+   "Drink immediately."
+  ],
+  "photo": {
+   "query": "strawberry milkshake",
+   "must": "milkshake"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "green-smoothie",
+  "title": "Green Smoothie",
+  "description": "Greens and liquid first, on their own. Everything at once leaves you chewing spinach.",
+  "category": "drinks",
+  "cuisine": "American",
+  "prep": 5,
+  "cook": 0,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 36,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 180,
+   "proteinG": 4,
+   "carbsG": 40,
+   "fatG": 1,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "no-cook",
+   "vegan",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "handful",
+    "spinach",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "banana",
+    "frozen"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "apple",
+    "cored"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "coconut water",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "lime juice",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "ginger",
+    "thumb"
+   ]
+  ],
+  "steps": [
+   "Blend the spinach with the coconut water first, on its own, until no flecks remain.",
+   "Add the apple and ginger and blend again.",
+   "Add the frozen banana last and blend until thick.",
+   "The frozen banana is what makes it cold and thick without ice watering it down.",
+   "Sharpen with lime juice to taste.",
+   "Pour and drink straight away, before it separates."
+  ],
+  "photo": {
+   "query": "green smoothie",
+   "must": "smoothie"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "affogato",
+  "title": "Affogato",
+  "description": "Hot coffee, cold ice cream, poured at the table. Everything about it is the temperature difference.",
+  "category": "dessert",
+  "cuisine": "Italian",
+  "prep": 3,
+  "cook": 2,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 38,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 280,
+   "proteinG": 5,
+   "carbsG": 28,
+   "fatG": 16,
+   "source": "creator"
+  },
+  "tags": [
+   "dessert",
+   "weeknight",
+   "vegetarian",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "vanilla ice cream",
+    "scoops"
+   ],
+   [
+    2,
+    1,
+    "fl_oz",
+    "espresso",
+    "hot"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "toasted hazelnuts",
+    "chopped"
+   ]
+  ],
+  "steps": [
+   "Chill the serving glasses in the freezer for 10 minutes.",
+   "Put two scoops of ice cream into each glass.",
+   "Pull the espresso and use it immediately, while it is still properly hot.",
+   "Pour it over the ice cream at the table, not in the kitchen.",
+   "Scatter the hazelnuts over.",
+   "Eat it while half of it is still frozen."
+  ],
+  "photo": {
+   "query": "affogato",
+   "must": "affogato"
+  }
+ }
+]

@@ -1,0 +1,1696 @@
+[
+ {
+  "creator": "pourandplate",
+  "slug": "agua-de-jamaica",
+  "title": "Agua de Jamaica",
+  "description": "Deep red, tart, barely sweet. Twelve minutes of steeping and not a minute more.",
+  "category": "drinks",
+  "cuisine": "Mexican",
+  "prep": 5,
+  "cook": 15,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 0,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 90,
+   "proteinG": 0,
+   "carbsG": 23,
+   "fatG": 0,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "vegan",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "oz",
+    "dried hibiscus flowers",
+    null
+   ],
+   [
+    8,
+    1,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "sugar",
+    "to taste"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lime",
+    "juice only"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "cinnamon stick",
+    null
+   ]
+  ],
+  "steps": [
+   "Bring half the water to the boil with the cinnamon stick.",
+   "Take it off the heat, add the hibiscus, and steep for 12 minutes.",
+   "Steep it any longer and it turns tannic and drying.",
+   "Strain, pressing the flowers gently, and stir the sugar in while it is hot.",
+   "Add the remaining water cold and chill thoroughly.",
+   "Sharpen with lime juice and serve over a lot of ice."
+  ],
+  "photo": {
+   "query": "agua de jamaica",
+   "must": "jamaica"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "horchata",
+  "title": "Horchata",
+  "description": "Strain it twice through cloth. Once leaves it gritty and gritty horchata is not worth drinking.",
+  "category": "drinks",
+  "cuisine": "Mexican",
+  "prep": 10,
+  "cook": 0,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 2,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 180,
+   "proteinG": 3,
+   "carbsG": 36,
+   "fatG": 4,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "vegan",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "long grain rice",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "cinnamon stick",
+    "broken"
+   ],
+   [
+    4,
+    1,
+    "cup",
+    "water",
+    "for soaking"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "almonds",
+    "blanched"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "sugar",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "vanilla extract",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "water",
+    "to finish"
+   ]
+  ],
+  "steps": [
+   "Soak the rice, almonds and cinnamon in the water overnight at room temperature.",
+   "Blend the whole lot, soaking water included, for a full two minutes.",
+   "Strain through a fine cloth, squeezing hard to get everything through.",
+   "Strain a second time; the texture is the entire point of the drink.",
+   "Stir in the sugar, vanilla and remaining water.",
+   "Chill hard and stir again before pouring, as it settles."
+  ],
+  "photo": {
+   "query": "horchata",
+   "must": "horchata"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "watermelon-agua-fresca",
+  "title": "Watermelon Agua Fresca",
+  "description": "Strain it and cut it with water. Neat watermelon puree is thick and cloying after two mouthfuls.",
+  "category": "drinks",
+  "cuisine": "Mexican",
+  "prep": 10,
+  "cook": 0,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 4,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 80,
+   "proteinG": 1,
+   "carbsG": 20,
+   "fatG": 0,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "no-cook",
+   "vegan",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    6,
+    1,
+    "cup",
+    "watermelon",
+    "cubed, deseeded"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "water",
+    "cold"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "lime",
+    "juice only"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "sugar",
+    "to taste"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "mint",
+    null
+   ]
+  ],
+  "steps": [
+   "Blend the watermelon on its own until completely liquid.",
+   "Strain it through a sieve to take out the pulp, pressing it through with a ladle.",
+   "Stir in the cold water — it should be a drink, not a puree.",
+   "Add lime juice, then sugar only if the melon needs it.",
+   "Chill for an hour so it is properly cold rather than iced down.",
+   "Serve over ice with mint slapped between your palms first."
+  ],
+  "photo": {
+   "query": "agua fresca watermelon",
+   "must": "watermelon"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "thai-iced-tea",
+  "title": "Thai Iced Tea",
+  "description": "Cool it before it meets ice, and float the evaporated milk. Half of this drink is how it looks in the glass.",
+  "category": "drinks",
+  "cuisine": "Thai",
+  "prep": 5,
+  "cook": 10,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 6,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 220,
+   "proteinG": 5,
+   "carbsG": 38,
+   "fatG": 6,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "vegetarian",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "tbsp",
+    "thai tea leaves",
+    null
+   ],
+   [
+    4,
+    1,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "condensed milk",
+    null
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "evaporated milk",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "sugar",
+    "to taste"
+   ]
+  ],
+  "steps": [
+   "Boil the water and steep the tea hard for 5 minutes.",
+   "Strain it twice through a fine sieve or a tea sock.",
+   "Stir the sugar and condensed milk into the hot tea until dissolved.",
+   "Cool it completely before it goes near ice, or it will taste watered down.",
+   "Fill tall glasses with ice and pour the tea over.",
+   "Float the evaporated milk on top and let the drinker stir it in."
+  ],
+  "photo": {
+   "query": "thai iced tea",
+   "must": "thai iced"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "turkish-coffee",
+  "title": "Turkish Coffee",
+  "description": "Cold water, low heat, and never let it boil. The foam is the measure of whether you got it right.",
+  "category": "drinks",
+  "cuisine": "Turkish",
+  "prep": 3,
+  "cook": 7,
+  "servings": 2,
+  "difficulty": "medium",
+  "ageDays": 8,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 60,
+   "proteinG": 0,
+   "carbsG": 14,
+   "fatG": 0,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "vegan",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "tbsp",
+    "coffee",
+    "ground to powder"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "water",
+    "cold"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "sugar",
+    "to taste"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "cardamom",
+    "ground"
+   ]
+  ],
+  "steps": [
+   "Measure the cold water with the cup you will drink from.",
+   "Stir the coffee, sugar and cardamom into the cold water in the cezve.",
+   "Heat it very slowly over a low flame without stirring again.",
+   "When the foam rises to the rim, pull it off — do not let it boil over.",
+   "Spoon some foam into each cup, return the pot to the heat, and let it rise once more.",
+   "Pour slowly and let it stand a minute for the grounds to settle."
+  ],
+  "photo": {
+   "query": "turkish coffee",
+   "must": "turkish"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "flat-white",
+  "title": "Flat White",
+  "description": "Three seconds of stretch, no more. A flat white is a cappuccino that knew when to stop.",
+  "category": "drinks",
+  "cuisine": "Australian",
+  "prep": 3,
+  "cook": 3,
+  "servings": 1,
+  "difficulty": "medium",
+  "ageDays": 10,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 120,
+   "proteinG": 7,
+   "carbsG": 10,
+   "fatG": 6,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "vegetarian",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "fl_oz",
+    "espresso",
+    "double ristretto"
+   ],
+   [
+    5,
+    1,
+    "fl_oz",
+    "whole milk",
+    "cold"
+   ]
+  ],
+  "steps": [
+   "Pull a double ristretto into a warmed 6oz cup.",
+   "Start with cold milk in a cold jug; it gives you longer to work.",
+   "Steam with the tip just under the surface for 3 seconds only, then submerge it.",
+   "Take it to 140F — hot enough to drink, not hot enough to scald the sugars.",
+   "Swirl and tap the jug until the surface is glossy with no visible bubbles.",
+   "Pour from high to break through, then drop low and close for the pattern."
+  ],
+  "photo": {
+   "query": "flat white coffee",
+   "must": "flat white"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "bubble-tea",
+  "title": "Bubble Tea",
+  "description": "Pearls are made and drunk the same hour. Refrigerate them and they go hard and chalky.",
+  "category": "drinks",
+  "cuisine": "Taiwanese",
+  "prep": 10,
+  "cook": 25,
+  "servings": 2,
+  "difficulty": "medium",
+  "ageDays": 12,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 320,
+   "proteinG": 6,
+   "carbsG": 62,
+   "fatG": 6,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "vegetarian",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    1,
+    2,
+    "cup",
+    "tapioca pearls",
+    null
+   ],
+   [
+    4,
+    1,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "brown sugar",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "black tea leaves",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "whole milk",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "water",
+    "for tea"
+   ]
+  ],
+  "steps": [
+   "Boil the pearls in plenty of water for 20 minutes, then leave them covered off the heat for 10.",
+   "Drain and steep them in the brown sugar with a splash of hot water.",
+   "Brew the tea strong in the remaining water and cool it completely.",
+   "Spoon the pearls and their syrup into the bottom of tall glasses.",
+   "Add ice, then the cold tea, then the milk so it marbles down through.",
+   "Use a wide straw and serve at once; the pearls harden as they sit."
+  ],
+  "photo": {
+   "query": "bubble tea",
+   "must": "bubble tea"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "patatas-bravas",
+  "title": "Patatas Bravas",
+  "description": "Boil, dry, then fry. The drying step is the one everybody skips and the one that decides it.",
+  "category": "snacks",
+  "cuisine": "Spanish",
+  "prep": 15,
+  "cook": 35,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 14,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 380,
+   "proteinG": 6,
+   "carbsG": 46,
+   "fatG": 20,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "vegan",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "potato",
+    "in 1 in cubes"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "can",
+    "chopped tomatoes",
+    null
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "smoked paprika",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "cayenne pepper",
+    null
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "sherry vinegar",
+    null
+   ]
+  ],
+  "steps": [
+   "Simmer the potato cubes in salted water for 8 minutes, then drain and dry them thoroughly.",
+   "Let them steam dry in the colander for 10 minutes; wet potato will never crisp.",
+   "Fry the garlic, add the paprika and cayenne off the heat, then the tomatoes and vinegar.",
+   "Simmer the sauce for 20 minutes and blend it smooth.",
+   "Fry the potatoes in hot oil until deep brown and properly crisp.",
+   "Salt them immediately and spoon the warm sauce over just before serving."
+  ],
+  "photo": {
+   "query": "patatas bravas",
+   "must": "bravas"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "gambas-al-ajillo",
+  "title": "Gambas al Ajillo",
+  "description": "Ninety seconds a side. The oil is half the dish, so keep bread nearby.",
+  "category": "snacks",
+  "cuisine": "Spanish",
+  "prep": 10,
+  "cook": 10,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 16,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 320,
+   "proteinG": 24,
+   "carbsG": 4,
+   "fatG": 24,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "weeknight",
+   "gluten-free",
+   "allergen-shellfish"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "raw prawns",
+    "peeled"
+   ],
+   [
+    8,
+    1,
+    "clove",
+    "garlic",
+    "sliced thin"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "dried chilli",
+    "broken"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "smoked paprika",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "parsley",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "sherry vinegar",
+    null
+   ]
+  ],
+  "steps": [
+   "Dry the prawns thoroughly and salt them 10 minutes ahead.",
+   "Start the garlic and chilli in cold oil in a shallow earthenware dish or small pan.",
+   "Bring it up slowly until the garlic is pale gold and the oil is fragrant.",
+   "Raise the heat, add the prawns, and cook 90 seconds a side — no longer.",
+   "Off the heat, stir in the paprika, vinegar and parsley.",
+   "Serve bubbling, with bread for the oil."
+  ],
+  "photo": {
+   "query": "gambas al ajillo",
+   "must": "gambas"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "padron-peppers",
+  "title": "Padrón Peppers",
+  "description": "A very hot pan and more salt than feels right. One pepper in ten is hot, which is the game.",
+  "category": "snacks",
+  "cuisine": "Spanish",
+  "prep": 3,
+  "cook": 6,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 18,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 90,
+   "proteinG": 2,
+   "carbsG": 8,
+   "fatG": 6,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "weeknight",
+   "vegan",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    8,
+    1,
+    "oz",
+    "padron peppers",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "flaky sea salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Dry the peppers completely; any water will spit in the oil.",
+   "Get the pan as hot as it will go before the oil goes in.",
+   "Add the peppers in one layer and leave them alone for 2 minutes.",
+   "Toss once and cook another 2 minutes, until blistered and collapsing.",
+   "Tip onto a plate and salt heavily while they are still glossy.",
+   "Eat with your fingers, by the stalk."
+  ],
+  "photo": {
+   "query": "padron peppers",
+   "must": "padron"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "croquetas-de-jamon",
+  "title": "Croquetas de Jamón",
+  "description": "The mix has to be properly cold before you shape it. Four hours is a minimum, overnight is better.",
+  "category": "snacks",
+  "cuisine": "Spanish",
+  "prep": 30,
+  "cook": 20,
+  "servings": 6,
+  "difficulty": "hard",
+  "ageDays": 20,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 380,
+   "proteinG": 14,
+   "carbsG": 32,
+   "fatG": 22,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "allergen-wheat",
+   "allergen-milk",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "whole milk",
+    "warm"
+   ],
+   [
+    4,
+    1,
+    "oz",
+    "serrano ham",
+    "finely chopped"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "nutmeg",
+    "grated"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "egg",
+    "beaten"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "breadcrumbs",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "sunflower oil",
+    "for frying"
+   ]
+  ],
+  "steps": [
+   "Melt the butter, stir in the flour, and cook it for 3 minutes until it smells of biscuit.",
+   "Add the warm milk a ladle at a time, beating until each addition is completely smooth.",
+   "Cook the bechamel for 10 minutes until it pulls cleanly away from the pan.",
+   "Stir in the ham and nutmeg, spread it in a tray, and refrigerate at least 4 hours.",
+   "Roll the cold mixture into cylinders, then through egg and breadcrumbs.",
+   "Fry at 350F for 2 minutes until deep gold; the inside should be almost liquid."
+  ],
+  "photo": {
+   "query": "croquetas",
+   "must": "croqueta"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "arancini",
+  "title": "Arancini",
+  "description": "Cold risotto or nothing. The cheese in the middle should pull when you break one open.",
+  "category": "snacks",
+  "cuisine": "Italian",
+  "prep": 30,
+  "cook": 25,
+  "servings": 6,
+  "difficulty": "hard",
+  "ageDays": 22,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 12,
+   "carbsG": 38,
+   "fatG": 16,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "vegetarian",
+   "allergen-wheat",
+   "allergen-milk",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "cup",
+    "cooked risotto",
+    "cold"
+   ],
+   [
+    4,
+    1,
+    "oz",
+    "mozzarella",
+    "in small cubes"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "egg",
+    "beaten"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "breadcrumbs",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "sunflower oil",
+    "for frying"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "parmesan",
+    "grated"
+   ]
+  ],
+  "steps": [
+   "Use risotto that has been refrigerated overnight; warm rice will not hold.",
+   "Stir the parmesan through the cold rice.",
+   "Take a golf ball of rice, flatten it, put a cube of mozzarella in, and close it around.",
+   "Roll each ball through flour, then egg, then breadcrumbs.",
+   "Chill the coated balls for 20 minutes so the crust sets.",
+   "Fry at 350F for 4 minutes until deep gold, and drain on a rack rather than paper."
+  ],
+  "photo": {
+   "query": "arancini",
+   "must": "arancini"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "calamari-fritti",
+  "title": "Calamari Fritti",
+  "description": "Ninety seconds. Squid is tender under two minutes or after forty; there is nothing in between.",
+  "category": "snacks",
+  "cuisine": "Italian",
+  "prep": 15,
+  "cook": 8,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 24,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 320,
+   "proteinG": 26,
+   "carbsG": 28,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "allergen-shellfish",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "squid",
+    "in rings"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "semolina flour",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "whole milk",
+    null
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "sunflower oil",
+    "for frying"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "in wedges"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Soak the squid rings in the milk for 20 minutes; it tenderises and helps the flour stick.",
+   "Mix the semolina and plain flour with the salt.",
+   "Lift the squid straight from the milk into the flour and toss hard.",
+   "Shake off every loose speck of flour before it goes in the oil.",
+   "Fry at 375F for 90 seconds only — past two minutes it turns to rubber.",
+   "Drain on a rack, salt at once, and serve with lemon."
+  ],
+  "photo": {
+   "query": "calamari fritti",
+   "must": "calamari"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "edamame-with-sea-salt",
+  "title": "Edamame with Sea Salt",
+  "description": "Salt the water like the sea, and salt them again hot. The pods carry the salt, not the beans.",
+  "category": "snacks",
+  "cuisine": "Japanese",
+  "prep": 2,
+  "cook": 5,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 26,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 140,
+   "proteinG": 12,
+   "carbsG": 10,
+   "fatG": 6,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "weeknight",
+   "vegan",
+   "gluten-free",
+   "allergen-soy"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "edamame",
+    "in the pod, frozen"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "flaky sea salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "sesame oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Bring a large pan of heavily salted water to a hard boil.",
+   "Drop the frozen pods straight in and cook for 4 minutes.",
+   "Drain but do not rinse; the residual heat dries them.",
+   "Toss while steaming with the sesame oil so the salt has something to hold to.",
+   "Add the flaky salt and toss again.",
+   "Serve hot with an empty bowl for the pods."
+  ],
+  "photo": {
+   "query": "edamame",
+   "must": "edamame"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "chicken-satay",
+  "title": "Chicken Satay",
+  "description": "Weave the meat onto the skewer so it cooks evenly. Speared straight through, the middle stays raw.",
+  "category": "snacks",
+  "cuisine": "Indonesian",
+  "prep": 20,
+  "cook": 12,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 28,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 420,
+   "proteinG": 32,
+   "carbsG": 14,
+   "fatG": 26,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "gluten-free",
+   "allergen-peanuts",
+   "allergen-soy"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "chicken thighs",
+    "in strips"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "turmeric",
+    "ground"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "coriander seeds",
+    "ground"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "coconut milk",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "peanut butter",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "soy sauce",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "palm sugar",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lime",
+    "juice only"
+   ]
+  ],
+  "steps": [
+   "Marinate the chicken in half the coconut milk with the turmeric and coriander for an hour.",
+   "Thread onto soaked skewers, weaving rather than spearing straight through.",
+   "For the sauce, warm the rest of the coconut milk with the peanut butter, soy and sugar.",
+   "Simmer it 5 minutes until it thickens, then sharpen with lime.",
+   "Grill the skewers over high heat for 3 minutes a side, basting with the marinade.",
+   "Serve with the sauce warm, not hot from the pan."
+  ],
+  "photo": {
+   "query": "chicken satay",
+   "must": "satay"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "vietnamese-summer-rolls",
+  "title": "Vietnamese Summer Rolls",
+  "description": "Two seconds in the water. Any longer and it tears while you are still filling it.",
+  "category": "snacks",
+  "cuisine": "Vietnamese",
+  "prep": 25,
+  "cook": 5,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 30,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 240,
+   "proteinG": 14,
+   "carbsG": 34,
+   "fatG": 6,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "no-cook",
+   "gluten-free",
+   "allergen-shellfish",
+   "allergen-peanuts"
+  ],
+  "ingredients": [
+   [
+    8,
+    1,
+    "piece",
+    "rice paper wrapper",
+    null
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "cooked prawns",
+    "halved lengthways"
+   ],
+   [
+    3,
+    1,
+    "oz",
+    "rice vermicelli",
+    "cooked"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lettuce",
+    "leaves separated"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "mint",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "coriander",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "carrot",
+    "julienned"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "hoisin sauce",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "peanut butter",
+    null
+   ]
+  ],
+  "steps": [
+   "Have everything cut and laid out before you wet the first wrapper.",
+   "Dip a wrapper in warm water for 2 seconds only — it keeps softening on the board.",
+   "Lay the prawn halves cut side down first; they will show through the finished roll.",
+   "Add noodles, herbs, carrot and lettuce in a line across the lower third.",
+   "Fold the bottom up, fold the sides in, then roll tightly away from you.",
+   "Whisk the hoisin and peanut butter with a splash of water and serve alongside."
+  ],
+  "photo": {
+   "query": "summer rolls",
+   "must": "summer roll"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "onion-bhaji",
+  "title": "Onion Bhaji",
+  "description": "The onions make their own water. Add liquid too early and you get a batter ball, not a bhaji.",
+  "category": "snacks",
+  "cuisine": "Indian",
+  "prep": 15,
+  "cook": 10,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 32,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 260,
+   "proteinG": 8,
+   "carbsG": 30,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "vegan",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "piece",
+    "onion",
+    "sliced very thin"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "gram flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "cumin seeds",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "turmeric",
+    "ground"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "green chilli",
+    "minced"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "coriander",
+    "chopped"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "sunflower oil",
+    "for frying"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Salt the sliced onions and leave them 15 minutes; they release the water that binds the batter.",
+   "Add the gram flour, spices, chilli and coriander straight onto the wet onions.",
+   "Mix with your hands, adding water a teaspoon at a time only if it will not come together.",
+   "The batter should barely coat the onion, not drown it.",
+   "Drop rough spoonfuls into oil at 350F and fry for 4 minutes until dark gold.",
+   "Drain on a rack and salt again while hot."
+  ],
+  "photo": {
+   "query": "onion bhaji",
+   "must": "bhaji"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "beef-empanadas",
+  "title": "Beef Empanadas",
+  "description": "Cold filling, sealed edges. Warm filling steams the pastry and the seam bursts in the oven.",
+  "category": "snacks",
+  "cuisine": "Argentine",
+  "prep": 35,
+  "cook": 25,
+  "servings": 8,
+  "difficulty": "medium",
+  "ageDays": 34,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 18,
+   "carbsG": 28,
+   "fatG": 18,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "allergen-wheat",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "beef mince",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "onion",
+    "finely diced"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "smoked paprika",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "cumin",
+    "ground"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "egg",
+    "two hard boiled, one beaten"
+   ],
+   [
+    3,
+    1,
+    "oz",
+    "green olives",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "package",
+    "empanada discs",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Cook the onion slowly in the oil for 12 minutes until completely soft.",
+   "Add the beef, paprika and cumin and cook until browned, then season well.",
+   "Chill the filling completely; warm filling makes the pastry go slack.",
+   "Fold in the chopped boiled egg and olives.",
+   "Spoon onto the discs, wet the rim, fold over and crimp with a fork or a repulgue.",
+   "Brush with beaten egg and bake at 400F for 22 minutes until deep gold."
+  ],
+  "photo": {
+   "query": "empanadas",
+   "must": "empanada"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "vegetable-samosa",
+  "title": "Vegetable Samosa",
+  "description": "A stiff dough and a low fryer. Hot oil browns the outside long before the pastry has cooked.",
+  "category": "snacks",
+  "cuisine": "Indian",
+  "prep": 30,
+  "cook": 20,
+  "servings": 8,
+  "difficulty": "medium",
+  "ageDays": 36,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 280,
+   "proteinG": 6,
+   "carbsG": 36,
+   "fatG": 13,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "vegan",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "potato",
+    "boiled and crushed"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "peas",
+    "cooked"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "cumin seeds",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "coriander seeds",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "green chilli",
+    "minced"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "garam masala",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "sunflower oil",
+    "for the pastry"
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "sunflower oil",
+    "for frying"
+   ]
+  ],
+  "steps": [
+   "Rub the 4 tbsp oil into the flour until it holds together when squeezed, then add water to a stiff dough.",
+   "Rest the dough for 30 minutes under a cloth.",
+   "Fry the cumin and coriander seeds, add the potato, peas, chilli and garam masala, and cool completely.",
+   "Roll the dough thin, cut into semicircles, and form cones with a wet seam.",
+   "Fill, press the top edge firmly closed, and check for gaps.",
+   "Fry at 325F — lower than you think — for 8 minutes, so the pastry cooks through and blisters."
+  ],
+  "photo": {
+   "query": "samosa",
+   "must": "samosa"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "pan-con-tomate",
+  "title": "Pan con Tomate",
+  "description": "Grated tomato, not chopped. The pulp soaks in; diced tomato just sits there and rolls off.",
+  "category": "snacks",
+  "cuisine": "Spanish",
+  "prep": 8,
+  "cook": 5,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 38,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 210,
+   "proteinG": 4,
+   "carbsG": 26,
+   "fatG": 11,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "weeknight",
+   "vegan",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "slice",
+    "rustic bread",
+    "thick"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "ripe tomato",
+    "halved"
+   ],
+   [
+    1,
+    1,
+    "clove",
+    "garlic",
+    "halved"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "flaky sea salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Toast or griddle the bread until it is dry and crisp right through.",
+   "Rub the cut garlic over the hot surface, lightly — it is a seasoning, not a topping.",
+   "Grate the tomato halves on a box grater, skin side out, and discard the skins.",
+   "Spoon the tomato pulp over the bread and let it soak in for a moment.",
+   "Pour olive oil over generously and finish with flaky salt.",
+   "Eat straight away, standing up, before the bread softens."
+  ],
+  "photo": {
+   "query": "pan con tomate",
+   "must": "tomate"
+  }
+ }
+]

@@ -1,0 +1,2081 @@
+[
+ {
+  "creator": "sundaysimmer",
+  "slug": "osso-buco-alla-milanese",
+  "title": "Osso Buco alla Milanese",
+  "description": "Veal shins braised until a spoon goes through them. The gremolata at the end is not optional; it is the whole point.",
+  "category": "dinner",
+  "cuisine": "Italian",
+  "prep": 20,
+  "cook": 150,
+  "servings": 4,
+  "difficulty": "hard",
+  "ageDays": 0,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 620,
+   "proteinG": 52,
+   "carbsG": 22,
+   "fatG": 34,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "company-worthy",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "veal shin cross-cuts",
+    "about 1 1/2 in thick"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "finely diced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "carrot",
+    "finely diced"
+   ],
+   [
+    2,
+    1,
+    "stalk",
+    "celery",
+    "finely diced"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "white grape juice",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "beef stock",
+    "hot"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "zest only"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "parsley",
+    "chopped"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ]
+  ],
+  "steps": [
+   "Pat the shins dry, season, and turn them in the flour until lightly coated.",
+   "Brown them in the butter over medium-high heat, about 4 minutes a side, then lift out.",
+   "Soften the onion, carrot and celery in the same pan for 10 minutes.",
+   "Pour in the grape juice and scrape the base clean, then return the meat.",
+   "Add the stock, cover, and cook at a bare simmer for 2 hours until the meat gives to a spoon.",
+   "Stir the lemon zest and parsley through the sauce just before serving."
+  ],
+  "photo": {
+   "query": "osso buco",
+   "must": "osso"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "boeuf-bourguignon",
+  "title": "Boeuf Bourguignon",
+  "description": "The long, patient one. Brown the beef properly and the rest is just time.",
+  "category": "dinner",
+  "cuisine": "French",
+  "prep": 25,
+  "cook": 180,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 2,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 580,
+   "proteinG": 45,
+   "carbsG": 18,
+   "fatG": 32,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "company-worthy",
+   "one-pot"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "lb",
+    "beef chuck",
+    "in 2 in cubes"
+   ],
+   [
+    6,
+    1,
+    "oz",
+    "bacon lardons",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "sliced"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "carrot",
+    "in thick coins"
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "beef stock",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "tomato paste",
+    null
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "button mushrooms",
+    "halved"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    2,
+    1,
+    "sprig",
+    "thyme",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "plain flour",
+    null
+   ]
+  ],
+  "steps": [
+   "Render the lardons in a heavy pot until crisp, then lift them out.",
+   "Brown the beef hard in the fat, in batches, so it colours rather than steams.",
+   "Soften the onion and carrot, stir in the flour and tomato paste, and cook 2 minutes.",
+   "Return the beef and bacon, add stock, garlic and thyme, and bring to a bare simmer.",
+   "Cover and cook for 2 1/2 hours, until the beef pulls apart under a fork.",
+   "Fry the mushrooms separately in butter and fold them in for the last 10 minutes."
+  ],
+  "photo": {
+   "query": "boeuf bourguignon",
+   "must": "bourguignon"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "hungarian-goulash",
+  "title": "Hungarian Goulash",
+  "description": "Paprika off the heat, always. Burn it and the whole pot turns bitter and there is no way back.",
+  "category": "dinner",
+  "cuisine": "Hungarian",
+  "prep": 20,
+  "cook": 120,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 4,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 44,
+   "carbsG": 20,
+   "fatG": 28,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "one-pot",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "beef shin",
+    "in 1 in cubes"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "onion",
+    "sliced"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "sweet paprika",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "red pepper",
+    "sliced"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "tomato",
+    "chopped"
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "beef stock",
+    null
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "caraway seeds",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "lard",
+    null
+   ]
+  ],
+  "steps": [
+   "Cook the onions slowly in the lard for 15 minutes until deep gold.",
+   "Take the pan off the heat, stir in the paprika, and let it bloom without catching.",
+   "Add the beef, garlic and caraway and turn everything over.",
+   "Add the peppers, tomatoes and stock, and bring to a simmer.",
+   "Cover and cook for 1 3/4 hours, until the beef is soft and the sauce has gone deep red.",
+   "Season and let it sit off the heat for 10 minutes before serving."
+  ],
+  "photo": {
+   "query": "goulash",
+   "must": "goulash"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "feijoada",
+  "title": "Feijoada",
+  "description": "Brazil's Saturday pot. The orange at the end cuts through everything before it.",
+  "category": "dinner",
+  "cuisine": "Brazilian",
+  "prep": 30,
+  "cook": 180,
+  "servings": 8,
+  "difficulty": "medium",
+  "ageDays": 6,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 610,
+   "proteinG": 42,
+   "carbsG": 52,
+   "fatG": 26,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "one-pot",
+   "gluten-free",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "black beans",
+    "soaked overnight"
+   ],
+   [
+    1,
+    1,
+    "lb",
+    "pork shoulder",
+    "in chunks"
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "smoked sausage",
+    "sliced"
+   ],
+   [
+    6,
+    1,
+    "oz",
+    "bacon",
+    "chopped"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "onion",
+    "diced"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "bay leaf",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "orange",
+    "zest and juice"
+   ]
+  ],
+  "steps": [
+   "Render the bacon in a large pot, then brown the pork and sausage in it.",
+   "Soften the onion and garlic in the fat for 8 minutes.",
+   "Add the drained beans, bay leaves and enough water to cover by two inches.",
+   "Simmer gently for 2 1/2 hours, topping up with water so the beans stay submerged.",
+   "Crush a ladleful of beans against the side and stir back in to thicken it.",
+   "Finish with the orange zest and juice, and check the salt."
+  ],
+  "photo": {
+   "query": "feijoada",
+   "must": "feijoada"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "lamb-rogan-josh",
+  "title": "Lamb Rogan Josh",
+  "description": "The yoghurt goes in a spoonful at a time. Dump it and it splits, and you get a grainy sauce instead of a silky one.",
+  "category": "dinner",
+  "cuisine": "Indian",
+  "prep": 20,
+  "cook": 105,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 8,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 560,
+   "proteinG": 44,
+   "carbsG": 12,
+   "fatG": 38,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "lamb shoulder",
+    "in 1 1/2 in cubes"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "yoghurt",
+    "whisked"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "onion",
+    "finely sliced"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "ginger",
+    "grated"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "kashmiri chilli powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "fennel seeds",
+    "ground"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "cardamom pod",
+    "bruised"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "ghee",
+    null
+   ]
+  ],
+  "steps": [
+   "Brown the lamb in the ghee in batches and set it aside.",
+   "Fry the onions for 12 minutes until soft and browning at the edges.",
+   "Add the ginger, garlic and whole spices and cook for 2 minutes.",
+   "Off the heat, stir in the chilli powder and ground fennel.",
+   "Return the lamb, then beat in the yoghurt a spoonful at a time so it does not split.",
+   "Cover and cook on the lowest heat for 90 minutes, until the oil rises red on top."
+  ],
+  "photo": {
+   "query": "rogan josh",
+   "must": "rogan"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "massaman-curry",
+  "title": "Massaman Curry",
+  "description": "The mildest of the Thai curries and the most patient. Crack the coconut cream first or the paste never really cooks.",
+  "category": "dinner",
+  "cuisine": "Thai",
+  "prep": 20,
+  "cook": 90,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 10,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 680,
+   "proteinG": 38,
+   "carbsG": 42,
+   "fatG": 44,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "gluten-free",
+   "allergen-peanuts"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "beef brisket",
+    "in chunks"
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "massaman curry paste",
+    null
+   ],
+   [
+    2,
+    1,
+    "can",
+    "coconut milk",
+    null
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "potato",
+    "in large chunks"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "in wedges"
+   ],
+   [
+    3,
+    1,
+    "oz",
+    "roasted peanuts",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "tamarind paste",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "palm sugar",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "fish sauce",
+    null
+   ]
+  ],
+  "steps": [
+   "Simmer the thick cream from the top of the coconut milk until the oil separates.",
+   "Fry the curry paste in that oil for 3 minutes, until it smells of roasted spice.",
+   "Add the beef and turn it in the paste.",
+   "Pour in the rest of the coconut milk, cover, and simmer for an hour.",
+   "Add the potato, onion and peanuts and cook another 30 minutes.",
+   "Balance with tamarind, palm sugar and fish sauce until it is sour, sweet and salty at once."
+  ],
+  "photo": {
+   "query": "massaman curry",
+   "must": "massaman"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "jollof-rice",
+  "title": "Jollof Rice",
+  "description": "Fry the pepper base down properly. Twenty minutes feels long and it is the difference between jollof and tomato rice.",
+  "category": "dinner",
+  "cuisine": "Nigerian",
+  "prep": 20,
+  "cook": 60,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 12,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 9,
+   "carbsG": 78,
+   "fatG": 20,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "one-pot",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "cup",
+    "long grain rice",
+    "rinsed"
+   ],
+   [
+    6,
+    1,
+    "piece",
+    "tomato",
+    "blended"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "red pepper",
+    "blended"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "scotch bonnet",
+    "blended, to taste"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "onion",
+    "one blended, one sliced"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "tomato paste",
+    null
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "chicken stock",
+    "hot"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "curry powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "dried thyme",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "vegetable oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Fry the sliced onion in the oil until soft, then stir in the tomato paste and cook 5 minutes.",
+   "Pour in the blended pepper mix and fry it down for 20 minutes, until it darkens and the oil rises.",
+   "Stir in the curry powder and thyme.",
+   "Add the rice and turn it through the sauce until every grain is coated.",
+   "Pour in the hot stock, cover tightly, and cook on the lowest heat for 25 minutes without lifting the lid.",
+   "Let the bottom catch very slightly, then fork it through and rest 5 minutes."
+  ],
+  "photo": {
+   "query": "jollof rice",
+   "must": "jollof"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "moussaka",
+  "title": "Moussaka",
+  "description": "Roast the aubergine instead of frying it and the whole thing stops being greasy.",
+  "category": "dinner",
+  "cuisine": "Greek",
+  "prep": 35,
+  "cook": 75,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 14,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 640,
+   "proteinG": 34,
+   "carbsG": 32,
+   "fatG": 42,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "company-worthy",
+   "allergen-milk",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "piece",
+    "aubergine",
+    "sliced lengthways"
+   ],
+   [
+    1,
+    1,
+    "lb",
+    "lamb mince",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "diced"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "chopped tomatoes",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "cinnamon",
+    "ground"
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "milk",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "plain flour",
+    null
+   ],
+   [
+    3,
+    1,
+    "oz",
+    "kefalotyri",
+    "grated"
+   ]
+  ],
+  "steps": [
+   "Salt the aubergine slices for 20 minutes, pat dry, then roast at 425F until golden.",
+   "Brown the lamb hard, then add onion, garlic, tomatoes and cinnamon and simmer 30 minutes.",
+   "Make a thick bechamel with the butter, flour and milk, and beat in most of the cheese.",
+   "Layer aubergine, then lamb, then aubergine again in a deep dish.",
+   "Pour the bechamel over, scatter the last of the cheese, and bake at 350F for 45 minutes.",
+   "Rest it for 20 minutes or it will not cut."
+  ],
+  "photo": {
+   "query": "moussaka",
+   "must": "moussaka"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "borscht",
+  "title": "Borscht",
+  "description": "Acid early, not late. Vinegar with the beetroot is what stops the pot going brown.",
+  "category": "dinner",
+  "cuisine": "Ukrainian",
+  "prep": 25,
+  "cook": 90,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 16,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 310,
+   "proteinG": 22,
+   "carbsG": 32,
+   "fatG": 10,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "one-pot",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "beetroot",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "lb",
+    "beef shin",
+    "on the bone"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "diced"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "carrot",
+    "grated"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "potato",
+    "cubed"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "cabbage",
+    "shredded, quarter head"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "tomato paste",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "red wine vinegar",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "sour cream",
+    "to serve"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "dill",
+    "chopped"
+   ]
+  ],
+  "steps": [
+   "Simmer the beef in 3 quarts of water for an hour, skimming the top.",
+   "Fry the onion and carrot, add the beetroot, tomato paste and vinegar, and cook 15 minutes.",
+   "The vinegar goes in with the beetroot, not later; it is what keeps the colour red.",
+   "Add the potato to the broth and cook 10 minutes, then the cabbage for 5 more.",
+   "Stir the beetroot mixture in and simmer gently for 10 minutes.",
+   "Serve with sour cream and a lot of dill."
+  ],
+  "photo": {
+   "query": "borscht",
+   "must": "borsch"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "minestrone",
+  "title": "Minestrone",
+  "description": "A soup that gets better on the second day and is better still with the rind of the parmesan dropped in.",
+  "category": "lunch",
+  "cuisine": "Italian",
+  "prep": 20,
+  "cook": 50,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 18,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 320,
+   "proteinG": 14,
+   "carbsG": 44,
+   "fatG": 10,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "one-pot",
+   "vegetarian",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "diced"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "carrot",
+    "diced"
+   ],
+   [
+    2,
+    1,
+    "stalk",
+    "celery",
+    "diced"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "cannellini beans",
+    "drained"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "chopped tomatoes",
+    null
+   ],
+   [
+    4,
+    1,
+    "cup",
+    "vegetable stock",
+    null
+   ],
+   [
+    3,
+    1,
+    "oz",
+    "small pasta",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "courgette",
+    "diced"
+   ],
+   [
+    2,
+    1,
+    "oz",
+    "parmesan",
+    "grated"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Sweat the onion, carrot and celery in the oil for 12 minutes without colouring them.",
+   "Add the tomatoes and cook 5 minutes until they darken.",
+   "Pour in the stock and the beans and simmer 20 minutes.",
+   "Add the pasta and courgette and cook until the pasta is just done.",
+   "Crush some of the beans against the pot to thicken the broth.",
+   "Serve with parmesan and a hard line of olive oil over the top."
+  ],
+  "photo": {
+   "query": "minestrone",
+   "must": "minestrone"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "ribollita",
+  "title": "Ribollita",
+  "description": "Bread soup, reboiled — which is what the name means. Stale bread is the ingredient, not a substitute.",
+  "category": "lunch",
+  "cuisine": "Italian",
+  "prep": 20,
+  "cook": 60,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 20,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 12,
+   "carbsG": 46,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "one-pot",
+   "vegetarian"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "piece",
+    "cavolo nero",
+    "stripped and torn, one bunch"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "cannellini beans",
+    "with their liquid"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "diced"
+   ],
+   [
+    2,
+    1,
+    "stalk",
+    "celery",
+    "diced"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "carrot",
+    "diced"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "chopped tomatoes",
+    null
+   ],
+   [
+    6,
+    1,
+    "slice",
+    "stale sourdough",
+    "torn"
+   ],
+   [
+    4,
+    1,
+    "cup",
+    "vegetable stock",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Soften the onion, celery and carrot in the oil for 15 minutes.",
+   "Add the tomatoes and cook them down for 10 minutes.",
+   "Add the stock, beans and cavolo nero and simmer 20 minutes.",
+   "Stir the torn bread through and take it off the heat.",
+   "Leave it to sit for 30 minutes so the bread collapses into the soup.",
+   "Reheat gently and finish each bowl with raw olive oil."
+  ],
+  "photo": {
+   "query": "ribollita",
+   "must": "ribollita"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "new-england-clam-chowder",
+  "title": "New England Clam Chowder",
+  "description": "The clam liquor is the stock. Throw it away and you have made potato soup.",
+  "category": "lunch",
+  "cuisine": "American",
+  "prep": 20,
+  "cook": 40,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 22,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 560,
+   "proteinG": 28,
+   "carbsG": 38,
+   "fatG": 34,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "allergen-shellfish",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "clams",
+    "scrubbed"
+   ],
+   [
+    6,
+    1,
+    "oz",
+    "bacon",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "diced"
+   ],
+   [
+    2,
+    1,
+    "stalk",
+    "celery",
+    "diced"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "potato",
+    "cubed"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "whole milk",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "double cream",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "plain flour",
+    null
+   ],
+   [
+    2,
+    1,
+    "sprig",
+    "thyme",
+    null
+   ]
+  ],
+  "steps": [
+   "Steam the clams in a covered pan with an inch of water until they open, then shell them and keep the liquor.",
+   "Render the bacon, then soften the onion and celery in the fat.",
+   "Stir in the flour and cook 2 minutes.",
+   "Add the strained clam liquor and the potatoes and simmer until tender.",
+   "Pour in the milk and cream and bring it to just below a simmer; do not boil it.",
+   "Return the clams to warm through and season carefully — the liquor is already salty."
+  ],
+  "photo": {
+   "query": "clam chowder",
+   "must": "chowder"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "steak-frites",
+  "title": "Steak Frites",
+  "description": "Two fries, not one. The first cooks the potato, the second is the only one that makes it crisp.",
+  "category": "dinner",
+  "cuisine": "French",
+  "prep": 15,
+  "cook": 25,
+  "servings": 2,
+  "difficulty": "medium",
+  "ageDays": 24,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 820,
+   "proteinG": 52,
+   "carbsG": 48,
+   "fatG": 48,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "company-worthy",
+   "gluten-free"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "piece",
+    "sirloin steak",
+    "about 8 oz each"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "potato",
+    "cut into batons"
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    2,
+    1,
+    "sprig",
+    "thyme",
+    null
+   ],
+   [
+    4,
+    1,
+    "cup",
+    "beef dripping",
+    "for frying"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "dijon mustard",
+    null
+   ]
+  ],
+  "steps": [
+   "Blanch the potato batons in the fat at 285F for 8 minutes, then lift out and cool.",
+   "Take the steaks out of the fridge an hour ahead and dry them hard.",
+   "Sear in a smoking pan for 2 minutes a side, then add butter, garlic and thyme and baste.",
+   "Rest the steaks on a warm plate for as long as they cooked.",
+   "Raise the fat to 375F and fry the chips again until deep gold.",
+   "Salt the chips the second they come out and serve with mustard."
+  ],
+  "photo": {
+   "query": "steak frites",
+   "must": "frites"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "chicken-and-leek-pie",
+  "title": "Chicken and Leek Pie",
+  "description": "Cool the filling first. Warm filling under cold pastry is how you get a raw seam underneath.",
+  "category": "dinner",
+  "cuisine": "British",
+  "prep": 30,
+  "cook": 60,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 26,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 680,
+   "proteinG": 38,
+   "carbsG": 42,
+   "fatG": 40,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "company-worthy",
+   "allergen-wheat",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "chicken thighs",
+    "in chunks"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "leek",
+    "sliced"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "plain flour",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "chicken stock",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "double cream",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "dijon mustard",
+    null
+   ],
+   [
+    1,
+    1,
+    "package",
+    "puff pastry",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "egg",
+    "beaten"
+   ]
+  ],
+  "steps": [
+   "Brown the chicken in the butter and set aside.",
+   "Soften the leeks in the same pan for 10 minutes until they collapse.",
+   "Stir in the flour, cook 2 minutes, then add the stock slowly to a smooth sauce.",
+   "Return the chicken, add cream and mustard, and simmer 10 minutes.",
+   "Cool the filling completely before it goes near the pastry, or the base steams.",
+   "Top with pastry, brush with egg, cut a vent, and bake at 400F for 30 minutes."
+  ],
+  "photo": {
+   "query": "chicken pie",
+   "must": "chicken pie"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "lancashire-hotpot",
+  "title": "Lancashire Hotpot",
+  "description": "The potatoes on top are the lid. Uncover it at the end or they never crisp.",
+  "category": "dinner",
+  "cuisine": "British",
+  "prep": 25,
+  "cook": 150,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 28,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 540,
+   "proteinG": 38,
+   "carbsG": 38,
+   "fatG": 26,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "one-pot"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "lamb neck",
+    "in chunks"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "potato",
+    "sliced thin"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "onion",
+    "sliced"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "carrot",
+    "sliced"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "lamb stock",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "plain flour",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "butter",
+    "melted"
+   ],
+   [
+    2,
+    1,
+    "sprig",
+    "thyme",
+    null
+   ]
+  ],
+  "steps": [
+   "Toss the lamb in seasoned flour and brown it in batches.",
+   "Layer lamb, onion and carrot in a deep dish.",
+   "Pour the stock over so it comes about three quarters up.",
+   "Overlap the potato slices across the top like roof tiles.",
+   "Brush with melted butter, cover, and bake at 325F for 2 hours.",
+   "Uncover for the last 30 minutes so the top browns and crisps."
+  ],
+  "photo": {
+   "query": "lancashire hotpot",
+   "must": "hotpot"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "dal-makhani",
+  "title": "Dal Makhani",
+  "description": "The long, slow stir is the recipe. Rush it and it is just lentils in cream.",
+  "category": "dinner",
+  "cuisine": "Indian",
+  "prep": 15,
+  "cook": 120,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 30,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 420,
+   "proteinG": 18,
+   "carbsG": 44,
+   "fatG": 20,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "vegetarian",
+   "gluten-free",
+   "one-pot"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "black urad dal",
+    "soaked overnight"
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "kidney beans",
+    "soaked overnight"
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "finely diced"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "ginger",
+    "grated"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "tomato",
+    "blended"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "garam masala",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "double cream",
+    null
+   ]
+  ],
+  "steps": [
+   "Boil the drained dal and beans in plenty of water for 60 minutes until completely soft.",
+   "Fry the onion in the butter for 10 minutes, then the ginger and garlic for 2.",
+   "Add the blended tomato and cook until the butter separates out.",
+   "Tip in the dal with its cooking water and simmer, stirring, for 45 minutes.",
+   "Mash some of it against the side as you go until it turns glossy and thick.",
+   "Stir in the cream and garam masala and cook 5 minutes more."
+  ],
+  "photo": {
+   "query": "dal makhani",
+   "must": "makhani"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "beef-stroganoff",
+  "title": "Beef Stroganoff",
+  "description": "Off the heat for the sour cream, and the beef goes back in last. Boil either and it is over.",
+  "category": "dinner",
+  "cuisine": "Russian",
+  "prep": 15,
+  "cook": 25,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 32,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 42,
+   "carbsG": 14,
+   "fatG": 32,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "weeknight",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "beef sirloin",
+    "in thin strips"
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "mushrooms",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "sour cream",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "dijon mustard",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "beef stock",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "plain flour",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "parsley",
+    "chopped"
+   ]
+  ],
+  "steps": [
+   "Sear the beef in a very hot pan for 90 seconds, in two batches, and lift it out.",
+   "Cook the mushrooms hard until they squeak and brown, then add the onion.",
+   "Stir in the flour and mustard, then the stock, and simmer to a loose sauce.",
+   "Take the pan off the heat before the sour cream goes in.",
+   "Return the beef and any resting juices and warm through for a minute only.",
+   "Finish with parsley and a lot of black pepper."
+  ],
+  "photo": {
+   "query": "beef stroganoff",
+   "must": "stroganoff"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "sticky-toffee-pudding",
+  "title": "Sticky Toffee Pudding",
+  "description": "The dates and their soaking water both go in. Drain them and you lose most of the flavour.",
+  "category": "dessert",
+  "cuisine": "British",
+  "prep": 20,
+  "cook": 45,
+  "servings": 8,
+  "difficulty": "medium",
+  "ageDays": 34,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 580,
+   "proteinG": 6,
+   "carbsG": 78,
+   "fatG": 28,
+   "source": "creator"
+  },
+  "tags": [
+   "dessert",
+   "company-worthy",
+   "allergen-wheat",
+   "allergen-milk",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    7,
+    1,
+    "oz",
+    "medjool dates",
+    "stoned and chopped"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "boiling water",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "bicarbonate of soda",
+    null
+   ],
+   [
+    6,
+    1,
+    "tbsp",
+    "butter",
+    "softened"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "dark brown sugar",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "egg",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "self-raising flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "double cream",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "dark muscovado sugar",
+    null
+   ]
+  ],
+  "steps": [
+   "Pour the boiling water over the dates with the bicarbonate and leave 15 minutes.",
+   "Cream the butter and brown sugar, then beat in the eggs one at a time.",
+   "Fold in the flour, then the dates and all their soaking liquid.",
+   "Bake at 350F for 35 minutes until it springs back.",
+   "For the sauce, boil the cream and muscovado together for 3 minutes until it thickens.",
+   "Prick the hot sponge all over and pour half the sauce on so it soaks in."
+  ],
+  "photo": {
+   "query": "sticky toffee pudding",
+   "must": "toffee"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "masala-chai",
+  "title": "Masala Chai",
+  "description": "Boil the spices in water first, tea second, milk last. Everything at once gives you beige sweet milk.",
+  "category": "drinks",
+  "cuisine": "Indian",
+  "prep": 5,
+  "cook": 10,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 36,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 120,
+   "proteinG": 4,
+   "carbsG": 18,
+   "fatG": 4,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "vegetarian",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "whole milk",
+    null
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "assam tea leaves",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "cardamom pod",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "cinnamon stick",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "black peppercorn",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "ginger",
+    "thumb, sliced"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "sugar",
+    "to taste"
+   ]
+  ],
+  "steps": [
+   "Crush the cardamom, pepper and ginger roughly in a mortar.",
+   "Bring them to the boil in the water and let it go for 3 minutes.",
+   "Add the tea leaves and boil hard for 2 minutes.",
+   "Pour in the milk and the sugar and bring it back to the boil.",
+   "Let it rise up the pan and pull it off, three times.",
+   "Strain into cups from a height so it froths."
+  ],
+  "photo": {
+   "query": "masala chai",
+   "must": "chai"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "turmeric-latte",
+  "title": "Turmeric Latte",
+  "description": "Black pepper and a little fat, or the turmeric is just colour.",
+  "category": "drinks",
+  "cuisine": "Indian",
+  "prep": 5,
+  "cook": 5,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 38,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 180,
+   "proteinG": 8,
+   "carbsG": 18,
+   "fatG": 9,
+   "source": "creator"
+  },
+  "tags": [
+   "drink",
+   "vegetarian",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "whole milk",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "turmeric",
+    "ground"
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "cinnamon",
+    "ground"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "ginger",
+    "thumb, grated"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "black pepper",
+    null
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "honey",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "coconut oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Warm the milk with the turmeric, cinnamon, ginger and pepper.",
+   "Keep it just below a simmer for 4 minutes so the spices infuse.",
+   "The pinch of black pepper is not for heat; it is what makes the turmeric do anything at all.",
+   "Whisk in the coconut oil until the surface goes glossy.",
+   "Strain out the ginger and sweeten with honey off the heat.",
+   "Froth it with a whisk and pour."
+  ],
+  "photo": {
+   "query": "turmeric latte",
+   "must": "turmeric"
+  }
+ }
+]

@@ -6,7 +6,7 @@ import {
 import { Feather } from '@expo/vector-icons';
 import { type Href } from 'expo-router';
 import { goBack } from '@/lib/nav';
-import { colors, fill, radius, space, type } from '@/theme';
+import { colors, elevate, fill, radius, space, type } from '@/theme';
 
 /**
  * The back arrow, with a tap target you can actually hit.
@@ -47,11 +47,13 @@ export function Button({
   style?: StyleProp<ViewStyle>;
   accessibilityHint?: string;
 }) {
+  // Filled, not outlined. A row of bordered pills is the look this design is
+  // trying to get away from; weight separates these instead.
   const tone = {
-    primary: { bg: colors.mint, fg: colors.onMint, border: colors.mint },
-    secondary: { bg: colors.raised, fg: colors.text, border: colors.border },
-    ghost: { bg: 'transparent', fg: colors.textMuted, border: 'transparent' },
-    danger: { bg: 'transparent', fg: colors.danger, border: colors.border },
+    primary: { bg: colors.mint, fg: colors.onMint },
+    secondary: { bg: colors.raised, fg: colors.text },
+    ghost: { bg: 'transparent', fg: colors.textMuted },
+    danger: { bg: colors.dangerWash, fg: colors.danger },
   }[variant];
 
   return (
@@ -64,7 +66,7 @@ export function Button({
       onPress={onPress}
       style={({ pressed }) => [
         s.button,
-        { backgroundColor: tone.bg, borderColor: tone.border },
+        { backgroundColor: tone.bg },
         pressed && { opacity: 0.7 },
         disabled && { opacity: 0.4 },
         style,
@@ -78,7 +80,7 @@ export function Button({
 export function Pill({
   label, tone = 'neutral', style,
 }: { label: string; tone?: 'neutral' | 'mint' | 'clay'; style?: StyleProp<ViewStyle> }) {
-  const bg = tone === 'mint' ? colors.mintWash : tone === 'clay' ? colors.clayWash : 'rgba(255,255,255,0.10)';
+  const bg = tone === 'mint' ? colors.mintWash : tone === 'clay' ? colors.clayWash : colors.tintSoft;
   const fg = tone === 'mint' ? colors.mint : tone === 'clay' ? colors.clay : colors.text;
   return (
     <View style={[s.pill, { backgroundColor: bg }, style]}>
@@ -169,7 +171,7 @@ const s = StyleSheet.create({
   screen: { flex: 1, backgroundColor: colors.ground },
   button: {
     minHeight: 48, paddingHorizontal: space.xl, borderRadius: radius.pill,
-    alignItems: 'center', justifyContent: 'center', borderWidth: 1,
+    alignItems: 'center', justifyContent: 'center',
   },
   buttonLabel: { ...type.bodyStrong },
   pill: {
@@ -178,7 +180,7 @@ const s = StyleSheet.create({
   pillLabel: { ...type.small },
   sectionHeading: { ...type.heading, color: colors.text, marginBottom: space.md },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: space.sm, padding: space.xl },
-  emptyTitle: { ...type.title, color: colors.text, textAlign: 'center' },
+  emptyTitle: { ...type.title, color: colors.text, textAlign: 'center', marginBottom: space.xs },
   muted: { ...type.body, color: colors.textMuted },
   disclaimer: { ...type.small, color: colors.textFaint, lineHeight: 18 },
   scrim: { ...fill, backgroundColor: colors.overlay },
@@ -186,7 +188,7 @@ const s = StyleSheet.create({
   dialog: {
     backgroundColor: colors.surface, borderRadius: radius.xl, padding: space.xl,
     gap: space.lg, width: '100%', maxWidth: 420,
-    borderWidth: 1, borderColor: colors.border,
+    ...elevate.dialog,
   },
   dialogTitle: { ...type.heading, color: colors.text },
   dialogBody: { ...type.body, color: colors.textMuted, lineHeight: 21 },

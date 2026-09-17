@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
-import { colors, radius, space, type } from '@/theme';
+import { colors, radius, space, type, elevate } from '@/theme';
 
 /**
  * §8.2: saving shows a lightweight, non-blocking confirmation. Never a
@@ -54,9 +54,9 @@ const s = StyleSheet.create({
   wrap: { position: 'absolute', left: space.lg, right: space.lg, bottom: space.lg, alignItems: 'center' },
   toast: {
     flexDirection: 'row', alignItems: 'center', gap: space.lg,
-    backgroundColor: colors.raised, borderColor: colors.borderBright, borderWidth: 1,
+    backgroundColor: colors.raised,
     paddingHorizontal: space.lg, paddingVertical: space.md, borderRadius: radius.lg,
-    maxWidth: 460,
+    maxWidth: 460, ...elevate.dialog,
   },
   message: { ...type.small, color: colors.text, flexShrink: 1 },
   action: { ...type.small, color: colors.mint, fontWeight: '700' },

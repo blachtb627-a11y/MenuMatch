@@ -15,7 +15,7 @@ import { onQueueChange, pendingCount, drain } from '@/lib/queue';
 import { Toast } from '@/components/Toast';
 import { useSession } from '@/state/session';
 import { formatTotalTime } from '@/lib/timers';
-import { colors, fill, radius, space, type } from '@/theme';
+import { colors, fill, radius, space, type, elevate } from '@/theme';
 
 /** §12. Terminology per §3: this is the Cookbook, not a library. */
 export default function Cookbook() {
@@ -373,8 +373,8 @@ const s = StyleSheet.create({
   },
   selectBtn: {
     flexDirection: 'row', alignItems: 'center', gap: 6,
-    paddingHorizontal: space.md, paddingVertical: 8, borderRadius: radius.pill,
-    borderWidth: 1, borderColor: colors.mintDeep, backgroundColor: colors.mintWash,
+    paddingHorizontal: space.md, paddingVertical: 9, borderRadius: radius.pill,
+    backgroundColor: colors.mintWash,
   },
   selectLabel: { ...type.small, color: colors.mint, fontWeight: '700' },
 
@@ -386,13 +386,13 @@ const s = StyleSheet.create({
   selectCount: { ...type.bodyStrong, color: colors.text },
   selectHint: { ...type.small, color: colors.textMuted, marginBottom: space.lg },
   actionBar: {
-    padding: space.xl, paddingTop: space.md,
-    borderTopWidth: 1, borderTopColor: colors.border, backgroundColor: colors.ground,
+    padding: space.xl, paddingTop: space.lg,
+    backgroundColor: colors.ground, ...elevate.sheet,
   },
   check: {
     position: 'absolute', top: space.sm, right: space.sm,
     width: 26, height: 26, borderRadius: 13, borderWidth: 1.5,
-    borderColor: colors.text, backgroundColor: 'rgba(6,10,8,0.55)',
+    borderColor: colors.text, backgroundColor: 'rgba(5,7,6,0.55)',
     alignItems: 'center', justifyContent: 'center',
   },
   checkOn: { backgroundColor: colors.mint, borderColor: colors.mint },
@@ -412,10 +412,10 @@ const s = StyleSheet.create({
   collectionWrap: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
   collection: {
     flexDirection: 'row', alignItems: 'center', gap: space.sm,
-    backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border,
-    paddingHorizontal: space.md, paddingVertical: 8, borderRadius: radius.pill,
+    backgroundColor: colors.surface,
+    paddingHorizontal: space.md, paddingVertical: 9, borderRadius: radius.pill,
   },
-  collectionSuggested: { borderColor: colors.mintDeep, backgroundColor: colors.mintWash },
+  collectionSuggested: { backgroundColor: colors.mintWash },
   collectionName: { ...type.small, color: colors.text },
   collectionCount: { ...type.small, color: colors.textFaint },
 
@@ -429,12 +429,12 @@ const s = StyleSheet.create({
     borderWidth: 1, borderColor: colors.border, borderStyle: 'dashed',
   },
   unavailableText: { ...type.small, color: colors.textFaint, textAlign: 'center' },
-  tileScrim: { ...fill, backgroundColor: 'rgba(6,10,8,0.35)' },
+  tileScrim: { ...fill, backgroundColor: 'rgba(5,7,6,0.22)' },
   tileText: { padding: space.md, gap: 2 },
   organiseBtn: {
     position: 'absolute', top: space.sm, right: space.sm,
     width: 30, height: 30, borderRadius: 15,
-    backgroundColor: 'rgba(6,10,8,0.65)', alignItems: 'center', justifyContent: 'center',
+    backgroundColor: 'rgba(5,7,6,0.65)', alignItems: 'center', justifyContent: 'center',
   },
   addRow: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
   addInput: {

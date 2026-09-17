@@ -16,7 +16,7 @@ import { fetchConfig, fetchRecipe } from '@/lib/api';
 import { AdCard } from '@/components/AdCard';
 import { fetchAd, type ServedAd } from '@/lib/ads';
 import { getDeviceKey } from '@/lib/device';
-import { colors, fill, radius, space, type } from '@/theme';
+import { colors, fill, radius, space, type, elevate } from '@/theme';
 import type { Category, Recipe, RecipeCard, SwipeAction } from '@/lib/types';
 
 /**
@@ -300,10 +300,13 @@ function ControlButton({
   disabled?: boolean;
   small?: boolean;
 }) {
+  // Pass takes a neutral fill with a clay glyph, not a clay wash: clay at 14%
+  // over a near-black ground resolves to #261E15, which reads as mud rather
+  // than as a colour. The warmth that §18.3 asks for lives in the mark.
   const palette = {
-    mint: { bg: colors.mint, fg: colors.onMint, border: colors.mint },
-    clay: { bg: 'transparent', fg: colors.clay, border: colors.clay },
-    neutral: { bg: 'transparent', fg: colors.textMuted, border: colors.border },
+    mint: { bg: colors.mint, fg: colors.onMint },
+    clay: { bg: colors.raised, fg: colors.clay },
+    neutral: { bg: colors.surface, fg: colors.textMuted },
   }[tone];
   const size = small ? 46 : 62;
 
@@ -318,8 +321,11 @@ function ControlButton({
         s.control,
         {
           width: size, height: size, borderRadius: size / 2,
-          backgroundColor: palette.bg, borderColor: palette.border,
+          backgroundColor: palette.bg,
         },
+        // Only the two full-size controls are lifted; lifting all four would
+        // flatten the difference between the actions and the utilities.
+        !small && elevate.control,
         pressed && { transform: [{ scale: 0.94 }] },
         disabled && { opacity: 0.35 },
       ]}
@@ -337,28 +343,33 @@ const s = StyleSheet.create({
   },
   cat: {
     paddingHorizontal: space.lg, paddingVertical: 9, borderRadius: radius.pill,
-    backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border,
+    backgroundColor: colors.surface,
   },
-  catActive: { backgroundColor: colors.mintWash, borderColor: colors.mint },
+  // The selected category is the one thing in this row worth looking at, so it
+  // takes the solid mint rather than a tinted outline of it.
+  catActive: { backgroundColor: colors.mint },
   catLabel: { ...type.small, color: colors.textMuted },
-  catLabelActive: { color: colors.mint },
+  catLabelActive: { color: colors.onMint, fontWeight: '700' },
 
   banner: {
     marginHorizontal: space.lg, marginBottom: space.sm, paddingHorizontal: space.lg,
-    paddingVertical: space.sm, backgroundColor: colors.surface, borderRadius: radius.md,
+    paddingVertical: space.md, backgroundColor: colors.surface, borderRadius: radius.md,
   },
   bannerText: { ...type.small, color: colors.textMuted },
 
-  deckArea: { flex: 1, marginHorizontal: space.lg, marginBottom: space.lg },
+  deckArea: { flex: 1, marginHorizontal: space.lg, marginBottom: space.xl },
   behind: {
     ...fill,
-    transform: [{ scale: 0.955 }, { translateY: 10 }],
-    opacity: 0.55,
+    // Depth comes from the offset; the opacity only has to keep the next
+    // card's photograph from competing with the top one. Against a ground this
+    // dark, much below 0.5 and the stack stops reading as a stack at all.
+    transform: [{ scale: 0.94 }, { translateY: 14 }],
+    opacity: 0.5,
   },
 
   controls: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
     gap: space.lg, paddingBottom: space.md,
   },
-  control: { alignItems: 'center', justifyContent: 'center', borderWidth: 1.5 },
+  control: { alignItems: 'center', justifyContent: 'center' },
 });

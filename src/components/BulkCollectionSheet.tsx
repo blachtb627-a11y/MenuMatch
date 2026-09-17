@@ -8,7 +8,7 @@ import {
   SUGGESTED_COLLECTIONS, addRecipesToCollection, createCollection, describeBulkAdd,
   myCollections, type Collection,
 } from '@/lib/collections';
-import { colors, fill, radius, space, type } from '@/theme';
+import { colors, fill, radius, space, type, elevate } from '@/theme';
 
 /**
  * Files a batch of selected recipes into one collection.
@@ -192,9 +192,13 @@ const s = StyleSheet.create({
   scrim: { ...fill, backgroundColor: colors.scrim },
   sheet: {
     position: 'absolute', left: 0, right: 0, bottom: 0,
+    // The shadow is what lifts this off the screen, so the fill stays on
+    // `surface` — `raised` is reserved for the controls that sit *on* a sheet
+    // (a secondary button is `raised`, and would vanish into it otherwise).
     backgroundColor: colors.surface, borderTopLeftRadius: radius.xl,
     borderTopRightRadius: radius.xl, padding: space.lg,
     paddingBottom: space.xxl, gap: space.md,
+    ...elevate.sheet,
   },
   grabber: {
     width: 38, height: 4, borderRadius: 2, backgroundColor: colors.borderBright,

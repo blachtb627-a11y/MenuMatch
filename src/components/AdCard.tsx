@@ -96,7 +96,7 @@ export function AdCard({
       <Animated.View style={[s.card, cardStyle]}>
         <RecipeCover uri={ad.imageUrl} seed={ad.id} style={StyleSheet.absoluteFill}>
           <LinearGradient
-            colors={['rgba(6,10,8,0.55)', 'rgba(6,10,8,0.10)', 'rgba(6,10,8,0.94)']}
+            colors={['rgba(5,7,6,0.55)', 'rgba(5,7,6,0.10)', 'rgba(5,7,6,0.94)']}
             locations={[0, 0.35, 1]}
             style={StyleSheet.absoluteFill}
             pointerEvents="none"
@@ -150,7 +150,7 @@ const s = StyleSheet.create({
   sponsored: {
     position: 'absolute', top: space.lg, left: space.lg,
     paddingHorizontal: space.md, paddingVertical: 5, borderRadius: radius.sm,
-    backgroundColor: 'rgba(6,10,8,0.72)',
+    backgroundColor: 'rgba(5,7,6,0.72)',
   },
   sponsoredLabel: { ...type.micro, color: colors.text },
 

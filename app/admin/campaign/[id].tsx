@@ -425,11 +425,11 @@ const s = StyleSheet.create({
     height: 300, borderRadius: radius.lg, overflow: 'hidden',
     backgroundColor: colors.raised, justifyContent: 'flex-end',
   },
-  previewScrim: { ...fill, backgroundColor: 'rgba(6,10,8,0.55)' },
+  previewScrim: { ...fill, backgroundColor: 'rgba(5,7,6,0.55)' },
   previewSponsored: {
     position: 'absolute', top: space.md, left: space.md,
     paddingHorizontal: space.sm, paddingVertical: 4, borderRadius: radius.sm,
-    backgroundColor: 'rgba(6,10,8,0.72)',
+    backgroundColor: 'rgba(5,7,6,0.72)',
   },
   previewSponsoredLabel: { ...type.micro, color: colors.text },
   previewContent: { padding: space.lg, gap: space.sm },

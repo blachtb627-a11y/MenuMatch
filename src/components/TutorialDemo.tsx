@@ -181,7 +181,7 @@ function MockCover({ seed }: { seed: string }) {
     <>
       <LinearGradient colors={[a, b]} style={fill} />
       <LinearGradient
-        colors={['transparent', 'rgba(6,10,8,0.85)']}
+        colors={['transparent', 'rgba(5,7,6,0.85)']}
         locations={[0.45, 1]}
         style={fill}
       />

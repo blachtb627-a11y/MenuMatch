@@ -10,7 +10,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from './RecipeCover';
-import { colors, fill, motion, radius, space, type } from '@/theme';
+import { colors, fill, motion, radius, space, type, elevate } from '@/theme';
 import { formatTotalTime } from '@/lib/timers';
 import { renderIngredient } from '@/lib/quantity';
 import type { Recipe, RecipeCard as Card, SwipeAction } from '@/lib/types';
@@ -136,7 +136,7 @@ export function SwipeCard({
         <RecipeCover uri={card.coverImageUrl} seed={card.id} title={card.title}
                      style={StyleSheet.absoluteFill}>
           <LinearGradient
-            colors={['transparent', 'rgba(6,10,8,0.30)', 'rgba(6,10,8,0.92)']}
+            colors={['transparent', 'rgba(5,7,6,0.30)', 'rgba(5,7,6,0.92)']}
             locations={[0.32, 0.58, 1]}
             style={StyleSheet.absoluteFill}
             pointerEvents="none"
@@ -303,6 +303,9 @@ const s = StyleSheet.create({
     borderRadius: radius.xl,
     overflow: 'hidden',
     backgroundColor: colors.surface,
+    // The card is the one object in the app that should look like it is being
+    // held above the screen rather than printed on it.
+    ...elevate.card,
   },
   washSave: { backgroundColor: colors.mint },
   washPass: { backgroundColor: colors.clay },
@@ -312,7 +315,7 @@ const s = StyleSheet.create({
 
   sponsored: {
     position: 'absolute', top: space.lg, left: space.lg,
-    backgroundColor: 'rgba(6,10,8,0.75)', paddingHorizontal: space.md,
+    backgroundColor: colors.scrimStrong, paddingHorizontal: space.md,
     paddingVertical: 5, borderRadius: radius.sm,
   },
   sponsoredLabel: { ...type.micro, color: colors.textMuted },
@@ -322,13 +325,13 @@ const s = StyleSheet.create({
   hint: {
     flexDirection: 'row', alignItems: 'center', gap: 6, alignSelf: 'flex-start',
     marginTop: space.md, paddingHorizontal: space.md, paddingVertical: 7,
-    borderRadius: radius.pill, backgroundColor: 'rgba(255,255,255,0.16)',
+    borderRadius: radius.pill, backgroundColor: colors.tintStrong,
   },
   hintLabel: { ...type.small, color: colors.text, fontWeight: '600' },
 
   details: {
     backgroundColor: colors.ground, padding: space.xl, gap: space.md,
-    borderTopWidth: 1, borderTopColor: colors.border, minHeight: 240,
+    minHeight: 240,
   },
   detailsLoading: { flexDirection: 'row', alignItems: 'center', gap: space.md, paddingVertical: space.xl },
   detailsLoadingLabel: { ...type.small, color: colors.textMuted },
@@ -337,11 +340,14 @@ const s = StyleSheet.create({
   statLabel: { ...type.micro, color: colors.textFaint },
   statValue: { ...type.bodyStrong, color: colors.text },
   nutrition: {
-    gap: space.sm, padding: space.md, borderRadius: radius.md,
-    backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border,
+    gap: space.sm, padding: space.lg, borderRadius: radius.md,
+    backgroundColor: colors.sunken,
   },
   nutritionHead: { ...type.micro, color: colors.textFaint },
-  sectionTitle: { ...type.heading, color: colors.text, marginTop: space.sm },
+  sectionTitle: {
+    ...type.heading, fontWeight: '700', color: colors.text,
+    marginTop: space.lg, marginBottom: space.xs,
+  },
   line: { ...type.body, color: colors.textMuted, lineHeight: 24 },
   step: { flexDirection: 'row', gap: space.md },
   stepNumber: { ...type.small, color: colors.mint, fontWeight: '700', width: 16 },
@@ -350,7 +356,7 @@ const s = StyleSheet.create({
   openRow: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
     gap: space.sm, marginTop: space.md, paddingVertical: space.lg,
-    borderRadius: radius.md, borderWidth: 1, borderColor: colors.mintDeep,
+    borderRadius: radius.md, backgroundColor: colors.mintWash,
   },
   openLabel: { ...type.bodyStrong, color: colors.mint },
   creatorRow: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
@@ -372,7 +378,7 @@ const s = StyleSheet.create({
   dot: { color: colors.textFaint },
   tagRow: { flexDirection: 'row', gap: space.sm, flexWrap: 'wrap', marginTop: space.xs },
   tag: {
-    backgroundColor: 'rgba(255,255,255,0.13)', paddingHorizontal: space.md,
+    backgroundColor: colors.tint, paddingHorizontal: space.md,
     paddingVertical: 5, borderRadius: radius.pill,
   },
   tagLabel: { ...type.small, color: colors.text },

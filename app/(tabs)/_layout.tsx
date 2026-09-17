@@ -21,12 +21,18 @@ export default function TabsLayout() {
         tabBarInactiveTintColor: colors.textFaint,
         // Padding here without matching height clips the labels; let the
         // navigator size the bar and add its own safe-area inset.
+        //
+        // The bar sits on the same ground as the screen above it. A lighter
+        // bar with a rule across the top reads as a strip bolted to the
+        // bottom; matching the ground lets the content run to the edge and
+        // leaves the icons to mark the boundary.
         tabBarStyle: {
-          backgroundColor: colors.surface,
-          borderTopColor: colors.border,
-          borderTopWidth: 1,
+          backgroundColor: colors.ground,
+          borderTopWidth: 0,
+          elevation: 0,
         },
-        tabBarLabelStyle: { fontSize: 11, fontWeight: '600' },
+        tabBarLabelStyle: { fontSize: 11, fontWeight: '600', letterSpacing: 0.1 },
+        tabBarItemStyle: { paddingTop: 4 },
       }}
     >
       <Tabs.Screen name="index" options={{

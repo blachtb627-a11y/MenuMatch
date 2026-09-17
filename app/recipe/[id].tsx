@@ -14,7 +14,7 @@ import { renderIngredient } from '@/lib/quantity';
 import { formatCount } from '@/lib/search';
 import { formatTotalTime } from '@/lib/timers';
 import { useSession } from '@/state/session';
-import { colors, radius, space, type } from '@/theme';
+import { colors, radius, space, type, elevate } from '@/theme';
 import type { Nutrition, Recipe } from '@/lib/types';
 import { goBack } from '@/lib/nav';
 
@@ -107,7 +107,7 @@ export default function RecipeDetail() {
     <Screen>
       <ScrollView contentContainerStyle={{ paddingBottom: space.xxxl }}>
         <RecipeCover uri={recipe.coverImageUrl} seed={recipe.id} title={recipe.title} style={s.hero}>
-          <LinearGradient colors={['rgba(6,10,8,0.55)', 'transparent', 'rgba(6,10,8,0.95)']}
+          <LinearGradient colors={['rgba(5,7,6,0.55)', 'transparent', 'rgba(5,7,6,0.95)']}
                           locations={[0, 0.4, 1]} style={StyleSheet.absoluteFill} />
           <SafeAreaView style={s.heroBar} edges={['top']}>
             <IconButton icon="arrow-left" label="Go back" onPress={() => goBack('/(tabs)')} />
@@ -406,11 +406,11 @@ const s = StyleSheet.create({
   },
   iconButton: {
     width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center',
-    backgroundColor: 'rgba(6,10,8,0.6)',
+    backgroundColor: colors.scrim,
   },
 
   body: { padding: space.xl, gap: space.xl, marginTop: -space.xl },
-  title: { ...type.display, color: colors.text, lineHeight: 36 },
+  title: { ...type.display, color: colors.text, lineHeight: 37 },
   creatorRow: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
   avatar: {
     width: 28, height: 28, borderRadius: 14, backgroundColor: colors.mintDeep,
@@ -435,7 +435,7 @@ const s = StyleSheet.create({
 
   nutrition: {
     gap: space.sm, padding: space.lg, borderRadius: radius.md,
-    backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border,
+    backgroundColor: colors.sunken,
   },
   nutritionHead: {
     flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between',
@@ -451,7 +451,7 @@ const s = StyleSheet.create({
   section: { gap: space.md },
   sectionHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: space.md },
   nutritionSource: { ...type.small, color: colors.clay },
-  sectionTitle: { ...type.heading, color: colors.text },
+  sectionTitle: { ...type.heading, fontWeight: '700', color: colors.text },
 
   scaler: { flexDirection: 'row', alignItems: 'center', gap: space.md },
   scalerButton: {
@@ -489,6 +489,6 @@ const s = StyleSheet.create({
 
   actionBar: {
     flexDirection: 'row', gap: space.md, padding: space.lg,
-    backgroundColor: colors.surface, borderTopWidth: 1, borderTopColor: colors.border,
+    backgroundColor: colors.ground, ...elevate.sheet,
   },
 });

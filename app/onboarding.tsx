@@ -8,6 +8,7 @@ import { fetchConfig, savePreferences } from '@/lib/api';
 import { useSession } from '@/state/session';
 import { colors, radius, space, type } from '@/theme';
 import { ONBOARDED_KEY } from './index';
+import { TUTORIAL_KEY } from './tutorial';
 
 /**
  * The taste pass: roughly fifteen seconds of tapping, and skippable. Shown once,
@@ -26,7 +27,7 @@ const DIETARY = [
 ];
 
 export default function Onboarding() {
-  const { isGuest } = useSession();
+  const { isGuest, me, refreshMe } = useSession();
   const [categories, setCategories] = useState<{ slug: string; label: string }[]>([]);
   const [pickedCats, setPickedCats] = useState<string[]>([]);
   const [pickedCuisines, setPickedCuisines] = useState<string[]>([]);
@@ -53,6 +54,7 @@ export default function Onboarding() {
           cuisines: pickedCuisines,
           dietaryTags: pickedDiets,
         });
+        await refreshMe();
       } catch {
         // never block entry to the deck on a preferences write
       }
@@ -62,8 +64,14 @@ export default function Onboarding() {
         JSON.stringify({ pickedCats, pickedCuisines, pickedDiets }),
       );
     }
-    // The taste pass says what to show; the tutorial says how to use it.
-    router.replace('/tutorial');
+    // The taste pass says what to show; the tutorial says how to use it — but
+    // only to someone who has not already been taught. This screen hands on
+    // directly rather than going back through the launch router, so it has to
+    // make that check itself or it becomes a way around it.
+    const alreadyTaught =
+      me?.preferences?.tutorial_seen_at != null ||
+      (await AsyncStorage.getItem(TUTORIAL_KEY).catch(() => null)) === '1';
+    router.replace(alreadyTaught ? '/(tabs)' : '/tutorial');
   }
 
   function toggle(list: string[], set: (v: string[]) => void, value: string) {

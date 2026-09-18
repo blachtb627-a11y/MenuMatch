@@ -9,6 +9,8 @@ import { Feather } from '@expo/vector-icons';
 import { Button, Screen } from '@/components/ui';
 import { TutorialDemo, type DemoMode } from '@/components/TutorialDemo';
 import { goBack } from '@/lib/nav';
+import { markTutorialSeen } from '@/lib/settings';
+import { useSession } from '@/state/session';
 import { colors, radius, space, type } from '@/theme';
 
 /**
@@ -65,6 +67,7 @@ const CLOSERS: { icon: keyof typeof Feather.glyphMap; text: string }[] = [
 ];
 
 export default function Tutorial() {
+  const { refreshMe } = useSession();
   const { replay } = useLocalSearchParams<{ replay?: string }>();
   const isReplay = replay === '1';
   const { width } = useWindowDimensions();
@@ -74,11 +77,21 @@ export default function Tutorial() {
   const last = index === STEPS.length - 1;
 
   const finish = useCallback(() => {
-    // Never block leaving on the write; the worst case is seeing this again.
+    // Written in both places: the flag on the device keeps the next launch
+    // instant, and the record on the account is what makes this the *first*
+    // login rather than the first login on this phone.
+    //
+    // Never block leaving on either write. The account write is idempotent and
+    // first-write-wins, so a replay or a retry cannot move the date, and it is
+    // a no-op for a guest, who has no account to record it against and is
+    // covered by the device flag alone.
     void AsyncStorage.setItem(TUTORIAL_KEY, '1').catch(() => {});
+    void markTutorialSeen()
+      .then(() => refreshMe())
+      .catch(() => {});
     if (isReplay) goBack('/(tabs)');
     else router.replace('/(tabs)');
-  }, [isReplay]);
+  }, [isReplay, refreshMe]);
 
   const goTo = useCallback((i: number) => {
     scroller.current?.scrollTo({ x: i * width, animated: true });

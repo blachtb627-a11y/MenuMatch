@@ -15,7 +15,12 @@ type Me = {
   savedCount: number;
   isAdmin: boolean;
   adminRole: 'moderator' | 'content_admin' | 'super_admin' | null;
-  preferences: { onboarding_complete?: boolean } | null;
+  // me() returns the whole user_preferences row, so this is whatever is on it.
+  preferences: {
+    onboarding_complete?: boolean;
+    /** Null or absent means this person has never been shown the tutorial. */
+    tutorial_seen_at?: string | null;
+  } | null;
 };
 
 type SessionState = {

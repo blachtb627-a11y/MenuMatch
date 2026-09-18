@@ -17,9 +17,20 @@ export const ONBOARDED_KEY = 'menumatch.onboarded';
  *
  * The tutorial is checked here and not only at the end of onboarding, so
  * quitting part-way through means seeing it next launch rather than never.
+ *
+ * Whether someone has seen the tutorial is a fact about the person, not about
+ * the phone they are holding, so for a signed-in user the account is the
+ * authority and the stored flag is only a cache. On the device flag alone it
+ * came back on a second device, in a new browser, after a reinstall or after
+ * any storage eviction — and never appeared at all for the second person to
+ * sign in on a shared device.
+ *
+ * The local flag still decides for guests, who have no account to record it
+ * against, and it still short-circuits the signed-in case so the deck is not
+ * held up on a round trip that has usually already happened.
  */
 export default function Index() {
-  const { ready, session } = useSession();
+  const { ready, session, me } = useSession();
   const [seen, setSeen] = useState<{ onboarding: boolean; tutorial: boolean } | null>(null);
 
   useEffect(() => {
@@ -36,7 +47,19 @@ export default function Index() {
   if (!ready || seen === null) return <Screen><Loading /></Screen>;
 
   if (REQUIRE_ACCOUNT && !session) return <Redirect href="/welcome" />;
-  if (!seen.onboarding) return <Redirect href="/onboarding" />;
-  if (!seen.tutorial) return <Redirect href="/tutorial" />;
+
+  // Signed in, but `me` has not landed yet: hold rather than route on the
+  // device flag, which is exactly the guess that showed the tutorial again.
+  if (session && !me) return <Screen><Loading /></Screen>;
+
+  const tutorialDone = me
+    ? seen.tutorial || me.preferences?.tutorial_seen_at != null
+    : seen.tutorial;
+  const onboardingDone = me
+    ? seen.onboarding || me.preferences?.onboarding_complete === true
+    : seen.onboarding;
+
+  if (!onboardingDone) return <Redirect href="/onboarding" />;
+  if (!tutorialDone) return <Redirect href="/tutorial" />;
   return <Redirect href="/(tabs)" />;
 }

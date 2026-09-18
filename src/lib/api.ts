@@ -137,12 +137,18 @@ export async function savePreferences(prefs: {
   if (meErr) throw new Error(meErr.message);
   const userId = (me as { id: string } | null)?.id;
   if (!userId) return;
-  const { error } = await supabase.from('user_preferences').update({
+  // Upsert, not update: an update matches zero rows and reports no error when
+  // the account has no preferences row yet, so the taste pass and the
+  // onboarding flag would both be silently dropped — and the next launch on a
+  // device with empty storage would send the person back through onboarding,
+  // and on again into the tutorial.
+  const { error } = await supabase.from('user_preferences').upsert({
+    user_id: userId,
     favorite_categories: prefs.favoriteCategories,
     cuisines: prefs.cuisines,
     dietary_tags: prefs.dietaryTags,
     onboarding_complete: true,
-  }).eq('user_id', userId);
+  }, { onConflict: 'user_id' });
   if (error) throw new Error(error.message);
 }
 

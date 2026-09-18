@@ -19,9 +19,20 @@ export type Preferences = {
   skillLevel: 'easy' | 'medium' | 'hard' | null;
   unitsPreference: 'original' | 'metric' | 'imperial';
   onboardingComplete: boolean;
+  /** ISO timestamp, or null if this person has never been shown the tutorial. */
+  tutorialSeenAt: string | null;
 };
 
 export const myPreferences = () => rpc<Preferences>('my_preferences');
+
+/**
+ * Records that this person has been through the tutorial, against their
+ * account rather than the device they happened to be holding.
+ *
+ * First write wins server-side, so replaying it is harmless.
+ */
+export const markTutorialSeen = () =>
+  rpc<{ ok: boolean; seenAt?: string }>('mark_tutorial_seen');
 
 /** Sends only what changed; the server leaves anything absent alone. */
 export const savePreferences = (patch: Partial<Preferences>) =>

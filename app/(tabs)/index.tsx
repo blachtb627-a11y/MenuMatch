@@ -12,12 +12,18 @@ import { Button, EmptyState, Loading, Screen } from '@/components/ui';
 import { LessLikeThisSheet } from '@/components/LessLikeThisSheet';
 import { useDeck } from '@/state/deck';
 import { useSession } from '@/state/session';
-import { fetchConfig, fetchRecipe } from '@/lib/api';
+import { fetchRecipe } from '@/lib/api';
 import { AdCard } from '@/components/AdCard';
+import { FilterBar } from '@/components/FilterBar';
+import { FilterSheet } from '@/components/FilterSheet';
+import {
+  NO_FILTERS, describeDeck, isFiltered, type DeckFilters,
+} from '@/lib/filters';
+import { loadFilters, saveFilters } from '@/lib/filterStorage';
 import { fetchAd, type ServedAd } from '@/lib/ads';
 import { getDeviceKey } from '@/lib/device';
 import { colors, fill, radius, space, type, elevate } from '@/theme';
-import type { Category, Recipe, RecipeCard, SwipeAction } from '@/lib/types';
+import type { Recipe, RecipeCard, SwipeAction } from '@/lib/types';
 
 /**
  * A long session swipes through hundreds of recipes and every one of them is a
@@ -34,17 +40,35 @@ function keepRecent(all: Record<string, Recipe>): Record<string, Recipe> {
 
 export default function Discover() {
   const { isGuest, setPendingSave } = useSession();
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [category, setCategory] = useState('for_you');
   const [toast, setToast] = useState<string | null>(null);
   const [sheetFor, setSheetFor] = useState<RecipeCard | null>(null);
 
-  const deck = useDeck(category, isGuest);
+  /**
+   * Meal, time and diet, combined. The deck itself always asks for the ranked
+   * personal feed and narrows it — there is no longer a category to be "in",
+   * which is what let the three dimensions fight over one slot.
+   *
+   * Restored from the last session, because re-picking "lunch, under 30" every
+   * time the app is opened is a worse failure than finding it still on — and
+   * the bar above the deck says what is on, in full, at all times.
+   */
+  const [filters, setFilters] = useState<DeckFilters | null>(null);
+  const [sheetOpen, setSheetOpen] = useState(false);
 
   useEffect(() => {
-    void fetchConfig()
-      .then((c) => setCategories(c.categories))
-      .catch(() => setCategories([{ slug: 'for_you', label: 'For You', description: null }]));
+    void loadFilters()
+      .then(setFilters)
+      .catch(() => setFilters(NO_FILTERS));
+  }, []);
+
+  const deck = useDeck('for_you', isGuest, filters);
+  // Everything below reads the settled selection; null only means "still
+  // reading", and the deck is showing its loading state until then.
+  const active = filters ?? NO_FILTERS;
+
+  const applyFilters = useCallback((next: DeckFilters) => {
+    setFilters(next);
+    void saveFilters(next);
   }, []);
 
   const top = deck.cards[0];
@@ -147,17 +171,17 @@ export default function Discover() {
   return (
     <Screen>
       <SafeAreaView style={{ flex: 1 }} edges={['top']}>
-        <CategoryBar
-          categories={categories}
-          active={category}
-          onSelect={(slug) => setCategory(slug)}
+        <FilterBar
+          filters={active}
+          onOpen={() => setSheetOpen(true)}
+          onChange={applyFilters}
         />
 
         {deck.fallback === 'popular_overall' && deck.cards.length > 0 ? (
-          <Banner text={`You're through ${labelFor(categories, category)}. Here's what's popular.`} />
+          <Banner text="You're through these. Here's what's popular." />
         ) : null}
         {deck.fallback === 'category_exhausted' && deck.cards.length > 0 ? (
-          <Banner text={`The last of ${labelFor(categories, category)} for now.`} />
+          <Banner text={`The last of ${describeDeck(active)} for now.`} />
         ) : null}
 
         <View style={s.deckArea}>
@@ -173,11 +197,22 @@ export default function Discover() {
             // §8.3: only shown when every fallback is empty, and it always
             // offers something to do next.
             <EmptyState
-              title="You're all caught up"
-              body="Nothing left in this category right now. Try another category, or search for something specific."
+              title={isFiltered(active) ? 'Nothing left that matches' : "You're all caught up"}
+              body={
+                isFiltered(active)
+                  // Naming the filters matters: an empty filtered deck and an
+                  // empty unfiltered one look identical, and only one of them
+                  // is something the person can do anything about.
+                  ? `No more ${describeDeck(active)} right now. Widening the filters will turn up more.`
+                  : 'Nothing left right now. Try a filter, or search for something specific.'
+              }
               action={
                 <View style={{ flexDirection: 'row', gap: space.md }}>
-                  <Button label="Browse all" onPress={() => setCategory('for_you')} />
+                  {isFiltered(active) ? (
+                    <Button label="Clear filters" onPress={() => applyFilters(NO_FILTERS)} />
+                  ) : (
+                    <Button label="Filters" onPress={() => setSheetOpen(true)} />
+                  )}
                   <Button label="Search" variant="secondary" onPress={() => router.push('/search')} />
                 </View>
               }
@@ -236,6 +271,12 @@ export default function Discover() {
         </View>
       </SafeAreaView>
 
+      <FilterSheet
+        visible={sheetOpen}
+        value={active}
+        onApply={applyFilters}
+        onClose={() => setSheetOpen(false)}
+      />
       <Toast message={toast} onDismiss={() => setToast(null)} />
       <LessLikeThisSheet
         card={sheetFor}
@@ -246,9 +287,6 @@ export default function Discover() {
   );
 }
 
-function labelFor(categories: Category[], slug: string): string {
-  return categories.find((c) => c.slug === slug)?.label ?? 'this category';
-}
 
 function Banner({ text }: { text: string }) {
   return (
@@ -258,37 +296,6 @@ function Banner({ text }: { text: string }) {
   );
 }
 
-function CategoryBar({
-  categories, active, onSelect,
-}: { categories: Category[]; active: string; onSelect: (slug: string) => void }) {
-  return (
-    <ScrollView
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      // A horizontal ScrollView in a flex column will otherwise stretch to fill
-      // the available height and take the deck's space with it.
-      style={s.catBarOuter}
-      contentContainerStyle={s.catBar}
-      accessibilityRole="tablist"
-    >
-      {categories.map((c) => {
-        const on = c.slug === active;
-        return (
-          <Pressable
-            key={c.slug}
-            onPress={() => onSelect(c.slug)}
-            accessibilityRole="tab"
-            accessibilityState={{ selected: on }}
-            accessibilityLabel={c.label}
-            style={[s.cat, on && s.catActive]}
-          >
-            <Text style={[s.catLabel, on && s.catLabelActive]}>{c.label}</Text>
-          </Pressable>
-        );
-      })}
-    </ScrollView>
-  );
-}
 
 function ControlButton({
   icon, label, tone, onPress, disabled, small,
@@ -336,20 +343,6 @@ function ControlButton({
 }
 
 const s = StyleSheet.create({
-  catBarOuter: { flexGrow: 0, flexShrink: 0 },
-  catBar: {
-    paddingHorizontal: space.lg, paddingVertical: space.md,
-    gap: space.sm, alignItems: 'center',
-  },
-  cat: {
-    paddingHorizontal: space.lg, paddingVertical: 9, borderRadius: radius.pill,
-    backgroundColor: colors.surface,
-  },
-  // The selected category is the one thing in this row worth looking at, so it
-  // takes the solid mint rather than a tinted outline of it.
-  catActive: { backgroundColor: colors.mint },
-  catLabel: { ...type.small, color: colors.textMuted },
-  catLabelActive: { color: colors.onMint, fontWeight: '700' },
 
   banner: {
     marginHorizontal: space.lg, marginBottom: space.sm, paddingHorizontal: space.lg,

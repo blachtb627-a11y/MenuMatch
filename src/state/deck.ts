@@ -4,6 +4,7 @@ import { fetchFeed } from '@/lib/api';
 import { queueSwipe, queueSave, queueUnsave, dropQueuedFor } from '@/lib/queue';
 import { undoSwipe } from '@/lib/api';
 import { newOpaqueId } from '@/lib/device';
+import { filterKey, toRpcFilters, NO_FILTERS, type DeckFilters } from '@/lib/filters';
 import type { FeedPage, RecipeCard, SwipeAction } from '@/lib/types';
 
 /** §8.3 deck supply: keep at least 5 buffered, refill when it drops to 3. */
@@ -26,7 +27,18 @@ export type DeckState = {
   exhausted: boolean;
 };
 
-export function useDeck(category: string, isGuest: boolean) {
+/**
+ * `filters` is null while the stored selection is still being read. The deck
+ * waits rather than loading an unfiltered page it would immediately throw
+ * away — two round trips and a visible flash of the wrong recipes on every
+ * cold start.
+ */
+export function useDeck(
+  category: string, isGuest: boolean, filters: DeckFilters | null = NO_FILTERS,
+) {
+  // The selection by value, not by identity: a new object holding the same
+  // filters must not throw away the deck the person is part-way through.
+  const key = filters === null ? null : filterKey(filters);
   const [cards, setCards] = useState<RecipeCard[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -41,12 +53,15 @@ export function useDeck(category: string, isGuest: boolean) {
   const loadMore = useCallback(
     async (replace = false) => {
       if (loadingMore.current) return;
+      const active = filtersRef.current;
+      if (active === null) return;   // still restoring; the effect below retries
       loadingMore.current = true;
       try {
         const page = await fetchFeed({
           category,
           limit: PAGE_SIZE,
           exclude: Array.from(seen.current),
+          filters: toRpcFilters(active),
         });
         setFallback(page.fallback);
         const fresh = (page.cards ?? []).filter((c) => !seen.current.has(c.id));
@@ -63,15 +78,23 @@ export function useDeck(category: string, isGuest: boolean) {
     [category],
   );
 
-  // Switching category starts a fresh deck.
+  // Read through a ref so changing the filters does not rebuild loadMore, which
+  // the buffer-refill effect depends on — that would refetch on every render.
+  const filtersRef = useRef(filters);
+  filtersRef.current = filters;
+
+  // Switching category, or narrowing the filters, starts a fresh deck.
   useEffect(() => {
+    if (key === null) return;
     categoryRef.current = category;
     seen.current = new Set();
     setCards([]);
     setUndoStack([]);
     setLoading(true);
     void loadMore(true);
-  }, [category, loadMore]);
+    // `key` is the filter selection by value; loadMore reads the current
+    // filters from the ref, so it does not need to be a dependency itself.
+  }, [category, key, loadMore]);
 
   // §8.3: a swipe must never wait on a network request, so the next few images
   // are warmed before the user reaches them.
@@ -84,8 +107,9 @@ export function useDeck(category: string, isGuest: boolean) {
   }, [cards]);
 
   useEffect(() => {
+    if (key === null) return;
     if (!loading && cards.length <= MIN_BUFFER) void loadMore();
-  }, [cards.length, loading, loadMore]);
+  }, [cards.length, loading, loadMore, key]);
 
   const act = useCallback(
     async (action: SwipeAction, card?: RecipeCard) => {

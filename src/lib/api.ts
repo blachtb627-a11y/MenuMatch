@@ -29,6 +29,8 @@ export async function fetchFeed(args: {
   category: string;
   limit?: number;
   exclude?: string[];
+  /** Meal / time / diet, ANDed by get_feed. Omit for an unnarrowed deck. */
+  filters?: Record<string, unknown>;
 }): Promise<FeedPage> {
   const deviceKey = await getDeviceKey();
   const { data, error } = await supabase.rpc('get_feed', {
@@ -36,6 +38,7 @@ export async function fetchFeed(args: {
     p_limit: args.limit ?? 20,
     p_device_key: deviceKey,
     p_exclude: args.exclude ?? [],
+    p_filters: args.filters ?? {},
   });
   return unwrap<FeedPage>(data, error);
 }

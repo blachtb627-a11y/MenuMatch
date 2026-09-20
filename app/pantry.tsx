@@ -374,7 +374,10 @@ function MatchRow({ match: m }: { match: PantryMatch }) {
 
 const s = StyleSheet.create({
   header: {
-    paddingHorizontal: space.xl, paddingTop: space.sm, paddingBottom: space.md, gap: 2,
+    // space.lg to match every other screen's header. At space.sm the title sat
+    // hard against the status bar on a notched phone, because the safe-area
+    // inset stops at the notch and leaves nothing between it and the text.
+    paddingHorizontal: space.xl, paddingTop: space.lg, paddingBottom: space.md, gap: 2,
   },
   headerTitle: { ...type.title, color: colors.text },
   headerSub: { ...type.small, color: colors.textMuted },

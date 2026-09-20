@@ -14,8 +14,8 @@ import {
 import { downscale, pickImage, readAsBase64, SCAN_EDGE } from '@/lib/media';
 import {
   STAPLE_NAMES, addPantryItems, clearPantry, cookFromPantry, describeMatch,
-  myPantry, removePantryItem, scanPantry, splitItems, tidyMissing,
-  type PantryItem, type PantryMatch,
+  myPantry, pantryUnlocks, removePantryItem, scanPantry, splitItems, tidyMissing,
+  type PantryItem, type PantryMatch, type PantryUnlock,
 } from '@/lib/pantry';
 import { formatTotalTime } from '@/lib/timers';
 import { colors, radius, space, type } from '@/theme';
@@ -34,19 +34,27 @@ import { colors, radius, space, type } from '@/theme';
  * definitely make this".
  */
 
-/** How short of ingredients a recipe may be and still be worth showing. */
-const SLACK = [
-  { value: 0, label: 'Have it all' },
-  { value: 1, label: '1 short' },
-  { value: 3, label: '3 short' },
-  { value: 5, label: '5 short' },
-];
+/**
+ * How short a recipe may be and still be worth showing.
+ *
+ * Fetched once at the widest setting and grouped on arrival, rather than
+ * re-queried per step: the difference between "ready now" and "two away" is
+ * the structure of the answer, not a filter over it, and making someone move a
+ * control to discover they could already be cooking is the wrong way round.
+ */
+const MAX_SHORT = 3;
+
+const BANDS = [
+  { max: 0, label: 'Ready to cook', hint: 'You have everything' },
+  { max: 1, label: 'One ingredient away', hint: null },
+  { max: MAX_SHORT, label: 'Nearly there', hint: null },
+] as const;
 
 export default function Pantry() {
   const [items, setItems] = useState<PantryItem[] | null>(null);
   const [matches, setMatches] = useState<PantryMatch[] | null>(null);
+  const [unlocks, setUnlocks] = useState<PantryUnlock[]>([]);
   const [draft, setDraft] = useState('');
-  const [slack, setSlack] = useState(3);
   const [useStaples, setUseStaples] = useState(true);
   const [busy, setBusy] = useState(false);
   const [scanning, setScanning] = useState(false);
@@ -70,15 +78,20 @@ export default function Pantry() {
   // never quietly about a kitchen you no longer have.
   useEffect(() => {
     if (items === null) return;
-    if (!items.length) { setMatches([]); return; }
+    if (!items.length) { setMatches([]); setUnlocks([]); return; }
     let live = true;
     setMatching(true);
-    void cookFromPantry(slack, 30, useStaples)
-      .then((rows) => { if (live) setMatches(rows); })
-      .catch(() => { if (live) setMatches([]); })
+    // Two questions about the same kitchen, asked together: what can I cook,
+    // and what would one more thing get me.
+    void Promise.all([
+      cookFromPantry(MAX_SHORT, 40, useStaples),
+      pantryUnlocks(4, useStaples).catch(() => [] as PantryUnlock[]),
+    ])
+      .then(([rows, up]) => { if (live) { setMatches(rows); setUnlocks(up); } })
+      .catch(() => { if (live) { setMatches([]); setUnlocks([]); } })
       .finally(() => { if (live) setMatching(false); });
     return () => { live = false; };
-  }, [items, slack, useStaples]);
+  }, [items, useStaples]);
 
   async function add(names: string[]) {
     const clean = names.filter(Boolean);
@@ -246,37 +259,56 @@ export default function Pantry() {
               />
             ) : (
               <>
-                <View style={s.sectionRow}>
-                  <Text style={s.sectionLabel}>
-                    {matching ? 'LOOKING…'
-                      : `${matches?.length ?? 0} RECIPE${matches?.length === 1 ? '' : 'S'}`}
-                  </Text>
-                  <View style={s.slackWrap}>
-                    {SLACK.map((o) => (
-                      <Pressable key={o.value} onPress={() => setSlack(o.value)}
-                                 accessibilityRole="radio"
-                                 accessibilityState={{ selected: slack === o.value }}
-                                 accessibilityLabel={o.label}
-                                 style={[s.slack, slack === o.value && s.slackOn]}>
-                        <Text style={[s.slackLabel, slack === o.value && { color: colors.mint }]}>
-                          {o.label}
+                {/* Buying one thing is a smaller ask than filling a kitchen,
+                    and it is the question people came with. It goes above the
+                    results because acting on it changes them. */}
+                {!matching && unlocks.length ? (
+                  <View style={s.unlockCard}>
+                    <Text style={s.unlockHead}>ONE MORE THING</Text>
+                    {unlocks.map((u) => (
+                      <View key={u.name} style={s.unlockRow}>
+                        <Feather name="plus-circle" size={15} color={colors.mint} />
+                        <Text style={s.unlockName} numberOfLines={1}>
+                          {tidyMissing(u.name)}
                         </Text>
-                      </Pressable>
+                        <Text style={s.unlockCount} numberOfLines={1}>
+                          {u.unlocks === 1
+                            ? (u.recipes[0] ?? '1 recipe')
+                            : `${u.unlocks} recipes`}
+                        </Text>
+                      </View>
                     ))}
                   </View>
-                </View>
+                ) : null}
 
-                {matches === null || matching ? (
+                {matching ? (
                   <View style={s.matching}><ActivityIndicator color={colors.mint} /></View>
-                ) : matches.length === 0 ? (
+                ) : !matches || matches.length === 0 ? (
                   <EmptyState
                     title="Nothing quite fits yet"
-                    body={slack < 5
-                      ? 'Try allowing a few more missing ingredients, or add more of what you have.'
-                      : 'Add a few more things and it will have more to work with.'}
+                    body="Add a few more things and it will have more to work with. Tinned and dried goods count."
                   />
                 ) : (
-                  matches.map((m) => <MatchRow key={m.card.id} match={m} />)
+                  BANDS.map((band, i) => {
+                    const lo = i === 0 ? 0 : BANDS[i - 1]!.max + 1;
+                    const inBand = matches.filter((m) => {
+                      const short = m.total - m.have;
+                      return short >= lo && short <= band.max;
+                    });
+                    if (!inBand.length) return null;
+                    return (
+                      <View key={band.label} style={{ gap: space.md }}>
+                        <View style={s.bandHead}>
+                          <Text style={[s.bandLabel, i === 0 && { color: colors.mint }]}>
+                            {band.label}
+                          </Text>
+                          <Text style={s.bandCount}>{inBand.length}</Text>
+                        </View>
+                        {band.hint ? <Text style={s.hint}>{band.hint}</Text> : null}
+                        {inBand.map((m) => <MatchRow key={m.card.id} match={m} />)}
+                      </View>
+                    );
+                  })
                 )}
               </>
             )}
@@ -353,7 +385,7 @@ const s = StyleSheet.create({
 
   addRow: { flexDirection: 'row', gap: space.sm, alignItems: 'center' },
   input: {
-    flex: 1, backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border,
+    flex: 1, backgroundColor: colors.surface,
     borderRadius: radius.md, paddingHorizontal: space.md, height: 46,
     color: colors.text, fontSize: 15,
   },
@@ -374,8 +406,8 @@ const s = StyleSheet.create({
   chipWrap: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
   chip: {
     flexDirection: 'row', alignItems: 'center', gap: 6,
-    paddingHorizontal: space.md, paddingVertical: 8, borderRadius: radius.pill,
-    backgroundColor: colors.mintWash, borderWidth: 1, borderColor: colors.mintDeep,
+    paddingHorizontal: space.md, paddingVertical: 9, borderRadius: radius.pill,
+    backgroundColor: colors.mintWash,
   },
   chipLabel: { ...type.small, color: colors.mint },
 
@@ -387,19 +419,32 @@ const s = StyleSheet.create({
   checkboxOn: { backgroundColor: colors.mint, borderColor: colors.mint },
   staplesLabel: { ...type.small, color: colors.textMuted, flex: 1 },
 
-  slackWrap: { flexDirection: 'row', gap: 6, flexWrap: 'wrap' },
-  slack: {
-    paddingHorizontal: space.sm, paddingVertical: 5, borderRadius: radius.pill,
-    borderWidth: 1, borderColor: colors.border,
+  bandHead: {
+    flexDirection: 'row', alignItems: 'center', gap: space.sm, marginTop: space.lg,
   },
-  slackOn: { borderColor: colors.mint, backgroundColor: colors.mintWash },
-  slackLabel: { ...type.small, fontSize: 12, color: colors.textMuted },
+  bandLabel: { ...type.heading, fontWeight: '700', color: colors.text },
+  bandCount: {
+    ...type.small, color: colors.textFaint, backgroundColor: colors.surface,
+    paddingHorizontal: space.sm, paddingVertical: 2, borderRadius: radius.pill,
+    overflow: 'hidden',
+  },
+
+  unlockCard: {
+    backgroundColor: colors.surface, borderRadius: radius.md,
+    padding: space.lg, gap: space.md, marginTop: space.lg,
+  },
+  unlockHead: { ...type.micro, color: colors.textFaint },
+  unlockRow: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
+  unlockName: { ...type.bodyStrong, color: colors.text, flexShrink: 1 },
+  unlockCount: {
+    ...type.small, color: colors.textMuted, marginLeft: 'auto',
+    flexShrink: 1, textAlign: 'right',
+  },
 
   matching: { paddingVertical: space.xxl, alignItems: 'center' },
   match: {
     flexDirection: 'row', gap: space.md, alignItems: 'center',
     backgroundColor: colors.surface, borderRadius: radius.md, padding: space.md,
-    borderWidth: 1, borderColor: colors.border,
   },
   matchThumb: { width: 62, height: 62, borderRadius: radius.sm, overflow: 'hidden' },
   matchTitle: { ...type.bodyStrong, color: colors.text },

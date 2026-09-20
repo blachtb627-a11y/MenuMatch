@@ -47,8 +47,35 @@ export const cookFromPantry = (
   p_max_missing: maxMissing, p_limit: limit, p_use_staples: useStaples,
 });
 
-/** What the staples toggle is actually promising. Mirrors app_config. */
-export const STAPLE_NAMES = 'salt, pepper, water, oil and sugar';
+/**
+ * What the staples toggle is actually promising. Mirrors app_config.
+ *
+ * Specific on purpose. The bare words `pepper` and `oil` used to be on this
+ * list, and because matching is by stem containment they quietly satisfied
+ * `padron peppers` and `sesame oil` — the app claimed you could cook a dish
+ * whose one real ingredient you did not have.
+ */
+export const STAPLE_NAMES = 'salt, black pepper, water, olive oil and sugar';
+
+/**
+ * One more thing and you could make these.
+ *
+ * Only ingredients that finish a recipe on their own: something that leaves a
+ * recipe still two short is not a thing you can buy and then cook.
+ */
+export type PantryUnlock = {
+  /** The shortest printed form, so it reads like a shopping list. */
+  name: string;
+  /** How many recipes this one ingredient would complete. */
+  unlocks: number;
+  /** Up to three of them, by title. */
+  recipes: string[];
+};
+
+export const pantryUnlocks = (limit = 5, useStaples = true) =>
+  rpc<PantryUnlock[]>('pantry_unlocks', {
+    p_limit: limit, p_use_staples: useStaples,
+  });
 
 /**
  * Splits typed input into separate items.

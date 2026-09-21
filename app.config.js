@@ -17,15 +17,15 @@ module.exports = {
     scheme: 'menumatch',
     userInterfaceStyle: 'dark',
     newArchEnabled: true,
-    backgroundColor: '#0C120F',
+    backgroundColor: '#090B0A',
     splash: {
-      backgroundColor: '#0C120F',
+      backgroundColor: '#090B0A',
       resizeMode: 'contain',
     },
     ios: { supportsTablet: true, bundleIdentifier: 'app.menumatch.client' },
     android: {
       package: 'app.menumatch.client',
-      adaptiveIcon: { backgroundColor: '#0C120F' },
+      adaptiveIcon: { backgroundColor: '#090B0A' },
     },
     web: { bundler: 'metro', output: 'single' },
     plugins: ['expo-router'],

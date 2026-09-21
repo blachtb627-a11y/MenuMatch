@@ -10,7 +10,7 @@ import { downloadJson, exportMyData } from '@/lib/settings';
 import { colors, radius, space, type } from '@/theme';
 
 /**
- * §28.1 data portability. Everything MenuMatch holds about you, as JSON you can
+ * §28.1 data portability. Everything Swipzy holds about you, as JSON you can
  * keep — built on request rather than held anywhere, so there is no export file
  * sitting around waiting to leak.
  */
@@ -35,7 +35,7 @@ export default function ExportScreen() {
         + `${counts.swipes?.total ?? 0} swipes`,
       );
 
-      const name = `menumatch-export-${new Date().toISOString().slice(0, 10)}.json`;
+      const name = `swipzy-export-${new Date().toISOString().slice(0, 10)}.json`;
       if (downloadJson(name, data)) {
         setToast('Downloaded');
       } else {
@@ -67,7 +67,7 @@ export default function ExportScreen() {
 
         <ScrollView contentContainerStyle={s.body}>
           <Text style={s.lead}>
-            A JSON file containing everything MenuMatch holds about you.
+            A JSON file containing everything Swipzy holds about you.
           </Text>
 
           <View style={s.card}>

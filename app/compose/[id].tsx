@@ -624,7 +624,7 @@ export default function Compose() {
 
             {/* ---------------------------------------------- tags */}
             <Labelled label="Tags"
-                      hint="Dietary tags are shown as creator-supplied and are not verified by MenuMatch.">
+                      hint="Dietary tags are shown as creator-supplied and are not verified by Swipzy.">
               <View style={s.tagWrap}>
                 {tagOptions.map((t) => {
                   const on = draft.tags.includes(t.value);
@@ -647,7 +647,7 @@ export default function Compose() {
               </View>
             </Labelled>
 
-            {/* §19.3: MenuMatch does not verify nutrition, so the estimate is
+            {/* §19.3: Swipzy does not verify nutrition, so the estimate is
                 labelled as one everywhere it appears and the creator can edit
                 or clear any of it. Publishing without it is fine. */}
             <Labelled label="Nutrition, per serving"

@@ -106,7 +106,7 @@ export default function Profile() {
                  onPress={() => router.push('/settings/blocked')} />
             <Row icon="download" label="Export my data"
                  onPress={() => router.push('/settings/export')} />
-            <Row icon="help-circle" label="How MenuMatch works"
+            <Row icon="help-circle" label="How Swipzy works"
                  onPress={() => router.push('/tutorial?replay=1')} />
           </Section>
 
@@ -119,7 +119,7 @@ export default function Profile() {
                  onPress={() => router.push('/legal/terms')} />
             <Row icon="lock" label="Privacy Policy"
                  onPress={() => router.push('/legal/privacy')} />
-            <Row icon="mail" label="Contact MenuMatch" />
+            <Row icon="mail" label="Contact Swipzy" />
           </Section>
 
           <Section title="Account">
@@ -128,7 +128,7 @@ export default function Profile() {
           </Section>
 
           <Text style={s.footnote}>
-            Deleting your account removes it from MenuMatch immediately and
+            Deleting your account removes it from Swipzy immediately and
             purges your personal data within 30 days.
           </Text>
         </ScrollView>

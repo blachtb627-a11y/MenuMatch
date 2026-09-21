@@ -1,6 +1,10 @@
 /**
- * MenuMatch visual identity, taken from the app mark: a near-black ground and a
- * single mint accent.
+ * Swipzy's in-app identity: a near-black ground and a single mint accent.
+ *
+ * The wordmark is its own thing — a white field, a coral swipe arrow, a green
+ * leaf — and it is not the app's interior. A photo deck needs the photographs
+ * to be the only bright thing on the screen, so the app stays dark and the
+ * mark stays on the store listing and the splash.
  *
  * Two rules hold the look together, and most of this file exists to enforce
  * them:
@@ -18,7 +22,7 @@
  *    within a few points of neutral.
  *
  * §18.3 note on the pass control: it is deliberately a warm clay, not a red X.
- * Red-X-on-a-card is the reference app's trade dress and MenuMatch does not
+ * Red-X-on-a-card is the reference app's trade dress and Swipzy does not
  * borrow it. Passing a recipe is not a rejection, it is "not tonight".
  */
 export const colors = {

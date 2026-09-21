@@ -1,8 +1,10 @@
-# MenuMatch
+# Swipzy
 
 Swipe-first recipe discovery. Built to the v2.0 product specification.
 
 **Live: https://menumatch.store**
+
+The app is Swipzy; the domain is still menumatch.store. The rename changed the product, the bundle identifiers and the `swipzy://` URL scheme, not the host the web build is served from — that moves when a new domain is bought and the `CNAME` below is updated. The repo is still named MenuMatch, which the Pages base path depends on.
 
 An Expo (React Native) client on a Supabase Postgres backend. This build covers
 the discovery loop end to end — **discover, save, cook** — plus the trust and

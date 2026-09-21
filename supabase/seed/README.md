@@ -6,7 +6,7 @@ somebody's real cooking.
 
 | account | subject | recipes |
 |---|---|---|
-| `menumatch.kitchen` | house account, one dish per cuisine | 20 |
+| `swipzy.kitchen` | house account, one dish per cuisine | 20 |
 | `cookduck` | fast weeknight food, one pan | 20 |
 | `ryanccooks` | grilling, smoking, American comfort | 20 |
 | `wokweekly` | East and Southeast Asian | 20 |

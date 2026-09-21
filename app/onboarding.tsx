@@ -5,6 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Button, Screen } from '@/components/ui';
 import { fetchConfig, savePreferences } from '@/lib/api';
+import { key } from '@/lib/storageKeys';
 import { useSession } from '@/state/session';
 import { colors, radius, space, type } from '@/theme';
 import { ONBOARDED_KEY } from './index';
@@ -60,7 +61,7 @@ export default function Onboarding() {
       }
     } else if (pickedCats.length || pickedCuisines.length || pickedDiets.length) {
       await AsyncStorage.setItem(
-        'menumatch.guestPreferences',
+        key('guestPreferences'),
         JSON.stringify({ pickedCats, pickedCuisines, pickedDiets }),
       );
     }

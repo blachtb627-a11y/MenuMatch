@@ -1,7 +1,7 @@
 /**
  * estimate-nutrition — per-serving macros for a recipe, from its ingredients.
  *
- * §19.3 is unambiguous that MenuMatch does not verify nutrition, and this does
+ * §19.3 is unambiguous that Swipzy does not verify nutrition, and this does
  * not change that: what comes back is an estimate, is stored labelled as one,
  * and is shown to cooks with the standing disclaimer. The creator can edit
  * every number before publishing, and can publish without any of them.

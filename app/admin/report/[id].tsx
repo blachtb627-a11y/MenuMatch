@@ -117,7 +117,7 @@ export default function ReportDetailScreen() {
                   <Text style={s.cardTitle}>{report.recipe.title}</Text>
                   <Text style={s.cardMeta}>
                     @{report.recipe.creator.username}
-                    {report.recipe.creator.isSeed ? ' · MenuMatch account' : ''}
+                    {report.recipe.creator.isSeed ? ' · Swipzy account' : ''}
                   </Text>
                   <Text style={s.cardMeta}>
                     {report.recipe.status} · {report.recipe.moderationState}

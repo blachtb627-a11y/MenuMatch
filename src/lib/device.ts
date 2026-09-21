@@ -1,8 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Platform } from 'react-native';
 import { supabase } from './supabase';
+import { key, storageReady } from './storageKeys';
 
-const DEVICE_KEY_STORAGE = 'menumatch.deviceKey';
+const DEVICE_KEY_STORAGE = key('deviceKey');
 
 /**
  * §7: guest swipe activity is recorded against an anonymous device id and
@@ -20,13 +21,16 @@ let cached: string | null = null;
 
 export async function getDeviceKey(): Promise<string> {
   if (cached) return cached;
-  let key = await AsyncStorage.getItem(DEVICE_KEY_STORAGE);
-  if (!key) {
-    key = newOpaqueId();
-    await AsyncStorage.setItem(DEVICE_KEY_STORAGE, key);
+  // Before the read, not after: minting a fresh id here would throw away the
+  // guest swipe history the old key still points at.
+  await storageReady();
+  let stored = await AsyncStorage.getItem(DEVICE_KEY_STORAGE);
+  if (!stored) {
+    stored = newOpaqueId();
+    await AsyncStorage.setItem(DEVICE_KEY_STORAGE, stored);
   }
-  cached = key;
-  return key;
+  cached = stored;
+  return stored;
 }
 
 export async function forgetDevice(): Promise<void> {

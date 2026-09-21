@@ -19,7 +19,7 @@ import { colors, radius, space, type } from '@/theme';
  *
  * Recipes are reported from the recipe, because that is where you are standing
  * when you see the problem. This covers the two things that had no route at
- * all: an account, and MenuMatch itself.
+ * all: an account, and Swipzy itself.
  */
 export default function ReportProblem() {
   const { isGuest, me } = useSession();
@@ -99,7 +99,7 @@ export default function ReportProblem() {
                   hint="Someone’s behaviour, not one particular recipe"
                   on={target === 'user'}
                   onPress={() => { setTarget('user'); setReason(null); }} />
-          <Choice label="MenuMatch itself"
+          <Choice label="Swipzy itself"
                   hint="Something broken, or unsafe about the app"
                   on={target === 'app'}
                   onPress={() => { setTarget('app'); setReason(null); setAccount(null); }} />

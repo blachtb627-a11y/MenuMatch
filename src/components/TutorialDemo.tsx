@@ -111,7 +111,7 @@ export function TutorialDemo({ mode }: { mode: DemoMode }) {
     <View style={s.stage} pointerEvents="none" accessible accessibilityLabel={LABELS[mode]}>
       {/* the card underneath, so a card leaving reveals the next one */}
       <View style={[s.card, s.behind]}>
-        <MockCover seed="menumatch-behind" />
+        <MockCover seed="swipzy-behind" />
         <View style={s.cardText}>
           <View style={s.titleBar} />
           <Bar w="44%" />
@@ -119,7 +119,7 @@ export function TutorialDemo({ mode }: { mode: DemoMode }) {
       </View>
 
       <Animated.View style={[s.card, frontStyle]}>
-        <MockCover seed="menumatch-front" />
+        <MockCover seed="swipzy-front" />
 
         {mode === 'scroll' ? (
           <>

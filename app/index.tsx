@@ -4,9 +4,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Loading, Screen } from '@/components/ui';
 import { useSession } from '@/state/session';
 import { REQUIRE_ACCOUNT } from '@/config';
+import { key, storageReady } from '@/lib/storageKeys';
 import { TUTORIAL_KEY } from './tutorial';
 
-export const ONBOARDED_KEY = 'menumatch.onboarded';
+export const ONBOARDED_KEY = key('onboarded');
 
 /**
  * The single place that decides where a launch lands:
@@ -34,7 +35,8 @@ export default function Index() {
   const [seen, setSeen] = useState<{ onboarding: boolean; tutorial: boolean } | null>(null);
 
   useEffect(() => {
-    void AsyncStorage.multiGet([ONBOARDED_KEY, TUTORIAL_KEY])
+    void storageReady()
+      .then(() => AsyncStorage.multiGet([ONBOARDED_KEY, TUTORIAL_KEY]))
       .then((rows) => {
         const map = Object.fromEntries(rows);
         setSeen({ onboarding: map[ONBOARDED_KEY] === '1', tutorial: map[TUTORIAL_KEY] === '1' });

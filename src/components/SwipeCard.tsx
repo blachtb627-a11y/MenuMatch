@@ -18,7 +18,7 @@ import type { Recipe, RecipeCard as Card, SwipeAction } from '@/lib/types';
 /**
  * The deck card (§8.1).
  *
- * On §18.3: the composition is MenuMatch's own. Food photography is the
+ * On §18.3: the composition is Swipzy's own. Food photography is the
  * dominant element with the content anchored to the bottom edge, and drag
  * feedback is a colour wash plus a growing edge indicator — deliberately not a
  * stamp overlay, and with no rotation-and-fling physics.

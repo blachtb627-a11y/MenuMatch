@@ -13,6 +13,9 @@ import { colors, coverGradient, fill } from '@/theme';
  * failed request per card and buys nothing, so they are treated as "no photo"
  * and skipped outright.
  */
+// Spelled with the old name on purpose: these URLs are already written into
+// the seed rows in the database, and the guard has to match what is stored
+// rather than what the app is now called.
 const PLACEHOLDER_HOSTS = ['cdn.menumatch.app'];
 
 export function isPlaceholderCover(uri: string | null | undefined): boolean {

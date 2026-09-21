@@ -148,7 +148,7 @@ export default function Auth() {
             </View>
 
             <Text style={s.legal}>
-              You must be at least 13 to use MenuMatch. By continuing you agree to
+              You must be at least 13 to use Swipzy. By continuing you agree to
               the{' '}
               <Text style={s.legalLink} accessibilityRole="link"
                     onPress={() => router.push('/legal/terms')}>

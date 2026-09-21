@@ -114,7 +114,7 @@ export default function Team() {
             <View style={s.addCard}>
               <Text style={s.addTitle}>Add someone</Text>
               <Text style={s.addBody}>
-                Search by username or email. They need a MenuMatch account first.
+                Search by username or email. They need a Swipzy account first.
               </Text>
 
               <View style={s.searchRow}>

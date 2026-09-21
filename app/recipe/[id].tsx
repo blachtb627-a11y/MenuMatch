@@ -262,7 +262,7 @@ export default function RecipeDetail() {
               {/* §19.2: creator-supplied unless verified, and never auto-derived. */}
               <Disclaimer>
                 Dietary and allergen tags are supplied by the creator and are not
-                verified by MenuMatch. If you cook for an allergy, check every
+                verified by Swipzy. If you cook for an allergy, check every
                 ingredient yourself.
               </Disclaimer>
             </View>
@@ -373,7 +373,7 @@ function NutritionPanel({ nutrition }: { nutrition: Nutrition | null }) {
       {/* §19.3, verbatim requirement. */}
       <Disclaimer>
         Nutrition information is provided by the recipe creator and is an
-        estimate. It has not been verified by MenuMatch.
+        estimate. It has not been verified by Swipzy.
       </Disclaimer>
     </View>
   );

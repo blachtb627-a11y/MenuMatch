@@ -6,7 +6,7 @@ import { colors, radius, space, type, elevate } from '@/theme';
 /**
  * §8.2: saving shows a lightweight, non-blocking confirmation. Never a
  * full-screen interstitial, never a celebratory modal — there is no match
- * moment in MenuMatch (§3).
+ * moment in Swipzy (§3).
  */
 export function Toast({
   message, action, onAction, onDismiss,

@@ -9,12 +9,13 @@ import { Feather } from '@expo/vector-icons';
 import { Button, Screen } from '@/components/ui';
 import { TutorialDemo, type DemoMode } from '@/components/TutorialDemo';
 import { goBack } from '@/lib/nav';
+import { key } from '@/lib/storageKeys';
 import { markTutorialSeen } from '@/lib/settings';
 import { useSession } from '@/state/session';
 import { colors, radius, space, type } from '@/theme';
 
 /**
- * How MenuMatch works, in four screens.
+ * How Swipzy works, in four screens.
  *
  * The deck is the whole app and it is driven by two gestures people have to be
  * told about once. Nobody reads a manual, so each step is one sentence next to
@@ -25,7 +26,7 @@ import { colors, radius, space, type } from '@/theme';
  * always one tap away: a tutorial you cannot leave is worse than none.
  */
 
-export const TUTORIAL_KEY = 'menumatch.tutorial.v1';
+export const TUTORIAL_KEY = key('tutorial.v1');
 
 type Step = {
   key: string;

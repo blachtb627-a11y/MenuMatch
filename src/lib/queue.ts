@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { supabase } from './supabase';
 import { getDeviceKey, newOpaqueId } from './device';
+import { key, storageReady } from './storageKeys';
 import type { SwipeAction } from './types';
 
 /**
@@ -15,7 +16,7 @@ import type { SwipeAction } from './types';
  * termination, and drains with exponential backoff.
  */
 
-const STORAGE_KEY = 'menumatch.writeQueue';
+const STORAGE_KEY = key('writeQueue');
 const MAX_BATCH = 20; // §23.2 caps a swipe batch at 20
 const BASE_DELAY_MS = 2000;
 const MAX_DELAY_MS = 60_000;
@@ -54,6 +55,7 @@ const listeners = new Set<(pending: number) => void>();
 
 async function persist(): Promise<void> {
   try {
+    await storageReady();
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(queue));
   } catch {
     // If storage is full the in-memory queue still drains this session.
@@ -65,6 +67,7 @@ export async function loadQueue(): Promise<void> {
   if (loaded) return;
   loaded = true;
   try {
+    await storageReady();
     const raw = await AsyncStorage.getItem(STORAGE_KEY);
     if (raw) queue = JSON.parse(raw) as QueueEntry[];
   } catch {

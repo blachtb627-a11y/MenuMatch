@@ -151,7 +151,7 @@ function CreatorRow({ creator }: { creator: SearchCreator }) {
         <Text style={s.creatorName} numberOfLines={1}>{creator.displayName}</Text>
         <Text style={s.creatorMeta} numberOfLines={1}>
           @{creator.username}
-          {creator.isSeedAccount ? ' · MenuMatch' : ''}
+          {creator.isSeedAccount ? ' · Swipzy' : ''}
         </Text>
         <Text style={s.creatorMeta}>
           {creator.recipes} recipe{creator.recipes === 1 ? '' : 's'}

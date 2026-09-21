@@ -20,6 +20,12 @@ export const OPERATOR = {
   legalName: '[LEGAL ENTITY NAME]',
   /** Where notices are sent. A real, monitored address is a legal requirement. */
   postalAddress: '[POSTAL ADDRESS]',
+  /**
+   * The app is Swipzy; the domain is still menumatch.store, which is where the
+   * web build is actually served from. These stay on the old domain until a
+   * new one is bought and the CNAME moves — an address in the Terms that does
+   * not receive mail is worse than an old-sounding one that does.
+   */
   supportEmail: '[support@menumatch.store]',
   privacyEmail: '[privacy@menumatch.store]',
   /** DMCA §512(c) designated agent, also registered with the US Copyright Office. */
@@ -59,7 +65,7 @@ export const GUIDELINES: LegalDoc = {
   effective: EFFECTIVE,
   readingTime: '4 min read',
   intro:
-    'MenuMatch is for finding something to cook tonight. These are the rules '
+    'Swipzy is for finding something to cook tonight. These are the rules '
     + 'that keep it that way. They are short on purpose, and we enforce the '
     + 'ones about safety and other people’s work strictly.',
   sections: [
@@ -111,7 +117,7 @@ export const GUIDELINES: LegalDoc = {
           + 'recipe is free of something, do not tag it as free of that thing.'),
         p('Deliberately mislabelling an allergen is treated as an unsafe-content '
           + 'report, not a mistake. It is the fastest way to be removed from '
-          + 'MenuMatch.'),
+          + 'Swipzy.'),
       ],
     },
     {
@@ -138,7 +144,7 @@ export const GUIDELINES: LegalDoc = {
     {
       heading: 'Keep it about the food',
       blocks: [
-        p('MenuMatch has no comments section and no DMs, which removes most of '
+        p('Swipzy has no comments section and no DMs, which removes most of '
           + 'the ways people hurt each other online. What remains still matters:'),
         list(
           'No harassment, hate, or targeting a person or group.',
@@ -203,14 +209,14 @@ export const TERMS: LegalDoc = {
   readingTime: '8 min read',
   intro:
     `These terms are the agreement between you and ${OPERATOR.legalName} `
-    + '("MenuMatch", "we") about your use of the MenuMatch app and '
-    + 'menumatch.store. Using MenuMatch means you accept them.',
+    + '("Swipzy", "we") about your use of the Swipzy app and '
+    + 'menumatch.store. Using Swipzy means you accept them.',
   sections: [
     {
-      heading: 'Who can use MenuMatch',
+      heading: 'Who can use Swipzy',
       blocks: [
         p('You must be at least 13 years old. If you are under 18, you may use '
-          + 'MenuMatch only with the involvement of a parent or guardian who '
+          + 'Swipzy only with the involvement of a parent or guardian who '
           + 'accepts these terms on your behalf.'),
         p('Some countries set a higher minimum age for consenting to data '
           + 'processing on your own — 16 in parts of the EU. Where that applies '
@@ -234,10 +240,10 @@ export const TERMS: LegalDoc = {
         p('You keep ownership of everything you post. We do not claim it, and we '
           + 'do not sell it.'),
         p('To run the service we need your permission to do specific things with '
-          + 'what you post. So you grant MenuMatch a non-exclusive, worldwide, '
+          + 'what you post. So you grant Swipzy a non-exclusive, worldwide, '
           + 'royalty-free licence to host, store, reproduce, resize and display '
           + 'your recipes and photographs, for the purpose of operating and '
-          + 'promoting MenuMatch. That licence covers showing your recipe in the '
+          + 'promoting Swipzy. That licence covers showing your recipe in the '
           + 'discovery deck, in search, in another user’s cookbook, and in '
           + 'screenshots of the app.'),
         callout('This licence exists so the app can show your recipe to other '
@@ -263,7 +269,7 @@ export const TERMS: LegalDoc = {
             + 'systems without written permission.',
           'Interfere with anyone else’s use of the service, or with the ranking '
             + 'of recipes — no vote manipulation, no fake accounts, no bot saves.',
-          'Use MenuMatch to build a competing dataset or to train a machine '
+          'Use Swipzy to build a competing dataset or to train a machine '
             + 'learning model on other people’s recipes.',
         ),
       ],
@@ -283,7 +289,7 @@ export const TERMS: LegalDoc = {
     {
       heading: 'Copyright complaints',
       blocks: [
-        p('If you believe a recipe on MenuMatch infringes your copyright, send a '
+        p('If you believe a recipe on Swipzy infringes your copyright, send a '
           + `notice to ${OPERATOR.copyrightEmail} containing: your contact `
           + 'details; identification of the work; identification of the '
           + 'infringing recipe; a statement that you believe in good faith the '
@@ -300,7 +306,7 @@ export const TERMS: LegalDoc = {
     {
       heading: 'The AI features',
       blocks: [
-        p('MenuMatch can read a photograph of a recipe and fill in the composer '
+        p('Swipzy can read a photograph of a recipe and fill in the composer '
           + 'fields for you, and can estimate the nutrition of a recipe from its '
           + 'ingredients. Both use a third-party model (Anthropic’s Claude).'),
         p('Both are drafting aids and both are sometimes wrong. The scan can '
@@ -318,7 +324,7 @@ export const TERMS: LegalDoc = {
     {
       heading: 'Food safety',
       blocks: [
-        p('MenuMatch hosts recipes written by its users. We do not test them, '
+        p('Swipzy hosts recipes written by its users. We do not test them, '
           + 'cook them, or verify their claims — including their allergen and '
           + 'dietary tags.'),
         callout('If you have a food allergy or intolerance, read the full '
@@ -334,21 +340,21 @@ export const TERMS: LegalDoc = {
     {
       heading: 'The service itself',
       blocks: [
-        p('MenuMatch is provided as it is. We do not promise it will be '
+        p('Swipzy is provided as it is. We do not promise it will be '
           + 'uninterrupted, error-free, or that any recipe will suit you.'),
         p('We may change, suspend or discontinue features. Where a change removes '
           + 'something you rely on we will give notice if we reasonably can. You '
           + 'can export your data at any time from Settings.'),
-        p('You may stop using MenuMatch at any time.'),
+        p('You may stop using Swipzy at any time.'),
       ],
     },
     {
       heading: 'Disclaimers and liability',
       blocks: [
-        p('To the fullest extent the law allows, MenuMatch is provided without '
+        p('To the fullest extent the law allows, Swipzy is provided without '
           + 'warranties of any kind, express or implied, including merchantability, '
           + 'fitness for a particular purpose and non-infringement.'),
-        p('To the fullest extent the law allows, MenuMatch is not liable for '
+        p('To the fullest extent the law allows, Swipzy is not liable for '
           + 'indirect, incidental, special, consequential or punitive damages, or '
           + 'for loss of profits, data or goodwill, arising from your use of the '
           + 'service or from any recipe on it. Our total liability for any claim '
@@ -364,7 +370,7 @@ export const TERMS: LegalDoc = {
     {
       heading: 'Indemnity',
       blocks: [
-        p('You agree to indemnify MenuMatch against claims, damages and '
+        p('You agree to indemnify Swipzy against claims, damages and '
           + 'reasonable legal costs arising from recipes you post, from your '
           + 'breach of these terms, or from your infringement of someone else’s '
           + 'rights.'),
@@ -387,7 +393,7 @@ export const TERMS: LegalDoc = {
       blocks: [
         p('We may update these terms. If a change materially affects your rights '
           + 'we will give notice in the app before it takes effect. Continuing to '
-          + 'use MenuMatch after that means you accept the new terms; if you do '
+          + 'use Swipzy after that means you accept the new terms; if you do '
           + 'not, stop using the service and delete your account.'),
       ],
     },
@@ -402,7 +408,7 @@ export const TERMS: LegalDoc = {
   footer:
     'If any part of these terms is held unenforceable, the rest continues to '
     + 'apply. These terms, together with the Community Guidelines and the '
-    + 'Privacy Policy, are the entire agreement between you and MenuMatch.',
+    + 'Privacy Policy, are the entire agreement between you and Swipzy.',
 };
 
 // ---------------------------------------------------------------- privacy
@@ -413,7 +419,7 @@ export const PRIVACY: LegalDoc = {
   effective: EFFECTIVE,
   readingTime: '9 min read',
   intro:
-    'This explains what MenuMatch stores about you, why, who else sees it, and '
+    'This explains what Swipzy stores about you, why, who else sees it, and '
     + 'how to get it back or get rid of it. It describes what the app actually '
     + 'does, not what a privacy policy generator thinks an app might do.',
   sections: [
@@ -456,7 +462,7 @@ export const PRIVACY: LegalDoc = {
           + 'identifier that the app generates on your device, along with the '
           + 'platform (iOS, Android or web) and the app version. It is not your '
           + 'hardware ID, your advertising ID or anything Apple or Google issues, '
-          + 'and it cannot be linked to you outside MenuMatch.'),
+          + 'and it cannot be linked to you outside Swipzy.'),
         p('Safety records. Reports you file, appeals you make, moderation '
           + 'decisions about your account, and an internal audit log of '
           + 'administrator actions. We keep these because a moderation system '
@@ -505,7 +511,7 @@ export const PRIVACY: LegalDoc = {
             + 'service you asked for.',
           'To rank and personalise the deck, and to keep already-seen recipes '
             + 'out of it — our legitimate interest in the product working, and '
-            + 'the core of what MenuMatch is.',
+            + 'the core of what Swipzy is.',
           'To show your recipes to other people — necessary to provide the '
             + 'service.',
           'To keep the platform safe and enforce the guidelines — our legitimate '
@@ -530,7 +536,7 @@ export const PRIVACY: LegalDoc = {
           + 'means it handles the request when you load the page.'),
         p('We also disclose data where the law requires it — a valid legal '
           + 'process — or where it is necessary to investigate a credible threat '
-          + 'to someone’s safety. If MenuMatch is ever sold or merged, account '
+          + 'to someone’s safety. If Swipzy is ever sold or merged, account '
           + 'data would transfer with it, and we would tell you before that '
           + 'happened.'),
         p('That is the complete list. There is no analytics vendor, no crash '
@@ -562,7 +568,7 @@ export const PRIVACY: LegalDoc = {
       blocks: [
         p('Your account and recipes stay until you remove them. Swipe history '
           + 'accumulates while you use the app, because the deck reads it.'),
-        p('When an account is deleted it is immediately taken out of MenuMatch: '
+        p('When an account is deleted it is immediately taken out of Swipzy: '
           + 'sign-in stops working, the profile disappears, and the account’s '
           + 'recipes come out of discovery. After 30 days the personal details '
           + 'are erased — email, username, display name, bio, avatar, age band '
@@ -613,7 +619,7 @@ export const PRIVACY: LegalDoc = {
     {
       heading: 'Children',
       blocks: [
-        p('MenuMatch is not for children under 13, and we do not knowingly '
+        p('Swipzy is not for children under 13, and we do not knowingly '
           + 'collect their data. If you believe a child under 13 has an account, '
           + `tell us at ${OPERATOR.privacyEmail} and we will remove it.`),
       ],
@@ -657,7 +663,7 @@ export const PRIVACY: LegalDoc = {
     },
   ],
   footer:
-    'MenuMatch is the data controller for the information described here.',
+    'Swipzy is the data controller for the information described here.',
 };
 
 export const LEGAL_DOCS = { terms: TERMS, privacy: PRIVACY, guidelines: GUIDELINES };

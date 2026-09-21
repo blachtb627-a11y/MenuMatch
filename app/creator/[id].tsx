@@ -89,7 +89,7 @@ export default function CreatorScreen() {
               <Text style={s.handle}>
                 @{creator.username}
                 {/* §5.3: a company-operated account says so. */}
-                {creator.isSeedAccount ? ' · MenuMatch account' : ''}
+                {creator.isSeedAccount ? ' · Swipzy account' : ''}
               </Text>
             </View>
           </View>

@@ -2,8 +2,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   DIET_OPTIONS, MEAL_OPTIONS, TIME_OPTIONS, NO_FILTERS, type DeckFilters,
 } from './filters';
+import { key, storageReady } from './storageKeys';
 
-const STORAGE_KEY = 'menumatch.deckFilters.v1';
+const STORAGE_KEY = key('deckFilters.v1');
 
 /**
  * Filters outlive the app being closed. Re-picking "lunch, under 30" on every
@@ -17,6 +18,7 @@ const STORAGE_KEY = 'menumatch.deckFilters.v1';
  */
 export async function loadFilters(): Promise<DeckFilters> {
   try {
+    await storageReady();
     const raw = await AsyncStorage.getItem(STORAGE_KEY);
     if (!raw) return NO_FILTERS;
     return sanitiseFilters(JSON.parse(raw));
@@ -27,6 +29,7 @@ export async function loadFilters(): Promise<DeckFilters> {
 
 export async function saveFilters(f: DeckFilters): Promise<void> {
   try {
+    await storageReady();
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(f));
   } catch {
     // A filter that does not survive a restart is not worth an error.

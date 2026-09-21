@@ -13,7 +13,7 @@ module.exports = {
   expo: {
     name: 'Swipzy',
     slug: 'swipzy',
-    version: '0.1.0',
+    version: '1.0.0',
     orientation: 'portrait',
     scheme: 'swipzy',
     userInterfaceStyle: 'dark',
@@ -30,9 +30,38 @@ module.exports = {
       backgroundColor: '#FFFFFF',
       resizeMode: 'contain',
     },
-    ios: { supportsTablet: true, bundleIdentifier: 'app.swipzy.client' },
+    ios: {
+      bundleIdentifier: 'app.swipzy.client',
+      // A build number is per-store-upload and can never be reused, even for
+      // a build that was rejected. `version` only moves when there is
+      // something to tell people about; this moves every submission.
+      //
+      // eas.json sets appVersionSource to "remote", so on an EAS build the
+      // number here is ignored and EAS increments its own. That is not a
+      // preference: EAS can only rewrite a static app.json, and this config is
+      // JavaScript. The value below is what a local or bare build uses.
+      buildNumber: '1',
+      // Off deliberately. Leaving it on means Apple reviews the app on an
+      // iPad, and a phone-width swipe deck stretched to eleven inches is a
+      // rejection nobody needs. Turn it back on after laying the deck out for
+      // a large screen and actually looking at it.
+      supportsTablet: false,
+      // Required. expo-image-picker calls the camera and the library from
+      // src/lib/media.ts, and on iOS a missing usage string is not a refused
+      // prompt — the app is killed the moment the sheet opens. Apple also
+      // rejects vague copy, so these say what each one is actually for.
+      infoPlist: {
+        NSCameraUsageDescription:
+          'Swipzy uses the camera to photograph a dish for a recipe you are '
+          + 'writing, to scan a written recipe, or to scan what is in your kitchen.',
+        NSPhotoLibraryUsageDescription:
+          'Swipzy uses your photos so you can attach one to a recipe you are '
+          + 'writing or set it as your profile picture.',
+      },
+    },
     android: {
       package: 'app.swipzy.client',
+      versionCode: 1,
       adaptiveIcon: {
         foregroundImage: './assets/adaptive-icon.png',
         backgroundColor: '#FFFFFF',

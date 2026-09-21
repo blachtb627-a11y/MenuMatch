@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 import { supabase } from './supabase';
 import { key, storageReady } from './storageKeys';
@@ -45,7 +46,11 @@ export async function registerDevice(): Promise<string> {
     await supabase.rpc('register_device', {
       p_device_key: deviceKey,
       p_platform: Platform.OS,
-      p_app_version: '0.1.0',
+      // Read from the manifest rather than typed here. A hardcoded version
+      // reports whatever it said the day it was written, which is worse than
+      // no version at all when you are trying to work out which build a
+      // problem came from.
+      p_app_version: Constants.expoConfig?.version ?? 'unknown',
     });
   } catch {
     // swallowed deliberately; the deck still works and this retries next launch

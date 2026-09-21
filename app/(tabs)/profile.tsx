@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { router, useFocusEffect } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
@@ -7,6 +7,7 @@ import { Avatar } from '@/components/Avatar';
 import { Button, Screen } from '@/components/ui';
 import { Header } from './cookbook';
 import { listMyRecipes } from '@/lib/composer';
+import { supportMailto } from '@/content/legal';
 import { useSession } from '@/state/session';
 import { colors, radius, space, type } from '@/theme';
 
@@ -119,12 +120,20 @@ export default function Profile() {
                  onPress={() => router.push('/legal/terms')} />
             <Row icon="lock" label="Privacy Policy"
                  onPress={() => router.push('/legal/privacy')} />
-            <Row icon="mail" label="Contact Swipzy" />
+            <Row icon="mail" label="Contact Swipzy"
+                 onPress={() => {
+                   // §20.6 wants a way to reach us that works today, not one
+                   // that depends on the placeholders being filled in.
+                   const url = supportMailto();
+                   if (url) void Linking.openURL(url).catch(() => router.push('/report/problem'));
+                   else router.push('/report/problem');
+                 }} />
           </Section>
 
           <Section title="Account">
             <Row icon="log-out" label="Sign out" onPress={() => void signOut()} />
-            <Row icon="trash-2" label="Delete my account" tone="danger" />
+            <Row icon="trash-2" label="Delete my account" tone="danger"
+                 onPress={() => router.push('/settings/delete-account')} />
           </Section>
 
           <Text style={s.footnote}>

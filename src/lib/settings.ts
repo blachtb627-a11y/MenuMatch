@@ -51,6 +51,25 @@ export const unblockUser = (id: string) =>
 export const isBlockedByMe = (id: string) =>
   rpc<boolean>('is_blocked_by_me', { p_user_id: id });
 
+// ---------------------------------------------------------------- deletion
+
+export type AccountDeletion = {
+  draftsDeleted: number;
+  recipesRemoved: number;
+  /** ISO timestamp: when the pseudonymous shell is erased. */
+  purgeAfter: string;
+};
+
+/**
+ * Deletes the calling account. There is no undo and no confirmation step on
+ * the server — the screen owns that.
+ *
+ * The credential is destroyed as part of this, so the session in hand is dead
+ * the moment it returns and every call after it will fail. Sign out locally
+ * and leave rather than refreshing anything.
+ */
+export const deleteMyAccount = () => rpc<AccountDeletion>('delete_my_account');
+
 // ---------------------------------------------------------------- export
 
 export const exportMyData = () => rpc<Record<string, unknown>>('export_my_data');

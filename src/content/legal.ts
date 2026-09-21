@@ -34,6 +34,21 @@ export const OPERATOR = {
   jurisdiction: '[STATE / COUNTRY]',
 } as const;
 
+/**
+ * Whether OPERATOR carries a real support address yet.
+ *
+ * The values above ship with their brackets still on, and a mailto: link to
+ * "[support@menumatch.store]" opens a mail app addressed to nothing. Until
+ * they are filled in, "Contact Swipzy" routes to the in-app report form, which
+ * reaches the same inbox by a different road and always works.
+ */
+export function supportMailto(): string | null {
+  const address = OPERATOR.supportEmail.replace(/^\[|\]$/g, '');
+  return address.includes('[') || address.includes(']') || !address.includes('@')
+    ? null
+    : `mailto:${address}`;
+}
+
 export const EFFECTIVE = 'Effective 7 September 2026';
 
 export type LegalBlock =
@@ -609,9 +624,13 @@ export const PRIVACY: LegalDoc = {
     {
       heading: 'Deleting your account',
       blocks: [
-        p(`To delete your account, email ${OPERATOR.privacyEmail} from the address `
-          + 'on the account. We action it and confirm when it is done, and the '
-          + '30-day erasure described above runs from that point.'),
+        p('Profile → Delete my account, in the app. You read what it does, type '
+          + 'DELETE to confirm, and it happens immediately — no email, no '
+          + 'waiting for us to action it. The 30-day erasure described above '
+          + 'runs from that moment.'),
+        p(`If you have lost access to the account and cannot reach that screen, `
+          + `email ${OPERATOR.privacyEmail} from the address on the account and `
+          + 'we will do it for you.'),
         p('You can delete individual recipes yourself at any time, from the '
           + 'recipe’s own edit screen.'),
       ],

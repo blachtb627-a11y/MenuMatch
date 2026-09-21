@@ -1,0 +1,956 @@
+[
+ {
+  "creator": "quietkitchen",
+  "slug": "cardamom-buns",
+  "title": "Cardamom Buns",
+  "description": "Grind the cardamom yourself. It is the whole difference between these and a plain sweet bun.",
+  "category": "breakfast",
+  "cuisine": "Swedish",
+  "prep": 40,
+  "cook": 15,
+  "servings": 12,
+  "difficulty": "medium",
+  "ageDays": 0,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 320,
+   "proteinG": 7,
+   "carbsG": 46,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "vegetarian",
+   "allergen-wheat",
+   "allergen-milk",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "cup",
+    "strong white flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "whole milk",
+    "warm"
+   ],
+   [
+    7,
+    1,
+    "g",
+    "dried yeast",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "butter",
+    "softened"
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "caster sugar",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "cardamom pods",
+    "seeds ground"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "egg",
+    "beaten"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "pearl sugar",
+    "to finish"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Grind the cardamom seeds yourself; pre-ground is a different, duller spice.",
+   "Warm the milk to blood heat, stir in the yeast and a spoon of the sugar, and leave 10 minutes.",
+   "Work the flour, salt, remaining sugar and half the cardamom into the milk to a soft dough.",
+   "Knead 10 minutes, then work in the butter a lump at a time until glossy.",
+   "Prove until doubled, about an hour, then roll out and spread with the rest of the butter and cardamom.",
+   "Fold, cut into strips, twist each one into a knot and prove 40 minutes more.",
+   "Brush with egg, scatter pearl sugar, and bake at 425F for 12 minutes until deep gold."
+  ]
+ },
+ {
+  "creator": "quietkitchen",
+  "slug": "sourdough-loaf",
+  "title": "Sourdough Loaf",
+  "description": "Overnight in the fridge does more for the flavour than anything you can do on the day.",
+  "category": "breakfast",
+  "cuisine": "American",
+  "prep": 40,
+  "cook": 45,
+  "servings": 10,
+  "difficulty": "hard",
+  "ageDays": 3,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 190,
+   "proteinG": 6,
+   "carbsG": 38,
+   "fatG": 1,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "vegetarian",
+   "allergen-wheat",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "cup",
+    "strong white flour",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "wholemeal flour",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "sourdough starter",
+    "active and bubbling"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "water",
+    "plus 2 tbsp"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "fine salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Feed the starter 6 hours ahead; it should double and smell of yoghurt, not vinegar.",
+   "Mix the flours and water and leave 45 minutes so the flour hydrates.",
+   "Work in the starter and salt, then fold the dough over itself four times at half-hour intervals.",
+   "Leave to rise 4 hours at room temperature, until risen by half and domed.",
+   "Shape into a tight round, seam down in a floured banneton, and refrigerate overnight.",
+   "Bake from cold in a lidded pot at 475F for 20 minutes, then 25 minutes uncovered.",
+   "Cool completely before cutting; a warm loaf tears rather than slices."
+  ]
+ },
+ {
+  "creator": "quietkitchen",
+  "slug": "spelt-kifli",
+  "title": "Spelt Kifli",
+  "description": "Spelt takes less kneading than wheat and goes slack if you push it. Stop while it still springs back.",
+  "category": "breakfast",
+  "cuisine": "Serbian",
+  "prep": 30,
+  "cook": 18,
+  "servings": 10,
+  "difficulty": "medium",
+  "ageDays": 6,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 210,
+   "proteinG": 6,
+   "carbsG": 32,
+   "fatG": 7,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "vegetarian",
+   "allergen-wheat",
+   "allergen-milk",
+   "allergen-eggs",
+   "allergen-sesame"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "cup",
+    "spelt flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "milk",
+    "warm"
+   ],
+   [
+    7,
+    1,
+    "g",
+    "dried yeast",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "butter",
+    "melted"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "sugar",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "egg",
+    "beaten"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "sesame seeds",
+    null
+   ]
+  ],
+  "steps": [
+   "Stir the yeast and sugar into the warm milk and leave until it foams.",
+   "Mix in the spelt flour, salt and butter, and knead to a soft dough — spelt needs a lighter hand than wheat.",
+   "Prove an hour, then roll into a large circle and cut it into twelve wedges.",
+   "Roll each wedge from the wide end to the point, and curve it into a crescent.",
+   "Prove 30 minutes on the tray, brush with egg and scatter the sesame.",
+   "Bake at 400F for 18 minutes until the tops are deep gold."
+  ]
+ },
+ {
+  "creator": "quietkitchen",
+  "slug": "gougeres",
+  "title": "Gougeres",
+  "description": "Do not open the oven. They rise on steam, and steam leaves the moment you look.",
+  "category": "snacks",
+  "cuisine": "French",
+  "prep": 15,
+  "cook": 25,
+  "servings": 8,
+  "difficulty": "medium",
+  "ageDays": 9,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 180,
+   "proteinG": 7,
+   "carbsG": 12,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "vegetarian",
+   "company-worthy",
+   "allergen-wheat",
+   "allergen-milk",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "butter",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "egg",
+    null
+   ],
+   [
+    4,
+    1,
+    "oz",
+    "gruyere",
+    "finely grated"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "nutmeg",
+    "grated"
+   ]
+  ],
+  "steps": [
+   "Bring the water, butter and salt to a rolling boil.",
+   "Tip in all the flour at once and beat hard until it leaves the side of the pan.",
+   "Cool for five minutes, or the eggs will scramble on contact.",
+   "Beat the eggs in one at a time; the paste should fall from the spoon in a thick ribbon.",
+   "Fold through most of the cheese and the nutmeg.",
+   "Pipe walnut-sized mounds, top with the rest of the cheese, and bake at 400F for 25 minutes.",
+   "Do not open the oven before 20 minutes or they will sink."
+  ]
+ },
+ {
+  "creator": "quietkitchen",
+  "slug": "onigiri",
+  "title": "Onigiri",
+  "description": "Wet, salted hands. It seasons the rice and it is the only way it will not stick to you instead.",
+  "category": "lunch",
+  "cuisine": "Japanese",
+  "prep": 15,
+  "cook": 20,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 12,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 13,
+   "carbsG": 58,
+   "fatG": 6,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "meal-prep",
+   "allergen-eggs",
+   "allergen-soy"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "short grain rice",
+    "rinsed until the water runs clear"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "egg",
+    null
+   ],
+   [
+    4,
+    1,
+    "slice",
+    "cooked pork",
+    "or ham"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "soy sauce",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "nori sheet",
+    "cut into strips"
+   ]
+  ],
+  "steps": [
+   "Rinse the rice until the water runs clear, then cook it and let it stand 10 minutes covered.",
+   "Beat the eggs with a splash of soy and cook them flat in a wide pan, then cut into squares.",
+   "Wet your hands and salt them; the salt seasons the rice and stops it sticking.",
+   "Press a handful of warm rice into a triangle, lay the egg and pork on top, and press a second layer over.",
+   "Wrap a strip of nori around the base of each.",
+   "Eat within the day; refrigerated rice goes hard and no amount of warming brings it back."
+  ]
+ },
+ {
+  "creator": "quietkitchen",
+  "slug": "asparagus-soup",
+  "title": "Asparagus Soup",
+  "description": "The woody ends make the stock. Snap them off, simmer them, and throw them out afterwards.",
+  "category": "lunch",
+  "cuisine": "German",
+  "prep": 15,
+  "cook": 30,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 15,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 240,
+   "proteinG": 7,
+   "carbsG": 14,
+   "fatG": 18,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "vegetarian",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "green asparagus",
+    "woody ends snapped off"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "chopped"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    4,
+    1,
+    "cup",
+    "vegetable stock",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "double cream",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "juice only"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "white pepper",
+    null
+   ]
+  ],
+  "steps": [
+   "Snap the woody ends off the asparagus and simmer them in the stock for 15 minutes, then strain them out.",
+   "Cut the tips off and set them aside; chop the rest.",
+   "Soften the onion in the butter without colouring it.",
+   "Add the chopped stalks and the asparagus stock and simmer 12 minutes.",
+   "Blend until completely smooth, then pass it through a sieve — asparagus keeps its threads otherwise.",
+   "Stir in the cream, warm through without boiling, and sharpen with lemon.",
+   "Blanch the tips for 2 minutes and drop them into each bowl."
+  ]
+ },
+ {
+  "creator": "quietkitchen",
+  "slug": "koshary",
+  "title": "Koshary",
+  "description": "The fried onions are not a garnish. Give them the twenty minutes they need and do the rest around them.",
+  "category": "dinner",
+  "cuisine": "Egyptian",
+  "prep": 25,
+  "cook": 45,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 18,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 18,
+   "carbsG": 88,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "vegan",
+   "batch-cooking",
+   "one-pot",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "brown lentils",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "long grain rice",
+    "rinsed"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "small pasta",
+    null
+   ],
+   [
+    1,
+    1,
+    "can",
+    "chickpeas",
+    "drained"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "onion",
+    "sliced thin"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "chopped tomatoes",
+    null
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "white wine vinegar",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "cumin",
+    "ground"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "vegetable oil",
+    "for frying"
+   ]
+  ],
+  "steps": [
+   "Fry the onions in batches until dark brown and crisp, and drain them on paper. This takes 20 minutes and is the dish.",
+   "Simmer the lentils until tender but whole, about 20 minutes, and drain.",
+   "Cook the rice and the pasta separately so neither goes to mush.",
+   "For the sauce, fry the garlic and cumin in a spoon of the onion oil, add the tomatoes and vinegar, and simmer 15 minutes.",
+   "Layer rice, lentils, pasta and chickpeas in a wide dish.",
+   "Pour the hot sauce over and pile the fried onions on top at the very last moment."
+  ]
+ },
+ {
+  "creator": "quietkitchen",
+  "slug": "ajiaco",
+  "title": "Ajiaco",
+  "description": "Two kinds of potato, and they are doing different jobs: one dissolves to thicken it, one stays whole.",
+  "category": "dinner",
+  "cuisine": "Colombian",
+  "prep": 20,
+  "cook": 60,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 21,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 480,
+   "proteinG": 38,
+   "carbsG": 46,
+   "fatG": 16,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "one-pot",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "chicken thighs",
+    "on the bone"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "potato",
+    "floury, thickly sliced"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "waxy potato",
+    "in chunks"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "corn on the cob",
+    "in thick rounds"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "halved"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "guascas",
+    "dried"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "double cream",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "capers",
+    "drained"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "avocado",
+    "to serve"
+   ]
+  ],
+  "steps": [
+   "Simmer the chicken with the onion and garlic in water to cover for 35 minutes, then lift it out and shred it.",
+   "Add the floury potatoes to the broth and let them collapse completely — that is what thickens it.",
+   "Add the waxy potatoes and the corn and cook 20 minutes more, until the waxy ones hold but give.",
+   "Stir the guascas in for the last 5 minutes only; longer and they turn bitter.",
+   "Return the chicken and season.",
+   "Serve with the cream, capers and avocado on the side, for each person to add."
+  ]
+ },
+ {
+  "creator": "quietkitchen",
+  "slug": "apple-cake-with-vanilla-ice-cream",
+  "title": "Apple Cake with Vanilla Ice Cream",
+  "description": "Warm, not hot. Straight from the oven the cake is too loose to hold the ice cream up.",
+  "category": "dessert",
+  "cuisine": "Swedish",
+  "prep": 20,
+  "cook": 45,
+  "servings": 8,
+  "difficulty": "easy",
+  "ageDays": 24,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 390,
+   "proteinG": 5,
+   "carbsG": 52,
+   "fatG": 18,
+   "source": "creator"
+  },
+  "tags": [
+   "dessert",
+   "vegetarian",
+   "allergen-wheat",
+   "allergen-milk",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "apple",
+    "peeled and sliced thick"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "butter",
+    "softened"
+   ],
+   [
+    2,
+    3,
+    "cup",
+    "caster sugar",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "egg",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "baking powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "cinnamon",
+    "ground"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "vanilla ice cream",
+    "scoops, to serve"
+   ]
+  ],
+  "steps": [
+   "Use a firm apple that holds its shape; a soft one turns to sauce and wets the crumb.",
+   "Cream the butter and sugar until pale, then beat in the eggs one at a time.",
+   "Fold in the flour, baking powder and cinnamon.",
+   "Spread into a lined tin and press the apple slices in, standing them on edge.",
+   "Bake at 350F for 45 minutes until a skewer comes out clean.",
+   "Serve warm rather than hot, with the ice cream going soft against it."
+  ]
+ },
+ {
+  "creator": "quietkitchen",
+  "slug": "canneles",
+  "title": "Canneles",
+  "description": "The batter has to rest a day. Rushed, they rise like a souffle and collapse into a pancake.",
+  "category": "dessert",
+  "cuisine": "French",
+  "prep": 20,
+  "cook": 55,
+  "servings": 12,
+  "difficulty": "hard",
+  "ageDays": 27,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 210,
+   "proteinG": 4,
+   "carbsG": 32,
+   "fatG": 7,
+   "source": "creator"
+  },
+  "tags": [
+   "dessert",
+   "vegetarian",
+   "company-worthy",
+   "allergen-wheat",
+   "allergen-milk",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "whole milk",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "vanilla pod",
+    "split and scraped"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "egg yolk",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "egg",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "caster sugar",
+    null
+   ],
+   [
+    3,
+    4,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "salt",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "butter",
+    "melted, for the moulds"
+   ]
+  ],
+  "steps": [
+   "Warm the milk with the butter and the split vanilla pod, then take it off the heat and leave it to infuse.",
+   "Whisk the yolks, whole egg and sugar, then the flour and salt, to a smooth batter.",
+   "Pour the warm milk in slowly, whisking — all at once and the egg cooks into threads.",
+   "Strain, cover, and rest in the fridge for 24 hours. This is not optional; an unrested batter rises and collapses.",
+   "Brush the moulds thickly with melted butter and chill them until set.",
+   "Fill to just below the rim and bake at 475F for 15 minutes, then 375F for 40 minutes.",
+   "They should be almost black outside and custardy within. Turn them out at once or they steam and soften."
+  ]
+ }
+]

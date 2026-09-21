@@ -1,6 +1,6 @@
 # Seed catalog
 
-Nine seed accounts, 180 published recipes. All flagged `is_seed_account`, which
+Ten seed accounts, 190 published recipes. All flagged `is_seed_account`, which
 the creator page and the admin screens surface — nothing here pretends to be
 somebody's real cooking.
 
@@ -15,6 +15,7 @@ somebody's real cooking.
 | `sundaysimmer` | braises, stews and the long cook | 20 |
 | `tenminutetable` | food that is on the table before you have decided what else to do | 20 |
 | `pourandplate` | drinks and the small plates that go with them | 20 |
+| `quietkitchen` | classics, unhurried — picked for the photographs | 10 |
 
 ## Loading
 
@@ -24,7 +25,7 @@ somebody's real cooking.
 select public.seed_recipes(<contents of recipes-demo.json>::jsonb);
 ```
 
-The eight files under `creators/` do not. `recipes_publish_requires_rights`
+The nine files under `creators/` do not. `recipes_publish_requires_rights`
 refuses a published recipe with no cover, so a cover has to be resolved *before*
 each recipe is inserted — see `resolve-covers.sql`, which is the reproducible
 form of how this catalog was built, and which ends with the load and the
@@ -58,6 +59,33 @@ not see any.
 
 Verification is a real GET, not a HEAD — `upload.wikimedia.org` rate-limits
 HEAD far harder, and a GET is what a browser will do anyway.
+
+## `quietkitchen` was chosen the other way round
+
+The other nine accounts picked dishes and then hunted for a photograph of each.
+That is what the filename check, the deny-list and the vision pass in
+`resolve-covers.sql` are for: they are all damage control for having already
+committed to a dish.
+
+This one started from the pictures. Commons keeps community-assessed
+categories — `Quality images of food` and `Featured pictures of food`, 158 files
+between them — which are vetted for photographic quality by people, not by a
+heuristic. The pool was read first, the ten best plated dishes were taken from
+it, and the recipes were written to match. Nothing had to be rejected for
+looking bad, because nothing that looked bad was ever a candidate.
+
+Four candidates were still dropped, and only by looking at them:
+
+- a soup described on Commons as courgette is plainly orange in the photograph.
+  Either the picture or the source would have had to be misdescribed, so it went.
+- "Four rainbow trouts on a grill, wrapped in aluminum foil" — and that is what
+  you see. Foil.
+- a mango tart that does not read as a tart, or as appetising.
+- and one kept: a cake that looked like tiramisu in thumbnail and turned out,
+  from its own description, to be the cocoa-dusted chocolate cake it says it is.
+
+That last one is the argument for reading the description as well as looking.
+The first three are the argument for looking at all.
 
 ## Known limitation
 

@@ -81,6 +81,15 @@ def main(path):
     # Android masks the outer quarter of the foreground, so this sits smaller.
     place(knockout_white(mark), 1024, 0.60, alpha=True).save('assets/adaptive-icon.png')
     place(mark, 96, 0.94).save('assets/favicon.png')
+    # The in-app mark, for the welcome screen.
+    #
+    # Opaque on its own white field, not a transparent cut-out. The card in
+    # the artwork is itself white, so knocking the white out punches a hole
+    # straight through it, and the navy hand disappears against any dark
+    # ground — rendered side by side, both failures are obvious. The screen
+    # rounds the corners with overflow instead, which gives the same tile and
+    # cannot be used wrongly. 512 because it is drawn at about 108pt.
+    place(mark, 512, 0.72).save('assets/mark.png')
     # The splash is the one place the wordmark belongs.
     place(trim(im), 1024, 0.70).save('assets/splash.png')
 

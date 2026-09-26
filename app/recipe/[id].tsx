@@ -144,7 +144,7 @@ export default function RecipeDetail() {
               </View>
               <Text style={s.creatorName}>{recipe.creator.displayName}</Text>
               {recipe.creator.isSeedAccount ? (
-                <View style={s.seedBadge}><Text style={s.seedBadgeLabel}>MENUMATCH</Text></View>
+                <View style={s.seedBadge}><Text style={s.seedBadgeLabel}>SWIPZY</Text></View>
               ) : null}
               {/* §3's lexicon is Save, not Like — the count is of the same act
                   the swipe records and the ranking reads. */}

@@ -137,7 +137,7 @@ export default function AdminUserScreen() {
               </View>
             ) : null}
             {user.isSeedAccount ? (
-              <View style={s.rolePill}><Text style={s.roleLabel}>MENUMATCH</Text></View>
+              <View style={s.rolePill}><Text style={s.roleLabel}>SWIPZY</Text></View>
             ) : null}
           </View>
 

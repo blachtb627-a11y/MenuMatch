@@ -6,7 +6,11 @@ import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
-import { SwipeCard } from '@/components/SwipeCard';
+import Animated, {
+  interpolate, useAnimatedStyle, useSharedValue, withSpring, withTiming,
+  type SharedValue,
+} from 'react-native-reanimated';
+import { SwipeCard, type SwipeCardHandle } from '@/components/SwipeCard';
 import { Toast } from '@/components/Toast';
 import { Button, EmptyState, Loading, Screen } from '@/components/ui';
 import { LessLikeThisSheet } from '@/components/LessLikeThisSheet';
@@ -22,7 +26,7 @@ import {
 import { loadFilters, saveFilters } from '@/lib/filterStorage';
 import { fetchAd, type ServedAd } from '@/lib/ads';
 import { getDeviceKey } from '@/lib/device';
-import { colors, fill, radius, space, type, elevate } from '@/theme';
+import { colors, fill, motion, radius, space, type, elevate } from '@/theme';
 import type { Recipe, RecipeCard, SwipeAction } from '@/lib/types';
 
 /**
@@ -73,6 +77,28 @@ export default function Discover() {
 
   const top = deck.cards[0];
   const next = deck.cards[1];
+
+  /**
+   * How far the front card has travelled, -1 to 1, written every frame by the
+   * card itself. The card underneath reads it and comes forward as the front
+   * one leaves, which is the whole reason the deck reads as a stack of
+   * objects rather than one card on a dark background.
+   */
+  const dragProgress = useSharedValue(0);
+  const cardRef = useRef<SwipeCardHandle>(null);
+
+  /**
+   * Settling after the deck advances.
+   *
+   * At full progress the card underneath sits exactly where the front card
+   * sits, so it is completely hidden by it — which is what makes the handoff
+   * invisible. The card that takes its place behind starts out hidden in the
+   * same way and slides down into its resting peek, so the stack refills
+   * rather than blinking into existence.
+   */
+  useEffect(() => {
+    dragProgress.value = withTiming(0, { duration: motion.settle });
+  }, [top?.id, dragProgress]);
 
   /**
    * The full recipe for the card in front, so it can be read by scrolling
@@ -153,7 +179,12 @@ export default function Discover() {
         return;
       }
 
-      void Haptics.selectionAsync().catch(() => {});
+      // Saving and passing should not feel the same in the hand. Saving is the
+      // one that adds something, so it gets the heavier tap.
+      void (action === 'save'
+        ? Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
+        : Haptics.selectionAsync()
+      ).catch(() => {});
       swipes.current += 1;
       if (ad && !adVisible && swipes.current >= nextAdAt.current) setAdVisible(true);
       await deck.act(action, target);
@@ -161,6 +192,23 @@ export default function Discover() {
     },
     [deck, isGuest, setPendingSave, ad, adVisible],
   );
+
+  /**
+   * What the buttons do. They throw the card the same way a drag does rather
+   * than deleting it out from under the person: a deck where tapping and
+   * swiping look like different apps is a deck with two personalities.
+   *
+   * The guest gate has to come first, because it navigates away — flinging
+   * the card and then leaving the screen would lose it.
+   */
+  const requestAction = useCallback((action: SwipeAction) => {
+    if (action === 'save' && isGuest) {
+      void handle(action);
+      return;
+    }
+    if (cardRef.current) cardRef.current.fling(action);
+    else void handle(action);
+  }, [handle, isGuest]);
 
   const onUndo = useCallback(async () => {
     const last = deck.lastAction;
@@ -221,16 +269,15 @@ export default function Discover() {
             <>
               {/* the card underneath, so the deck reads as a stack */}
               {next ? (
-                <View style={s.behind} pointerEvents="none">
-                  <SwipeCard key={next.id} card={next} interactive={false}
-                             onAction={() => {}} onOpen={() => {}} />
-                </View>
+                <BehindCard card={next} progress={dragProgress} />
               ) : null}
               <SwipeCard
                 key={top.id}
                 card={top}
                 details={details[top.id] ?? null}
                 interactive={!adVisible}
+                progress={dragProgress}
+                handleRef={cardRef}
                 onAction={(a) => void handle(a, top)}
                 onOpen={() => router.push(`/recipe/${top.id}`)}
               />
@@ -258,11 +305,11 @@ export default function Discover() {
           />
           <ControlButton
             icon="x" label="Pass on this recipe" tone="clay"
-            disabled={!top || adVisible} onPress={() => void handle('pass')}
+            disabled={!top || adVisible} onPress={() => requestAction('pass')}
           />
           <ControlButton
             icon="bookmark" label="Save this recipe" tone="mint"
-            disabled={!top || adVisible} onPress={() => void handle('save')}
+            disabled={!top || adVisible} onPress={() => requestAction('save')}
           />
           <ControlButton
             icon="more-horizontal" label="More options" tone="neutral"
@@ -288,6 +335,46 @@ export default function Discover() {
 }
 
 
+/**
+ * The card waiting underneath.
+ *
+ * It used to be a fixed transform, so the stack was a painting of a stack:
+ * drag the front card halfway off and nothing behind it moved. Now it rises
+ * and brightens in step with the drag, and at full travel it is sitting
+ * exactly where the front card was — which is what lets the swap happen
+ * without a seam.
+ *
+ * Non-interactive on purpose. It is scenery until it is the front card.
+ */
+function BehindCard({
+  card, progress,
+}: { card: RecipeCard; progress: SharedValue<number> }) {
+  const style = useAnimatedStyle(() => {
+    const travelled = Math.min(Math.abs(progress.value), 1);
+    return {
+      opacity: interpolate(travelled, [0, 1], [0.55, 1]),
+      transform: [
+        { scale: interpolate(travelled, [0, 1], [0.94, 1]) },
+        // 30, not the 14 this used to be. Scaling to 0.94 pulls the bottom
+        // edge up by about 3% of the card's height — on a phone that is
+        // roughly 18pt — so an offset of 14 left the card underneath ending
+        // *above* the one in front and completely hidden by it. The stack
+        // the comments described was not on the screen. 30 clears the shrink
+        // with a sliver to spare on every size we render at.
+        { translateY: interpolate(travelled, [0, 1], [30, 0]) },
+      ],
+    };
+  });
+
+  return (
+    <Animated.View style={[s.behind, style]} pointerEvents="none">
+      <SwipeCard key={card.id} card={card} interactive={false}
+                 onAction={() => {}} onOpen={() => {}} />
+    </Animated.View>
+  );
+}
+
+
 function Banner({ text }: { text: string }) {
   return (
     <View style={s.banner}>
@@ -296,6 +383,8 @@ function Banner({ text }: { text: string }) {
   );
 }
 
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 function ControlButton({
   icon, label, tone, onPress, disabled, small,
@@ -307,6 +396,14 @@ function ControlButton({
   disabled?: boolean;
   small?: boolean;
 }) {
+  // A spring rather than a flat scale on `pressed`. The flat version snaps to
+  // 0.94 and snaps back, which at this size reads as the button flickering;
+  // the spring gives it the small overshoot that makes it feel like something
+  // was pushed.
+  const press = useSharedValue(0);
+  const pressStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: interpolate(press.value, [0, 1], [1, 0.88]) }],
+  }));
   // Pass takes a neutral fill with a clay glyph, not a clay wash: clay at 14%
   // over a near-black ground resolves to #261E15, which reads as mud rather
   // than as a colour. The warmth that §18.3 asks for lives in the mark.
@@ -318,13 +415,15 @@ function ControlButton({
   const size = small ? 46 : 62;
 
   return (
-    <Pressable
+    <AnimatedPressable
       onPress={onPress}
+      onPressIn={() => { press.value = withSpring(1, { damping: 18, stiffness: 420 }); }}
+      onPressOut={() => { press.value = withSpring(0, { damping: 12, stiffness: 320 }); }}
       disabled={disabled}
       accessibilityRole="button"
       accessibilityLabel={label}
       accessibilityState={{ disabled: !!disabled }}
-      style={({ pressed }) => [
+      style={[
         s.control,
         {
           width: size, height: size, borderRadius: size / 2,
@@ -333,12 +432,12 @@ function ControlButton({
         // Only the two full-size controls are lifted; lifting all four would
         // flatten the difference between the actions and the utilities.
         !small && elevate.control,
-        pressed && { transform: [{ scale: 0.94 }] },
-        disabled && { opacity: 0.35 },
+        disabled ? { opacity: 0.35 } : null,
+        pressStyle,
       ]}
     >
       <Feather name={icon} size={small ? 18 : 24} color={palette.fg} />
-    </Pressable>
+    </AnimatedPressable>
   );
 }
 
@@ -353,11 +452,20 @@ const s = StyleSheet.create({
   deckArea: { flex: 1, marginHorizontal: space.lg, marginBottom: space.xl },
   behind: {
     ...fill,
-    // Depth comes from the offset; the opacity only has to keep the next
-    // card's photograph from competing with the top one. Against a ground this
-    // dark, much below 0.5 and the stack stops reading as a stack at all.
-    transform: [{ scale: 0.94 }, { translateY: 14 }],
-    opacity: 0.5,
+    // The resting scale, offset and opacity live in BehindCard's animated
+    // style, because they are the start of a movement rather than a fixed
+    // position.
+    //
+    // The outline is the exception the theme allows itself — "the handful of
+    // cases where the outline *is* the control". Measured off a screenshot,
+    // the sliver of the card underneath renders at rgb(10,13,15) against a
+    // ground of rgb(9,11,10): it is there, and it is invisible. There is no
+    // surface to separate by value, because the bottom of every card is
+    // deliberately near-black so the title reads over the photograph. So the
+    // edge itself is drawn. The card in front covers the other three sides.
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.borderBright,
   },
 
   controls: {

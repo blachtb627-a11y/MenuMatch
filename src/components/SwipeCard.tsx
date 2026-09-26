@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useImperativeHandle, useState } from 'react';
 import {
   ActivityIndicator, Pressable, StyleSheet, Text, View, useWindowDimensions,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
-  interpolate, runOnJS, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue,
-  withSpring, withTiming,
+  interpolate, runOnJS, useAnimatedReaction, useAnimatedScrollHandler,
+  useAnimatedStyle, useSharedValue, withSpring, withTiming,
+  type SharedValue,
 } from 'react-native-reanimated';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from './RecipeCover';
@@ -22,6 +23,12 @@ import type { Recipe, RecipeCard as Card, SwipeAction } from '@/lib/types';
  * dominant element with the content anchored to the bottom edge, and drag
  * feedback is a colour wash plus a growing edge indicator — deliberately not a
  * stamp overlay, and with no rotation-and-fling physics.
+ *
+ * The card owns its own exit. Until now the swipe told the deck immediately
+ * and the deck dropped the card from its array on the spot, so the card
+ * unmounted mid-flight and the exit animation never ran — recipes teleported.
+ * The deck is only told once the card has actually left, which is also what
+ * makes the card underneath worth animating: there is now a moment to see it.
  *
  * The recipe reads on the card itself. The photo is the first screenful and
  * scrolling brings the ingredients and method up over it, because a tap target
@@ -42,8 +49,11 @@ const VELOCITY_ESCAPE = 800;
 const H_ACTIVATE = 14;
 const V_RELEASE = 10;
 
+/** Lets the buttons under the deck throw the card the way a drag does. */
+export type SwipeCardHandle = { fling: (action: SwipeAction) => void };
+
 export function SwipeCard({
-  card, details, onAction, onOpen, interactive,
+  card, details, onAction, onOpen, interactive, progress, handleRef,
 }: {
   card: Card;
   /** The full recipe, once it has arrived. Null while it is still loading. */
@@ -51,6 +61,13 @@ export function SwipeCard({
   onAction: (action: SwipeAction) => void;
   onOpen: () => void;
   interactive: boolean;
+  /**
+   * Where this card is between resting (0) and gone (±1), written every frame.
+   * The deck reads it to bring the card underneath forward, so the stack
+   * responds to the drag instead of sitting still behind it.
+   */
+  progress?: SharedValue<number>;
+  handleRef?: React.Ref<SwipeCardHandle>;
 }) {
   const { width } = useWindowDimensions();
   const threshold = width * SWIPE_FRACTION;
@@ -59,11 +76,44 @@ export function SwipeCard({
 
   const dx = useSharedValue(0);
   const dy = useSharedValue(0);
+  /** Latched once the card is on its way out, so it cannot be thrown twice. */
   const gone = useSharedValue(0);
 
   const complete = (action: SwipeAction) => {
     onAction(action);
   };
+
+  // Follows the spring back as well as the drag, so letting go short of the
+  // threshold settles the card underneath instead of dropping it.
+  useAnimatedReaction(
+    () => dx.value,
+    (v) => {
+      if (progress) progress.value = Math.max(-1, Math.min(1, v / threshold));
+    },
+    [threshold],
+  );
+
+  /** The throw itself, shared by the gesture and the buttons. */
+  const throwOut = (action: SwipeAction, fromVelocity = 0) => {
+    'worklet';
+    if (gone.value) return;
+    gone.value = 1;
+    const toRight = action === 'save';
+    dx.value = withTiming(
+      toRight ? width * 1.4 : -width * 1.4,
+      { duration: motion.cardExit },
+      // The deck is told when the card has gone, not when it was let go.
+      // Telling it early is what used to cut the animation off.
+      () => { runOnJS(complete)(action); },
+    );
+    dy.value = withTiming(fromVelocity > 0 ? 24 : 0, { duration: motion.cardExit });
+  };
+
+  // Deliberately not memoised: throwOut closes over the current onAction, and
+  // a stale one would tell the deck about a card it has already moved past.
+  useImperativeHandle(handleRef, () => ({
+    fling: (action: SwipeAction) => { throwOut(action); },
+  }));
 
   const pan = Gesture.Pan()
     .enabled(interactive)
@@ -72,19 +122,17 @@ export function SwipeCard({
     .activeOffsetX([-H_ACTIVATE, H_ACTIVATE])
     .failOffsetY([-V_RELEASE, V_RELEASE])
     .onChange((e) => {
+      if (gone.value) return;
       dx.value = e.translationX;
       dy.value = e.translationY * 0.2;
     })
     .onEnd((e) => {
+      if (gone.value) return;
       const escaped =
         Math.abs(dx.value) > threshold || Math.abs(e.velocityX) > VELOCITY_ESCAPE;
       if (escaped) {
         const toRight = dx.value > 0 || e.velocityX > 0;
-        gone.value = 1;
-        dx.value = withTiming(toRight ? width * 1.4 : -width * 1.4, {
-          duration: motion.cardExit,
-        });
-        runOnJS(complete)(toRight ? 'save' : 'pass');
+        throwOut(toRight ? 'save' : 'pass', e.velocityY);
       } else {
         dx.value = withSpring(0, { damping: 20, stiffness: 220 });
         dy.value = withSpring(0, { damping: 20, stiffness: 220 });
@@ -173,7 +221,7 @@ export function SwipeCard({
                 <Text style={s.creatorName} numberOfLines={1}>{card.creator.displayName}</Text>
                 {card.creator.isSeedAccount ? (
                   // §5.3: company-operated accounts are labeled, never disguised.
-                  <View style={s.seedBadge}><Text style={s.seedBadgeLabel}>MENUMATCH</Text></View>
+                  <View style={s.seedBadge}><Text style={s.seedBadgeLabel}>SWIPZY</Text></View>
                 ) : null}
               </View>
 

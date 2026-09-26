@@ -37,6 +37,8 @@ const DEV_PIXEL = Buffer.from(
 
 const DEV = {
   ...structuredClone(AD_SEED),
+  /** Recipe ids the dev user has saved, so isSaved is not a constant. */
+  saved: new Set(),
   userRecipes: {},
   pantry: [],
   pantrySeq: 0,
@@ -119,19 +121,37 @@ function rpc(name, body) {
       const cards = fx.feed.cards.filter((c) => !exclude.has(c.id));
       return { ...fx.feed, cards, fallback: cards.length ? 'personalized' : 'exhausted' };
     }
-    case 'get_recipe':
+    case 'get_recipe': {
       // A deleted recipe comes back marked unavailable, as the real RPC does.
       if (String(body?.p_recipe_id).startsWith('gone-')) {
         return { id: body?.p_recipe_id, unavailable: true, title: '' };
       }
-      return fx.recipe.id === body?.p_recipe_id
+      const base = fx.recipe.id === body?.p_recipe_id
         ? fx.recipe
         : { ...fx.recipe, id: body?.p_recipe_id };
+      // isSaved was missing entirely, so every recipe read as unsaved no
+      // matter what had just been saved. Anything branching on it — the
+      // warning before a cook clears the Cookbook, the bookmark control —
+      // could only ever be exercised down one side here.
+      return { ...base, isSaved: DEV.saved.has(String(body?.p_recipe_id)) };
+    }
     case 'record_swipes':
       return { accepted: (body?.p_swipes ?? []).length, replayed: 0 };
     case 'undo_swipe':    return { undone: true };
-    case 'save_recipe':   return { saved: true, recipeId: body?.p_recipe_id };
-    case 'unsave_recipe': return { saved: false, recipeId: body?.p_recipe_id };
+    case 'save_recipe':
+      DEV.saved.add(String(body?.p_recipe_id));
+      return { saved: true, recipeId: body?.p_recipe_id };
+    case 'unsave_recipe': {
+      DEV.saved.delete(String(body?.p_recipe_id));
+      // The real RPC clears collection membership too, and reports how much
+      // it cleared, so this has to as well or the two disagree.
+      let cleared = 0;
+      for (const items of Object.values(DEV.items ?? {})) {
+        const at = items.indexOf(String(body?.p_recipe_id));
+        if (at >= 0) { items.splice(at, 1); cleared += 1; }
+      }
+      return { saved: false, recipeId: body?.p_recipe_id, collectionsCleared: cleared };
+    }
     case 'record_cook':   return { recorded: true };
     case 'less_like_this':return { recorded: true };
     case 'me':            return { id: 'u-me',

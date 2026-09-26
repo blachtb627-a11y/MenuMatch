@@ -8,7 +8,7 @@ import * as Haptics from 'expo-haptics';
 import { Feather } from '@expo/vector-icons';
 import { Button, Loading, Screen } from '@/components/ui';
 import { fetchRecipe } from '@/lib/api';
-import { queueCook } from '@/lib/queue';
+import { COOKED_BODY, COOKED_CONFIRM, COOKED_TITLE, logCook } from '@/lib/cooking';
 import { renderIngredient } from '@/lib/quantity';
 import { describeDuration, formatDuration, parseTimerSeconds } from '@/lib/timers';
 import { useSession } from '@/state/session';
@@ -100,7 +100,10 @@ export default function CookMode() {
 
   async function exit(markCooked: boolean) {
     await stopTimer();
-    if (markCooked && !isGuest) await queueCook(recipe!.id);
+    // The prompt below is the confirmation, so there is no second dialog
+    // here — but it only offers to clear the Cookbook when the recipe is
+    // actually in it.
+    if (markCooked && !isGuest) await logCook(recipe!.id, !!recipe?.isSaved);
     goBack(`/recipe/${id}`);
   }
 
@@ -203,12 +206,18 @@ export default function CookMode() {
       <Modal visible={askCooked} transparent animationType="fade">
         <View style={s.askScrim}>
           <View style={s.askCard}>
-            <Text style={s.askTitle}>Cooked it?</Text>
+            <Text style={s.askTitle}>{COOKED_TITLE}</Text>
             <Text style={s.askBody}>
               Logging a cook helps other people find recipes that actually work.
             </Text>
+            {recipe.isSaved ? (
+              // Said here rather than in a dialog on top of a dialog: this
+              // modal already is the confirmation.
+              <Text style={s.askBody}>{COOKED_BODY}</Text>
+            ) : null}
             <View style={{ gap: space.sm }}>
-              <Button label="Yes, cooked it" onPress={() => void exit(true)} />
+              <Button label={recipe.isSaved ? COOKED_CONFIRM : 'Yes, cooked it'}
+                      onPress={() => void exit(true)} />
               <Button label="Not this time" variant="ghost" onPress={() => void exit(false)} />
             </View>
           </View>

@@ -4,14 +4,14 @@ import { router, useFocusEffect } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from '@/components/RecipeCover';
-import { Button, EmptyState, Loading, Screen } from '@/components/ui';
+import { Button, ConfirmDialog, EmptyState, Loading, Screen } from '@/components/ui';
 import { fetchCookbook, type SavedRecipe } from '@/lib/api';
 import { CollectionSheet } from '@/components/CollectionSheet';
 import { BulkCollectionSheet } from '@/components/BulkCollectionSheet';
 import {
   SUGGESTED_COLLECTIONS, createCollection, myCollections, type Collection,
 } from '@/lib/collections';
-import { onQueueChange, pendingCount, drain } from '@/lib/queue';
+import { onQueueChange, pendingCount, drain, queueUnsave } from '@/lib/queue';
 import { Toast } from '@/components/Toast';
 import { useSession } from '@/state/session';
 import { formatTotalTime } from '@/lib/timers';
@@ -34,6 +34,9 @@ export default function Cookbook() {
    */
   const [picked, setPicked] = useState<Set<string> | null>(null);
   const [filing, setFiling] = useState<string[] | null>(null);
+  /** Ids waiting on the confirmation. Null when nothing is being removed. */
+  const [removing, setRemoving] = useState<string[] | null>(null);
+  const [busy, setBusy] = useState(false);
   const selecting = picked !== null;
 
   const toggle = useCallback((id: string) => {
@@ -58,6 +61,35 @@ export default function Cookbook() {
   }, [isGuest]);
 
   useFocusEffect(useCallback(() => { void load(); }, [load]));
+
+  /**
+   * Taking recipes out of the Cookbook.
+   *
+   * One queued unsave each rather than one bulk call: it is the same path a
+   * single remove already takes, so it retries and survives a dead connection
+   * the same way, and removing a shortlist is not a hot path worth a second
+   * RPC for. The tiles go immediately — waiting on a round trip to watch your
+   * own selection disappear is the thing that makes an app feel slow.
+   */
+  const removeSaved = useCallback(async (ids: string[]) => {
+    setBusy(true);
+    setSaved((prev) => (prev ? prev.filter((r) => !ids.includes(r.id)) : prev));
+    try {
+      for (const id of ids) await queueUnsave(id);
+      setToast(ids.length === 1
+        ? 'Taken out of your Cookbook'
+        : `${ids.length} recipes taken out of your Cookbook`);
+    } catch (e) {
+      setToast(e instanceof Error ? e.message : 'Could not remove those');
+    } finally {
+      setBusy(false);
+      setRemoving(null);
+      setPicked(null);
+      // Collections lose these too, so the counts above have to be re-read.
+      void load();
+    }
+  }, [load]);
+
   useEffect(() => onQueueChange(setPending), []);
 
   if (isGuest) {
@@ -130,7 +162,8 @@ export default function Cookbook() {
           ListHeaderComponent={
             selecting ? (
               <Text style={s.selectHint}>
-                Tap recipes to pick them, then choose a collection.
+                Tap recipes to pick them, then file them into a collection or
+                take them out of your Cookbook.
               </Text>
             ) : (
               <CollectionsRow
@@ -171,6 +204,15 @@ export default function Cookbook() {
               disabled={picked.size === 0}
               onPress={() => setFiling(Array.from(picked))}
             />
+            {/* Below the filing button, not beside it: side by side at equal
+                weight, the destructive one is a mis-tap away from the one
+                people mean. */}
+            <Button
+              label={picked.size ? `Remove ${picked.size}` : 'Remove'}
+              variant="danger"
+              disabled={picked.size === 0 || busy}
+              onPress={() => setRemoving(Array.from(picked))}
+            />
           </View>
         ) : null}
       </SafeAreaView>
@@ -194,6 +236,28 @@ export default function Cookbook() {
           void load();
         }}
       />
+      <ConfirmDialog
+        visible={removing !== null}
+        title={removing?.length === 1
+          ? 'Remove this recipe?'
+          : `Remove ${removing?.length ?? 0} recipes?`}
+        body={
+          (removing?.length === 1 ? 'It comes' : 'They come')
+          + ' out of your Cookbook and out of any collections you filed '
+          + (removing?.length === 1 ? 'it' : 'them')
+          + ' in. The '
+          + (removing?.length === 1 ? 'recipe stays' : 'recipes stay')
+          + ' on Swipzy, so you can save '
+          + (removing?.length === 1 ? 'it' : 'them')
+          + ' again later.'
+        }
+        confirmLabel={busy ? 'Removing…' : 'Remove'}
+        cancelLabel="Keep them"
+        busy={busy}
+        onConfirm={() => void removeSaved(removing ?? [])}
+        onCancel={() => setRemoving(null)}
+      />
+
       <Toast message={toast} onDismiss={() => setToast(null)} />
     </Screen>
   );
@@ -386,7 +450,7 @@ const s = StyleSheet.create({
   selectCount: { ...type.bodyStrong, color: colors.text },
   selectHint: { ...type.small, color: colors.textMuted, marginBottom: space.lg },
   actionBar: {
-    padding: space.xl, paddingTop: space.lg,
+    padding: space.xl, paddingTop: space.lg, gap: space.sm,
     backgroundColor: colors.ground, ...elevate.sheet,
   },
   check: {

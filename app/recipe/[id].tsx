@@ -7,9 +7,10 @@ import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from '@/components/RecipeCover';
 import { Toast } from '@/components/Toast';
 import { CollectionSheet } from '@/components/CollectionSheet';
-import { Button, Disclaimer, EmptyState, Loading, Screen } from '@/components/ui';
+import { Button, ConfirmDialog, Disclaimer, EmptyState, Loading, Screen } from '@/components/ui';
 import { fetchRecipe } from '@/lib/api';
-import { queueSave, queueUnsave, queueCook } from '@/lib/queue';
+import { queueSave, queueUnsave } from '@/lib/queue';
+import { COOKED_BODY, COOKED_CONFIRM, COOKED_TITLE, logCook } from '@/lib/cooking';
 import { renderIngredient } from '@/lib/quantity';
 import { formatCount } from '@/lib/search';
 import { formatTotalTime } from '@/lib/timers';
@@ -26,6 +27,7 @@ export default function RecipeDetail() {
   const [servings, setServings] = useState<number | null>(null);
   const [checked, setChecked] = useState<Set<string>>(new Set());
   const [saved, setSaved] = useState(false);
+  const [askCooked, setAskCooked] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [organising, setOrganising] = useState(false);
 
@@ -67,11 +69,25 @@ export default function RecipeDetail() {
     }
   }
 
+  /**
+   * Logging a cook clears the recipe out of the Cookbook, so it asks first —
+   * but only when there is something to clear. Confirming the removal of a
+   * recipe that was never saved is a dialog about nothing.
+   */
   async function onCooked() {
     if (!recipe) return;
     if (isGuest) { router.push('/auth'); return; }
-    await queueCook(recipe.id);
+    if (saved) { setAskCooked(true); return; }
+    await logCook(recipe.id, false);
     setToast('Nice. Logged as cooked.');
+  }
+
+  async function confirmCooked() {
+    if (!recipe) return;
+    setAskCooked(false);
+    setSaved(false);
+    await logCook(recipe.id, true);
+    setToast('Cooked. Taken out of your Cookbook.');
   }
 
   if (error) {
@@ -288,6 +304,16 @@ export default function RecipeDetail() {
         recipeTitle={recipe.title}
         onClose={() => setOrganising(false)}
         onSaved={(message) => { setOrganising(false); setSaved(true); setToast(message); }}
+      />
+
+      <ConfirmDialog
+        visible={askCooked}
+        title={COOKED_TITLE}
+        body={COOKED_BODY}
+        confirmLabel={COOKED_CONFIRM}
+        cancelLabel="Cancel"
+        onConfirm={() => void confirmCooked()}
+        onCancel={() => setAskCooked(false)}
       />
 
       <Toast message={toast} onDismiss={() => setToast(null)} />

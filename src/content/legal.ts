@@ -16,22 +16,37 @@
 
 /** Real-world facts that only the operator can supply. */
 export const OPERATOR = {
-  /** The person or company legally responsible for the service. */
-  legalName: '[LEGAL ENTITY NAME]',
-  /** Where notices are sent. A real, monitored address is a legal requirement. */
-  postalAddress: '[POSTAL ADDRESS]',
   /**
-   * The app is Swipzy; the domain is still menumatch.store, which is where the
-   * web build is actually served from. These stay on the old domain until a
-   * new one is bought and the CNAME moves — an address in the Terms that does
-   * not receive mail is worse than an old-sounding one that does.
+   * The person or company legally responsible for the service.
+   *
+   * Still the one unfilled value. It cannot be guessed: this is the party a
+   * user's agreement is *with*, and naming an entity that does not exist
+   * leaves the terms with no counterparty and offers none of the liability
+   * protection that forming one would. An individual operator puts their own
+   * name here, which is accurate and costs nothing to change later.
    */
-  supportEmail: '[support@menumatch.store]',
-  privacyEmail: '[privacy@menumatch.store]',
+  legalName: '[LEGAL ENTITY NAME]',
+  /**
+   * Where notices are sent. A real, monitored address is a legal requirement.
+   *
+   * This is a home address, used knowingly for the beta and to be replaced
+   * with a mailbox service afterwards. It renders into both documents, and
+   * both are reachable from Profile without signing in, so it is public the
+   * moment the TestFlight link is.
+   */
+  postalAddress: '37 Van Ethel Drive, Matawan, NJ 07747',
+  /**
+   * One real inbox rather than three addresses on a domain with no mail set
+   * up. An address in a legal document that does not receive mail is worse
+   * than a plain one that does — and the copyright line is a DMCA agent
+   * address, where a missed notice has consequences.
+   */
+  supportEmail: 'blachtb627@gmail.com',
+  privacyEmail: 'blachtb627@gmail.com',
   /** DMCA §512(c) designated agent, also registered with the US Copyright Office. */
-  copyrightEmail: '[copyright@menumatch.store]',
+  copyrightEmail: 'blachtb627@gmail.com',
   /** Whose law governs, and where disputes are heard. */
-  jurisdiction: '[STATE / COUNTRY]',
+  jurisdiction: 'New Jersey, United States',
 } as const;
 
 /**

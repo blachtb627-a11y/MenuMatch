@@ -33,6 +33,16 @@ export const ONBOARDED_KEY = key('onboarded');
 export default function Index() {
   const { ready, session, me } = useSession();
   const [seen, setSeen] = useState<{ onboarding: boolean; tutorial: boolean } | null>(null);
+  /**
+   * A spinner that has been spinning for four seconds should say something.
+   * Startup cannot hang indefinitely any more, but it can still be slow, and
+   * silence is what makes a slow start look like a broken one.
+   */
+  const [slow, setSlow] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setSlow(true), 4000);
+    return () => clearTimeout(t);
+  }, []);
 
   useEffect(() => {
     void storageReady()
@@ -46,7 +56,9 @@ export default function Index() {
 
   // Wait for the stored session to be restored before routing, or a reload
   // would bounce a signed-in user back to the welcome screen.
-  if (!ready || seen === null) return <Screen><Loading /></Screen>;
+  if (!ready || seen === null) {
+    return <Screen><Loading label={slow ? 'Still starting…' : undefined} /></Screen>;
+  }
 
   if (REQUIRE_ACCOUNT && !session) return <Redirect href="/welcome" />;
 

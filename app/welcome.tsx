@@ -9,7 +9,7 @@ import { colors, space, type } from '@/theme';
 
 /** The signed-out front door. An account is required before the deck. */
 export default function Welcome() {
-  const { session } = useSession();
+  const { session, bootNote } = useSession();
   // Signing in elsewhere (or restoring a stored session) should not leave the
   // user parked here.
   if (session) return <Redirect href="/" />;
@@ -32,6 +32,10 @@ export default function Welcome() {
           <Text style={s.sub}>
             Discover recipes by swiping, save your favourites, share your own.
           </Text>
+          {/* Startup no longer hangs when it cannot reach the server, which
+              means it can now arrive here having quietly failed. Saying so is
+              the difference between "the app is broken" and "I am offline". */}
+          {bootNote ? <Text style={s.note}>Could not reach Swipzy: {bootNote}</Text> : null}
         </View>
 
         <View style={{ gap: space.md }}>
@@ -55,4 +59,5 @@ const s = StyleSheet.create({
   markImage: { width: '100%', height: '100%' },
   headline: { ...type.display, color: colors.text },
   sub: { ...type.body, color: colors.textMuted, lineHeight: 22, maxWidth: 320 },
+  note: { ...type.small, color: colors.clay, lineHeight: 18, maxWidth: 320 },
 });

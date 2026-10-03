@@ -39,14 +39,37 @@ type SessionState = {
    */
   signUp: (email: string, password: string) => Promise<{ needsConfirmation: boolean }>;
   resendConfirmation: (email: string) => Promise<void>;
+  /** Set when startup failed or timed out, so a screen can say so. */
+  bootNote: string | null;
   signOut: () => Promise<void>;
   refreshMe: () => Promise<void>;
 };
 
 const Ctx = createContext<SessionState | null>(null);
 
+/**
+ * Nothing at startup is allowed to wait forever. Long enough that a slow
+ * connection still succeeds, short enough that nobody decides the app is
+ * broken and deletes it.
+ */
+const BOOT_TIMEOUT_MS = 8000;
+
+function withTimeout<T>(work: Promise<T>, what: string): Promise<T> {
+  return Promise.race([
+    work,
+    new Promise<T>((_, reject) =>
+      setTimeout(() => reject(new Error(`${what} timed out`)), BOOT_TIMEOUT_MS)),
+  ]);
+}
+
+function describe(e: unknown): string {
+  return e instanceof Error ? e.message : 'could not reach Swipzy';
+}
+
 export function SessionProvider({ children }: { children: React.ReactNode }) {
   const [ready, setReady] = useState(false);
+  /** Why startup did not go cleanly, for the screen that is about to show. */
+  const [bootNote, setBootNote] = useState<string | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [me, setMe] = useState<Me | null>(null);
   const [pendingSave, setPendingSave] = useState<SessionState['pendingSave']>(null);
@@ -61,17 +84,47 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     let alive = true;
 
+    /**
+     * Startup, and the one rule it has to obey: `ready` must become true.
+     *
+     * It used to await registerDevice(), then loadQueue(), then getSession(),
+     * and set `ready` on the last line with nothing guarding the path to it.
+     * Three awaits, no catch around them and no timeout, so any one of them
+     * hanging left the app on its spinner with no way out and nothing on
+     * screen to say why — which is what it did on the first device build.
+     * `await` on a promise that never settles is not an error; a try/catch
+     * never fires, and the line that ends the spinner is simply never reached.
+     *
+     * Two things changed. Only the stored session gates the first screen now,
+     * because it is the only thing the launch router actually reads. And
+     * `ready` is set in a `finally` behind a timeout, so the worst a dead
+     * network can do is open the app signed out instead of not at all.
+     */
     (async () => {
-      // Register the device first so guest swipes have somewhere to land, then
-      // restore any writes that outlived the last app termination.
-      await registerDevice();
-      await loadQueue();
+      try {
+        const { data } = await withTimeout(supabase.auth.getSession(), 'session');
+        if (!alive) return;
+        setSession(data.session);
+        if (data.session) {
+          // A profile that will not load is a degraded app, not a stuck one.
+          try {
+            await withTimeout(refreshMe(), 'profile');
+          } catch (e) {
+            setBootNote(describe(e));
+          }
+        }
+      } catch (e) {
+        // Treated as signed out: the welcome screen is somewhere to be.
+        if (alive) setBootNote(describe(e));
+      } finally {
+        if (alive) setReady(true);
+      }
 
-      const { data } = await supabase.auth.getSession();
-      if (!alive) return;
-      setSession(data.session);
-      if (data.session) await refreshMe();
-      setReady(true);
+      // Best effort, and deliberately after the app is on screen. The device
+      // row is an upsert the swipe queue retries against, and the queue drains
+      // on its own schedule; neither is a reason to hold the first paint.
+      void registerDevice().catch(() => {});
+      void loadQueue().catch(() => {});
     })();
 
     const { data: sub } = supabase.auth.onAuthStateChange(async (event, next) => {
@@ -110,6 +163,7 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
   const value = useMemo<SessionState>(
     () => ({
       ready,
+      bootNote,
       session,
       me,
       isGuest: !session,
@@ -136,7 +190,7 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
       },
       refreshMe,
     }),
-    [ready, session, me, pendingSave],
+    [ready, bootNote, session, me, pendingSave],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

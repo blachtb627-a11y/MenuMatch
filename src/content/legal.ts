@@ -17,15 +17,16 @@
 /** Real-world facts that only the operator can supply. */
 export const OPERATOR = {
   /**
-   * The person or company legally responsible for the service.
+   * The person or company legally responsible for the service — the party a
+   * user's agreement is actually with.
    *
-   * Still the one unfilled value. It cannot be guessed: this is the party a
-   * user's agreement is *with*, and naming an entity that does not exist
-   * leaves the terms with no counterparty and offers none of the liability
-   * protection that forming one would. An individual operator puts their own
-   * name here, which is accurate and costs nothing to change later.
+   * Must match the name on the filing exactly, including punctuation. The
+   * App Store will still show an individual as the seller, because that is
+   * how the developer account is enrolled; naming the entity here and a
+   * person there is normal and not a contradiction, but moving the listing
+   * over means converting the account, which needs a D-U-N-S number.
    */
-  legalName: '[LEGAL ENTITY NAME]',
+  legalName: 'ANTI Technologies LLC',
   /**
    * Where notices are sent. A real, monitored address is a legal requirement.
    *
@@ -50,12 +51,13 @@ export const OPERATOR = {
 } as const;
 
 /**
- * Whether OPERATOR carries a real support address yet.
+ * Whether OPERATOR carries a real support address.
  *
- * The values above ship with their brackets still on, and a mailto: link to
- * "[support@menumatch.store]" opens a mail app addressed to nothing. Until
- * they are filled in, "Contact Swipzy" routes to the in-app report form, which
- * reaches the same inbox by a different road and always works.
+ * It does now, so "Contact Swipzy" opens mail. The guard stays because the
+ * value above is editable and a bracketed placeholder would otherwise open a
+ * mail app addressed to nothing; without a real address the control falls
+ * back to the in-app report form, which reaches the same person by a
+ * different road and always works.
  */
 export function supportMailto(): string | null {
   const address = OPERATOR.supportEmail.replace(/^\[|\]$/g, '');

@@ -73,6 +73,21 @@ module.exports = {
         backgroundColor: '#FFFFFF',
       },
     },
+    // Over-the-air updates. expo-updates is a native module, so it has to be
+    // in the binary from the first submission: an app shipped without it can
+    // never take a JavaScript fix without another build and another review.
+    //
+    // `appVersion` ties an update to the version it was built against, so a
+    // 1.0.0 update only ever reaches 1.0.0 installs. Bumping `version` means a
+    // new native build, which is the honest behaviour — a JS bundle that
+    // assumes native code the installed binary does not have is how an OTA
+    // update turns into a crash on launch.
+    updates: {
+      url: 'https://u.expo.dev/fba8a1d0-468c-42d5-bc9d-cdfbacd178e7',
+    },
+    runtimeVersion: {
+      policy: 'appVersion',
+    },
     web: { bundler: 'metro', output: 'single', favicon: './assets/favicon.png' },
     plugins: ['expo-router'],
     // `owner` and `projectId` identify the EAS project this builds under.

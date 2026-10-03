@@ -69,12 +69,14 @@ module.exports = {
     },
     web: { bundler: 'metro', output: 'single', favicon: './assets/favicon.png' },
     plugins: ['expo-router'],
-    // EAS writes this into a static app.json by itself, but it cannot write
-    // into a dynamic config like this one — on the first build it just stops
-    // and asks for it. `eas init` prints the UUID: export EAS_PROJECT_ID, or
-    // replace this line with the literal value.
+    // `owner` and `projectId` identify the EAS project this builds under.
+    // EAS fills these into a static app.json by itself and refuses to touch a
+    // dynamic config like this one, so they are written in by hand. Neither is
+    // a secret: both are in the project's own public URL,
+    // expo.dev/accounts/thomasb627/projects/swipzy.
+    owner: 'thomasb627',
     extra: {
-      eas: { projectId: process.env.EAS_PROJECT_ID },
+      eas: { projectId: 'fba8a1d0-468c-42d5-bc9d-cdfbacd178e7' },
     },
     experiments: {
       typedRoutes: false,

@@ -51,6 +51,12 @@ module.exports = {
       // prompt — the app is killed the moment the sheet opens. Apple also
       // rejects vague copy, so these say what each one is actually for.
       infoPlist: {
+        // Answered once here so neither the build nor App Store Connect asks
+        // again. It is the truthful answer: there is no crypto library in the
+        // dependency tree, the one call near it is crypto.getRandomValues
+        // making a random device id, and everything else is HTTPS that iOS
+        // itself provides — which is exactly what the exemption covers.
+        ITSAppUsesNonExemptEncryption: false,
         NSCameraUsageDescription:
           'Swipzy uses the camera to photograph a dish for a recipe you are '
           + 'writing, to scan a written recipe, or to scan what is in your kitchen.',

@@ -31,7 +31,15 @@ export default function Auth() {
     setBusy(true);
     try {
       if (mode === 'signup') {
-        const { needsConfirmation } = await signUp(email.trim(), password);
+        const { needsConfirmation, alreadyRegistered } = await signUp(email.trim(), password);
+        if (alreadyRegistered) {
+          // Nothing was created and no email went out, so promising one would
+          // be a lie. Switched to sign-in rather than just refused: the email
+          // is already typed and signing in is what they wanted anyway.
+          setMode('signin');
+          setNotice('That email already has an account — sign in instead.');
+          return;
+        }
         if (needsConfirmation) {
           // Do not navigate away: there is no session yet, so leaving this
           // screen would drop the user back into a signed-out app.

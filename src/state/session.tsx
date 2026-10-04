@@ -37,7 +37,11 @@ type SessionState = {
    * withheld a session pending email confirmation. Callers must not treat that
    * as being signed in.
    */
-  signUp: (email: string, password: string) => Promise<{ needsConfirmation: boolean }>;
+  signUp: (email: string, password: string) => Promise<{
+    needsConfirmation: boolean;
+    /** The address already has an account; nothing was created or sent. */
+    alreadyRegistered: boolean;
+  }>;
   resendConfirmation: (email: string) => Promise<void>;
   /** Set when startup failed or timed out, so a screen can say so. */
   bootNote: string | null;
@@ -176,10 +180,34 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
       async signUp(email, password) {
         const { data, error } = await supabase.auth.signUp({ email, password });
         if (error) throw new Error(error.message);
+
+        /**
+         * Supabase does not tell you an address is taken.
+         *
+         * Signing up with an email that already has an account answers 200
+         * with a user-shaped body, no session, no error — and an empty
+         * `identities` array, which is the only thing that distinguishes it.
+         * That is deliberate: saying "already registered" would let a stranger
+         * probe which addresses have accounts. No email is sent either,
+         * because the account is already confirmed.
+         *
+         * Taking that response at face value is what leaves someone staring
+         * at "check your email" for a message that was never sent. The
+         * existing "already registered" wording lives in a catch block and
+         * never fires, because nothing is ever thrown.
+         *
+         * Tested for as an array rather than falsiness: an older client that
+         * omits `identities` must not be read as "taken".
+         */
+        const identities = data.user?.identities;
+        if (Array.isArray(identities) && identities.length === 0) {
+          return { needsConfirmation: false, alreadyRegistered: true };
+        }
+
         // With "Confirm email" enabled, Supabase returns a user and a null
         // session, and no error. Reporting that as success is what stranded
         // people on a signed-out deck being asked to sign up again.
-        return { needsConfirmation: !data.session };
+        return { needsConfirmation: !data.session, alreadyRegistered: false };
       },
       async resendConfirmation(email) {
         const { error } = await supabase.auth.resend({ type: 'signup', email });

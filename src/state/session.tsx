@@ -56,6 +56,23 @@ const Ctx = createContext<SessionState | null>(null);
  * connection still succeeds, short enough that nobody decides the app is
  * broken and deletes it.
  */
+/**
+ * Where a confirmation link sends people once Supabase has verified the token.
+ *
+ * Passing this explicitly matters because the alternative is inheriting it.
+ * With no `emailRedirectTo`, Supabase falls back to the project's Site URL,
+ * which starts life as http://localhost:3000 — so confirming an address
+ * worked and then landed on "this site can't be reached". The account was
+ * fine; the destination was a dev default nobody had revisited.
+ *
+ * Naming it here puts the destination in the app, next to the code that
+ * depends on it, instead of in a dashboard field that no build would ever
+ * disagree with out loud. Supabase still requires the URL to be in the
+ * project's redirect allow-list; if it is not, it silently uses the Site URL
+ * instead, which is a worse landing but not a broken one.
+ */
+const CONFIRM_REDIRECT = 'https://menumatch.store/confirmed';
+
 const BOOT_TIMEOUT_MS = 8000;
 
 function withTimeout<T>(work: Promise<T>, what: string): Promise<T> {
@@ -178,7 +195,11 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
         if (error) throw new Error(error.message);
       },
       async signUp(email, password) {
-        const { data, error } = await supabase.auth.signUp({ email, password });
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: { emailRedirectTo: CONFIRM_REDIRECT },
+        });
         if (error) throw new Error(error.message);
 
         /**
@@ -210,7 +231,11 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
         return { needsConfirmation: !data.session, alreadyRegistered: false };
       },
       async resendConfirmation(email) {
-        const { error } = await supabase.auth.resend({ type: 'signup', email });
+        const { error } = await supabase.auth.resend({
+          type: 'signup',
+          email,
+          options: { emailRedirectTo: CONFIRM_REDIRECT },
+        });
         if (error) throw new Error(error.message);
       },
       async signOut() {

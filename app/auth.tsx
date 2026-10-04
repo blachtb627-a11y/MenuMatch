@@ -22,12 +22,22 @@ export default function Auth() {
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  /** Set when the account exists but Supabase is holding the session back. */
-  const [awaitingConfirmation, setAwaitingConfirmation] = useState(false);
+  /**
+   * Set when the account exists but Supabase is holding the session back.
+   *
+   * Two routes lead here and they need different words. 'new' is the moment
+   * after signing up, when a mail genuinely has just gone out. 'stale' is
+   * someone coming back later whose link had expired by the time they opened
+   * it — nothing was just sent, and saying otherwise would send them back to
+   * an inbox to look for a message that is not coming.
+   */
+  const [awaitingConfirmation, setAwaitingConfirmation] =
+    useState<'new' | 'stale' | null>(null);
 
   async function submit() {
     setError(null);
     setNotice(null);
+    setAwaitingConfirmation(null);
     setBusy(true);
     try {
       if (mode === 'signup') {
@@ -43,7 +53,7 @@ export default function Auth() {
         if (needsConfirmation) {
           // Do not navigate away: there is no session yet, so leaving this
           // screen would drop the user back into a signed-out app.
-          setAwaitingConfirmation(true);
+          setAwaitingConfirmation('new');
           return;
         }
       } else {
@@ -53,6 +63,14 @@ export default function Auth() {
       router.replace('/');
     } catch (e) {
       const message = e instanceof Error ? e.message : 'Something went wrong';
+      if (/email not confirmed|not confirmed/i.test(message)) {
+        // The password was right — the address was never confirmed, or the
+        // link expired before it was opened. Showing the resend screen is the
+        // only way out; reporting Supabase's wording leaves them on a screen
+        // that cannot help.
+        setAwaitingConfirmation('stale');
+        return;
+      }
       setError(
         /already registered|already exists/i.test(message)
           ? 'That email already has an account. Sign in instead.'
@@ -76,14 +94,17 @@ export default function Auth() {
     }
   }
 
-  if (awaitingConfirmation) {
+  if (awaitingConfirmation !== null) {
     return (
       <Screen>
         <SafeAreaView style={s.confirmWrap}>
           <View style={s.tick}><Feather name="mail" size={24} color={colors.mint} /></View>
           <Text style={s.title}>Confirm your email</Text>
           <Text style={s.sub}>
-            Your account is created. We sent a link to{' '}
+            {awaitingConfirmation === 'new'
+              ? 'Your account is created. We sent a link to '
+              : 'This account still needs confirming. If the last link expired, '
+                + 'send a new one to '}
             <Text style={s.email}>{email.trim()}</Text> — open it, then come back
             and sign in.
           </Text>
@@ -92,7 +113,7 @@ export default function Auth() {
           <View style={{ gap: space.md, width: '100%', maxWidth: 380 }}>
             <Button
               label="I've confirmed — sign in"
-              onPress={() => { setAwaitingConfirmation(false); setMode('signin'); }}
+              onPress={() => { setAwaitingConfirmation(null); setMode('signin'); }}
             />
             <Button label={busy ? 'Sending...' : 'Resend the email'} variant="secondary"
                     onPress={resend} disabled={busy} />

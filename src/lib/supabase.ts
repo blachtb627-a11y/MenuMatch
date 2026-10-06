@@ -22,5 +22,20 @@ export const supabase = createClient(url, key, {
     persistSession: true,
     // React Native has no URL bar to read a session out of.
     detectSessionInUrl: false,
+    /**
+     * Pinned, not left to the default, because password reset depends on it.
+     *
+     * A reset is asked for on a phone and finished wherever the mail gets
+     * opened — often a laptop. PKCE stores a code verifier on the device that
+     * made the request and requires it back when the link is opened, so a
+     * reset that crosses devices fails with nothing useful to say. The
+     * implicit flow carries everything it needs in the link itself.
+     *
+     * This is the current default too, which is exactly why it is written
+     * down: a silent upstream change to PKCE would break reset for anyone who
+     * does not read mail on their phone, and it would break it in the one
+     * flow nobody tests twice.
+     */
+    flowType: 'implicit',
   },
 });

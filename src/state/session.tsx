@@ -43,6 +43,11 @@ type SessionState = {
     alreadyRegistered: boolean;
   }>;
   resendConfirmation: (email: string) => Promise<void>;
+  /**
+   * Sends a reset link. Resolves the same way whether or not the address has
+   * an account — Supabase will not say, and neither should the screen.
+   */
+  requestPasswordReset: (email: string) => Promise<void>;
   /** Set when startup failed or timed out, so a screen can say so. */
   bootNote: string | null;
   signOut: () => Promise<void>;
@@ -51,11 +56,6 @@ type SessionState = {
 
 const Ctx = createContext<SessionState | null>(null);
 
-/**
- * Nothing at startup is allowed to wait forever. Long enough that a slow
- * connection still succeeds, short enough that nobody decides the app is
- * broken and deletes it.
- */
 /**
  * Where a confirmation link sends people once Supabase has verified the token.
  *
@@ -73,6 +73,20 @@ const Ctx = createContext<SessionState | null>(null);
  */
 const CONFIRM_REDIRECT = 'https://menumatch.store/confirmed';
 
+/**
+ * Where a password-reset link lands. Same reasoning as the one above, with a
+ * harder requirement: this page has to *do* something, not just report. It
+ * receives the recovery tokens in the URL fragment and is the only place a new
+ * password can be set, so inheriting a stale Site URL here does not mean an
+ * ugly landing — it means the account stays locked.
+ */
+const RESET_REDIRECT = 'https://menumatch.store/reset';
+
+/**
+ * Nothing at startup is allowed to wait forever. Long enough that a slow
+ * connection still succeeds, short enough that nobody decides the app is
+ * broken and deletes it.
+ */
 const BOOT_TIMEOUT_MS = 8000;
 
 function withTimeout<T>(work: Promise<T>, what: string): Promise<T> {
@@ -229,6 +243,19 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
         // session, and no error. Reporting that as success is what stranded
         // people on a signed-out deck being asked to sign up again.
         return { needsConfirmation: !data.session, alreadyRegistered: false };
+      },
+      async requestPasswordReset(email) {
+        /**
+         * No "that email has no account" branch here, deliberately. Supabase
+         * answers identically either way, because saying otherwise would turn
+         * this form into a way to test which addresses are registered. The
+         * screen has to be worded to match: "if there is an account", never
+         * "sent".
+         */
+        const { error } = await supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: RESET_REDIRECT,
+        });
+        if (error) throw new Error(error.message);
       },
       async resendConfirmation(email) {
         const { error } = await supabase.auth.resend({

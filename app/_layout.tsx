@@ -25,6 +25,7 @@ export default function RootLayout() {
             <Stack.Screen name="tutorial" />
             <Stack.Screen name="auth" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="confirmed" />
+            <Stack.Screen name="reset" />
             <Stack.Screen name="recipe/[id]" options={{ animation: 'slide_from_right' }} />
             <Stack.Screen name="compose/[id]" options={{ animation: 'slide_from_bottom' }} />
             <Stack.Screen name="collection/[id]" options={{ animation: 'slide_from_right' }} />

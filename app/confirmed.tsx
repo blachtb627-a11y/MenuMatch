@@ -3,6 +3,7 @@ import { Linking, Platform, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { Button, Screen } from '@/components/ui';
+import { stripUrlFragment } from '@/lib/urlFragment';
 import { colors, radius, space, type } from '@/theme';
 
 /**
@@ -37,6 +38,13 @@ export default function Confirmed() {
     const params = new URLSearchParams(hash);
     const description = params.get('error_description') ?? params.get('error');
     if (description) setFailure(description.replace(/\+/g, ' '));
+    /**
+     * A successful confirmation arrives carrying a real session, not just a
+     * "done" flag, so the same tokens that the reset page is careful about are
+     * sitting in the bar here too — on the one screen that tells people to
+     * close the tab and walk away.
+     */
+    return stripUrlFragment();
   }, []);
 
   const ok = failure === null;

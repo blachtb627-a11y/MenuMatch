@@ -7,6 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { Button, Screen } from '@/components/ui';
 import { supabase } from '@/lib/supabase';
+import { stripUrlFragment } from '@/lib/urlFragment';
 import { colors, radius, space, type } from '@/theme';
 
 /** Supabase's own floor. Stated here so the form can refuse before the round trip. */
@@ -48,6 +49,7 @@ export default function Reset() {
 
   useEffect(() => {
     let alive = true;
+    let stopStripping: (() => void) | null = null;
 
     async function open() {
       if (Platform.OS !== 'web' || typeof window === 'undefined') {
@@ -98,7 +100,7 @@ export default function Reset() {
        * them in history, in anything the tab is shared with, and in whatever a
        * later navigation sends as a referrer.
        */
-      window.history.replaceState(null, '', window.location.pathname);
+      stopStripping = stripUrlFragment();
 
       // The client is built with detectSessionInUrl: false — correct for a
       // native app with no URL bar, which means nothing picks these up on its
@@ -121,8 +123,28 @@ export default function Reset() {
       setStage({ kind: 'ready' });
     }
 
-    void open();
-    return () => { alive = false; };
+    /**
+     * Nothing here is allowed to leave the page on its spinner.
+     *
+     * setSession does not only return errors, it throws: a link that a mail
+     * client wrapped or a paste that dropped the last characters gives a token
+     * that cannot be decoded, and the decode throws rather than resolving. The
+     * screen then sat on "Checking your link…" with no error and no way out —
+     * the same shape of bug as the startup hang, in a flow someone only
+     * reaches when they are already locked out.
+     */
+    void open().catch((e: unknown) => {
+      if (!alive) return;
+      setStage({
+        kind: 'unusable',
+        title: 'That link did not work',
+        body: 'It may have been damaged on the way — mail apps sometimes break '
+          + 'long links across lines. A fresh one will sort it out.',
+        detail: e instanceof Error ? e.message : String(e),
+      });
+    });
+
+    return () => { alive = false; stopStripping?.(); };
   }, []);
 
   async function submit() {

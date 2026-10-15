@@ -95,7 +95,8 @@
    "japanese",
    "allergen-eggs",
    "allergen-wheat",
-   "company-worthy"
+   "company-worthy",
+   "allergen-soy"
   ],
   "ingredients": [
    [
@@ -463,7 +464,8 @@
    "gluten-free",
    "dairy-free",
    "weeknight",
-   "one-pot"
+   "one-pot",
+   "allergen-fish"
   ],
   "ingredients": [
    [
@@ -691,7 +693,10 @@
    "korean",
    "dairy-free",
    "one-pot",
-   "weeknight"
+   "weeknight",
+   "allergen-soy",
+   "allergen-wheat",
+   "allergen-sesame"
   ],
   "ingredients": [
    [
@@ -907,7 +912,9 @@
    "dinner",
    "french",
    "company-worthy",
-   "batch-cooking"
+   "batch-cooking",
+   "allergen-wheat",
+   "allergen-milk"
   ],
   "ingredients": [
    [
@@ -1035,7 +1042,8 @@
    "mediterranean",
    "allergen-milk",
    "company-worthy",
-   "high-protein"
+   "high-protein",
+   "allergen-wheat"
   ],
   "ingredients": [
    [
@@ -1269,11 +1277,10 @@
   "tags": [
    "dinner",
    "middle-eastern",
-   "vegan",
    "vegetarian",
-   "dairy-free",
    "batch-cooking",
-   "meal-prep"
+   "meal-prep",
+   "allergen-milk"
   ],
   "ingredients": [
    [
@@ -1602,9 +1609,9 @@
    "breakfast",
    "vegetarian",
    "allergen-eggs",
-   "gluten-free",
    "weeknight",
-   "one-pot"
+   "one-pot",
+   "allergen-wheat"
   ],
   "ingredients": [
    [
@@ -1807,7 +1814,8 @@
    "allergen-wheat",
    "allergen-milk",
    "company-worthy",
-   "batch-cooking"
+   "batch-cooking",
+   "allergen-eggs"
   ],
   "ingredients": [
    [
@@ -1926,7 +1934,8 @@
    "dinner",
    "allergen-soy",
    "dairy-free",
-   "weeknight"
+   "weeknight",
+   "allergen-wheat"
   ],
   "ingredients": [
    [

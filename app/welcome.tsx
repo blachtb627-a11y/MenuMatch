@@ -5,9 +5,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Image } from 'expo-image';
 import { Button, Screen } from '@/components/ui';
 import { useSession } from '@/state/session';
+import { REQUIRE_ACCOUNT } from '@/config';
 import { colors, space, type } from '@/theme';
 
-/** The signed-out front door. An account is required before the deck. */
+/**
+ * The signed-out front door. Reached after deleting an account, or on launch
+ * when REQUIRE_ACCOUNT is on; with it off, browsing first is offered here too.
+ */
 export default function Welcome() {
   const { session, bootNote } = useSession();
   // Signing in elsewhere (or restoring a stored session) should not leave the
@@ -43,6 +47,10 @@ export default function Welcome() {
                   onPress={() => router.push('/auth?mode=signup')} />
           <Button label="I already have an account" variant="secondary"
                   onPress={() => router.push('/auth?mode=signin')} />
+          {!REQUIRE_ACCOUNT ? (
+            <Button label="Look around first" variant="ghost"
+                    onPress={() => router.replace('/')} />
+          ) : null}
         </View>
       </SafeAreaView>
     </Screen>

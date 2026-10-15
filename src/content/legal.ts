@@ -66,7 +66,7 @@ export function supportMailto(): string | null {
     : `mailto:${address}`;
 }
 
-export const EFFECTIVE = 'Effective 7 September 2026';
+export const EFFECTIVE = 'Effective 15 October 2026';
 
 export type LegalBlock =
   | { kind: 'p'; text: string }
@@ -339,9 +339,11 @@ export const TERMS: LegalDoc = {
       heading: 'The AI features',
       blocks: [
         p('Swipzy can read a photograph of a recipe and fill in the composer '
-          + 'fields for you, and can estimate the nutrition of a recipe from its '
-          + 'ingredients. Both use a third-party model (Anthropic’s Claude).'),
-        p('Both are drafting aids and both are sometimes wrong. The scan can '
+          + 'fields for you, can list the food in a photograph of your kitchen '
+          + 'for your pantry, and can estimate the nutrition of a recipe from its '
+          + 'ingredients. All three use a third-party model (Anthropic’s Claude), '
+          + 'and the app asks your permission before the first one sends anything.'),
+        p('All three are drafting aids and all three are sometimes wrong. A scan can '
           + 'misread a quantity. The nutrition figures are an estimate from '
           + 'ingredient names and amounts, not a laboratory analysis, and can be '
           + 'substantially off.'),
@@ -579,8 +581,9 @@ export const PRIVACY: LegalDoc = {
     {
       heading: 'The AI features, specifically',
       blocks: [
-        p('Two features send data to Anthropic, and it is worth being exact '
-          + 'about what.'),
+        p('Three features send data to Anthropic, and it is worth being exact '
+          + 'about what. The app asks your permission before the first time any '
+          + 'of them does, and sends nothing if you say no.'),
         p('Scanning a recipe sends the photograph you took, and nothing else. No '
           + 'name, no email, no account identifier, no device identifier travels '
           + 'with it. The photo is sent directly in the request rather than being '
@@ -589,9 +592,12 @@ export const PRIVACY: LegalDoc = {
           + 'our side.'),
         p('Estimating nutrition sends text only: the recipe title, the number of '
           + 'servings, and the ingredient lines. No photo and no identifiers.'),
+        p('Scanning your kitchen for the pantry sends the photograph you took, '
+          + 'and nothing else, in the same way. The food it finds is added to '
+          + 'your pantry list, where you can remove anything it got wrong.'),
         p('Anthropic processes this on our behalf as a service provider. Their '
           + 'own handling and retention of API requests is governed by their '
-          + 'terms, not by ours. Both features are things you choose to press; '
+          + 'terms, not by ours. All three are things you choose to press; '
           + 'nothing is sent to Anthropic unless you scan or estimate.'),
       ],
     },

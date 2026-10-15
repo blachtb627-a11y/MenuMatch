@@ -6,6 +6,7 @@ import {
 import { router, useLocalSearchParams } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
+import { useAiConsent } from '@/components/AiConsent';
 import { RecipeCover } from '@/components/RecipeCover';
 import { Toast } from '@/components/Toast';
 import { BackButton, Button, ConfirmDialog, Loading, Screen } from '@/components/ui';
@@ -61,6 +62,7 @@ export default function Compose() {
   // fail the same way every time, so the card collapses instead of teasing it.
   const [scanUnavailable, setScanUnavailable] = useState(false);
   const [busyImage, setBusyImage] = useState(false);
+  const ai = useAiConsent();
 
   // The autosave timer reads the latest draft without re-arming on every keystroke.
   const draftRef = useRef<Draft | null>(draft);
@@ -182,6 +184,7 @@ export default function Compose() {
   async function runScan(source: 'library' | 'camera', mode: ScanMode = 'page') {
     setScanNote(null);
     setScanError(null);
+    if (!(await ai.ask())) return;
     let picked;
     try {
       picked = await pickImage(source);
@@ -294,6 +297,7 @@ export default function Compose() {
   /** §19.3: an estimate, stored as one, and every number stays editable. */
   async function runEstimate() {
     if (!draft) return;
+    if (!(await ai.ask())) return;
     setEstimating(true);
     setNutritionNote(null);
     try {
@@ -781,6 +785,7 @@ export default function Compose() {
         }}
       />
 
+      {ai.dialog}
       <Toast message={toast} onDismiss={() => setToast(null)} />
     </Screen>
   );

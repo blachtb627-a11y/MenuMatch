@@ -133,13 +133,15 @@ export function Disclaimer({ children }: { children: React.ReactNode }) {
  */
 export function ConfirmDialog({
   visible, title, body, confirmLabel, cancelLabel = 'Keep it',
-  busy, onConfirm, onCancel,
+  confirmVariant = 'danger', busy, onConfirm, onCancel,
 }: {
   visible: boolean;
   title: string;
   body: React.ReactNode;
   confirmLabel: string;
   cancelLabel?: string;
+  /** Destructive by default; a permission being granted is not a deletion. */
+  confirmVariant?: 'primary' | 'danger';
   busy?: boolean;
   onConfirm: () => void;
   onCancel: () => void;
@@ -154,7 +156,7 @@ export function ConfirmDialog({
           <View style={{ flexDirection: 'row', gap: space.md }}>
             <Button label={cancelLabel} variant="secondary" style={{ flex: 1 }}
                     onPress={onCancel} />
-            <Button label={confirmLabel} variant="danger" style={{ flex: 1 }}
+            <Button label={confirmLabel} variant={confirmVariant} style={{ flex: 1 }}
                     onPress={onConfirm} disabled={busy} />
           </View>
         </View>

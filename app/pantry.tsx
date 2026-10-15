@@ -6,6 +6,7 @@ import {
 import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
+import { useAiConsent } from '@/components/AiConsent';
 import { RecipeCover } from '@/components/RecipeCover';
 import { Toast } from '@/components/Toast';
 import {
@@ -58,6 +59,7 @@ export default function Pantry() {
   const [useStaples, setUseStaples] = useState(true);
   const [busy, setBusy] = useState(false);
   const [scanning, setScanning] = useState(false);
+  const ai = useAiConsent();
   const [matching, setMatching] = useState(false);
   const [confirmClear, setConfirmClear] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
@@ -116,6 +118,7 @@ export default function Pantry() {
 
   async function scan(source: 'camera' | 'library') {
     setError(null);
+    if (!(await ai.ask())) return;
     try {
       const picked = await pickImage(source);
       if (!picked) return;
@@ -333,6 +336,7 @@ export default function Pantry() {
           void loadItems();
         }}
       />
+      {ai.dialog}
       <Toast message={toast} onDismiss={() => setToast(null)} />
     </Screen>
   );

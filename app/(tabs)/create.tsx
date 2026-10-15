@@ -10,10 +10,12 @@ import { Header } from './cookbook';
 import { deleteRecipe, listMyRecipes, type RecipeSummary } from '@/lib/composer';
 import { formatCount } from '@/lib/search';
 import { formatTotalTime } from '@/lib/timers';
+import { useSession } from '@/state/session';
 import { colors, radius, space, type } from '@/theme';
 
 /** §15: the creator's own recipes, drafts first. */
 export default function Create() {
+  const { isGuest } = useSession();
   const [recipes, setRecipes] = useState<RecipeSummary[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [pendingDelete, setPendingDelete] = useState<RecipeSummary | null>(null);
@@ -21,6 +23,7 @@ export default function Create() {
   const [toast, setToast] = useState<string | null>(null);
 
   const load = useCallback(async () => {
+    if (isGuest) return;
     try {
       setRecipes(await listMyRecipes());
       setError(null);
@@ -28,7 +31,7 @@ export default function Create() {
       setError(e instanceof Error ? e.message : 'Could not load your recipes');
       setRecipes([]);
     }
-  }, []);
+  }, [isGuest]);
 
   useFocusEffect(useCallback(() => { void load(); }, [load]));
 
@@ -46,6 +49,21 @@ export default function Create() {
     } finally {
       setBusy(false);
     }
+  }
+
+  // Guests can browse but not publish: a recipe needs a creator to answer for
+  // it, and a draft needs an account to be saved against.
+  if (isGuest) {
+    return (
+      <Screen><SafeAreaView style={{ flex: 1 }} edges={['top']}>
+        <Header title="Create" />
+        <EmptyState
+          title="Share your own recipes"
+          body="Create a free account to write recipes, scan them from a photo, and publish them to the deck."
+          action={<Button label="Create an account" onPress={() => router.push('/auth')} />}
+        />
+      </SafeAreaView></Screen>
+    );
   }
 
   if (recipes === null) return <Screen><Loading /></Screen>;

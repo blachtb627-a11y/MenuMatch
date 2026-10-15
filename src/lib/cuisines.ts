@@ -209,6 +209,7 @@ export const ALL_CUISINES: string[] = [
   'Polish',
   'Portuguese',
   'Provencal',
+  'Puerto Rican',
   'Punjabi',
   'Qatari',
   'Romanian',

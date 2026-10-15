@@ -94,3 +94,27 @@ The covers are hotlinked to Wikimedia rather than hosted in the project's own
 images should be downloaded and re-uploaded, both because Wikimedia asks people
 not to hotlink at scale and because the catalog should not depend on someone
 else's CDN.
+
+## Batch 2026-10: widening the catalog
+
+`batch-2026-10.json` adds 40 recipes to the existing accounts, aimed at what the
+first 198 were thin on: the Caribbean (none before), Africa (five), Filipino,
+Pakistani, Sri Lankan, Burmese, Persian, Uzbek and Georgian food (none), desserts
+from outside Europe and the US (one), and a few things people search for that
+the catalog barely had — air fryer, tofu and tempeh mains, sheet-pan seafood,
+meal prep, a cheap pot of beans.
+
+It loads the same way as the creator files, with the same photograph rules:
+
+1. Create the functions in `resolve-covers.sql`, then run
+   `batch-2026-10-covers.sql` to queue the 40 dishes.
+2. Run Usage steps 2–6 from `resolve-covers.sql` against
+   `batch-2026-10.json`. The usernames for step 6 are listed at the top of
+   `batch-2026-10-covers.sql`.
+3. A dish that ends with no accepted photograph is simply not loaded — step 5
+   joins on `zz_cover`, so it drops out rather than going live without a cover.
+   Swap it for another dish rather than lowering the bar.
+4. Teardown as before.
+
+Two `must` words are loose and will lean on the vision check more than usual:
+`red` (Red-Red) and `beans` (Red Beans and Rice). Read what it says it saw.

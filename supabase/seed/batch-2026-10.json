@@ -1,0 +1,4951 @@
+[
+ {
+  "creator": "ryanccooks",
+  "slug": "jamaican-jerk-chicken",
+  "title": "Jamaican Jerk Chicken",
+  "description": "The marinade does the work, so give it the night. Cook it low and covered first, then char it at the end — straight onto fierce heat and the sugar burns before the bone cooks.",
+  "category": "dinner",
+  "cuisine": "Jamaican",
+  "prep": 20,
+  "cook": 40,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 3,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 42,
+   "carbsG": 10,
+   "fatG": 34,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "dairy-free",
+   "high-protein",
+   "company-worthy",
+   "allergen-soy",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "lb",
+    "bone-in chicken thighs and drumsticks",
+    "slashed to the bone"
+   ],
+   [
+    6,
+    1,
+    "piece",
+    "spring onions",
+    "roughly chopped"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "Scotch bonnet chillies",
+    "seeded for less heat"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "ground allspice",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fresh thyme leaves",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fresh ginger",
+    "grated"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "soy sauce",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "brown sugar",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "lime juice",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "ground cinnamon",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "black pepper",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Blend everything except the chicken into a rough paste.",
+   "Rub it into the chicken and into the slashes, then cover and refrigerate for at least 4 hours, ideally overnight.",
+   "Set up the grill with coals on one side only, or heat the oven to 375°F.",
+   "Cook the chicken on the cool side with the lid down for 30 minutes, turning once.",
+   "Move it over the coals for 8 minutes, turning often, until charred in patches and 175°F at the bone.",
+   "Rest for 5 minutes before serving with rice and peas."
+  ],
+  "photo": {
+   "query": "jerk chicken",
+   "must": "jerk"
+  }
+ },
+ {
+  "creator": "swipzy.kitchen",
+  "slug": "rice-and-peas",
+  "title": "Rice and Peas",
+  "description": "The peas are kidney beans, and the coconut milk is not optional. Drop the Scotch bonnet in whole — it perfumes the pot, and only bursts if you stir too hard.",
+  "category": "dinner",
+  "cuisine": "Jamaican",
+  "prep": 10,
+  "cook": 30,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 5,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 380,
+   "proteinG": 9,
+   "carbsG": 58,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "vegan",
+   "vegetarian",
+   "gluten-free",
+   "dairy-free",
+   "one-pot",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "long-grain rice",
+    "rinsed until the water runs clear"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "kidney beans",
+    "15 oz, with their liquid"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "coconut milk",
+    "13.5 oz"
+   ],
+   [
+    3,
+    2,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "spring onions",
+    "bashed with the back of a knife"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    4,
+    1,
+    "sprig",
+    "thyme",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "Scotch bonnet chilli",
+    "left whole"
+   ],
+   [
+    6,
+    1,
+    "piece",
+    "allspice berries",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Put the beans and their liquid, the coconut milk, water, spring onions, garlic, thyme, chilli, allspice and salt in a heavy pot.",
+   "Bring to a simmer for 5 minutes, then taste — it should be well seasoned.",
+   "Stir in the rice, cover tightly and cook on the lowest heat for 20 minutes without lifting the lid.",
+   "Leave it off the heat, still covered, for 10 minutes.",
+   "Lift out the thyme stems, spring onions and chilli, then fluff with a fork."
+  ],
+  "photo": {
+   "query": "rice and peas jamaican",
+   "must": "peas"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "ropa-vieja",
+  "title": "Ropa Vieja",
+  "description": "\"Old clothes\" — beef braised until it falls into rags. Shred it in the pot so every strand soaks up the sauce.",
+  "category": "dinner",
+  "cuisine": "Cuban",
+  "prep": 20,
+  "cook": 150,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 7,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 390,
+   "proteinG": 42,
+   "carbsG": 12,
+   "fatG": 18,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "gluten-free",
+   "dairy-free",
+   "high-protein",
+   "one-pot",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    5,
+    2,
+    "lb",
+    "flank steak",
+    "cut into 3 pieces"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "green pepper",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "red pepper",
+    "sliced"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "dried oregano",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "tomato paste",
+    null
+   ],
+   [
+    1,
+    1,
+    "can",
+    "crushed tomatoes",
+    "14.5 oz"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "beef stock",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "bay leaf",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "pimento-stuffed green olives",
+    "halved"
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "salt and black pepper",
+    null
+   ]
+  ],
+  "steps": [
+   "Season the beef and brown it in the oil in batches, 4 minutes a side. Set aside.",
+   "Soften the onion and peppers in the same pot for 8 minutes.",
+   "Stir in the garlic, cumin, oregano and tomato paste and cook for 1 minute.",
+   "Add the tomatoes, stock and bay leaf, return the beef, and bring to a simmer.",
+   "Cover and cook gently for 2 hours, until the beef pulls apart with a fork.",
+   "Shred the beef in the pot with two forks, add the olives, and simmer uncovered for 15 minutes to thicken.",
+   "Serve with white rice and black beans."
+  ],
+  "photo": {
+   "query": "ropa vieja",
+   "must": "vieja"
+  }
+ },
+ {
+  "creator": "cookduck",
+  "slug": "arroz-con-gandules",
+  "title": "Arroz con Gandules",
+  "description": "Puerto Rico's party rice. The crust that sticks to the bottom of the pot — pegao — is the part people fight over, so do not stir once the lid is on.",
+  "category": "dinner",
+  "cuisine": "Puerto Rican",
+  "prep": 15,
+  "cook": 40,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 9,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 360,
+   "proteinG": 12,
+   "carbsG": 58,
+   "fatG": 9,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "gluten-free",
+   "dairy-free",
+   "one-pot"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "medium-grain rice",
+    "rinsed"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "pigeon peas (gandules)",
+    "15 oz, drained"
+   ],
+   [
+    3,
+    1,
+    "oz",
+    "smoked ham",
+    "diced"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "sofrito",
+    "homemade or jarred"
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "tomato sauce",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "green olives",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground annatto (achiote)",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "dried oregano",
+    null
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "chicken stock",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "bay leaf",
+    null
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Fry the ham in the oil in a wide heavy pot for 3 minutes.",
+   "Add the sofrito and cook for 3 minutes, then the tomato sauce, olives, annatto, cumin and oregano for 1 minute more.",
+   "Add the pigeon peas, stock and bay leaf and bring to the boil. Taste — the liquid should be a little too salty.",
+   "Stir in the rice and boil uncovered for 5 minutes, until the liquid drops to the level of the rice.",
+   "Stir once, cover tightly and cook on the lowest heat for 25 minutes. Do not lift the lid.",
+   "Fold the rice over from the bottom, scraping up the crust, and serve."
+  ],
+  "photo": {
+   "query": "arroz con gandules",
+   "must": "gandules"
+  }
+ },
+ {
+  "creator": "flourhands",
+  "slug": "trinidad-doubles",
+  "title": "Trinidad Doubles",
+  "description": "Two pillowy fried flatbreads around curried chickpeas — Trinidad's breakfast from a street cart. The dough should be sticky; oil your hands, not the counter.",
+  "category": "breakfast",
+  "cuisine": "Trinidadian",
+  "prep": 30,
+  "cook": 30,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 11,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 430,
+   "proteinG": 13,
+   "carbsG": 66,
+   "fatG": 13,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "instant yeast",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground turmeric",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cumin",
+    "half for the dough, half for the chickpeas"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "sugar",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    3,
+    4,
+    "cup",
+    "warm water",
+    null
+   ],
+   [
+    2,
+    1,
+    "can",
+    "chickpeas",
+    "15 oz each, drained"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "finely chopped"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "curry powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "vegetable oil",
+    "for frying"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "tamarind chutney",
+    "to serve"
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "pepper sauce",
+    "to serve"
+   ]
+  ],
+  "steps": [
+   "Mix the flour, yeast, turmeric, half the cumin, the sugar and salt, then stir in the warm water to a soft, sticky dough.",
+   "Cover and leave to rise for 1 hour.",
+   "For the channa, fry the onion and garlic in 1 tbsp oil with the curry powder and remaining cumin for 3 minutes.",
+   "Add the chickpeas and 1 1/2 cups of water and simmer for 20 minutes, mashing a few. It should stay loose and saucy. Season.",
+   "Heat the frying oil to 350°F. With oiled hands, pull the dough into 24 small balls and pat each into a thin 4 in round.",
+   "Fry two or three at a time for about 20 seconds a side, until puffed but still pale. Drain.",
+   "Lay two baras overlapping, spoon channa on top, and finish with tamarind chutney and pepper sauce."
+  ],
+  "photo": {
+   "query": "doubles trinidad",
+   "must": "doubles"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "black-bean-arepas",
+  "title": "Black Bean Arepas",
+  "description": "Venezuela's corn cakes, crisp outside and steamy inside. They are done when they sound hollow if you tap them.",
+  "category": "lunch",
+  "cuisine": "Venezuelan",
+  "prep": 10,
+  "cook": 20,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 2,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 18,
+   "carbsG": 70,
+   "fatG": 19,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "vegetarian",
+   "gluten-free",
+   "weeknight",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "precooked white cornmeal (masarepa)",
+    null
+   ],
+   [
+    5,
+    2,
+    "cup",
+    "warm water",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "can",
+    "black beans",
+    "15 oz, drained"
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    1,
+    1,
+    "clove",
+    "garlic",
+    "grated"
+   ],
+   [
+    4,
+    1,
+    "oz",
+    "queso fresco",
+    "crumbled"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "avocado",
+    "sliced"
+   ]
+  ],
+  "steps": [
+   "Stir the salt into the water, then work in the masarepa a handful at a time until there are no lumps.",
+   "Rest for 5 minutes. It should feel like soft modelling clay; add a splash of water if it cracks.",
+   "Shape into 8 balls and flatten to 3/4 in thick, smoothing any cracked edges with a wet finger.",
+   "Cook in the oiled pan over medium heat for 6 minutes a side, until crusted with dark spots.",
+   "Warm the beans with the cumin and garlic for 3 minutes, mashing about half.",
+   "Split each arepa with a knife like a pita and stuff with beans, cheese and avocado."
+  ],
+  "photo": {
+   "query": "arepa",
+   "must": "arepa"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "peruvian-ceviche",
+  "title": "Peruvian Ceviche",
+  "description": "Peruvian ceviche is fast: minutes in the lime, not hours. Any longer and the fish turns chalky. Buy fish you would eat raw.",
+  "category": "lunch",
+  "cuisine": "Peruvian",
+  "prep": 25,
+  "cook": 20,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 4,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 250,
+   "proteinG": 25,
+   "carbsG": 28,
+   "fatG": 3,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "gluten-free",
+   "dairy-free",
+   "high-protein",
+   "allergen-fish"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "very fresh skinless sea bass or halibut",
+    "in 3/4 in cubes, kept cold"
+   ],
+   [
+    3,
+    4,
+    "cup",
+    "fresh lime juice",
+    "about 8 limes"
+   ],
+   [
+    1,
+    2,
+    "piece",
+    "red onion",
+    "very thinly sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "aji limo or habanero chilli",
+    "seeded and finely chopped"
+   ],
+   [
+    1,
+    1,
+    "clove",
+    "garlic",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "coriander",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "sweet potato",
+    "boiled and sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "corn on the cob",
+    "boiled and cut into rounds"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "ice cubes",
+    null
+   ]
+  ],
+  "steps": [
+   "Soak the onion in iced water for 10 minutes to take the edge off, then drain.",
+   "Toss the cold fish with the salt first, then the chilli and garlic.",
+   "Pour over just enough lime juice to coat, add the ice cubes and stir for 2 minutes. Fish out the ice.",
+   "Fold in the onion and coriander.",
+   "Serve straight away with the sweet potato and corn, and spoon over the juice — the leche de tigre."
+  ],
+  "photo": {
+   "query": "ceviche",
+   "must": "ceviche"
+  }
+ },
+ {
+  "creator": "flourhands",
+  "slug": "pao-de-queijo",
+  "title": "Pão de Queijo",
+  "description": "Brazilian cheese bread, made with tapioca, so it is chewy inside and naturally gluten-free. Beat the eggs into the dough while it is still warm.",
+  "category": "snacks",
+  "cuisine": "Brazilian",
+  "prep": 15,
+  "cook": 25,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 6,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 330,
+   "proteinG": 9,
+   "carbsG": 33,
+   "fatG": 18,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "vegetarian",
+   "gluten-free",
+   "allergen-milk",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "tapioca flour",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "whole milk",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "vegetable oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "eggs",
+    null
+   ],
+   [
+    3,
+    2,
+    "cup",
+    "Parmesan",
+    "finely grated"
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 425°F and line a baking sheet.",
+   "Bring the milk, water, oil and salt to the boil, then pour it over the tapioca flour and beat into a sticky dough.",
+   "Cool for 10 minutes, then beat in the eggs one at a time, then the cheese.",
+   "With oiled hands, roll into 24 balls and space them out on the sheet.",
+   "Bake for 20 minutes, until puffed and golden. Eat warm."
+  ],
+  "photo": {
+   "query": "pao de queijo",
+   "must": "queijo"
+  }
+ },
+ {
+  "creator": "swipzy.kitchen",
+  "slug": "egusi-soup",
+  "title": "Egusi Soup",
+  "description": "Ground melon seeds thicken this Nigerian soup. Spoon the paste in and leave it alone for 5 minutes, so it sets into soft curds before you stir.",
+  "category": "dinner",
+  "cuisine": "Nigerian",
+  "prep": 20,
+  "cook": 45,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 8,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 480,
+   "proteinG": 32,
+   "carbsG": 10,
+   "fatG": 36,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "gluten-free",
+   "dairy-free",
+   "high-protein",
+   "allergen-shellfish"
+  ],
+  "ingredients": [
+   [
+    3,
+    2,
+    "lb",
+    "beef chuck",
+    "in 1 in cubes"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "beef stock",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "chopped, divided"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "ground egusi (melon seeds)",
+    null
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "red palm oil",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "red peppers",
+    "blended with the chilli"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "Scotch bonnet chilli",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "ground crayfish",
+    null
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "spinach",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Simmer the beef with half the onion, a pinch of salt and the stock for 30 minutes, until tender. Keep the stock.",
+   "Mix the egusi with the remaining onion and a few spoons of water into a thick paste.",
+   "Warm the palm oil gently for 2 minutes — do not let it smoke — then fry the blended peppers for 10 minutes.",
+   "Drop in spoonfuls of the egusi paste and leave undisturbed for 5 minutes, then stir.",
+   "Add the beef, its stock and the crayfish and simmer for 10 minutes.",
+   "Stir in the spinach for the last 3 minutes and season. Serve with pounded yam, eba or rice."
+  ],
+  "photo": {
+   "query": "egusi soup",
+   "must": "egusi"
+  }
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "beef-suya",
+  "title": "Beef Suya",
+  "description": "Nigerian street-grill beef with a peanut spice rub called yaji. Slice the beef as thin as you can — it is the edges that char.",
+  "category": "dinner",
+  "cuisine": "Nigerian",
+  "prep": 20,
+  "cook": 10,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 10,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 420,
+   "proteinG": 42,
+   "carbsG": 9,
+   "fatG": 24,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "gluten-free",
+   "dairy-free",
+   "high-protein",
+   "allergen-peanuts"
+  ],
+  "ingredients": [
+   [
+    3,
+    2,
+    "lb",
+    "beef sirloin",
+    "very thinly sliced"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "roasted unsalted peanuts",
+    "finely ground"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "smoked paprika",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "cayenne pepper",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground ginger",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "garlic powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "onion powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "peanut oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "red onion",
+    "sliced, to serve"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "tomatoes",
+    "sliced, to serve"
+   ]
+  ],
+  "steps": [
+   "Mix the ground peanuts, spices and salt into the yaji.",
+   "Weave the beef onto soaked skewers, brush with the oil, and press on most of the yaji.",
+   "Leave for 1 hour, or overnight in the fridge.",
+   "Grill over high heat for 3 minutes a side, until the edges char.",
+   "Dust with the rest of the yaji and serve with the onion and tomato."
+  ],
+  "photo": {
+   "query": "suya",
+   "must": "suya"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "chicken-yassa",
+  "title": "Chicken Yassa",
+  "description": "Senegal's chicken with a mountain of onions, lemon and mustard. The onions go long and slow until jammy — that is the sauce.",
+  "category": "dinner",
+  "cuisine": "Senegalese",
+  "prep": 20,
+  "cook": 60,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 12,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 40,
+   "carbsG": 22,
+   "fatG": 30,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "gluten-free",
+   "dairy-free",
+   "high-protein"
+  ],
+  "ingredients": [
+   [
+    5,
+    2,
+    "lb",
+    "bone-in chicken thighs and drumsticks",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "large onions",
+    "thinly sliced"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "lemon juice",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "Dijon mustard",
+    null
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "Scotch bonnet chilli",
+    "pricked, left whole"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "bay leaves",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "green olives",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "chicken stock",
+    null
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "salt and black pepper",
+    null
+   ]
+  ],
+  "steps": [
+   "Mix the onions, lemon juice, mustard, garlic, salt and pepper. Add the chicken and marinate for 2 hours, or overnight.",
+   "Lift out the chicken and brown it in the oil for 5 minutes a side. Set aside.",
+   "Drain the onions, keeping the marinade, and cook them slowly in the same pot for 25 minutes, until soft and golden.",
+   "Add the marinade, stock, bay leaves, chilli and chicken. Cover and simmer for 25 minutes.",
+   "Add the olives for the last 5 minutes. Serve over rice."
+  ],
+  "photo": {
+   "query": "chicken yassa",
+   "must": "yassa"
+  }
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "red-red",
+  "title": "Red-Red",
+  "description": "Ghana's black-eyed bean stew, red from palm oil, with sweet fried plantain — the second red. Use plantains that are almost black.",
+  "category": "lunch",
+  "cuisine": "Ghanaian",
+  "prep": 15,
+  "cook": 35,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 3,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 15,
+   "carbsG": 80,
+   "fatG": 17,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "vegan",
+   "vegetarian",
+   "gluten-free",
+   "dairy-free"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "can",
+    "black-eyed beans",
+    "15 oz each, drained"
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "red palm oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fresh ginger",
+    "grated"
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "Scotch bonnet chilli",
+    "finely chopped, to taste"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "tomato paste",
+    null
+   ],
+   [
+    1,
+    1,
+    "can",
+    "chopped tomatoes",
+    "14.5 oz"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "vegetable stock",
+    null
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "very ripe plantains",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "vegetable oil",
+    "for frying"
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Warm the palm oil and cook the onion for 6 minutes.",
+   "Add the ginger, garlic and chilli for 1 minute, then the tomato paste for 1 minute.",
+   "Add the tomatoes and cook for 10 minutes, until the oil rises to the top.",
+   "Add the beans and stock and simmer for 15 minutes, mashing a few to thicken. Season.",
+   "Slice the plantains on an angle and fry in the oil for 3 minutes a side, until deep caramel.",
+   "Serve the stew with the plantain alongside."
+  ],
+  "photo": {
+   "query": "red red ghana",
+   "must": "red"
+  }
+ },
+ {
+  "creator": "swipzy.kitchen",
+  "slug": "bobotie",
+  "title": "Bobotie",
+  "description": "South Africa's curried mince baked under a savoury custard. Sweet, sour and gently spiced — the apricot jam and chutney are what make it bobotie.",
+  "category": "dinner",
+  "cuisine": "South African",
+  "prep": 20,
+  "cook": 60,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 13,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 32,
+   "carbsG": 24,
+   "fatG": 32,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "batch-cooking",
+   "allergen-milk",
+   "allergen-eggs",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "ground beef",
+    null
+   ],
+   [
+    2,
+    1,
+    "slice",
+    "white bread",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "whole milk",
+    "divided"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "butter",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "chopped"
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "medium curry powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground turmeric",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "apricot jam",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "fruit chutney",
+    null
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "raisins",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "lemon juice",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "eggs",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "bay leaves",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 350°F. Soak the bread in half the milk.",
+   "Soften the onion in the butter for 8 minutes, then add the garlic, curry powder and turmeric for 1 minute.",
+   "Add the beef and cook for 8 minutes, breaking it up, until no pink remains.",
+   "Squeeze the bread, keeping the milk, and mix it into the beef with the jam, chutney, raisins, lemon juice and salt.",
+   "Press into a baking dish. Whisk the eggs with all the milk and pour over, then tuck in the bay leaves.",
+   "Bake for 35 minutes, until the custard is set and golden. Rest for 10 minutes and serve with yellow rice."
+  ],
+  "photo": {
+   "query": "bobotie",
+   "must": "bobotie"
+  }
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "ful-medames",
+  "title": "Ful Medames",
+  "description": "Egypt's breakfast of slow-cooked fava beans. Mash only half, keep it loose, and be generous with the olive oil.",
+  "category": "breakfast",
+  "cuisine": "Egyptian",
+  "prep": 5,
+  "cook": 15,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 5,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 380,
+   "proteinG": 15,
+   "carbsG": 48,
+   "fatG": 14,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "weeknight",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "can",
+    "fava beans (ful)",
+    "15 oz each, with their liquid"
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "lemon juice",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    "plus more to finish"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "tomato",
+    "diced"
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "parsley",
+    "chopped"
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "chilli flakes",
+    null
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "salt",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "pita breads",
+    "warmed, to serve"
+   ]
+  ],
+  "steps": [
+   "Simmer the beans in their liquid for 10 minutes.",
+   "Mash about half of them with the garlic, cumin and salt. Loosen with water if it is stiff.",
+   "Stir in the lemon juice and olive oil.",
+   "Spoon into bowls and top with more oil, the tomato, parsley and chilli flakes.",
+   "Serve with warm pita."
+  ],
+  "photo": {
+   "query": "ful medames",
+   "must": "medames"
+  }
+ },
+ {
+  "creator": "cookduck",
+  "slug": "swahili-pilau",
+  "title": "Swahili Pilau",
+  "description": "East Africa's spiced beef and rice. The deep brown colour comes from the onions, not the spices — fry them until they are almost too dark.",
+  "category": "dinner",
+  "cuisine": "Kenyan",
+  "prep": 15,
+  "cook": 50,
+  "servings": 6,
+  "difficulty": "easy",
+  "ageDays": 14,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 30,
+   "carbsG": 62,
+   "fatG": 16,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "gluten-free",
+   "dairy-free",
+   "one-pot",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "basmati rice",
+    "rinsed and soaked for 20 minutes"
+   ],
+   [
+    3,
+    2,
+    "lb",
+    "beef chuck",
+    "in small cubes"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "onions",
+    "thinly sliced"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fresh ginger",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "cumin seeds",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "black peppercorns",
+    null
+   ],
+   [
+    6,
+    1,
+    "piece",
+    "whole cloves",
+    null
+   ],
+   [
+    6,
+    1,
+    "piece",
+    "green cardamom pods",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "cinnamon stick",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "tomatoes",
+    "chopped"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "potatoes",
+    "in large cubes"
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "beef stock",
+    null
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Toast the cumin, peppercorns, cloves, cardamom and cinnamon in a dry pan for 1 minute, then grind.",
+   "Fry the onions in the oil for 15 minutes, until deep brown.",
+   "Add the garlic, ginger and ground spices for 1 minute, then the beef for 5 minutes.",
+   "Add the tomatoes and stock, cover and simmer for 30 minutes.",
+   "Add the potatoes and drained rice, bring to the boil, then cover and cook on low for 20 minutes.",
+   "Rest for 10 minutes, then fluff and serve with kachumbari or a tomato salad."
+  ],
+  "photo": {
+   "query": "pilau",
+   "must": "pilau"
+  }
+ },
+ {
+  "creator": "wokweekly",
+  "slug": "chicken-adobo",
+  "title": "Chicken Adobo",
+  "description": "The Philippines' national dish: chicken braised in vinegar, soy and garlic. Let the vinegar boil before you stir, so its sharpness cooks off.",
+  "category": "dinner",
+  "cuisine": "Filipino",
+  "prep": 10,
+  "cook": 45,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 2,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 480,
+   "proteinG": 38,
+   "carbsG": 6,
+   "fatG": 32,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "dairy-free",
+   "high-protein",
+   "one-pot",
+   "weeknight",
+   "allergen-soy",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    5,
+    2,
+    "lb",
+    "bone-in, skin-on chicken thighs",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "cane or white vinegar",
+    null
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "soy sauce",
+    null
+   ],
+   [
+    10,
+    1,
+    "clove",
+    "garlic",
+    "smashed"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "whole black peppercorns",
+    null
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "bay leaves",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "brown sugar",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ]
+  ],
+  "steps": [
+   "Put everything except the oil in a pot with the chicken.",
+   "Bring to the boil uncovered and do not stir until it boils.",
+   "Cover and simmer for 30 minutes.",
+   "Lift out the chicken and pat dry. Brown it skin-side down in the oil for 5 minutes.",
+   "Meanwhile, boil the sauce for 8 minutes until glossy and reduced.",
+   "Return the chicken to the sauce and serve with plenty of rice."
+  ],
+  "photo": {
+   "query": "chicken adobo",
+   "must": "adobo"
+  }
+ },
+ {
+  "creator": "pourandplate",
+  "slug": "lumpia-shanghai",
+  "title": "Lumpia Shanghai",
+  "description": "Pencil-thin Filipino pork spring rolls. Roll them tight and thin so the filling cooks through by the time the wrapper is golden. They freeze well, uncooked.",
+  "category": "snacks",
+  "cuisine": "Filipino",
+  "prep": 40,
+  "cook": 20,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 6,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 420,
+   "proteinG": 17,
+   "carbsG": 30,
+   "fatG": 26,
+   "source": "creator"
+  },
+  "tags": [
+   "snack",
+   "dairy-free",
+   "batch-cooking",
+   "company-worthy",
+   "allergen-eggs",
+   "allergen-soy",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "ground pork",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "carrot",
+    "finely grated"
+   ],
+   [
+    1,
+    2,
+    "piece",
+    "onion",
+    "minced"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "minced"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "spring onions",
+    "finely sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "egg",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "soy sauce",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "black pepper",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    30,
+    1,
+    "piece",
+    "lumpia or spring roll wrappers",
+    null
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "vegetable oil",
+    "for frying"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "sweet chilli sauce",
+    "to serve"
+   ]
+  ],
+  "steps": [
+   "Mix the pork, carrot, onion, garlic, spring onions, egg, soy sauce, pepper and salt.",
+   "Lay a wrapper on the counter and spread 1 tbsp of filling into a thin log along the near edge.",
+   "Fold in the sides and roll up tightly, sealing the end with a dab of water.",
+   "Heat the oil to 350°F and fry in batches for 5 minutes, until deep golden and cooked through.",
+   "Drain on a rack and serve with sweet chilli sauce."
+  ],
+  "photo": {
+   "query": "lumpia",
+   "must": "lumpia"
+  }
+ },
+ {
+  "creator": "wokweekly",
+  "slug": "pancit-bihon",
+  "title": "Pancit Bihon",
+  "description": "Filipino stir-fried rice noodles, served at every birthday for a long life. The noodles go in last and drink up the stock.",
+  "category": "dinner",
+  "cuisine": "Filipino",
+  "prep": 20,
+  "cook": 20,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 9,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 450,
+   "proteinG": 24,
+   "carbsG": 60,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "dairy-free",
+   "weeknight",
+   "allergen-soy",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    8,
+    1,
+    "oz",
+    "rice vermicelli (bihon)",
+    null
+   ],
+   [
+    12,
+    1,
+    "oz",
+    "boneless chicken thighs",
+    "in thin strips"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "sliced"
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "carrot",
+    "cut into matchsticks"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "green beans",
+    "thinly sliced on an angle"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "cabbage",
+    "shredded"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "chicken stock",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "soy sauce",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "black pepper",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "spring onions",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lemon",
+    "in wedges, or calamansi"
+   ]
+  ],
+  "steps": [
+   "Soak the noodles in warm water for 5 minutes and drain.",
+   "Stir-fry the chicken in the oil for 4 minutes.",
+   "Add the onion, garlic, carrot and green beans for 3 minutes, then the cabbage for 1 minute.",
+   "Pour in the stock and soy sauce and bring to the boil.",
+   "Add the noodles and toss for 4 minutes, until they have absorbed the liquid.",
+   "Finish with pepper and spring onions and serve with lemon wedges."
+  ],
+  "photo": {
+   "query": "pancit",
+   "must": "pancit"
+  }
+ },
+ {
+  "creator": "swipzy.kitchen",
+  "slug": "chicken-karahi",
+  "title": "Chicken Karahi",
+  "description": "Pakistan's wok-cooked chicken: tomatoes, ginger, green chilli and nothing to hide behind. Keep cooking until the oil separates from the sauce.",
+  "category": "dinner",
+  "cuisine": "Pakistani",
+  "prep": 15,
+  "cook": 35,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 4,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 460,
+   "proteinG": 40,
+   "carbsG": 12,
+   "fatG": 28,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "gluten-free",
+   "high-protein",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "bone-in chicken",
+    "in small pieces"
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "ghee or vegetable oil",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "fresh ginger",
+    "half grated, half in fine strips"
+   ],
+   [
+    6,
+    1,
+    "clove",
+    "garlic",
+    "grated"
+   ],
+   [
+    5,
+    1,
+    "piece",
+    "ripe tomatoes",
+    "quartered"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "Kashmiri chilli powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground coriander",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "cumin seeds",
+    "lightly crushed"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "coarse black pepper",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "plain yoghurt",
+    null
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "green chillies",
+    "slit"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "garam masala",
+    null
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "coriander leaves",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the ghee in a karahi or wok over high heat and cook the chicken for 5 minutes, until white all over.",
+   "Add the garlic and grated ginger for 1 minute.",
+   "Add the tomatoes and salt, cover and cook for 10 minutes, until collapsed. Pull out the skins with tongs.",
+   "Add the chilli powder, coriander, cumin and pepper and cook uncovered on high for 10 minutes, stirring, until the oil separates.",
+   "Stir in the yoghurt and cook for 3 minutes.",
+   "Finish with the green chillies, ginger strips, garam masala and coriander leaves. Serve with naan."
+  ],
+  "photo": {
+   "query": "chicken karahi",
+   "must": "karahi"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "kottu-roti",
+  "title": "Kottu Roti",
+  "description": "Sri Lanka's chopped-flatbread stir-fry, named after the clatter of the metal spatulas. Frozen parathas make it a weeknight dish.",
+  "category": "dinner",
+  "cuisine": "Sri Lankan",
+  "prep": 15,
+  "cook": 15,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 8,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 780,
+   "proteinG": 42,
+   "carbsG": 70,
+   "fatG": 36,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "weeknight",
+   "high-protein",
+   "allergen-eggs",
+   "allergen-wheat",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    4,
+    1,
+    "piece",
+    "frozen parathas",
+    "cooked, cooled and cut into thin strips"
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "cooked chicken",
+    "shredded"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "leftover curry sauce",
+    "or 1 tbsp curry powder and 1/3 cup water"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "eggs",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "leek",
+    "thinly sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "carrot",
+    "cut into matchsticks"
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "cabbage",
+    "shredded"
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "green chilli",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "sprig",
+    "curry leaves",
+    null
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "salt and black pepper",
+    null
+   ]
+  ],
+  "steps": [
+   "Stir-fry the onion, leek, carrot, curry leaves, chilli and garlic in the oil over high heat for 3 minutes.",
+   "Push everything aside and scramble the eggs in the space for 1 minute.",
+   "Add the chicken and cabbage and toss for 2 minutes.",
+   "Add the paratha strips and curry sauce and chop through everything with two spatulas for 3 minutes, until coated and crisp at the edges.",
+   "Season and serve straight away."
+  ],
+  "photo": {
+   "query": "kottu",
+   "must": "kottu"
+  }
+ },
+ {
+  "creator": "wokweekly",
+  "slug": "nasi-lemak",
+  "title": "Nasi Lemak",
+  "description": "Malaysia's breakfast: coconut rice, a dark, sweet-hot sambal, crisp anchovies, peanuts and an egg. Fry the sambal paste slowly until the oil splits from it.",
+  "category": "breakfast",
+  "cuisine": "Malaysian",
+  "prep": 30,
+  "cook": 40,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 10,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 690,
+   "proteinG": 26,
+   "carbsG": 78,
+   "fatG": 31,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "gluten-free",
+   "dairy-free",
+   "company-worthy",
+   "allergen-fish",
+   "allergen-shellfish",
+   "allergen-peanuts",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "jasmine rice",
+    "rinsed"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "coconut milk",
+    "13.5 oz"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "pandan leaves",
+    "knotted, optional"
+   ],
+   [
+    1,
+    1,
+    "slice",
+    "fresh ginger",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    10,
+    1,
+    "piece",
+    "dried red chillies",
+    "soaked in hot water for 15 minutes"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "shallots",
+    null
+   ],
+   [
+    3,
+    1,
+    "clove",
+    "garlic",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "shrimp paste (belacan)",
+    null
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "vegetable oil",
+    "plus more for frying"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "tamarind paste",
+    null
+   ],
+   [
+    3,
+    2,
+    "tbsp",
+    "sugar",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "dried anchovies (ikan bilis)",
+    "rinsed and dried"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "roasted peanuts",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "eggs",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "cucumber",
+    "sliced"
+   ]
+  ],
+  "steps": [
+   "Put the rice, coconut milk, water, pandan, ginger and salt in a pan, bring to the boil, then cover and cook on low for 15 minutes. Rest for 10 minutes.",
+   "Blend the drained chillies, shallots, garlic and shrimp paste into a paste.",
+   "Fry the paste in 3 tbsp of the oil over medium-low heat for 15 minutes, until dark red and the oil splits.",
+   "Add the tamarind, sugar and half the anchovies and simmer for 5 minutes.",
+   "Fry the remaining anchovies in a little oil for 3 minutes, until crisp, and drain.",
+   "Boil the eggs for 7 minutes, cool and halve.",
+   "Serve the rice with the sambal, crisp anchovies, peanuts, egg and cucumber."
+  ],
+  "photo": {
+   "query": "nasi lemak",
+   "must": "lemak"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "nasi-goreng",
+  "title": "Nasi Goreng",
+  "description": "Indonesian fried rice, dark and sticky with sweet soy, topped with a crisp-edged fried egg. Cold, day-old rice is the rule.",
+  "category": "dinner",
+  "cuisine": "Indonesian",
+  "prep": 10,
+  "cook": 12,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 1,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 620,
+   "proteinG": 30,
+   "carbsG": 72,
+   "fatG": 22,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "dairy-free",
+   "weeknight",
+   "allergen-soy",
+   "allergen-wheat",
+   "allergen-eggs",
+   "allergen-shellfish"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "cup",
+    "cooked jasmine rice",
+    "cold, day-old"
+   ],
+   [
+    6,
+    1,
+    "oz",
+    "boneless chicken thigh",
+    "in small pieces"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "vegetable oil",
+    "plus more for the eggs"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "shallots",
+    "finely chopped"
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "finely chopped"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "red chilli",
+    "finely chopped"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "shrimp paste (terasi)",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "kecap manis",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "soy sauce",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "eggs",
+    null
+   ],
+   [
+    1,
+    2,
+    "piece",
+    "cucumber",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "tomato",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "spring onion",
+    "sliced"
+   ]
+  ],
+  "steps": [
+   "Mash the shallots, garlic, chilli and shrimp paste together.",
+   "Fry the paste in the oil over high heat for 2 minutes, until fragrant.",
+   "Add the chicken and cook for 4 minutes.",
+   "Add the rice, break up the clumps and fry for 3 minutes, letting some grains toast.",
+   "Add the kecap manis and soy sauce and toss for 1 minute, until every grain is coloured.",
+   "Fry the eggs in hot oil until the edges crisp. Serve the rice topped with the eggs, cucumber, tomato and spring onion."
+  ],
+  "photo": {
+   "query": "nasi goreng",
+   "must": "goreng"
+  }
+ },
+ {
+  "creator": "wokweekly",
+  "slug": "mohinga",
+  "title": "Mohinga",
+  "description": "Myanmar's breakfast noodle soup: catfish, lemongrass and a broth thickened with toasted chickpea flour. Whisk the flour in smooth or it lumps.",
+  "category": "breakfast",
+  "cuisine": "Burmese",
+  "prep": 20,
+  "cook": 50,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 15,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 32,
+   "carbsG": 62,
+   "fatG": 16,
+   "source": "creator"
+  },
+  "tags": [
+   "breakfast",
+   "gluten-free",
+   "dairy-free",
+   "allergen-fish",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "catfish fillets",
+    null
+   ],
+   [
+    6,
+    1,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    2,
+    1,
+    "stalk",
+    "lemongrass",
+    "bruised"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "fresh ginger",
+    "grated"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground turmeric",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "finely chopped"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "paprika",
+    null
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "chickpea flour",
+    "toasted in a dry pan until golden"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "rice flour",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "fish sauce",
+    null
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "thin rice vermicelli",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "eggs",
+    "boiled and halved"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lime",
+    "in wedges"
+   ],
+   [
+    1,
+    1,
+    "handful",
+    "coriander",
+    null
+   ]
+  ],
+  "steps": [
+   "Simmer the catfish in the water with the lemongrass, ginger and turmeric for 10 minutes.",
+   "Lift out the fish and flake it. Keep the broth.",
+   "Fry the onion, garlic and paprika in the oil for 8 minutes, then add the fish for 3 minutes.",
+   "Whisk the chickpea flour and rice flour with 1 cup of the broth until smooth.",
+   "Add it to the broth with the fish mixture and fish sauce and simmer for 20 minutes, stirring, until thick and silky.",
+   "Cook the noodles, divide between bowls and ladle the soup over. Top with egg, lime and coriander."
+  ],
+  "photo": {
+   "query": "mohinga",
+   "must": "mohinga"
+  }
+ },
+ {
+  "creator": "sundaysimmer",
+  "slug": "ghormeh-sabzi",
+  "title": "Ghormeh Sabzi",
+  "description": "Iran's herb stew. Fry the herbs slowly until they turn dark — that is where the flavour lives — and add the fenugreek last, because it turns bitter if it burns.",
+  "category": "dinner",
+  "cuisine": "Persian",
+  "prep": 30,
+  "cook": 180,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 6,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 430,
+   "proteinG": 30,
+   "carbsG": 18,
+   "fatG": 27,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "middle-eastern",
+   "gluten-free",
+   "dairy-free",
+   "high-protein",
+   "batch-cooking"
+  ],
+  "ingredients": [
+   [
+    3,
+    2,
+    "lb",
+    "lamb shoulder",
+    "in 1 in cubes"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground turmeric",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "vegetable oil",
+    "divided"
+   ],
+   [
+    2,
+    1,
+    "bunch",
+    "parsley",
+    "very finely chopped"
+   ],
+   [
+    2,
+    1,
+    "bunch",
+    "coriander",
+    "very finely chopped"
+   ],
+   [
+    1,
+    1,
+    "bunch",
+    "chives",
+    "very finely chopped"
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "dried fenugreek leaves",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "dried limes",
+    "pierced"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "kidney beans",
+    "15 oz, drained"
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "salt and black pepper",
+    null
+   ]
+  ],
+  "steps": [
+   "Fry the herbs in 2 tbsp of the oil over medium heat for 20 minutes, stirring often, until dark green. Add the fenugreek for the last 2 minutes.",
+   "In a large pot, fry the onion in the remaining oil for 8 minutes, then add the turmeric and the lamb for 6 minutes.",
+   "Add the herbs, water and dried limes, cover and simmer for 2 hours.",
+   "Add the beans and simmer uncovered for 30 minutes, until the oil rises to the top.",
+   "Season and serve with rice."
+  ],
+  "photo": {
+   "query": "ghormeh sabzi",
+   "must": "sabzi"
+  }
+ },
+ {
+  "creator": "mirasplate",
+  "slug": "saffron-tahdig",
+  "title": "Saffron Tahdig",
+  "description": "Persian rice with a golden crust, turned out like a cake. Medium heat to start the sizzle, then low and patient — and do not lift the lid.",
+  "category": "dinner",
+  "cuisine": "Persian",
+  "prep": 20,
+  "cook": 75,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 11,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 380,
+   "proteinG": 6,
+   "carbsG": 52,
+   "fatG": 16,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "middle-eastern",
+   "vegetarian",
+   "gluten-free",
+   "company-worthy",
+   "allergen-milk",
+   "allergen-eggs"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "cup",
+    "basmati rice",
+    "rinsed and soaked for 30 minutes"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "salt",
+    "for the boiling water"
+   ],
+   [
+    1,
+    4,
+    "tsp",
+    "saffron threads",
+    "ground and steeped in 3 tbsp hot water"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "plain yoghurt",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "egg yolk",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ],
+   [
+    5,
+    1,
+    "tbsp",
+    "butter",
+    "divided"
+   ]
+  ],
+  "steps": [
+   "Boil the drained rice in a large pot of water with the salt for 6 minutes, until soft outside with a firm core. Drain and rinse with lukewarm water.",
+   "Mix 1 1/2 cups of the rice with the yoghurt, egg yolk and half the saffron water.",
+   "Heat the oil and 2 tbsp of the butter in a 10 in non-stick pot and press the yoghurt rice firmly over the base.",
+   "Pile the rest of the rice on top in a mound and poke 5 holes in it with a spoon handle.",
+   "Melt the remaining butter with the remaining saffron water and drizzle it over.",
+   "Wrap the lid in a towel and cover. Cook on medium for 10 minutes, until it sizzles, then on low for 50 minutes.",
+   "Set the pot in cold water for 1 minute, then turn it out onto a platter."
+  ],
+  "photo": {
+   "query": "tahdig",
+   "must": "tahdig"
+  }
+ },
+ {
+  "creator": "swipzy.kitchen",
+  "slug": "uzbek-plov",
+  "title": "Uzbek Plov",
+  "description": "Lamb, a mountain of carrots and rice cooked on top, never stirred. Salt the broth until it tastes too salty — the rice will take it all.",
+  "category": "dinner",
+  "cuisine": "Uzbek",
+  "prep": 25,
+  "cook": 90,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 9,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 720,
+   "proteinG": 34,
+   "carbsG": 80,
+   "fatG": 30,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "gluten-free",
+   "dairy-free",
+   "high-protein",
+   "one-pot",
+   "company-worthy"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "lamb shoulder",
+    "in 1 1/2 in pieces"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "vegetable oil",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "onions",
+    "sliced into half moons"
+   ],
+   [
+    2,
+    1,
+    "lb",
+    "carrots",
+    "cut into long matchsticks"
+   ],
+   [
+    1,
+    1,
+    "head",
+    "garlic",
+    "loose outer skin removed"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "cumin seeds",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "coriander seeds",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "dried barberries",
+    "optional"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "dried red chilli",
+    null
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "long-grain rice",
+    "rinsed and soaked for 1 hour"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oil in a heavy pot until very hot and brown the lamb for 10 minutes.",
+   "Add the onions and cook for 10 minutes, until golden.",
+   "Spread the carrots on top and leave for 5 minutes, then stir and cook for 10 minutes more, until soft.",
+   "Add the cumin, coriander, barberries, chilli and salt. Pour in boiling water to cover by 1 in and simmer for 40 minutes.",
+   "Drain the rice and spread it evenly on top without stirring. Add boiling water to cover it by 1/2 in.",
+   "Push the garlic into the centre and boil on high for 10 minutes, until the water sinks below the rice.",
+   "Heap the rice into a dome, poke a few holes, cover tightly and cook on the lowest heat for 25 minutes.",
+   "Rest for 10 minutes, then turn out with the meat and carrots on top."
+  ],
+  "photo": {
+   "query": "plov uzbek",
+   "must": "plov"
+  }
+ },
+ {
+  "creator": "flourhands",
+  "slug": "adjarian-khachapuri",
+  "title": "Adjarian Khachapuri",
+  "description": "Georgia's cheese bread boat. Add the yolk at the very end and stir it into the molten cheese at the table, then tear off the crust to dip.",
+  "category": "lunch",
+  "cuisine": "Georgian",
+  "prep": 30,
+  "cook": 20,
+  "servings": 4,
+  "difficulty": "medium",
+  "ageDays": 7,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 780,
+   "proteinG": 34,
+   "carbsG": 72,
+   "fatG": 38,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "vegetarian",
+   "company-worthy",
+   "allergen-milk",
+   "allergen-eggs",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    3,
+    1,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "instant yeast",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "sugar",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "warm whole milk",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "butter",
+    "melted, for the dough"
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "low-moisture mozzarella",
+    "grated"
+   ],
+   [
+    8,
+    1,
+    "oz",
+    "feta",
+    "crumbled"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "eggs",
+    "1 for the cheese, 1 for brushing"
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "egg yolks",
+    null
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "butter",
+    "to finish"
+   ]
+  ],
+  "steps": [
+   "Mix the flour, yeast, sugar, salt, milk and melted butter, and knead for 8 minutes until smooth. Cover and leave to rise for 1 hour.",
+   "Heat the oven to 475°F with a baking sheet inside.",
+   "Mix the cheeses with 1 egg and a splash of water into a thick paste.",
+   "Divide the dough into 4 and roll each into a 10 by 7 in oval. Roll the long edges in towards the middle and pinch and twist the ends to make a boat.",
+   "Fill with the cheese, brush the crust with the other beaten egg and bake for 12 minutes, until golden and bubbling.",
+   "Make a well in each, slide in a yolk and bake for 2 minutes more.",
+   "Top each with 1 tbsp butter and serve straight away."
+  ],
+  "photo": {
+   "query": "khachapuri",
+   "must": "khachapuri"
+  }
+ },
+ {
+  "creator": "flourhands",
+  "slug": "leche-flan",
+  "title": "Leche Flan",
+  "description": "The Filipino caramel custard: denser and richer than crème caramel, made with yolks and condensed milk. Strain it twice for a glassy finish.",
+  "category": "dessert",
+  "cuisine": "Filipino",
+  "prep": 15,
+  "cook": 50,
+  "servings": 8,
+  "difficulty": "medium",
+  "ageDays": 5,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 340,
+   "proteinG": 9,
+   "carbsG": 50,
+   "fatG": 12,
+   "source": "creator"
+  },
+  "tags": [
+   "dessert",
+   "vegetarian",
+   "gluten-free",
+   "company-worthy",
+   "allergen-eggs",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    3,
+    4,
+    "cup",
+    "sugar",
+    "for the caramel"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "water",
+    null
+   ],
+   [
+    10,
+    1,
+    "piece",
+    "egg yolks",
+    null
+   ],
+   [
+    1,
+    1,
+    "can",
+    "sweetened condensed milk",
+    "14 oz"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "evaporated milk",
+    "12 oz"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "vanilla extract",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the sugar and water in a pan, swirling, for 8 minutes, until deep amber. Pour into an 8 in round pan and tilt to coat the base.",
+   "Heat the oven to 325°F.",
+   "Gently whisk the yolks, condensed milk, evaporated milk and vanilla without beating in air. Strain twice.",
+   "Pour over the set caramel and cover with foil.",
+   "Bake in a water bath for 45 minutes, until set at the edges with a slight wobble in the middle.",
+   "Cool, then chill for at least 4 hours. Run a knife around the edge and turn out."
+  ],
+  "photo": {
+   "query": "leche flan",
+   "must": "flan"
+  }
+ },
+ {
+  "creator": "wokweekly",
+  "slug": "ube-halaya",
+  "title": "Ube Halaya",
+  "description": "Filipino purple yam jam, stirred until thick enough to pull away from the pan in one mass. It takes a while; keep stirring so it does not catch.",
+  "category": "dessert",
+  "cuisine": "Filipino",
+  "prep": 20,
+  "cook": 50,
+  "servings": 8,
+  "difficulty": "easy",
+  "ageDays": 12,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 330,
+   "proteinG": 4,
+   "carbsG": 52,
+   "fatG": 13,
+   "source": "creator"
+  },
+  "tags": [
+   "dessert",
+   "vegetarian",
+   "gluten-free",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "grated purple yam (ube)",
+    "frozen and thawed is fine"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "coconut milk",
+    "13.5 oz"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "sweetened condensed milk",
+    "14 oz"
+   ],
+   [
+    4,
+    1,
+    "tbsp",
+    "butter",
+    "plus more for the dish"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ube extract",
+    "optional, for colour"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "salt",
+    null
+   ]
+  ],
+  "steps": [
+   "Put the ube, coconut milk, condensed milk, extract and salt in a large non-stick pan over medium-low heat.",
+   "Stir constantly for 45 minutes, adding the butter halfway, until it pulls cleanly away from the pan.",
+   "Press into a buttered dish and cool.",
+   "Chill for 2 hours, then slice or spoon out."
+  ],
+  "photo": {
+   "query": "ube halaya",
+   "must": "halaya"
+  }
+ },
+ {
+  "creator": "flourhands",
+  "slug": "tres-leches-cake",
+  "title": "Tres Leches Cake",
+  "description": "A light sponge soaked in three milks. Pour the milk slowly and in stages, so it soaks into the cake instead of pooling around it.",
+  "category": "dessert",
+  "cuisine": "Mexican",
+  "prep": 25,
+  "cook": 30,
+  "servings": 12,
+  "difficulty": "medium",
+  "ageDays": 3,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 380,
+   "proteinG": 9,
+   "carbsG": 48,
+   "fatG": 17,
+   "source": "creator"
+  },
+  "tags": [
+   "dessert",
+   "mexican",
+   "vegetarian",
+   "company-worthy",
+   "allergen-milk",
+   "allergen-eggs",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    3,
+    2,
+    "tsp",
+    "baking powder",
+    null
+   ],
+   [
+    1,
+    4,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    5,
+    1,
+    "piece",
+    "eggs",
+    "separated"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "sugar",
+    "divided"
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "whole milk",
+    "for the batter"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "vanilla extract",
+    null
+   ],
+   [
+    1,
+    1,
+    "can",
+    "evaporated milk",
+    "12 oz"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "sweetened condensed milk",
+    "14 oz"
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "whole milk",
+    "for the soak"
+   ],
+   [
+    3,
+    2,
+    "cup",
+    "double cream",
+    "for the topping"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "icing sugar",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "butter",
+    "for the tin"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "ground cinnamon",
+    null
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 350°F and butter a 9 by 13 in tin.",
+   "Whisk the flour, baking powder and salt. Beat the yolks with 3/4 cup of the sugar for 3 minutes, until pale, then stir in the milk and vanilla and fold in the flour.",
+   "Whisk the whites to soft peaks, then add the remaining sugar and whisk until stiff. Fold into the batter in three goes.",
+   "Bake for 25 minutes, until it springs back. Cool for 30 minutes, then prick all over with a fork.",
+   "Mix the three milks and pour over slowly, in stages, letting each soak in. Chill for 4 hours, or overnight.",
+   "Whip the cream with the icing sugar, spread over the top and dust with cinnamon."
+  ],
+  "photo": {
+   "query": "tres leches cake",
+   "must": "leches"
+  }
+ },
+ {
+  "creator": "swipzy.kitchen",
+  "slug": "gulab-jamun",
+  "title": "Gulab Jamun",
+  "description": "Milk dumplings fried slowly, then soaked in cardamom and rose syrup. Fry them on low heat — on high heat they brown outside and stay raw in the middle.",
+  "category": "dessert",
+  "cuisine": "Indian",
+  "prep": 20,
+  "cook": 30,
+  "servings": 6,
+  "difficulty": "medium",
+  "ageDays": 7,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 420,
+   "proteinG": 7,
+   "carbsG": 60,
+   "fatG": 17,
+   "source": "creator"
+  },
+  "tags": [
+   "dessert",
+   "indian",
+   "vegetarian",
+   "company-worthy",
+   "allergen-milk",
+   "allergen-wheat",
+   "allergen-tree-nuts"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "cup",
+    "full-fat milk powder",
+    null
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    1,
+    4,
+    "tsp",
+    "baking soda",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "ghee",
+    "melted"
+   ],
+   [
+    1,
+    3,
+    "cup",
+    "whole milk",
+    "approximately"
+   ],
+   [
+    3,
+    2,
+    "cup",
+    "sugar",
+    null
+   ],
+   [
+    3,
+    2,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    4,
+    1,
+    "piece",
+    "green cardamom pods",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "rose water",
+    null
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "saffron",
+    null
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "vegetable oil or ghee",
+    "for frying"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "pistachios",
+    "chopped"
+   ]
+  ],
+  "steps": [
+   "Simmer the sugar, water and cardamom for 8 minutes, until slightly syrupy. Add the rose water and saffron and keep warm.",
+   "Mix the milk powder, flour, baking soda and melted ghee, then add milk a spoonful at a time to make a soft, smooth dough. Do not knead it.",
+   "Rest for 5 minutes, then roll into 18 smooth balls with no cracks.",
+   "Fry in the oil over low heat (about 280°F) for 8 minutes, stirring the oil rather than the balls, until deep brown all over.",
+   "Drain for 30 seconds and drop straight into the warm syrup.",
+   "Soak for 2 hours, until swollen. Serve warm with the pistachios."
+  ],
+  "photo": {
+   "query": "gulab jamun",
+   "must": "jamun"
+  }
+ },
+ {
+  "creator": "flourhands",
+  "slug": "baklava",
+  "title": "Baklava",
+  "description": "Layers of buttery phyllo and nuts, cut before baking. Pour cold syrup over the hot baklava straight from the oven — that is what keeps it crisp.",
+  "category": "dessert",
+  "cuisine": "Turkish",
+  "prep": 40,
+  "cook": 50,
+  "servings": 24,
+  "difficulty": "medium",
+  "ageDays": 13,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 260,
+   "proteinG": 4,
+   "carbsG": 28,
+   "fatG": 16,
+   "source": "creator"
+  },
+  "tags": [
+   "dessert",
+   "middle-eastern",
+   "vegetarian",
+   "company-worthy",
+   "batch-cooking",
+   "allergen-milk",
+   "allergen-wheat",
+   "allergen-tree-nuts"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "phyllo pastry",
+    "thawed"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "clarified butter or ghee",
+    "melted"
+   ],
+   [
+    3,
+    1,
+    "cup",
+    "walnuts or pistachios",
+    "finely chopped"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cinnamon",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "sugar",
+    "for the nuts"
+   ],
+   [
+    3,
+    2,
+    "cup",
+    "sugar",
+    "for the syrup"
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "lemon juice",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "honey",
+    null
+   ]
+  ],
+  "steps": [
+   "Boil the syrup sugar and water for 10 minutes, then add the lemon juice and honey and cool completely.",
+   "Heat the oven to 350°F. Mix the nuts with the cinnamon and sugar.",
+   "Brush a 9 by 13 in tin with butter and lay in 10 sheets of phyllo, brushing each with butter.",
+   "Scatter over half the nuts, then 6 more buttered sheets, then the rest of the nuts.",
+   "Finish with the remaining sheets, buttering each, and the top generously.",
+   "Cut into diamonds all the way through, then bake for 45 minutes, until deep golden.",
+   "Pour the cold syrup over the hot baklava and leave uncovered for at least 6 hours before serving."
+  ],
+  "photo": {
+   "query": "baklava",
+   "must": "baklava"
+  }
+ },
+ {
+  "creator": "wokweekly",
+  "slug": "strawberry-daifuku",
+  "title": "Strawberry Daifuku",
+  "description": "A whole strawberry wrapped in sweet bean paste and soft mochi. Make the mochi in the microwave and eat them the same day — the fridge turns mochi hard.",
+  "category": "dessert",
+  "cuisine": "Japanese",
+  "prep": 30,
+  "cook": 5,
+  "servings": 8,
+  "difficulty": "medium",
+  "ageDays": 4,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 170,
+   "proteinG": 3,
+   "carbsG": 38,
+   "fatG": 0,
+   "source": "creator"
+  },
+  "tags": [
+   "dessert",
+   "japanese",
+   "vegan",
+   "vegetarian",
+   "gluten-free",
+   "dairy-free"
+  ],
+  "ingredients": [
+   [
+    8,
+    1,
+    "piece",
+    "small strawberries",
+    "hulled and dried"
+   ],
+   [
+    7,
+    1,
+    "oz",
+    "sweet red bean paste (anko)",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "glutinous rice flour",
+    "shiratamako or mochiko"
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "sugar",
+    null
+   ],
+   [
+    3,
+    4,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "potato starch or cornflour",
+    "for dusting"
+   ]
+  ],
+  "steps": [
+   "Wrap each strawberry in a thin layer of bean paste, leaving the tip showing.",
+   "Whisk the rice flour, sugar and water in a microwave-safe bowl until smooth.",
+   "Microwave, covered, for 1 minute, then stir with a wet spatula. Repeat, then microwave for 30 seconds more, until glossy and stretchy.",
+   "Tip onto a board dusted with starch, dust the top, and cut into 8 while warm.",
+   "Stretch each piece around a strawberry and pinch it closed underneath.",
+   "Serve the same day."
+  ],
+  "photo": {
+   "query": "daifuku",
+   "must": "daifuku"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "brigadeiros",
+  "title": "Brigadeiros",
+  "description": "Brazil's chocolate fudge balls, three ingredients and a pan. Cook until a spatula dragged through leaves a trail and the mixture slides as one mass.",
+  "category": "dessert",
+  "cuisine": "Brazilian",
+  "prep": 5,
+  "cook": 15,
+  "servings": 8,
+  "difficulty": "easy",
+  "ageDays": 2,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 230,
+   "proteinG": 5,
+   "carbsG": 36,
+   "fatG": 8,
+   "source": "creator"
+  },
+  "tags": [
+   "dessert",
+   "vegetarian",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "can",
+    "sweetened condensed milk",
+    "14 oz"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "unsweetened cocoa powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "butter",
+    "plus more for your hands"
+   ],
+   [
+    1,
+    1,
+    "pinch",
+    "salt",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "chocolate sprinkles",
+    "check the label if cooking for allergies"
+   ]
+  ],
+  "steps": [
+   "Put the condensed milk, cocoa, butter and salt in a pan over medium-low heat.",
+   "Stir constantly for 12 minutes, until it thickens and slides away from the pan in one mass.",
+   "Tip onto a buttered plate and cool for 1 hour.",
+   "With buttered hands, roll into 24 small balls and coat them in sprinkles."
+  ],
+  "photo": {
+   "query": "brigadeiro",
+   "must": "brigadeiro"
+  }
+ },
+ {
+  "creator": "cookduck",
+  "slug": "air-fryer-chicken-tenders",
+  "title": "Air-Fryer Chicken Tenders",
+  "description": "Parmesan panko, no deep-frying. Cook them in a single layer with space between — crowd the basket and they steam.",
+  "category": "dinner",
+  "cuisine": "American",
+  "prep": 15,
+  "cook": 12,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 1,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 450,
+   "proteinG": 46,
+   "carbsG": 30,
+   "fatG": 15,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "american",
+   "air-fryer",
+   "high-protein",
+   "weeknight",
+   "allergen-eggs",
+   "allergen-wheat",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    3,
+    2,
+    "lb",
+    "chicken tenderloins",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "plain flour",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "eggs",
+    "beaten"
+   ],
+   [
+    3,
+    2,
+    "cup",
+    "panko breadcrumbs",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "Parmesan",
+    "finely grated"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "smoked paprika",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "garlic powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    "divided"
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "oil spray",
+    null
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "Dijon mustard",
+    "for the dip"
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "honey",
+    "for the dip"
+   ]
+  ],
+  "steps": [
+   "Heat the air fryer to 400°F.",
+   "Season the flour with half the salt and the paprika. Mix the panko, Parmesan, garlic powder and the rest of the salt.",
+   "Coat each tender in flour, then egg, then the panko, pressing it on.",
+   "Lay them in a single layer, in batches, and spray the tops with oil.",
+   "Air-fry for 12 minutes, turning halfway, until golden and 165°F inside.",
+   "Stir the mustard and honey together for dipping."
+  ],
+  "photo": {
+   "query": "chicken fingers",
+   "must": "finger"
+  }
+ },
+ {
+  "creator": "cookduck",
+  "slug": "gochujang-crispy-tofu-bowls",
+  "title": "Gochujang Crispy Tofu Bowls",
+  "description": "Tear the tofu instead of cutting it — the ragged edges are what go crisp. Toss it in the sauce off the heat so it stays crunchy.",
+  "category": "dinner",
+  "cuisine": "Korean",
+  "prep": 15,
+  "cook": 25,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 5,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 560,
+   "proteinG": 26,
+   "carbsG": 70,
+   "fatG": 20,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "korean",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "high-protein",
+   "meal-prep",
+   "allergen-soy",
+   "allergen-wheat",
+   "allergen-sesame"
+  ],
+  "ingredients": [
+   [
+    28,
+    1,
+    "oz",
+    "extra-firm tofu",
+    "pressed for 15 minutes"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "cornflour",
+    null
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "gochujang",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "soy sauce",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "maple syrup",
+    null
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "rice vinegar",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "toasted sesame oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "clove",
+    "garlic",
+    "grated"
+   ],
+   [
+    4,
+    1,
+    "cup",
+    "cooked short-grain rice",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "cucumber",
+    "sliced"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "carrots",
+    "cut into matchsticks"
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "spring onions",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "tbsp",
+    "sesame seeds",
+    null
+   ]
+  ],
+  "steps": [
+   "Tear the tofu into bite-sized pieces and toss with the cornflour and a pinch of salt.",
+   "Fry in the oil over medium-high heat for 12 minutes, turning, until crisp all over.",
+   "Whisk the gochujang, soy sauce, maple syrup, vinegar, sesame oil and garlic.",
+   "Take the pan off the heat, add the sauce and toss for 1 minute.",
+   "Divide the rice between bowls and top with the tofu, cucumber, carrot, spring onions and sesame seeds."
+  ],
+  "photo": {
+   "query": "fried tofu",
+   "must": "tofu"
+  }
+ },
+ {
+  "creator": "tenminutetable",
+  "slug": "sambal-tempeh-stir-fry",
+  "title": "Sambal Tempeh Stir-Fry",
+  "description": "Crisp tempeh in a sticky sweet-hot glaze. Simmer the tempeh for 5 minutes first to take away its bitterness — it is worth it.",
+  "category": "dinner",
+  "cuisine": "Indonesian",
+  "prep": 10,
+  "cook": 15,
+  "servings": 2,
+  "difficulty": "easy",
+  "ageDays": 3,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 620,
+   "proteinG": 28,
+   "carbsG": 70,
+   "fatG": 26,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "vegan",
+   "vegetarian",
+   "dairy-free",
+   "high-protein",
+   "weeknight",
+   "allergen-soy",
+   "allergen-wheat"
+  ],
+  "ingredients": [
+   [
+    8,
+    1,
+    "oz",
+    "tempeh",
+    "cut into thin batons"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "shallots",
+    "sliced"
+   ],
+   [
+    2,
+    1,
+    "clove",
+    "garlic",
+    "sliced"
+   ],
+   [
+    4,
+    1,
+    "oz",
+    "green beans",
+    "halved"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "sambal oelek",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "kecap manis",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "lime juice",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "cooked rice",
+    "to serve"
+   ]
+  ],
+  "steps": [
+   "Simmer the tempeh in water for 5 minutes, then drain and pat dry.",
+   "Fry it in the oil for 6 minutes, until crisp, and set aside.",
+   "In the same pan, fry the shallots and garlic for 2 minutes, then the green beans for 3 minutes.",
+   "Add the sambal for 30 seconds, then the tempeh and kecap manis, and toss for 1 minute until glossy.",
+   "Finish with the lime juice and serve with rice."
+  ],
+  "photo": {
+   "query": "tempeh",
+   "must": "tempeh"
+  }
+ },
+ {
+  "creator": "cookduck",
+  "slug": "sheet-pan-shrimp-fajitas",
+  "title": "Sheet-Pan Shrimp Fajitas",
+  "description": "Peppers go in first and get a head start; shrimp go in for the last few minutes. Pull them when they curl into a C — an O means overcooked.",
+  "category": "dinner",
+  "cuisine": "Tex-Mex",
+  "prep": 15,
+  "cook": 18,
+  "servings": 4,
+  "difficulty": "easy",
+  "ageDays": 2,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 480,
+   "proteinG": 34,
+   "carbsG": 44,
+   "fatG": 19,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "sheet-pan",
+   "high-protein",
+   "weeknight",
+   "allergen-shellfish",
+   "allergen-wheat",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    3,
+    2,
+    "lb",
+    "large shrimp",
+    "peeled and deveined"
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "peppers",
+    "mixed colours, sliced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "red onion",
+    "sliced"
+   ],
+   [
+    3,
+    1,
+    "tbsp",
+    "olive oil",
+    "divided"
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "chilli powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "smoked paprika",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "garlic powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lime",
+    null
+   ],
+   [
+    8,
+    1,
+    "piece",
+    "small flour tortillas",
+    null
+   ],
+   [
+    1,
+    2,
+    "cup",
+    "sour cream",
+    "to serve"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "avocado",
+    "sliced, to serve"
+   ]
+  ],
+  "steps": [
+   "Heat the oven to 425°F.",
+   "Toss the peppers and onion with 2 tbsp of the oil and half the spices and salt, and spread on a sheet pan.",
+   "Roast for 10 minutes.",
+   "Toss the shrimp with the remaining oil, spices and salt, and add them to the pan in a single layer.",
+   "Roast for 7 minutes, until pink and curled. Wrap the tortillas in foil and warm them in the oven alongside.",
+   "Squeeze over the lime and serve with sour cream and avocado."
+  ],
+  "photo": {
+   "query": "shrimp fajitas",
+   "must": "fajita"
+  }
+ },
+ {
+  "creator": "cookduck",
+  "slug": "chicken-burrito-meal-prep-bowls",
+  "title": "Chicken Burrito Meal-Prep Bowls",
+  "description": "Five lunches in one go. Keep the salsa and cheese in separate little pots so the rice is not soggy by Thursday.",
+  "category": "lunch",
+  "cuisine": "Tex-Mex",
+  "prep": 20,
+  "cook": 30,
+  "servings": 5,
+  "difficulty": "easy",
+  "ageDays": 6,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 640,
+   "proteinG": 45,
+   "carbsG": 70,
+   "fatG": 19,
+   "source": "creator"
+  },
+  "tags": [
+   "lunch",
+   "gluten-free",
+   "high-protein",
+   "meal-prep",
+   "batch-cooking",
+   "allergen-milk"
+  ],
+  "ingredients": [
+   [
+    2,
+    1,
+    "lb",
+    "boneless chicken thighs",
+    null
+   ],
+   [
+    2,
+    1,
+    "tsp",
+    "chilli powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "ground cumin",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "smoked paprika",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "garlic powder",
+    null
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "salt",
+    null
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "olive oil",
+    null
+   ],
+   [
+    3,
+    2,
+    "cup",
+    "long-grain rice",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "lime",
+    "zest and juice"
+   ],
+   [
+    1,
+    4,
+    "cup",
+    "coriander",
+    "chopped"
+   ],
+   [
+    1,
+    1,
+    "can",
+    "black beans",
+    "15 oz, drained and rinsed"
+   ],
+   [
+    3,
+    2,
+    "cup",
+    "frozen sweetcorn",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "salsa",
+    null
+   ],
+   [
+    1,
+    1,
+    "cup",
+    "Cheddar",
+    "grated"
+   ]
+  ],
+  "steps": [
+   "Cook the rice, then stir in the lime zest and juice and the coriander.",
+   "Rub the chicken with the spices and salt and cook in the oil over medium-high heat for 6 minutes a side, until 175°F inside. Rest for 5 minutes and slice.",
+   "Char the sweetcorn in the same pan for 4 minutes, and warm the beans.",
+   "Divide the rice, beans, sweetcorn and chicken between 5 containers.",
+   "Pack the salsa and cheese separately. Keeps for 4 days in the fridge."
+  ],
+  "photo": {
+   "query": "burrito bowl",
+   "must": "burrito"
+  }
+ },
+ {
+  "creator": "ryanccooks",
+  "slug": "red-beans-and-rice",
+  "title": "Red Beans and Rice",
+  "description": "New Orleans' Monday dish, and one of the cheapest good dinners there is. Mash a cup of beans against the side of the pot — that is what makes it creamy.",
+  "category": "dinner",
+  "cuisine": "Creole",
+  "prep": 15,
+  "cook": 150,
+  "servings": 8,
+  "difficulty": "easy",
+  "ageDays": 8,
+  "alcohol": false,
+  "nutrition": {
+   "perServing": true,
+   "calories": 520,
+   "proteinG": 24,
+   "carbsG": 68,
+   "fatG": 17,
+   "source": "creator"
+  },
+  "tags": [
+   "dinner",
+   "gluten-free",
+   "dairy-free",
+   "one-pot",
+   "batch-cooking",
+   "meal-prep"
+  ],
+  "ingredients": [
+   [
+    1,
+    1,
+    "lb",
+    "dried red kidney beans",
+    "soaked overnight"
+   ],
+   [
+    1,
+    1,
+    "lb",
+    "andouille or smoked sausage",
+    "sliced"
+   ],
+   [
+    2,
+    1,
+    "tbsp",
+    "vegetable oil",
+    null
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "onion",
+    "diced"
+   ],
+   [
+    1,
+    1,
+    "piece",
+    "green pepper",
+    "diced"
+   ],
+   [
+    3,
+    1,
+    "stalk",
+    "celery",
+    "diced"
+   ],
+   [
+    4,
+    1,
+    "clove",
+    "garlic",
+    "crushed"
+   ],
+   [
+    1,
+    1,
+    "tsp",
+    "dried thyme",
+    null
+   ],
+   [
+    1,
+    2,
+    "tsp",
+    "cayenne pepper",
+    null
+   ],
+   [
+    2,
+    1,
+    "piece",
+    "bay leaves",
+    null
+   ],
+   [
+    8,
+    1,
+    "cup",
+    "water",
+    null
+   ],
+   [
+    2,
+    1,
+    "cup",
+    "long-grain rice",
+    null
+   ],
+   [
+    3,
+    1,
+    "piece",
+    "spring onions",
+    "sliced"
+   ],
+   [
+    1,
+    1,
+    "to_taste",
+    "salt and hot sauce",
+    null
+   ]
+  ],
+  "steps": [
+   "Brown the sausage in the oil for 5 minutes and set aside.",
+   "Cook the onion, pepper and celery in the fat for 8 minutes.",
+   "Add the garlic, thyme and cayenne for 1 minute.",
+   "Add the drained beans, water, bay leaves and sausage, and simmer uncovered for 2 hours, stirring now and then, until the beans are soft.",
+   "Mash a cup of beans against the side of the pot and stir them back in. Season.",
+   "Cook the rice and serve the beans over it with spring onions and hot sauce."
+  ],
+  "photo": {
+   "query": "red beans and rice",
+   "must": "beans"
+  }
+ }
+]

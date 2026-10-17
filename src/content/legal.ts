@@ -66,7 +66,7 @@ export function supportMailto(): string | null {
     : `mailto:${address}`;
 }
 
-export const EFFECTIVE = 'Effective 15 October 2026';
+export const EFFECTIVE = 'Effective 17 October 2026';
 
 export type LegalBlock =
   | { kind: 'p'; text: string }
@@ -469,6 +469,9 @@ export const PRIVACY: LegalDoc = {
           'We do not collect your location, your contacts, or any payment '
             + 'information. There is no code in the app that can.',
           'We do not sell your data or share it for advertising. Ever.',
+          'Some cards in the deck are sponsored and labelled as such. We count '
+            + 'which ones you see and tap so no one sees the same one all day; '
+            + 'advertisers only ever get totals, never who you are.',
           'Your recipes and profile are public. Your swipes, saves, collections '
             + 'and preferences are not.',
         ),
@@ -492,6 +495,10 @@ export const PRIVACY: LegalDoc = {
           + 'recipe, at what time), which recipes you open, what you save, and '
           + 'the "less like this" signals you give. This is what makes the deck '
           + 'get better; there is no way to run the feed without it.'),
+        p('Which sponsored cards you see. When a sponsored card reaches the top '
+          + 'of your deck, and when you tap through on one, we record which '
+          + 'campaign it was and when, against your account or, as a guest, '
+          + 'your device identifier. See "Sponsored cards" below.'),
         p('Your device. When the app starts it registers an opaque random '
           + 'identifier that the app generates on your device, along with the '
           + 'platform (iOS, Android or web) and the app version. It is not your '
@@ -538,6 +545,27 @@ export const PRIVACY: LegalDoc = {
       ],
     },
     {
+      heading: 'Sponsored cards',
+      blocks: [
+        p('Swipzy shows occasional sponsored cards in the deck — no more than one '
+          + 'every few recipes, always marked SPONSORED, and swiped away like any '
+          + 'other card. We sell these directly to the businesses behind them; '
+          + 'there is no ad network, ad SDK or ad exchange in the app.'),
+        p('Which card you get is not based on your profile, your preferences or '
+          + 'your swipes. It depends only on which campaigns are running and how '
+          + 'far each is behind its schedule.'),
+        p('We record each time a sponsored card is shown to you and each time '
+          + 'you tap it, so that we can cap how often you see the same one in a '
+          + 'day and so that an advertiser is billed for views that actually '
+          + 'happened. An advertiser sees how many people viewed and tapped their '
+          + 'card, in total and per day. They never see your name, username, '
+          + 'email, device identifier or anything else about you.'),
+        p('Tapping a sponsored card opens the advertiser’s own website in your '
+          + 'browser. What happens there is governed by their privacy policy, '
+          + 'not this one.'),
+      ],
+    },
+    {
       heading: 'Why we use it',
       blocks: [
         list(
@@ -548,6 +576,8 @@ export const PRIVACY: LegalDoc = {
             + 'the core of what Swipzy is.',
           'To show your recipes to other people — necessary to provide the '
             + 'service.',
+          'To cap how often you see a sponsored card and to count its views '
+            + 'honestly — our legitimate interest in funding the service.',
           'To keep the platform safe and enforce the guidelines — our legitimate '
             + 'interest, and in places a legal obligation.',
           'To fix things when they break, using server logs.',
@@ -575,7 +605,9 @@ export const PRIVACY: LegalDoc = {
           + 'happened.'),
         p('That is the complete list. There is no analytics vendor, no crash '
           + 'reporting service, no advertising network and no data broker, '
-          + 'because there is no code in the app that talks to one.'),
+          + 'because there is no code in the app that talks to one. The '
+          + 'businesses behind sponsored cards receive view and tap totals only, '
+          + 'as described above.'),
       ],
     },
     {

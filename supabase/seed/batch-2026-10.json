@@ -40,14 +40,14 @@
     6,
     1,
     "piece",
-    "spring onions",
+    "green onions",
     "roughly chopped"
    ],
    [
     2,
     1,
     "piece",
-    "Scotch bonnet chillies",
+    "Scotch bonnet chilies",
     "seeded for less heat"
    ],
    [
@@ -204,7 +204,7 @@
     3,
     1,
     "piece",
-    "spring onions",
+    "green onions",
     "bashed with the back of a knife"
    ],
    [
@@ -225,7 +225,7 @@
     1,
     1,
     "piece",
-    "Scotch bonnet chilli",
+    "Scotch bonnet chili",
     "left whole"
    ],
    [
@@ -244,11 +244,11 @@
    ]
   ],
   "steps": [
-   "Put the beans and their liquid, the coconut milk, water, spring onions, garlic, thyme, chilli, allspice and salt in a heavy pot.",
+   "Put the beans and their liquid, the coconut milk, water, green onions, garlic, thyme, chili, allspice and salt in a heavy pot.",
    "Bring to a simmer for 5 minutes, then taste — it should be well seasoned.",
    "Stir in the rice, cover tightly and cook on the lowest heat for 20 minutes without lifting the lid.",
    "Leave it off the heat, still covered, for 10 minutes.",
-   "Lift out the thyme stems, spring onions and chilli, then fluff with a fork."
+   "Lift out the thyme stems, green onions and chili, then fluff with a fork."
   ],
   "photo": {
    "query": "rice and peas jamaican",
@@ -564,7 +564,7 @@
     2,
     1,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -840,7 +840,7 @@
     1,
     1,
     "piece",
-    "aji limo or habanero chilli",
+    "aji limo or habanero chili",
     "seeded and finely chopped"
    ],
    [
@@ -861,7 +861,7 @@
     2,
     1,
     "tbsp",
-    "coriander",
+    "cilantro",
     "chopped"
    ],
    [
@@ -888,9 +888,9 @@
   ],
   "steps": [
    "Soak the onion in iced water for 10 minutes to take the edge off, then drain.",
-   "Toss the cold fish with the salt first, then the chilli and garlic.",
+   "Toss the cold fish with the salt first, then the chili and garlic.",
    "Pour over just enough lime juice to coat, add the ice cubes and stir for 2 minutes. Fish out the ice.",
-   "Fold in the onion and coriander.",
+   "Fold in the onion and cilantro.",
    "Serve straight away with the sweet potato and corn, and spoon over the juice — the leche de tigre."
   ],
   "photo": {
@@ -1058,13 +1058,13 @@
     1,
     "piece",
     "red peppers",
-    "blended with the chilli"
+    "blended with the chili"
    ],
    [
     1,
     1,
     "piece",
-    "Scotch bonnet chilli",
+    "Scotch bonnet chili",
     null
    ],
    [
@@ -1288,7 +1288,7 @@
     1,
     1,
     "piece",
-    "Scotch bonnet chilli",
+    "Scotch bonnet chili",
     "pricked, left whole"
    ],
    [
@@ -1331,7 +1331,7 @@
    "Mix the onions, lemon juice, mustard, garlic, salt and pepper. Add the chicken and marinate for 2 hours, or overnight.",
    "Lift out the chicken and brown it in the oil for 5 minutes a side. Set aside.",
    "Drain the onions, keeping the marinade, and cook them slowly in the same pot for 25 minutes, until soft and golden.",
-   "Add the marinade, stock, bay leaves, chilli and chicken. Cover and simmer for 25 minutes.",
+   "Add the marinade, stock, bay leaves, chili and chicken. Cover and simmer for 25 minutes.",
    "Add the olives for the last 5 minutes. Serve over rice."
   ],
   "photo": {
@@ -1407,7 +1407,7 @@
     1,
     1,
     "piece",
-    "Scotch bonnet chilli",
+    "Scotch bonnet chili",
     "finely chopped, to taste"
    ],
    [
@@ -1455,7 +1455,7 @@
   ],
   "steps": [
    "Warm the palm oil and cook the onion for 6 minutes.",
-   "Add the ginger, garlic and chilli for 1 minute, then the tomato paste for 1 minute.",
+   "Add the ginger, garlic and chili for 1 minute, then the tomato paste for 1 minute.",
    "Add the tomatoes and cook for 10 minutes, until the oil rises to the top.",
    "Add the beans and stock and simmer for 15 minutes, mashing a few to thicken. Season.",
    "Slice the plantains on an angle and fry in the oil for 3 minutes a side, until deep caramel.",
@@ -1470,7 +1470,7 @@
   "creator": "swipzy.kitchen",
   "slug": "bobotie",
   "title": "Bobotie",
-  "description": "South Africa's curried mince baked under a savoury custard. Sweet, sour and gently spiced — the apricot jam and chutney are what make it bobotie.",
+  "description": "South Africa's curried mince baked under a savory custard. Sweet, sour and gently spiced — the apricot jam and chutney are what make it bobotie.",
   "category": "dinner",
   "cuisine": "South African",
   "prep": 20,
@@ -1697,7 +1697,7 @@
     1,
     2,
     "tsp",
-    "chilli flakes",
+    "red pepper flakes",
     null
    ],
    [
@@ -1719,7 +1719,7 @@
    "Simmer the beans in their liquid for 10 minutes.",
    "Mash about half of them with the garlic, cumin and salt. Loosen with water if it is stiff.",
    "Stir in the lemon juice and olive oil.",
-   "Spoon into bowls and top with more oil, the tomato, parsley and chilli flakes.",
+   "Spoon into bowls and top with more oil, the tomato, parsley and red pepper flakes.",
    "Serve with warm pita."
   ],
   "photo": {
@@ -1731,7 +1731,7 @@
   "creator": "cookduck",
   "slug": "swahili-pilau",
   "title": "Swahili Pilau",
-  "description": "East Africa's spiced beef and rice. The deep brown colour comes from the onions, not the spices — fry them until they are almost too dark.",
+  "description": "East Africa's spiced beef and rice. The deep brown color comes from the onions, not the spices — fry them until they are almost too dark.",
   "category": "dinner",
   "cuisine": "Kenyan",
   "prep": 15,
@@ -2046,7 +2046,7 @@
     2,
     1,
     "piece",
-    "spring onions",
+    "green onions",
     "finely sliced"
    ],
    [
@@ -2095,16 +2095,16 @@
     1,
     2,
     "cup",
-    "sweet chilli sauce",
+    "sweet chili sauce",
     "to serve"
    ]
   ],
   "steps": [
-   "Mix the pork, carrot, onion, garlic, spring onions, egg, soy sauce, pepper and salt.",
+   "Mix the pork, carrot, onion, garlic, green onions, egg, soy sauce, pepper and salt.",
    "Lay a wrapper on the counter and spread 1 tbsp of filling into a thin log along the near edge.",
    "Fold in the sides and roll up tightly, sealing the end with a dab of water.",
    "Heat the oil to 350°F and fry in batches for 5 minutes, until deep golden and cooked through.",
-   "Drain on a rack and serve with sweet chilli sauce."
+   "Drain on a rack and serve with sweet chili sauce."
   ],
   "photo": {
    "query": "lumpia",
@@ -2221,7 +2221,7 @@
     2,
     1,
     "piece",
-    "spring onions",
+    "green onions",
     "sliced"
    ],
    [
@@ -2238,7 +2238,7 @@
    "Add the onion, garlic, carrot and green beans for 3 minutes, then the cabbage for 1 minute.",
    "Pour in the stock and soy sauce and bring to the boil.",
    "Add the noodles and toss for 4 minutes, until they have absorbed the liquid.",
-   "Finish with pepper and spring onions and serve with lemon wedges."
+   "Finish with pepper and green onions and serve with lemon wedges."
   ],
   "photo": {
    "query": "pancit",
@@ -2249,7 +2249,7 @@
   "creator": "swipzy.kitchen",
   "slug": "chicken-karahi",
   "title": "Chicken Karahi",
-  "description": "Pakistan's wok-cooked chicken: tomatoes, ginger, green chilli and nothing to hide behind. Keep cooking until the oil separates from the sauce.",
+  "description": "Pakistan's wok-cooked chicken: tomatoes, ginger, green chili and nothing to hide behind. Keep cooking until the oil separates from the sauce.",
   "category": "dinner",
   "cuisine": "Pakistani",
   "prep": 15,
@@ -2312,7 +2312,7 @@
     2,
     1,
     "tsp",
-    "Kashmiri chilli powder",
+    "Kashmiri chili powder",
     null
    ],
    [
@@ -2347,14 +2347,14 @@
     1,
     4,
     "cup",
-    "plain yoghurt",
+    "plain yogurt",
     null
    ],
    [
     3,
     1,
     "piece",
-    "green chillies",
+    "green chilies",
     "slit"
    ],
    [
@@ -2376,9 +2376,9 @@
    "Heat the ghee in a karahi or wok over high heat and cook the chicken for 5 minutes, until white all over.",
    "Add the garlic and grated ginger for 1 minute.",
    "Add the tomatoes and salt, cover and cook for 10 minutes, until collapsed. Pull out the skins with tongs.",
-   "Add the chilli powder, coriander, cumin and pepper and cook uncovered on high for 10 minutes, stirring, until the oil separates.",
-   "Stir in the yoghurt and cook for 3 minutes.",
-   "Finish with the green chillies, ginger strips, garam masala and coriander leaves. Serve with naan."
+   "Add the chili powder, coriander, cumin and pepper and cook uncovered on high for 10 minutes, stirring, until the oil separates.",
+   "Stir in the yogurt and cook for 3 minutes.",
+   "Finish with the green chilies, ginger strips, garam masala and coriander leaves. Serve with naan."
   ],
   "photo": {
    "query": "chicken karahi",
@@ -2489,7 +2489,7 @@
     1,
     1,
     "piece",
-    "green chilli",
+    "green chili",
     "sliced"
    ],
    [
@@ -2508,7 +2508,7 @@
    ]
   ],
   "steps": [
-   "Stir-fry the onion, leek, carrot, curry leaves, chilli and garlic in the oil over high heat for 3 minutes.",
+   "Stir-fry the onion, leek, carrot, curry leaves, chili and garlic in the oil over high heat for 3 minutes.",
    "Push everything aside and scramble the eggs in the space for 1 minute.",
    "Add the chicken and cabbage and toss for 2 minutes.",
    "Add the paratha strips and curry sauce and chop through everything with two spatulas for 3 minutes, until coated and crisp at the edges.",
@@ -2597,7 +2597,7 @@
     10,
     1,
     "piece",
-    "dried red chillies",
+    "dried red chilies",
     "soaked in hot water for 15 minutes"
    ],
    [
@@ -2673,7 +2673,7 @@
   ],
   "steps": [
    "Put the rice, coconut milk, water, pandan, ginger and salt in a pan, bring to the boil, then cover and cook on low for 15 minutes. Rest for 10 minutes.",
-   "Blend the drained chillies, shallots, garlic and shrimp paste into a paste.",
+   "Blend the drained chilies, shallots, garlic and shrimp paste into a paste.",
    "Fry the paste in 3 tbsp of the oil over medium-low heat for 15 minutes, until dark red and the oil splits.",
    "Add the tamarind, sugar and half the anchovies and simmer for 5 minutes.",
    "Fry the remaining anchovies in a little oil for 3 minutes, until crisp, and drain.",
@@ -2755,7 +2755,7 @@
     1,
     1,
     "piece",
-    "red chilli",
+    "red chili",
     "finely chopped"
    ],
    [
@@ -2804,17 +2804,17 @@
     1,
     1,
     "piece",
-    "spring onion",
+    "green onion",
     "sliced"
    ]
   ],
   "steps": [
-   "Mash the shallots, garlic, chilli and shrimp paste together.",
+   "Mash the shallots, garlic, chili and shrimp paste together.",
    "Fry the paste in the oil over high heat for 2 minutes, until fragrant.",
    "Add the chicken and cook for 4 minutes.",
    "Add the rice, break up the clumps and fry for 3 minutes, letting some grains toast.",
-   "Add the kecap manis and soy sauce and toss for 1 minute, until every grain is coloured.",
-   "Fry the eggs in hot oil until the edges crisp. Serve the rice topped with the eggs, cucumber, tomato and spring onion."
+   "Add the kecap manis and soy sauce and toss for 1 minute, until every grain is colored.",
+   "Fry the eggs in hot oil until the edges crisp. Serve the rice topped with the eggs, cucumber, tomato and green onion."
   ],
   "photo": {
    "query": "nasi goreng",
@@ -2959,7 +2959,7 @@
     1,
     1,
     "handful",
-    "coriander",
+    "cilantro",
     null
    ]
   ],
@@ -2969,7 +2969,7 @@
    "Fry the onion, garlic and paprika in the oil for 8 minutes, then add the fish for 3 minutes.",
    "Whisk the chickpea flour and rice flour with 1 cup of the broth until smooth.",
    "Add it to the broth with the fish mixture and fish sauce and simmer for 20 minutes, stirring, until thick and silky.",
-   "Cook the noodles, divide between bowls and ladle the soup over. Top with egg, lime and coriander."
+   "Cook the noodles, divide between bowls and ladle the soup over. Top with egg, lime and cilantro."
   ],
   "photo": {
    "query": "mohinga",
@@ -2980,7 +2980,7 @@
   "creator": "sundaysimmer",
   "slug": "ghormeh-sabzi",
   "title": "Ghormeh Sabzi",
-  "description": "Iran's herb stew. Fry the herbs slowly until they turn dark — that is where the flavour lives — and add the fenugreek last, because it turns bitter if it burns.",
+  "description": "Iran's herb stew. Fry the herbs slowly until they turn dark — that is where the flavor lives — and add the fenugreek last, because it turns bitter if it burns.",
   "category": "dinner",
   "cuisine": "Persian",
   "prep": 30,
@@ -3045,7 +3045,7 @@
     2,
     1,
     "bunch",
-    "coriander",
+    "cilantro",
     "very finely chopped"
    ],
    [
@@ -3159,7 +3159,7 @@
     1,
     2,
     "cup",
-    "plain yoghurt",
+    "plain yogurt",
     null
    ],
    [
@@ -3186,8 +3186,8 @@
   ],
   "steps": [
    "Boil the drained rice in a large pot of water with the salt for 6 minutes, until soft outside with a firm core. Drain and rinse with lukewarm water.",
-   "Mix 1 1/2 cups of the rice with the yoghurt, egg yolk and half the saffron water.",
-   "Heat the oil and 2 tbsp of the butter in a 10 in non-stick pot and press the yoghurt rice firmly over the base.",
+   "Mix 1 1/2 cups of the rice with the yogurt, egg yolk and half the saffron water.",
+   "Heat the oil and 2 tbsp of the butter in a 10 in non-stick pot and press the yogurt rice firmly over the base.",
    "Pile the rest of the rice on top in a mound and poke 5 holes in it with a spoon handle.",
    "Melt the remaining butter with the remaining saffron water and drizzle it over.",
    "Wrap the lid in a towel and cover. Cook on medium for 10 minutes, until it sizzles, then on low for 50 minutes.",
@@ -3288,7 +3288,7 @@
     1,
     1,
     "piece",
-    "dried red chilli",
+    "dried red chili",
     null
    ],
    [
@@ -3310,9 +3310,9 @@
    "Heat the oil in a heavy pot until very hot and brown the lamb for 10 minutes.",
    "Add the onions and cook for 10 minutes, until golden.",
    "Spread the carrots on top and leave for 5 minutes, then stir and cook for 10 minutes more, until soft.",
-   "Add the cumin, coriander, barberries, chilli and salt. Pour in boiling water to cover by 1 in and simmer for 40 minutes.",
+   "Add the cumin, coriander, barberries, chili and salt. Pour in boiling water to cover by 1 in and simmer for 40 minutes.",
    "Drain the rice and spread it evenly on top without stirring. Add boiling water to cover it by 1/2 in.",
-   "Push the garlic into the centre and boil on high for 10 minutes, until the water sinks below the rice.",
+   "Push the garlic into the center and boil on high for 10 minutes, until the water sinks below the rice.",
    "Heap the rice into a dome, poke a few holes, cover tightly and cook on the lowest heat for 25 minutes.",
    "Rest for 10 minutes, then turn out with the meat and carrots on top."
   ],
@@ -3355,7 +3355,7 @@
     3,
     1,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -3590,7 +3590,7 @@
     1,
     "tsp",
     "ube extract",
-    "optional, for colour"
+    "optional, for color"
    ],
    [
     1,
@@ -3646,7 +3646,7 @@
     1,
     1,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -3716,14 +3716,14 @@
     3,
     2,
     "cup",
-    "double cream",
+    "heavy cream",
     "for the topping"
    ],
    [
     2,
     1,
     "tbsp",
-    "icing sugar",
+    "powdered sugar",
     null
    ],
    [
@@ -3731,7 +3731,7 @@
     1,
     "tbsp",
     "butter",
-    "for the tin"
+    "for the pan"
    ],
    [
     1,
@@ -3742,12 +3742,12 @@
    ]
   ],
   "steps": [
-   "Heat the oven to 350°F and butter a 9 by 13 in tin.",
+   "Heat the oven to 350°F and butter a 9 by 13 in pan.",
    "Whisk the flour, baking powder and salt. Beat the yolks with 3/4 cup of the sugar for 3 minutes, until pale, then stir in the milk and vanilla and fold in the flour.",
    "Whisk the whites to soft peaks, then add the remaining sugar and whisk until stiff. Fold into the batter in three goes.",
    "Bake for 25 minutes, until it springs back. Cool for 30 minutes, then prick all over with a fork.",
    "Mix the three milks and pour over slowly, in stages, letting each soak in. Chill for 4 hours, or overnight.",
-   "Whip the cream with the icing sugar, spread over the top and dust with cinnamon."
+   "Whip the cream with the powdered sugar, spread over the top and dust with cinnamon."
   ],
   "photo": {
    "query": "tres leches cake",
@@ -3796,7 +3796,7 @@
     1,
     4,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -3982,7 +3982,7 @@
   "steps": [
    "Boil the syrup sugar and water for 10 minutes, then add the lemon juice and honey and cool completely.",
    "Heat the oven to 350°F. Mix the nuts with the cinnamon and sugar.",
-   "Brush a 9 by 13 in tin with butter and lay in 10 sheets of phyllo, brushing each with butter.",
+   "Brush a 9 by 13 in pan with butter and lay in 10 sheets of phyllo, brushing each with butter.",
    "Scatter over half the nuts, then 6 more buttered sheets, then the rest of the nuts.",
    "Finish with the remaining sheets, buttering each, and the top generously.",
    "Cut into diamonds all the way through, then bake for 45 minutes, until deep golden.",
@@ -4062,7 +4062,7 @@
     1,
     2,
     "cup",
-    "potato starch or cornflour",
+    "potato starch or cornstarch",
     "for dusting"
    ]
   ],
@@ -4196,7 +4196,7 @@
     1,
     2,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -4321,7 +4321,7 @@
     3,
     1,
     "tbsp",
-    "cornflour",
+    "cornstarch",
     null
    ],
    [
@@ -4398,7 +4398,7 @@
     2,
     1,
     "piece",
-    "spring onions",
+    "green onions",
     "sliced"
    ],
    [
@@ -4410,11 +4410,11 @@
    ]
   ],
   "steps": [
-   "Tear the tofu into bite-sized pieces and toss with the cornflour and a pinch of salt.",
+   "Tear the tofu into bite-sized pieces and toss with the cornstarch and a pinch of salt.",
    "Fry in the oil over medium-high heat for 12 minutes, turning, until crisp all over.",
    "Whisk the gochujang, soy sauce, maple syrup, vinegar, sesame oil and garlic.",
    "Take the pan off the heat, add the sauce and toss for 1 minute.",
-   "Divide the rice between bowls and top with the tofu, cucumber, carrot, spring onions and sesame seeds."
+   "Divide the rice between bowls and top with the tofu, cucumber, carrot, green onions and sesame seeds."
   ],
   "photo": {
    "query": "fried tofu",
@@ -4572,7 +4572,7 @@
     1,
     "piece",
     "peppers",
-    "mixed colours, sliced"
+    "mixed colors, sliced"
    ],
    [
     1,
@@ -4592,7 +4592,7 @@
     2,
     1,
     "tsp",
-    "chilli powder",
+    "chili powder",
     null
    ],
    [
@@ -4706,7 +4706,7 @@
     2,
     1,
     "tsp",
-    "chilli powder",
+    "chili powder",
     null
    ],
    [
@@ -4762,7 +4762,7 @@
     1,
     4,
     "cup",
-    "coriander",
+    "cilantro",
     "chopped"
    ],
    [
@@ -4795,7 +4795,7 @@
    ]
   ],
   "steps": [
-   "Cook the rice, then stir in the lime zest and juice and the coriander.",
+   "Cook the rice, then stir in the lime zest and juice and the cilantro.",
    "Rub the chicken with the spices and salt and cook in the oil over medium-high heat for 6 minutes a side, until 175°F inside. Rest for 5 minutes and slice.",
    "Char the sweetcorn in the same pan for 4 minutes, and warm the beans.",
    "Divide the rice, beans, sweetcorn and chicken between 5 containers.",
@@ -4924,7 +4924,7 @@
     3,
     1,
     "piece",
-    "spring onions",
+    "green onions",
     "sliced"
    ],
    [
@@ -4941,7 +4941,7 @@
    "Add the garlic, thyme and cayenne for 1 minute.",
    "Add the drained beans, water, bay leaves and sausage, and simmer uncovered for 2 hours, stirring now and then, until the beans are soft.",
    "Mash a cup of beans against the side of the pot and stir them back in. Season.",
-   "Cook the rice and serve the beans over it with spring onions and hot sauce."
+   "Cook the rice and serve the beans over it with green onions and hot sauce."
   ],
   "photo": {
    "query": "red beans and rice",

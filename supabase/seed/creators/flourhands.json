@@ -62,8 +62,8 @@
    "Stir the flour, yeast and salt together, add the water, and mix to a shaggy wet dough. No kneading.",
    "Cover and leave at room temperature for 18 hours, until the surface is covered in bubbles.",
    "Tip onto a floured surface, fold it over on itself twice, and rest 15 minutes.",
-   "Shape into a ball, put it seam side down on floured baking paper, and prove 2 hours.",
-   "Heat the oven to 240C with a lidded casserole inside for 30 minutes.",
+   "Shape into a ball, put it seam side down on floured parchment paper, and proof 2 hours.",
+   "Heat the oven to 475°F with a lidded casserole inside for 30 minutes.",
    "Lower the dough in on its paper, cover, and bake 30 minutes.",
    "Uncover and bake 15 minutes more, until deep brown and hollow when tapped underneath.",
    "Cool completely on a rack before cutting, however hard that is."
@@ -118,7 +118,7 @@
     1,
     2,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -139,14 +139,14 @@
     2,
     1,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
     1,
     1,
     "tsp",
-    "bicarbonate of soda",
+    "baking soda",
     null
    ],
    [
@@ -167,9 +167,9 @@
   "steps": [
    "Melt the butter over medium heat and keep cooking for 6 minutes, swirling, until the solids are brown and it smells of toffee. Cool 15 minutes.",
    "Beat in both sugars, then the eggs one at a time, then the vanilla.",
-   "Fold in the flour, bicarbonate and salt, then the chocolate.",
-   "Chill the dough for at least 12 hours — this is where the flavour comes from.",
-   "Heat the oven to 180C and scoop golfball-sized mounds well apart on lined trays.",
+   "Fold in the flour, baking soda and salt, then the chocolate.",
+   "Chill the dough for at least 12 hours — this is where the flavor comes from.",
+   "Heat the oven to 350°F and scoop golfball-sized mounds well apart on lined trays.",
    "Bake 11 to 12 minutes, until the edges are set and the middles still look underdone.",
    "Leave on the tray 5 minutes to finish, then sprinkle with flaky salt."
   ],
@@ -179,7 +179,7 @@
   "creator": "flourhands",
   "slug": "focaccia",
   "title": "Rosemary Focaccia",
-  "description": "Dimple it hard enough that your fingers hit the tin. Timid dimples give you flatbread.",
+  "description": "Dimple it hard enough that your fingers hit the pan. Timid dimples give you flatbread.",
   "category": "snacks",
   "cuisine": "Italian",
   "prep": 20,
@@ -258,11 +258,11 @@
   "steps": [
    "Mix the flour, yeast, salt and water to a very wet dough and leave 10 minutes.",
    "Fold the dough over on itself four times in the bowl, then rest 30 minutes. Repeat this three times.",
-   "Oil a deep tray generously and tip the dough in. Cover and prove 2 hours, until doubled and wobbling.",
-   "Heat the oven to 220C.",
-   "Pour over 3 tbsp oil and press your fingers straight down through the dough to the tin, all over.",
+   "Oil a deep tray generously and tip the dough in. Cover and proof 2 hours, until doubled and wobbling.",
+   "Heat the oven to 425°F.",
+   "Pour over 3 tbsp oil and press your fingers straight down through the dough to the pan, all over.",
    "Scatter with rosemary and flaky salt.",
-   "Bake 25 minutes, until deep gold top and bottom. Lift it out of the tin immediately."
+   "Bake 25 minutes, until deep gold top and bottom. Lift it out of the pan immediately."
   ],
   "photoQuery": "Focaccia bread"
  },
@@ -307,7 +307,7 @@
     1,
     1,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -321,7 +321,7 @@
     2,
     1,
     "cup",
-    "self-raising flour",
+    "self-rising flour",
     null
    ],
    [
@@ -347,14 +347,14 @@
    ]
   ],
   "steps": [
-   "Heat the oven to 170C and line a loaf tin.",
-   "Beat the butter and caster sugar for 5 minutes, until pale and noticeably lighter.",
+   "Heat the oven to 350°F and line a loaf pan.",
+   "Beat the butter and superfine sugar for 5 minutes, until pale and noticeably lighter.",
    "Add the eggs one at a time, beating well between each.",
    "Fold in the flour and lemon zest.",
    "Bake for 50 minutes, until a skewer comes out clean and the top has cracked.",
    "Mix the granulated sugar with the lemon juice — it should stay grainy.",
    "Prick the hot cake all over with a skewer and spoon the drizzle over slowly.",
-   "Cool in the tin so the syrup soaks back in."
+   "Cool in the pan so the syrup soaks back in."
   ],
   "photoQuery": "Lemon drizzle cake"
  },
@@ -362,7 +362,7 @@
   "creator": "flourhands",
   "slug": "cinnamon-rolls",
   "title": "Overnight Cinnamon Rolls",
-  "description": "Shape them at night, prove them in the fridge, bake them before anyone is properly awake.",
+  "description": "Shape them at night, proof them in the fridge, bake them before anyone is properly awake.",
   "category": "breakfast",
   "cuisine": "American",
   "prep": 40,
@@ -400,7 +400,7 @@
     1,
     4,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -456,19 +456,19 @@
     1,
     1,
     "cup",
-    "icing sugar",
+    "powdered sugar",
     null
    ]
   ],
   "steps": [
-   "Mix the flour, caster sugar, yeast and 1 tsp salt, then add the warm milk, egg and 3 tbsp butter.",
-   "Knead for 8 minutes, until smooth and springy, then prove 1 hour until doubled.",
-   "Roll into a large rectangle about 1cm thick.",
+   "Mix the flour, superfine sugar, yeast and 1 tsp salt, then add the warm milk, egg and 3 tbsp butter.",
+   "Knead for 8 minutes, until smooth and springy, then proof 1 hour until doubled.",
+   "Roll into a large rectangle about 1/2 inch thick.",
    "Spread with the remaining butter and scatter with the brown sugar and cinnamon.",
    "Roll up tightly from the long side and cut into 12 with a length of thread.",
-   "Sit them in a lined tin, cover, and refrigerate overnight.",
-   "Take them out an hour before baking, then bake at 180C for 28 minutes, until golden and 90C in the middle.",
-   "Beat the cream cheese with the icing sugar and spread it over while warm."
+   "Sit them in a lined pan, cover, and refrigerate overnight.",
+   "Take them out an hour before baking, then bake at 350°F for 28 minutes, until golden and 195°F in the middle.",
+   "Beat the cream cheese with the powdered sugar and spread it over while warm."
   ],
   "photoQuery": "Cinnamon rolls"
  },
@@ -542,14 +542,14 @@
     2,
     1,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
     1,
     1,
     "tsp",
-    "bicarbonate of soda",
+    "baking soda",
     null
    ],
    [
@@ -568,12 +568,12 @@
    ]
   ],
   "steps": [
-   "Heat the oven to 170C and line a loaf tin.",
+   "Heat the oven to 350°F and line a loaf pan.",
    "Mash the bananas until almost liquid — lumps make wet patches.",
    "Stir in the melted butter, sugar, eggs and vanilla.",
    "Fold in the dry ingredients until only just combined. Overmixing makes it tough.",
    "Bake for 55 to 60 minutes, until a skewer comes out with a few moist crumbs and no wet batter.",
-   "Cool in the tin for 15 minutes before turning out."
+   "Cool in the pan for 15 minutes before turning out."
   ],
   "photoQuery": "Banana bread"
  },
@@ -611,7 +611,7 @@
     3,
     1,
     "cup",
-    "self-raising flour",
+    "self-rising flour",
     null
    ],
    [
@@ -625,7 +625,7 @@
     1,
     4,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -651,10 +651,10 @@
    ]
   ],
   "steps": [
-   "Heat the oven to 220C.",
+   "Heat the oven to 425°F.",
    "Rub the cold butter into the flour, baking powder and sugar until it looks like breadcrumbs.",
    "Add the milk and bring it together with a knife, then your hands, as briefly as possible.",
-   "Pat out to 3cm thick — thinner and they will not rise properly.",
+   "Pat out to 1 inch thick — thinner and they will not rise properly.",
    "Cut straight down with a floured cutter and lift without twisting.",
    "Glaze the tops only, keeping egg off the sides, and bake 14 minutes until risen and golden."
   ],
@@ -709,7 +709,7 @@
     1,
     1,
     "cup",
-    "double cream",
+    "heavy cream",
     null
    ],
    [
@@ -735,8 +735,8 @@
    ]
   ],
   "steps": [
-   "Line a 23cm tart tin with the pastry and chill 30 minutes.",
-   "Blind bake at 190C for 15 minutes with beans, then 10 minutes without, until dry and sandy. Cool completely.",
+   "Line a 9-inch tart pan with the pastry and chill 30 minutes.",
+   "Blind bake at 375°F for 15 minutes with beans, then 10 minutes without, until dry and sandy. Cool completely.",
    "Heat the cream and milk until steaming — do not let them boil.",
    "Pour over the chopped chocolate and leave 2 minutes without touching it.",
    "Stir from the middle outwards until glossy, then beat in the butter.",
@@ -792,7 +792,7 @@
     1,
     2,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -806,7 +806,7 @@
     1,
     1,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -827,15 +827,15 @@
     1,
     2,
     "cup",
-    "demerara sugar",
+    "turbinado sugar",
     null
    ]
   ],
   "steps": [
-   "Heat the oven to 190C.",
-   "Cook the apples with the caster sugar, cinnamon and 2 tbsp water over medium heat for 8 minutes, until the Bramleys start to collapse.",
+   "Heat the oven to 375°F.",
+   "Cook the apples with the superfine sugar, cinnamon and 2 tbsp water over medium heat for 8 minutes, until the Bramleys start to collapse.",
    "Tip into a baking dish and leave to cool slightly.",
-   "Rub the butter into the flour until crumbly, then stir in the oats and demerara.",
+   "Rub the butter into the flour until crumbly, then stir in the oats and turbinado sugar.",
    "Scatter over without pressing down — pressed crumble bakes into a lid.",
    "Bake 35 minutes, until the top is golden and the fruit bubbles at the edges."
   ],
@@ -883,7 +883,7 @@
     1,
     1,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -897,14 +897,14 @@
     2,
     1,
     "tsp",
-    "cornflour",
+    "cornstarch",
     null
    ],
    [
     1,
     1,
     "cup",
-    "double cream",
+    "heavy cream",
     "whipped"
    ],
    [
@@ -916,12 +916,12 @@
    ]
   ],
   "steps": [
-   "Heat the oven to 150C and draw a 20cm circle on baking paper.",
+   "Heat the oven to 300°F and draw an 8-inch circle on parchment paper.",
    "Whisk the whites to soft peaks, then add the sugar a spoonful at a time, whisking for 8 minutes total.",
    "It is ready when you cannot feel sugar grains between your fingers.",
-   "Fold in the vinegar and cornflour.",
+   "Fold in the vinegar and cornstarch.",
    "Spread inside the circle, building the sides higher than the middle.",
-   "Turn the oven down to 120C and bake 90 minutes, then switch it off and leave the door shut until cold.",
+   "Turn the oven down to 250°F and bake 90 minutes, then switch it off and leave the door shut until cold.",
    "Fill with cream and berries no more than an hour before serving."
   ],
   "photoQuery": "Pavlova dessert"
@@ -988,7 +988,7 @@
     3,
     1,
     "tbsp",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -1009,10 +1009,10 @@
   "steps": [
    "Mix the flour, yeast, sugar, salt, milk and 2 eggs and knead for 8 minutes until smooth.",
    "Add the butter a cube at a time, kneading until each disappears. It will look broken before it comes together — keep going, about 10 minutes.",
-   "Prove 1 hour 30 minutes, until doubled, then chill 1 hour to firm it up for shaping.",
+   "Proof 1 hour 30 minutes, until doubled, then chill 1 hour to firm it up for shaping.",
    "Divide into eight, roll tight, and space well on a lined tray.",
-   "Prove 1 hour, until puffy and slow to spring back.",
-   "Glaze with the last egg and bake at 190C for 18 minutes, until deep gold and 90C inside."
+   "Proof 1 hour, until puffy and slow to spring back.",
+   "Glaze with the last egg and bake at 375°F for 18 minutes, until deep gold and 195°F inside."
   ],
   "photoQuery": "Brioche buns"
  },
@@ -1064,7 +1064,7 @@
     1,
     3,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -1112,12 +1112,12 @@
   ],
   "steps": [
    "Make a soft enriched dough with the flour, yeast, sugar, eggs, milk and butter. Knead 8 minutes.",
-   "Prove 1 hour, then chill at least 4 hours — cold dough is the only way to roll this thin.",
+   "Proof 1 hour, then chill at least 4 hours — cold dough is the only way to roll this thin.",
    "Melt the chocolate with the filling butter and cocoa and cool until spreadable.",
    "Roll the dough to a large rectangle, spread the filling, and roll up tightly from the long edge.",
    "Freeze 10 minutes, then cut the roll in half lengthways and twist the two halves together, cut sides up.",
-   "Lower into a lined loaf tin and prove 1 hour.",
-   "Bake at 180C for 40 minutes, until dark and 90C in the centre. Brush with sugar syrup while hot."
+   "Lower into a lined loaf pan and proof 1 hour.",
+   "Bake at 350°F for 40 minutes, until dark and 195°F in the center. Brush with sugar syrup while hot."
   ],
   "photoQuery": "Chocolate babka"
  },
@@ -1161,14 +1161,14 @@
     1,
     2,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
     2,
     1,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -1182,10 +1182,10 @@
   "steps": [
    "Beat the cold butter with the sugar just until combined — no more.",
    "Work in the flour and salt until it clumps together.",
-   "Press into a lined 20cm square tin and chill 30 minutes.",
+   "Press into a lined 8-inch square pan and chill 30 minutes.",
    "Score into fingers and prick each one twice with a fork.",
-   "Chill again for 15 minutes, then bake at 150C for 35 minutes, until pale gold at the edges only.",
-   "Cut along the scores while hot, sprinkle with salt, and cool in the tin."
+   "Chill again for 15 minutes, then bake at 300°F for 35 minutes, until pale gold at the edges only.",
+   "Cut along the scores while hot, sprinkle with salt, and cool in the pan."
   ],
   "photoQuery": "Shortbread biscuits"
  },
@@ -1224,14 +1224,14 @@
     2,
     1,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
     2,
     1,
     "tsp",
-    "bicarbonate of soda",
+    "baking soda",
     null
    ],
    [
@@ -1287,18 +1287,18 @@
     2,
     1,
     "cup",
-    "icing sugar",
+    "powdered sugar",
     null
    ]
   ],
   "steps": [
-   "Heat the oven to 175C and line two 20cm tins.",
+   "Heat the oven to 350°F and line two 8-inch pans.",
    "Whisk the sugar, oil and eggs together for 2 minutes until smooth.",
-   "Fold in the flour, bicarbonate, cinnamon and 1 tsp salt.",
+   "Fold in the flour, baking soda, cinnamon and 1 tsp salt.",
    "Stir through the carrot and walnuts.",
-   "Divide between the tins and bake 40 minutes, until a skewer comes out clean.",
+   "Divide between the pans and bake 40 minutes, until a skewer comes out clean.",
    "Cool completely — icing a warm cake is how you get soup.",
-   "Beat the cream cheese with the icing sugar until just smooth and sandwich and top the cake."
+   "Beat the cream cheese with the powdered sugar until just smooth and sandwich and top the cake."
   ],
   "photoQuery": "Carrot cake"
  },
@@ -1306,7 +1306,7 @@
   "creator": "flourhands",
   "slug": "pretzels",
   "title": "Soft Pretzels",
-  "description": "The bicarbonate bath is what makes them pretzels rather than bread in a knot.",
+  "description": "The baking soda bath is what makes them pretzels rather than bread in a knot.",
   "category": "snacks",
   "cuisine": "German",
   "prep": 30,
@@ -1369,7 +1369,7 @@
     1,
     2,
     "cup",
-    "bicarbonate of soda",
+    "baking soda",
     "for the bath"
    ],
    [
@@ -1381,12 +1381,12 @@
    ]
   ],
   "steps": [
-   "Make a firm dough and knead 8 minutes until smooth. Prove 1 hour.",
-   "Divide into eight, roll each into a 60cm rope, and twist into pretzel shape.",
-   "Bring a wide pan of water to the boil and add the bicarbonate carefully — it will foam up.",
+   "Make a firm dough and knead 8 minutes until smooth. Proof 1 hour.",
+   "Divide into eight, roll each into a 24-inch rope, and twist into pretzel shape.",
+   "Bring a wide pan of water to the boil and add the baking soda carefully — it will foam up.",
    "Poach each pretzel for 30 seconds, turning once, then lift onto a lined tray.",
    "Scatter with flaky salt while wet.",
-   "Bake at 220C for 14 minutes, until deep mahogany brown.",
+   "Bake at 425°F for 14 minutes, until deep mahogany brown.",
    "Brush with melted butter as they come out."
   ],
   "photoQuery": "Soft pretzels"
@@ -1425,7 +1425,7 @@
     2,
     1,
     "cup",
-    "double cream",
+    "heavy cream",
     null
    ],
    [
@@ -1439,7 +1439,7 @@
     1,
     3,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -1468,8 +1468,8 @@
    "Soak the gelatine in cold water for 5 minutes until floppy.",
    "Heat the cream, milk, sugar and vanilla until steaming, then take off the heat and infuse 10 minutes.",
    "Squeeze the gelatine out and stir it in until fully dissolved. Do not boil after this point.",
-   "Strain into four moulds and chill at least 4 hours.",
-   "Dip each mould in hot water for 3 seconds to turn out.",
+   "Strain into four molds and chill at least 4 hours.",
+   "Dip each mold in hot water for 3 seconds to turn out.",
    "Serve with the raspberries."
   ],
   "photoQuery": "Panna cotta"
@@ -1522,7 +1522,7 @@
     1,
     1,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -1543,7 +1543,7 @@
     3,
     4,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -1562,12 +1562,12 @@
    ]
   ],
   "steps": [
-   "Heat the oven to 175C and line a 20cm square tin.",
+   "Heat the oven to 350°F and line an 8-inch square pan.",
    "Melt the chocolate and butter together and cool for 5 minutes.",
    "Whisk in both sugars, then the eggs one at a time, beating for a full minute after the last — this makes the shiny crust.",
    "Fold in the flour and cocoa until just combined.",
    "Bake 24 minutes. The middle should still wobble slightly and a skewer should come out sticky.",
-   "Cool completely in the tin before cutting, then sprinkle with salt."
+   "Cool completely in the pan before cutting, then sprinkle with salt."
   ],
   "photoQuery": "Chocolate brownies"
  },
@@ -1614,7 +1614,7 @@
     1,
     2,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -1628,7 +1628,7 @@
     1,
     1,
     "cup",
-    "double cream",
+    "heavy cream",
     null
    ],
    [
@@ -1802,7 +1802,7 @@
     1,
     2,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -1835,12 +1835,12 @@
    ]
   ],
   "steps": [
-   "Line a 23cm tin with the pastry and chill 30 minutes.",
-   "Blind bake at 190C for 15 minutes with beans, then 8 minutes without.",
+   "Line a 9-inch pan with the pastry and chill 30 minutes.",
+   "Blind bake at 375°F for 15 minutes with beans, then 8 minutes without.",
    "Spread the jam over the cooled base.",
    "Beat the butter and sugar, add the eggs, then fold in the ground almonds and extract.",
    "Spread over the jam carefully and scatter with flaked almonds.",
-   "Bake at 175C for 35 minutes, until golden and firm in the middle.",
+   "Bake at 350°F for 35 minutes, until golden and firm in the middle.",
    "Cool completely before cutting."
   ],
   "photoQuery": "Bakewell tart"
@@ -1870,7 +1870,6 @@
    "drink",
    "french",
    "vegetarian",
-   "quick",
    "gluten-free",
    "allergen-milk"
   ],
@@ -1893,7 +1892,7 @@
     1,
     1,
     "tsp",
-    "cornflour",
+    "cornstarch",
     "slaked in a little milk"
    ],
    [
@@ -1907,7 +1906,7 @@
     1,
     1,
     "tsp",
-    "caster sugar",
+    "superfine sugar",
     "only if needed"
    ]
   ],
@@ -1915,7 +1914,7 @@
    "Heat the milk until steaming but not boiling.",
    "Take it off the heat and add the chopped chocolate. Leave it 2 minutes without stirring.",
    "Whisk until smooth and glossy.",
-   "Return to low heat, add the slaked cornflour, and cook for 2 minutes until it thickens enough to coat a spoon.",
+   "Return to low heat, add the slaked cornstarch, and cook for 2 minutes until it thickens enough to coat a spoon.",
    "Add the salt, taste, and sweeten only if it needs it."
   ],
   "photoQuery": "Hot chocolate cup"

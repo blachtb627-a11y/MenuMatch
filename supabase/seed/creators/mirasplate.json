@@ -3,7 +3,7 @@
   "creator": "mirasplate",
   "slug": "baba-ganoush",
   "title": "Baba Ganoush",
-  "description": "Char the aubergines directly on the flame until they collapse. Oven-roasted is a different, duller dip.",
+  "description": "Char the eggplants directly on the flame until they collapse. Oven-roasted is a different, duller dip.",
   "category": "snacks",
   "cuisine": "Lebanese",
   "prep": 15,
@@ -34,7 +34,7 @@
     2,
     1,
     "piece",
-    "large aubergines",
+    "large eggplants",
     null
    ],
    [
@@ -74,7 +74,7 @@
    ]
   ],
   "steps": [
-   "Char the aubergines directly over a gas flame or under a very hot grill for 20 minutes, turning, until the skins are black all over and they have collapsed.",
+   "Char the eggplants directly over a gas flame or under a very hot grill for 20 minutes, turning, until the skins are black all over and they have collapsed.",
    "Put them in a bowl covered with a plate for 10 minutes to steam.",
    "Peel off the skin and drain the flesh in a sieve for 15 minutes — this is what stops it being watery.",
    "Chop it roughly with a knife rather than blending; it should have texture.",
@@ -110,8 +110,7 @@
    "gluten-free",
    "allergen-eggs",
    "allergen-milk",
-   "one-pot",
-   "quick"
+   "one-pot"
   ],
   "ingredients": [
    [
@@ -146,7 +145,7 @@
     1,
     1,
     "handful",
-    "coriander",
+    "cilantro",
     "chopped"
    ],
    [
@@ -192,7 +191,7 @@
   "creator": "mirasplate",
   "slug": "caponata",
   "title": "Caponata",
-  "description": "Sweet, sour and better on day two. Fry the aubergine separately or it goes grey.",
+  "description": "Sweet, sour and better on day two. Fry the eggplant separately or it goes gray.",
   "category": "dinner",
   "cuisine": "Sicilian",
   "prep": 20,
@@ -223,7 +222,7 @@
     2,
     1,
     "piece",
-    "aubergines",
+    "eggplants",
     "cubed"
    ],
    [
@@ -291,11 +290,11 @@
    ]
   ],
   "steps": [
-   "Fry the aubergine in most of the oil over high heat, in batches, for 6 minutes a batch until browned. Set aside.",
+   "Fry the eggplant in most of the oil over high heat, in batches, for 6 minutes a batch until browned. Set aside.",
    "Cook the onion and celery in the remaining oil for 10 minutes.",
    "Add the tomatoes and simmer 12 minutes, until thickened.",
    "Stir in the vinegar and sugar and cook 3 minutes more.",
-   "Return the aubergine with the olives and capers and cook 8 minutes.",
+   "Return the eggplant with the olives and capers and cook 8 minutes.",
    "Cool to room temperature and tear the basil through. Better still the next day."
   ],
   "photoQuery": "Caponata"
@@ -515,7 +514,7 @@
    ]
   ],
   "steps": [
-   "Toast the torn pitta in a 200C oven for 8 minutes, until dry and snapping.",
+   "Toast the torn pitta in a 400°F oven for 8 minutes, until dry and snapping.",
    "Whisk the pomegranate molasses, lemon juice, oil and sumac with plenty of salt.",
    "Toss the vegetables and herbs through the dressing.",
    "Add the bread and toss once more, then serve immediately."
@@ -618,7 +617,7 @@
    ]
   ],
   "steps": [
-   "Heat the oven to 190C.",
+   "Heat the oven to 375°F.",
    "Cook the onion in half the oil for 8 minutes, then add the rice and turn it for 2 minutes.",
    "Add the grated tomato and cinnamon and cook 4 minutes — the rice should still be hard.",
    "Stir in the herbs and season well.",
@@ -632,7 +631,7 @@
   "creator": "mirasplate",
   "slug": "falafel",
   "title": "Falafel",
-  "description": "Dried chickpeas soaked overnight. Tinned chickpeas will fall apart in the oil, every time.",
+  "description": "Dried chickpeas soaked overnight. Canned chickpeas will fall apart in the oil, every time.",
   "category": "lunch",
   "cuisine": "Middle Eastern",
   "prep": 30,
@@ -690,7 +689,7 @@
     1,
     1,
     "handful",
-    "coriander",
+    "cilantro",
     null
    ],
    [
@@ -720,7 +719,7 @@
    "Blitz with the onion, garlic, herbs, cumin and 2 tsp salt until it looks like coarse couscous — not a paste.",
    "Chill the mixture for 1 hour so it holds together.",
    "Stir in the baking powder just before shaping and form into small flattened balls.",
-   "Heat the oil to 175C and fry in batches for 4 minutes, until deep brown and cooked through.",
+   "Heat the oil to 350°F and fry in batches for 4 minutes, until deep brown and cooked through.",
    "Drain on a rack and salt at once."
   ],
   "photoQuery": "Falafel"
@@ -781,7 +780,7 @@
     1,
     1,
     "bunch",
-    "spring onions",
+    "green onions",
     "sliced"
    ],
    [
@@ -815,11 +814,11 @@
   ],
   "steps": [
    "Wilt the spinach, cool it, then squeeze it dry in a clean cloth, hard, in batches.",
-   "Chop it and mix with the feta, eggs, spring onions, dill and nutmeg. Season carefully — the feta is salty.",
-   "Brush a tin with oil and layer in six filo sheets, oiling each one.",
+   "Chop it and mix with the feta, eggs, green onions, dill and nutmeg. Season carefully — the feta is salty.",
+   "Brush a pan with oil and layer in six filo sheets, oiling each one.",
    "Spread the filling and top with the remaining six, oiling as you go.",
    "Score the top layers into portions before baking, or you will shatter it afterwards.",
-   "Bake at 180C for 45 minutes, until deep gold and crisp all over."
+   "Bake at 350°F for 45 minutes, until deep gold and crisp all over."
   ],
   "photoQuery": "Spanakopita"
  },
@@ -859,7 +858,7 @@
     1,
     "head",
     "cauliflower",
-    "cut into 3cm slabs"
+    "cut into 1-inch slabs"
    ],
    [
     3,
@@ -912,7 +911,7 @@
    ]
   ],
   "steps": [
-   "Heat the oven to 220C.",
+   "Heat the oven to 425°F.",
    "Brush the slabs with oil, season with the cumin and salt, and lay them on a hot tray.",
    "Roast 20 minutes, turn carefully with a fish slice, and roast 15 minutes more until the edges are dark and the stem gives to a knife.",
    "Loosen the tahini with the lemon juice, garlic and 3 tbsp cold water until it pours.",
@@ -955,14 +954,14 @@
     1,
     1,
     "piece",
-    "aubergine",
+    "eggplant",
     "cubed"
    ],
    [
     2,
     1,
     "piece",
-    "courgettes",
+    "zucchini",
     "cubed"
    ],
    [
@@ -1016,8 +1015,8 @@
    ]
   ],
   "steps": [
-   "Fry the aubergine in 3 tbsp oil over high heat for 8 minutes, until browned. Set aside.",
-   "Do the same with the courgette, 5 minutes, and the peppers, 8 minutes, each on its own.",
+   "Fry the eggplant in 3 tbsp oil over high heat for 8 minutes, until browned. Set aside.",
+   "Do the same with the zucchini, 5 minutes, and the peppers, 8 minutes, each on its own.",
    "Cook the onion gently in the last of the oil for 12 minutes, then add the garlic and thyme.",
    "Add the tomatoes and cook 15 minutes, until they break down into a sauce.",
    "Return everything to the pan and simmer together for 15 minutes.",
@@ -1067,7 +1066,7 @@
     1,
     1,
     "tsp",
-    "bicarbonate of soda",
+    "baking soda",
     null
    ],
    [
@@ -1107,7 +1106,7 @@
    ]
   ],
   "steps": [
-   "Cook the drained chickpeas with the bicarbonate in fresh water for 50 minutes, until they squash between two fingers with no resistance.",
+   "Cook the drained chickpeas with the baking soda in fresh water for 50 minutes, until they squash between two fingers with no resistance.",
    "Skim the skins off as they float, and pinch off any that remain.",
    "Blend the garlic with the lemon juice first and leave it 10 minutes, then strain it — this takes the raw edge off.",
    "Blend the hot chickpeas with the tahini, lemon liquid, cumin and salt for a full 3 minutes.",
@@ -1179,7 +1178,7 @@
     3,
     1,
     "piece",
-    "spring onions",
+    "green onions",
     "sliced"
    ],
    [
@@ -1374,7 +1373,7 @@
     2,
     1,
     "tbsp",
-    "tomato purée",
+    "tomato paste",
     null
    ],
    [
@@ -1403,7 +1402,7 @@
    "Soak the porcini in 1 cup of boiling water for 20 minutes, then chop them and keep the liquid.",
    "Cook the onion, carrot and celery in the oil over medium-low heat for 15 minutes, until soft and sweet.",
    "Add all the mushrooms and cook 10 minutes over higher heat, until they have released their water and it has gone.",
-   "Stir in the tomato purée for 2 minutes.",
+   "Stir in the tomato paste for 2 minutes.",
    "Add the wine and reduce by half, then the porcini liquid, leaving the grit behind.",
    "Simmer 20 minutes, until thick. Toss with the pasta and a splash of its cooking water."
   ],
@@ -1473,7 +1472,7 @@
     1,
     1,
     "tbsp",
-    "tomato purée",
+    "tomato paste",
     null
    ],
    [
@@ -1506,9 +1505,9 @@
    ]
   ],
   "steps": [
-   "Heat the oven to 180C.",
+   "Heat the oven to 350°F.",
    "Cook the onion in the oil over medium heat for 10 minutes, then add the garlic for 1 minute.",
-   "Stir in the tomato purée, tomatoes, oregano and sugar and simmer 10 minutes.",
+   "Stir in the tomato paste, tomatoes, oregano and sugar and simmer 10 minutes.",
    "Fold in the beans and season well, then tip into a baking dish.",
    "Bake uncovered for 50 minutes, until the sauce has reduced and the beans on top have browned.",
    "Stir the dill through and leave 15 minutes before eating."
@@ -1518,8 +1517,8 @@
  {
   "creator": "mirasplate",
   "slug": "courgette-fritters",
-  "title": "Courgette Fritters",
-  "description": "Salt and squeeze the courgette. Skip that and the batter never sets.",
+  "title": "Zucchini Fritters",
+  "description": "Salt and squeeze the zucchini. Skip that and the batter never sets.",
   "category": "snacks",
   "cuisine": "Greek",
   "prep": 20,
@@ -1549,7 +1548,7 @@
     3,
     1,
     "piece",
-    "courgettes",
+    "zucchini",
     "coarsely grated"
    ],
    [
@@ -1577,7 +1576,7 @@
     1,
     2,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -1591,7 +1590,7 @@
     3,
     1,
     "piece",
-    "spring onions",
+    "green onions",
     "sliced"
    ],
    [
@@ -1603,9 +1602,9 @@
    ]
   ],
   "steps": [
-   "Toss the grated courgette with the salt and leave 20 minutes in a colander.",
+   "Toss the grated zucchini with the salt and leave 20 minutes in a colander.",
    "Squeeze it dry in a cloth, as hard as you can — you should get out a surprising amount of water.",
-   "Mix with the feta, eggs, flour, dill and spring onion.",
+   "Mix with the feta, eggs, flour, dill and green onion.",
    "Fry heaped spoonfuls in the oil over medium heat for 3 minutes a side, flattening slightly, until deep gold and set through.",
    "Drain on a rack and eat warm."
   ],
@@ -1708,7 +1707,7 @@
    ]
   ],
   "steps": [
-   "Cook the onion, celery and carrot in the oil over medium-low heat for 15 minutes, until soft without colour.",
+   "Cook the onion, celery and carrot in the oil over medium-low heat for 15 minutes, until soft without color.",
    "Add the garlic and rosemary for 2 minutes.",
    "Add the beans and stock and simmer 15 minutes.",
    "Blend a cupful smooth and stir it back in to thicken the soup.",
@@ -1720,8 +1719,8 @@
  {
   "creator": "mirasplate",
   "slug": "aubergine-parmigiana",
-  "title": "Aubergine Parmigiana",
-  "description": "Grill the aubergine instead of frying it. Less oil and it holds its shape in the layers.",
+  "title": "Eggplant Parmigiana",
+  "description": "Grill the eggplant instead of frying it. Less oil and it holds its shape in the layers.",
   "category": "dinner",
   "cuisine": "Italian",
   "prep": 30,
@@ -1752,8 +1751,8 @@
     3,
     1,
     "piece",
-    "aubergines",
-    "sliced 1cm thick"
+    "eggplants",
+    "sliced 1/2 inch thick"
    ],
    [
     2,
@@ -1799,11 +1798,11 @@
    ]
   ],
   "steps": [
-   "Brush the aubergine slices with oil and grill for 4 minutes a side, until soft and marked.",
+   "Brush the eggplant slices with oil and grill for 4 minutes a side, until soft and marked.",
    "Cook the garlic gently in the rest of the oil for 1 minute, add the tomatoes, and simmer 25 minutes until thick.",
    "Tear the basil into the sauce and season.",
-   "Layer aubergine, sauce, mozzarella and Parmesan in a dish, three times, finishing with Parmesan.",
-   "Bake at 190C for 35 minutes, until browned and bubbling at the edges.",
+   "Layer eggplant, sauce, mozzarella and Parmesan in a dish, three times, finishing with Parmesan.",
+   "Bake at 375°F for 35 minutes, until browned and bubbling at the edges.",
    "Rest 20 minutes before cutting or it will not hold together."
   ],
   "photoQuery": "Parmigiana di melanzane"
@@ -1812,7 +1811,7 @@
   "creator": "mirasplate",
   "slug": "labneh",
   "title": "Labneh with Za'atar",
-  "description": "Yoghurt strained overnight into cheese. One ingredient and a bit of patience.",
+  "description": "Yogurt strained overnight into cheese. One ingredient and a bit of patience.",
   "category": "breakfast",
   "cuisine": "Lebanese",
   "prep": 10,
@@ -1843,7 +1842,7 @@
     3,
     1,
     "cup",
-    "Greek yoghurt",
+    "Greek yogurt",
     "full fat"
    ],
    [
@@ -1876,8 +1875,8 @@
    ]
   ],
   "steps": [
-   "Stir the salt through the yoghurt.",
-   "Line a sieve with muslin or a clean cloth, tip the yoghurt in, and gather the corners.",
+   "Stir the salt through the yogurt.",
+   "Line a sieve with muslin or a clean cloth, tip the yogurt in, and gather the corners.",
    "Sit it over a bowl in the fridge for 24 hours, until it is firm enough to hold a shape.",
    "Spread on a plate, make a well with the back of a spoon, and pour the oil in.",
    "Scatter with za'atar and serve with warm flatbread."
@@ -1912,7 +1911,6 @@
    "vegetarian",
    "gluten-free",
    "no-cook",
-   "quick",
    "allergen-milk"
   ],
   "ingredients": [
@@ -2014,8 +2012,7 @@
    "vegan",
    "vegetarian",
    "dairy-free",
-   "gluten-free",
-   "quick"
+   "gluten-free"
   ],
   "ingredients": [
    [
@@ -2060,7 +2057,7 @@
   "creator": "mirasplate",
   "slug": "ayran",
   "title": "Ayran",
-  "description": "Yoghurt, water, salt. Salted, not sweet, and it goes with grilled meat better than anything.",
+  "description": "Yogurt, water, salt. Salted, not sweet, and it goes with grilled meat better than anything.",
   "category": "drinks",
   "cuisine": "Turkish",
   "prep": 5,
@@ -2081,7 +2078,6 @@
    "drink",
    "vegetarian",
    "no-cook",
-   "quick",
    "gluten-free",
    "allergen-milk"
   ],
@@ -2090,7 +2086,7 @@
     1,
     1,
     "cup",
-    "full-fat yoghurt",
+    "full-fat yogurt",
     null
    ],
    [
@@ -2116,7 +2112,7 @@
    ]
   ],
   "steps": [
-   "Whisk the yoghurt with a little of the water until completely smooth.",
+   "Whisk the yogurt with a little of the water until completely smooth.",
    "Add the rest of the water and the salt and whisk hard for 30 seconds to froth it.",
    "Taste — it should be noticeably salty, not faintly so.",
    "Pour over ice."

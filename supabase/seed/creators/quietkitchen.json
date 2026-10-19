@@ -60,7 +60,7 @@
     1,
     3,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -97,8 +97,8 @@
    "Warm the milk to blood heat, stir in the yeast and a spoon of the sugar, and leave 10 minutes.",
    "Work the flour, salt, remaining sugar and half the cardamom into the milk to a soft dough.",
    "Knead 10 minutes, then work in the butter a lump at a time until glossy.",
-   "Prove until doubled, about an hour, then roll out and spread with the rest of the butter and cardamom.",
-   "Fold, cut into strips, twist each one into a knot and prove 40 minutes more.",
+   "Proof until doubled, about an hour, then roll out and spread with the rest of the butter and cardamom.",
+   "Fold, cut into strips, twist each one into a knot and proof 40 minutes more.",
    "Brush with egg, scatter pearl sugar, and bake at 425F for 12 minutes until deep gold."
   ]
  },
@@ -106,7 +106,7 @@
   "creator": "quietkitchen",
   "slug": "sourdough-loaf",
   "title": "Sourdough Loaf",
-  "description": "Overnight in the fridge does more for the flavour than anything you can do on the day.",
+  "description": "Overnight in the fridge does more for the flavor than anything you can do on the day.",
   "category": "breakfast",
   "cuisine": "American",
   "prep": 40,
@@ -141,7 +141,7 @@
     1,
     2,
     "cup",
-    "wholemeal flour",
+    "whole wheat flour",
     null
    ],
    [
@@ -167,7 +167,7 @@
    ]
   ],
   "steps": [
-   "Feed the starter 6 hours ahead; it should double and smell of yoghurt, not vinegar.",
+   "Feed the starter 6 hours ahead; it should double and smell of yogurt, not vinegar.",
    "Mix the flours and water and leave 45 minutes so the flour hydrates.",
    "Work in the starter and salt, then fold the dough over itself four times at half-hour intervals.",
    "Leave to rise 4 hours at room temperature, until risen by half and domed.",
@@ -266,9 +266,9 @@
   "steps": [
    "Stir the yeast and sugar into the warm milk and leave until it foams.",
    "Mix in the spelt flour, salt and butter, and knead to a soft dough — spelt needs a lighter hand than wheat.",
-   "Prove an hour, then roll into a large circle and cut it into twelve wedges.",
+   "Proof an hour, then roll into a large circle and cut it into twelve wedges.",
    "Roll each wedge from the wide end to the point, and curve it into a crescent.",
-   "Prove 30 minutes on the tray, brush with egg and scatter the sesame.",
+   "Proof 30 minutes on the tray, brush with egg and scatter the sesame.",
    "Bake at 400F for 18 minutes until the tops are deep gold."
   ]
  },
@@ -320,7 +320,7 @@
     1,
     1,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -509,7 +509,7 @@
     1,
     2,
     "cup",
-    "double cream",
+    "heavy cream",
     null
    ],
    [
@@ -727,7 +727,7 @@
     1,
     2,
     "cup",
-    "double cream",
+    "heavy cream",
     null
    ],
    [
@@ -794,7 +794,7 @@
     1,
     1,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -808,7 +808,7 @@
     2,
     3,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -844,7 +844,7 @@
    "Use a firm apple that holds its shape; a soft one turns to sauce and wets the crumb.",
    "Cream the butter and sugar until pale, then beat in the eggs one at a time.",
    "Fold in the flour, baking powder and cinnamon.",
-   "Spread into a lined tin and press the apple slices in, standing them on edge.",
+   "Spread into a lined pan and press the apple slices in, standing them on edge.",
    "Bake at 350F for 45 minutes until a skewer comes out clean.",
    "Serve warm rather than hot, with the ice cream going soft against it."
   ]
@@ -918,14 +918,14 @@
     1,
     1,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
     3,
     4,
     "cup",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -940,7 +940,7 @@
     1,
     "tbsp",
     "butter",
-    "melted, for the moulds"
+    "melted, for the molds"
    ]
   ],
   "steps": [
@@ -948,7 +948,7 @@
    "Whisk the yolks, whole egg and sugar, then the flour and salt, to a smooth batter.",
    "Pour the warm milk in slowly, whisking — all at once and the egg cooks into threads.",
    "Strain, cover, and rest in the fridge for 24 hours. This is not optional; an unrested batter rises and collapses.",
-   "Brush the moulds thickly with melted butter and chill them until set.",
+   "Brush the molds thickly with melted butter and chill them until set.",
    "Fill to just below the rim and bake at 475F for 15 minutes, then 375F for 40 minutes.",
    "They should be almost black outside and custardy within. Turn them out at once or they steam and soften."
   ]

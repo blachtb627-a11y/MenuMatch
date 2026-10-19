@@ -75,7 +75,7 @@ export default function ExportScreen() {
             {[
               'Your account details and preferences',
               'Every recipe you have written, drafts included',
-              'What you have saved, cooked, and organised into collections',
+              'What you have saved, cooked, and organized into collections',
               'Accounts you have blocked',
               'Your swipe history',
             ].map((line) => (

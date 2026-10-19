@@ -34,7 +34,7 @@ export default function Welcome() {
         <View style={{ gap: space.md }}>
           <Text style={s.headline}>Swipzy</Text>
           <Text style={s.sub}>
-            Discover recipes by swiping, save your favourites, share your own.
+            Discover recipes by swiping, save your favorites, share your own.
           </Text>
           {/* Startup no longer hangs when it cannot reach the server, which
               means it can now arrive here having quietly failed. Saying so is

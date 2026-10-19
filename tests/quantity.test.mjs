@@ -63,3 +63,31 @@ test('a missing quantity renders just the ingredient', () => {
   const row = { quantity: null, unit: null, ingredient: 'black pepper', note: null };
   assert.equal(renderIngredient(row, 4, 8), 'black pepper');
 });
+
+test('counted ingredients follow their number', () => {
+  const row = (n, ingredient, unit = 'piece') => ({ quantity: q(n), unit, ingredient, note: null });
+  assert.equal(renderIngredient(row(2, 'egg'), 1, 1), '2 eggs');
+  assert.equal(renderIngredient(row(1, 'egg'), 2, 4), '2 eggs');
+  assert.equal(renderIngredient(row(2, 'eggs'), 2, 1), '1 egg');
+  assert.equal(renderIngredient(row(3, 'ripe tomatoes'), 3, 1), '1 ripe tomato');
+  assert.equal(renderIngredient(row(1, 'potato'), 1, 2), '2 potatoes');
+  assert.equal(renderIngredient(row(4, 'bay leaves'), 4, 1), '1 bay leaf');
+  assert.equal(renderIngredient(row(2, 'dried red chillies'), 2, 1), '1 dried red chilli');
+  assert.equal(renderIngredient(row(1, 'radish'), 1, 3), '3 radishes');
+  assert.equal(renderIngredient(row(2, 'Bramley apples'), 2, 1), '1 Bramley apple');
+  assert.equal(renderIngredient(row(1, 'lemon, juiced'), 1, 2), '2 lemons, juiced');
+  assert.equal(renderIngredient(row(1, 'egg', null), 1, 3), '3 eggs');
+});
+
+test('a fraction of one stays singular, more than one is plural', () => {
+  const lime = { quantity: q(1), unit: 'piece', ingredient: 'lime', note: null };
+  assert.equal(renderIngredient(lime, 2, 1), '1/2 lime');
+  assert.equal(renderIngredient(lime, 2, 3), '1 1/2 limes');
+});
+
+test('uncountable and unit-carrying rows are left alone', () => {
+  const row = (n, ingredient, unit) => ({ quantity: q(n), unit, ingredient, note: null });
+  assert.equal(renderIngredient(row(2, 'vanilla ice cream', 'piece'), 1, 1), '2 vanilla ice cream');
+  assert.equal(renderIngredient(row(2, 'flour', 'cup'), 1, 1), '2 cups flour');
+  assert.equal(renderIngredient(row(2, 'cloves of garlic', 'piece'), 2, 1), '1 clove of garlic');
+});

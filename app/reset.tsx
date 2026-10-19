@@ -10,8 +10,8 @@ import { supabase } from '@/lib/supabase';
 import { stripUrlFragment } from '@/lib/urlFragment';
 import { colors, radius, space, type } from '@/theme';
 
-/** Supabase's own floor. Stated here so the form can refuse before the round trip. */
-const MIN_PASSWORD = 6;
+/** Matches auth.tsx and the Supabase project setting, so the form can refuse before the round trip. */
+const MIN_PASSWORD = 8;
 
 type Stage =
   | { kind: 'opening' }

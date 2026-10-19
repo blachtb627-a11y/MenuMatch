@@ -118,7 +118,6 @@
   "tags": [
    "dinner",
    "vegetarian",
-   "quick",
    "weeknight",
    "allergen-milk",
    "allergen-wheat"
@@ -163,15 +162,15 @@
     1,
     1,
     "pinch",
-    "chilli flakes",
+    "red pepper flakes",
     null
    ]
   ],
   "steps": [
-   "Heat the butter in a wide frying pan over medium-high heat until it foams.",
-   "Add the gnocchi straight from the packet, in one layer, and leave them alone for 4 minutes so they colour.",
+   "Heat the butter in a wide skillet over medium-high heat until it foams.",
+   "Add the gnocchi straight from the packet, in one layer, and leave them alone for 4 minutes so they color.",
    "Turn and cook for 3 minutes more, until crisp on both sides.",
-   "Add the garlic and chilli and cook for 45 seconds — it burns fast.",
+   "Add the garlic and chili and cook for 45 seconds — it burns fast.",
    "Fold in the spinach until it wilts, about 1 minute.",
    "Off the heat, toss with the Parmesan."
   ],
@@ -249,7 +248,7 @@
    ]
   ],
   "steps": [
-   "Heat the oven to 210C.",
+   "Heat the oven to 400°F.",
    "Toss the fennel, onion and lemon with the oil, fennel seeds and plenty of salt on a large tray.",
    "Nestle the sausages among them, leaving space between everything.",
    "Roast for 20 minutes.",
@@ -281,7 +280,6 @@
   },
   "tags": [
    "lunch",
-   "quick",
    "vegetarian",
    "allergen-soy",
    "allergen-milk",
@@ -320,7 +318,7 @@
     1,
     1,
     "piece",
-    "spring onion",
+    "green onion",
     "sliced"
    ],
    [
@@ -335,7 +333,7 @@
    "Boil the noodles per the packet, then lift them out with tongs and keep a mugful of the water.",
    "Mash the miso and butter together in the bowl you will eat from.",
    "Add the hot noodles and 3 tbsp of the cooking water and toss until it turns into a sauce.",
-   "Add the soy, then the spring onion and sesame."
+   "Add the soy, then the green onion and sesame."
   ]
  },
  {
@@ -362,7 +360,6 @@
   "tags": [
    "dinner",
    "vegetarian",
-   "quick",
    "weeknight",
    "allergen-milk",
    "allergen-wheat"
@@ -407,7 +404,7 @@
     2,
     1,
     "piece",
-    "spring onions",
+    "green onions",
     "sliced"
    ],
    [
@@ -420,7 +417,7 @@
   ],
   "steps": [
    "Mash half the beans with the cumin, lime juice and salt; leave the rest whole and fold them in.",
-   "Spread over two tortillas, scatter with cheese and spring onion, and top with the others.",
+   "Spread over two tortillas, scatter with cheese and green onion, and top with the others.",
    "Cook in a dry pan over medium heat for 3 minutes, pressing down, until the underside is golden.",
    "Flip carefully and cook 3 minutes more, until the cheese has melted through.",
    "Rest for 1 minute before cutting, or the filling runs."
@@ -430,7 +427,7 @@
   "creator": "cookduck",
   "slug": "tomato-butter-beans",
   "title": "Tomato Butter Beans",
-  "description": "Twenty minutes, one tin, and it tastes like it took an hour. Good with bread, better with an egg on top.",
+  "description": "Twenty minutes, one can, and it tastes like it took an hour. Good with bread, better with an egg on top.",
   "category": "dinner",
   "cuisine": "Mediterranean",
   "prep": 5,
@@ -452,7 +449,6 @@
    "vegan",
    "vegetarian",
    "one-pot",
-   "quick",
    "dairy-free"
   ],
   "ingredients": [
@@ -495,7 +491,7 @@
     1,
     1,
     "pinch",
-    "chilli flakes",
+    "red pepper flakes",
     null
    ],
    [
@@ -507,7 +503,7 @@
    ]
   ],
   "steps": [
-   "Warm the oil over medium-low heat and cook the garlic and chilli for 2 minutes, until the garlic is pale gold — not brown.",
+   "Warm the oil over medium-low heat and cook the garlic and chili for 2 minutes, until the garlic is pale gold — not brown.",
    "Add the paprika and stir for 20 seconds.",
    "Pour in the tomatoes and simmer for 10 minutes, until they darken and thicken.",
    "Add the beans and cook for 8 minutes more, crushing a few against the side.",
@@ -518,7 +514,7 @@
  {
   "creator": "cookduck",
   "slug": "crispy-chilli-eggs",
-  "title": "Crispy Chilli Eggs",
+  "title": "Crispy Chili Eggs",
   "description": "Fried in far more oil than feels right, which is the point. The whites go lacy at the edges.",
   "category": "breakfast",
   "cuisine": "Chinese",
@@ -538,7 +534,6 @@
   },
   "tags": [
    "breakfast",
-   "quick",
    "allergen-eggs",
    "vegetarian",
    "gluten-free"
@@ -562,7 +557,7 @@
     1,
     1,
     "tbsp",
-    "chilli crisp",
+    "chili crisp",
     null
    ],
    [
@@ -576,15 +571,15 @@
     1,
     1,
     "piece",
-    "spring onion",
+    "green onion",
     "sliced"
    ]
   ],
   "steps": [
-   "Heat the oil in a small frying pan over high heat until it shimmers.",
+   "Heat the oil in a small skillet over high heat until it shimmers.",
    "Crack in the eggs and stand back. Spoon the hot oil over the whites for 90 seconds, until the edges are brown and lacy and the yolks are still soft.",
-   "Lift out onto kitchen paper.",
-   "Spoon over the chilli crisp and vinegar and scatter with spring onion."
+   "Lift out onto paper towels.",
+   "Spoon over the chili crisp and vinegar and scatter with green onion."
   ],
   "photoQuery": "Fried egg chili oil"
  },
@@ -613,7 +608,6 @@
    "lunch",
    "no-cook",
    "vegetarian",
-   "quick",
    "meal-prep",
    "allergen-milk",
    "allergen-tree-nuts"
@@ -651,7 +645,7 @@
     1,
     1,
     "handful",
-    "rocket",
+    "arugula",
     null
    ],
    [
@@ -673,7 +667,7 @@
    "Stir the pesto, vinegar and oil together in a bowl with a good pinch of salt.",
    "Add the beans and turn them until coated. Leave for 10 minutes if you have it.",
    "Fold in the tomatoes and cucumber.",
-   "Add the rocket right before serving so it does not wilt."
+   "Add the arugula right before serving so it does not wilt."
   ],
   "photoQuery": "White bean salad"
  },
@@ -701,7 +695,6 @@
   "tags": [
    "breakfast",
    "vegetarian",
-   "quick",
    "allergen-milk",
    "allergen-soy",
    "allergen-wheat"
@@ -751,7 +744,7 @@
    ]
   ],
   "steps": [
-   "Get a wide frying pan properly hot over high heat, then add half the butter.",
+   "Get a wide skillet properly hot over high heat, then add half the butter.",
    "Add the mushrooms in one layer and leave them for 3 minutes without touching them, until they are browned underneath.",
    "Toss and cook for 3 minutes more.",
    "Add the garlic and the rest of the butter and cook for 1 minute.",
@@ -785,7 +778,6 @@
    "lunch",
    "vegan",
    "vegetarian",
-   "quick",
    "meal-prep",
    "allergen-peanuts",
    "allergen-soy",
@@ -845,7 +837,7 @@
     2,
     1,
     "piece",
-    "spring onions",
+    "green onions",
     "sliced"
    ]
   ],
@@ -853,7 +845,7 @@
    "Whisk the peanut butter, soy, vinegar, sesame oil and honey with 3 tbsp warm water until smooth and pourable.",
    "Cook the noodles per the packet, then rinse them under cold water so they stop cooking.",
    "Toss the drained noodles through the sauce.",
-   "Fold in the cucumber and spring onion just before eating."
+   "Fold in the cucumber and green onion just before eating."
   ],
   "photoQuery": "Peanut noodles"
  },
@@ -931,7 +923,7 @@
   "steps": [
    "Boil the potatoes in salted water for 20 minutes, until a knife goes through with no resistance.",
    "Drain and leave them to steam dry for 5 minutes — wet potatoes will not crisp.",
-   "Heat the oven to 220C.",
+   "Heat the oven to 425°F.",
    "Squash each potato flat with the base of a glass on an oiled tray.",
    "Pour over the oil, season, and roast for 25 minutes, until the edges are deep brown and brittle.",
    "Stir the garlic and lemon into the mayonnaise and serve alongside."
@@ -961,7 +953,6 @@
   },
   "tags": [
    "dinner",
-   "quick",
    "allergen-eggs",
    "allergen-soy",
    "weeknight",
@@ -986,7 +977,7 @@
     2,
     1,
     "piece",
-    "spring onions",
+    "green onions",
     "white and green separated"
    ],
    [
@@ -1022,10 +1013,10 @@
    "Break the cold rice up with your hands so there are no clumps left.",
    "Get a wok smoking hot, add half the oil, and pour in the eggs.",
    "Let them set for 20 seconds, then scramble roughly and tip them out while still slightly wet.",
-   "Add the rest of the oil and the white parts of the spring onion, then the rice.",
+   "Add the rest of the oil and the white parts of the green onion, then the rice.",
    "Fry for 3 minutes, pressing the rice against the pan and turning, until it starts to pop.",
    "Add the peas and the egg back, then the soy down the side of the pan.",
-   "Finish off the heat with the sesame oil and the green spring onion."
+   "Finish off the heat with the sesame oil and the green green onion."
   ],
   "photoQuery": "Egg fried rice"
  },
@@ -1052,7 +1043,6 @@
   },
   "tags": [
    "lunch",
-   "quick",
    "allergen-fish",
    "allergen-milk",
    "allergen-wheat",
@@ -1206,7 +1196,7 @@
    ]
   ],
   "steps": [
-   "Heat the oven to 200C.",
+   "Heat the oven to 400°F.",
    "Toss the tomatoes, onion and garlic with the oil, sugar and salt on a tray, tomatoes cut side up.",
    "Roast for 40 minutes, until the edges are blackened in places and the tomatoes have collapsed.",
    "Squeeze the garlic out of its skins and scrape everything into a blender with the stock.",
@@ -1238,7 +1228,6 @@
   },
   "tags": [
    "lunch",
-   "quick",
    "high-protein",
    "allergen-eggs",
    "allergen-fish",
@@ -1401,7 +1390,7 @@
     1,
     1,
     "handful",
-    "coriander",
+    "cilantro",
     "chopped"
    ]
   ],
@@ -1411,7 +1400,7 @@
    "Pour in the tomatoes and simmer for 15 minutes, until thick enough that a spoon leaves a trail.",
    "Make four wells and crack an egg into each.",
    "Cover and cook for 5 to 7 minutes, until the whites are fully set and the yolks are still soft.",
-   "Scatter with coriander and eat from the pan."
+   "Scatter with cilantro and eat from the pan."
   ]
  },
  {
@@ -1437,7 +1426,6 @@
   },
   "tags": [
    "dinner",
-   "quick",
    "high-protein",
    "allergen-fish",
    "allergen-soy",
@@ -1498,7 +1486,7 @@
     1,
     1,
     "piece",
-    "spring onion",
+    "green onion",
     "sliced"
    ]
   ],
@@ -1508,7 +1496,7 @@
    "Turn and cook for 2 minutes more.",
    "Mix the soy, honey, vinegar, garlic and ginger and pour it in.",
    "Let it bubble and thicken for 2 minutes, spooning it over the fish, until the salmon is just opaque through the middle.",
-   "Scatter with spring onion."
+   "Scatter with green onion."
   ],
   "photoQuery": "Teriyaki salmon"
  },
@@ -1536,7 +1524,6 @@
   "tags": [
    "lunch",
    "vegetarian",
-   "quick",
    "allergen-milk",
    "allergen-wheat",
    "meal-prep"
@@ -1631,7 +1618,6 @@
   },
   "tags": [
    "dinner",
-   "quick",
    "gluten-free",
    "dairy-free",
    "allergen-fish",
@@ -1643,7 +1629,7 @@
     1,
     1,
     "lb",
-    "minced pork",
+    "ground pork",
     null
    ],
    [
@@ -1678,7 +1664,7 @@
     1,
     1,
     "tsp",
-    "chilli flakes",
+    "red pepper flakes",
     null
    ],
    [
@@ -1692,7 +1678,7 @@
     1,
     1,
     "handful",
-    "coriander",
+    "cilantro",
     "chopped"
    ],
    [
@@ -1707,7 +1693,7 @@
    "Toast the raw rice in a dry pan over medium heat for 4 minutes, until nut brown, then grind it coarsely.",
    "Fry the pork in a hot dry pan for 6 minutes, breaking it up, until browned and cooked through with no pink.",
    "Take it off the heat and let it stop sizzling.",
-   "Add the fish sauce, lime juice, chilli and shallots and toss.",
+   "Add the fish sauce, lime juice, chili and shallots and toss.",
    "Fold in the herbs and the rice powder at the last moment, or it goes soft.",
    "Spoon into lettuce leaves."
   ],
@@ -1858,7 +1844,6 @@
    "japanese",
    "vegetarian",
    "no-cook",
-   "quick",
    "allergen-milk",
    "gluten-free"
   ],
@@ -1901,7 +1886,7 @@
   ],
   "steps": [
    "Sift the matcha into a bowl — this is the step everyone skips and it is why the drink goes lumpy.",
-   "Add the hot water, about 80C, and whisk in a W motion for 30 seconds until it foams.",
+   "Add the hot water, about 175°F, and whisk in a W motion for 30 seconds until it foams.",
    "Stir the honey into the paste while it is still warm.",
    "Fill a glass with ice, pour over the milk, then float the matcha on top.",
    "Stir before drinking, or drink it in layers."
@@ -1943,7 +1928,7 @@
     1,
     1,
     "cup",
-    "caster sugar",
+    "superfine sugar",
     null
    ],
    [
@@ -2010,7 +1995,6 @@
    "indian",
    "vegetarian",
    "no-cook",
-   "quick",
    "blender",
    "allergen-milk",
    "gluten-free"
@@ -2027,7 +2011,7 @@
     1,
     1,
     "cup",
-    "full-fat yoghurt",
+    "full-fat yogurt",
     null
    ],
    [
@@ -2053,7 +2037,7 @@
    ]
   ],
   "steps": [
-   "Blend the mango, yoghurt and milk for 45 seconds, until completely smooth.",
+   "Blend the mango, yogurt and milk for 45 seconds, until completely smooth.",
    "Taste before sweetening — a ripe mango often needs nothing.",
    "Add the cardamom and blend for 5 seconds more.",
    "Serve cold, in chilled glasses if you have thought ahead."

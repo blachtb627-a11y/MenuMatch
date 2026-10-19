@@ -289,7 +289,7 @@ export default function Pantry() {
                 ) : !matches || matches.length === 0 ? (
                   <EmptyState
                     title="Nothing quite fits yet"
-                    body="Add a few more things and it will have more to work with. Tinned and dried goods count."
+                    body="Add a few more things and it will have more to work with. Canned and dried goods count."
                   />
                 ) : (
                   BANDS.map((band, i) => {

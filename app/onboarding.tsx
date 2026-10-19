@@ -127,7 +127,8 @@ function Group({ title, children }: { title: string; children: React.ReactNode }
   return (
     <View style={{ gap: space.md }}>
       <Text style={s.groupTitle}>{title}</Text>
-      <View style={s.chipWrap}>{children}</View>
+      {/* Named after its heading, so a screen reader says "Meals" before the chips. */}
+      <View style={s.chipWrap} role="group" aria-label={title}>{children}</View>
     </View>
   );
 }

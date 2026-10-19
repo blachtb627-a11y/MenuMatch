@@ -20,6 +20,9 @@ import {
 } from '@/lib/composer';
 import { parseIngredientList, parseSteps } from '@/lib/parseIngredients';
 import {
+  checkPublishable, describePublishError, fromServer, type PublishField,
+} from '@/lib/publishCheck';
+import {
   COVER_EDGE, downscale, pickImage, readAsBase64, SCAN_EDGE, uploadImage,
 } from '@/lib/media';
 import { fetchConfig } from '@/lib/api';
@@ -49,7 +52,12 @@ export default function Compose() {
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [confirmUnpublish, setConfirmUnpublish] = useState(false);
   const [deleting, setDeleting] = useState(false);
-  const [missing, setMissing] = useState<string[]>([]);
+  // Set by the first Publish tap; from then on the panel above the footer
+  // keeps a live list of what is still missing, ticking items off as they're fixed.
+  const [publishTried, setPublishTried] = useState(false);
+  const [publishing, setPublishing] = useState(false);
+  const [serverMissing, setServerMissing] = useState<string[]>([]);
+  const [publishError, setPublishError] = useState<string | null>(null);
   const [pasteOpen, setPasteOpen] = useState<'ingredients' | 'steps' | null>(null);
   const [scanning, setScanning] = useState(false);
   const [scanStage, setScanStage] = useState('');
@@ -68,6 +76,15 @@ export default function Compose() {
   const draftRef = useRef<Draft | null>(draft);
   draftRef.current = draft;
   const dirty = useRef(false);
+  const scrollRef = useRef<ScrollView>(null);
+  // Where each publish-checked field sits in the scroll content, for jumping to it.
+  const fieldY = useRef<Partial<Record<PublishField, number>>>({});
+  const mark = (field: PublishField) =>
+    (e: { nativeEvent: { layout: { y: number } } }) => { fieldY.current[field] = e.nativeEvent.layout.y; };
+  const jumpTo = useCallback((field: PublishField | null) => {
+    const y = field ? fieldY.current[field] : undefined;
+    if (y != null) scrollRef.current?.scrollTo({ y: Math.max(0, y - space.lg), animated: true });
+  }, []);
 
   useEffect(() => {
     void fetchConfig().then((c) => {
@@ -361,17 +378,55 @@ export default function Compose() {
   }
 
   async function onPublish() {
-    const savedId = await persist();
-    if (!savedId) return;
-    const result = await publishRecipe(savedId, rightsConfirmed);
-    if (result.published) {
-      setToast('Published');
-      setTimeout(() => router.replace('/(tabs)/create'), 600);
-    } else {
-      setMissing(result.missing ?? []);
-      setToast('Not quite ready to publish');
+    const current = draftRef.current;
+    if (!current || publishing) return;
+    setPublishTried(true);
+    setPublishError(null);
+    setServerMissing([]);
+    // Checked here first so the answer is instant and names the field. The
+    // draft is still saved, so nothing typed is lost while it gets fixed.
+    const [first] = checkPublishable(current, rightsConfirmed);
+    if (first) {
+      void persist();
+      jumpTo(first.field);
+      return;
+    }
+    setPublishing(true);
+    try {
+      const savedId = await persist();
+      if (!savedId) {
+        setPublishError('Your changes could not be saved, so nothing was published. '
+          + 'Check your connection and tap Publish again.');
+        return;
+      }
+      const result = await publishRecipe(savedId, rightsConfirmed);
+      if (result.published) {
+        setPublishTried(false);
+        setToast('Published');
+        setTimeout(() => router.replace('/(tabs)/create'), 600);
+      } else {
+        setServerMissing(result.missing ?? []);
+      }
+    } catch (e) {
+      setPublishError(describePublishError(e instanceof Error ? e.message : String(e)));
+    } finally {
+      setPublishing(false);
     }
   }
+
+  async function onSaveDraft() {
+    if (await persist()) {
+      setToast(draft?.status === 'published' ? 'Saved' : 'Saved as a draft — tap Publish when it’s ready');
+    }
+  }
+
+  // The server's list is the authority, but the local one updates as fields are
+  // filled in. The server's is shown only for what the local check cannot see.
+  const localProblems = draft ? checkPublishable(draft, rightsConfirmed) : [];
+  const serverProblems = fromServer(serverMissing);
+  const problems = localProblems.length
+    ? [...localProblems, ...serverProblems.filter((p) => p.field === null)]
+    : serverProblems;
 
   return (
     <Screen>
@@ -381,13 +436,13 @@ export default function Compose() {
                       onPress={() => { void persist(); }} />
           <Text style={s.barTitle}>{draft.status === 'published' ? 'Edit recipe' : 'New recipe'}</Text>
           <Text style={s.saveState}>
-            {saving ? 'Saving…' : savedAt ? 'Saved' : ' '}
+            {saving ? 'Saving…' : savedAt ? (draft.status === 'published' ? 'Saved' : 'Draft saved') : ' '}
           </Text>
         </View>
 
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined}
                               style={{ flex: 1 }}>
-          <ScrollView contentContainerStyle={s.body} keyboardShouldPersistTaps="handled">
+          <ScrollView ref={scrollRef} contentContainerStyle={s.body} keyboardShouldPersistTaps="handled">
 
             {/* Scan — framed as transcribing the creator's own recipe (§18.2). */}
             <View style={s.scanCard}>
@@ -455,6 +510,7 @@ export default function Compose() {
               ) : null}
             </View>
 
+            <View onLayout={mark('cover')}>
             <Labelled label="Cover photo" required
                       hint="The card is mostly photograph, so this one matters more than anything else here.">
               <Pressable onPress={() => void chooseCover('library')} disabled={busyImage}
@@ -477,11 +533,14 @@ export default function Compose() {
                 <Button label="Library" variant="secondary" onPress={() => void chooseCover('library')} />
               </View>
             </Labelled>
+            </View>
 
+            <View onLayout={mark('title')}>
             <Labelled label="Title" required>
               <Input value={draft.title} onChangeText={(t) => update({ title: t })}
                      onBlur={onBlur} placeholder="Charred Lemon Chicken Thighs" maxLength={100} />
             </Labelled>
+            </View>
 
             <Labelled label="Description"
                       hint="One or two lines on why this is worth cooking.">
@@ -490,33 +549,37 @@ export default function Compose() {
                      placeholder="Weeknight sheet-pan chicken with a bright lemon crust." />
             </Labelled>
 
+            <View onLayout={mark('category')}>
             <Labelled label="Meal" required>
               <ChoiceRow options={categories} value={draft.category}
                          onChange={(v) => { update({ category: v }); void persist(); }} />
             </Labelled>
+            </View>
 
+            <View onLayout={mark('cuisine')}>
             <Labelled label="Cuisine" required>
               <CuisineField value={draft.cuisine}
                             onChange={(v) => { update({ cuisine: v }); void persist(); }} />
             </Labelled>
+            </View>
 
             <View style={s.threeUp}>
               <View style={{ flex: 1 }}>
-                <Labelled label="Prep (min)" required>
+                <Labelled label="Prep (min)" required stacked>
                   <Input value={draft.prepMinutes?.toString() ?? ''} keyboardType="number-pad"
                          onChangeText={(t) => update({ prepMinutes: t ? Number(t) : null })}
                          onBlur={onBlur} placeholder="10" />
                 </Labelled>
               </View>
               <View style={{ flex: 1 }}>
-                <Labelled label="Cook (min)" required>
+                <Labelled label="Cook (min)" required stacked>
                   <Input value={draft.cookMinutes?.toString() ?? ''} keyboardType="number-pad"
                          onChangeText={(t) => update({ cookMinutes: t ? Number(t) : null })}
                          onBlur={onBlur} placeholder="25" />
                 </Labelled>
               </View>
               <View style={{ flex: 1 }}>
-                <Labelled label="Serves" required>
+                <Labelled label="Serves" required stacked>
                   <Input value={draft.servings?.toString() ?? ''} keyboardType="number-pad"
                          onChangeText={(t) => update({ servings: t ? Number(t) : null })}
                          onBlur={onBlur} placeholder="4" />
@@ -530,7 +593,7 @@ export default function Compose() {
             </Labelled>
 
             {/* ---------------------------------------------- ingredients */}
-            <View style={s.section}>
+            <View style={s.section} onLayout={mark('ingredients')}>
               <View style={s.sectionHead}>
                 <Text style={s.sectionTitle}>Ingredients</Text>
                 <Pressable onPress={() => setPasteOpen('ingredients')} accessibilityRole="button">
@@ -557,9 +620,15 @@ export default function Compose() {
                              onBlur={onBlur} placeholder="lb" style={s.unitInput}
                              accessibilityLabel={`Unit for ingredient ${i + 1}`} />
                       <View style={{ flex: 1 }}>
+                        {/* Wraps instead of scrolling sideways: beside the amount
+                            and unit this field is narrow, and a scanned name
+                            ("all-purpose flour, sifted") read as "all-pu…".
+                            Still one line of text — Return finishes the field. */}
                         <Input value={row.ingredient}
-                               onChangeText={(t) => setIngredient(i, { ingredient: t })}
+                               onChangeText={(t) => setIngredient(i, { ingredient: t.replace(/\n/g, ' ') })}
                                onBlur={onBlur} placeholder="bone-in chicken thighs"
+                               multiline scrollEnabled={false} submitBehavior="blurAndSubmit"
+                               returnKeyType="done" style={s.nameInput}
                                accessibilityLabel={`Ingredient ${i + 1}`} />
                       </View>
                     </View>
@@ -588,7 +657,7 @@ export default function Compose() {
             </View>
 
             {/* ---------------------------------------------- steps */}
-            <View style={s.section}>
+            <View style={s.section} onLayout={mark('steps')}>
               <View style={s.sectionHead}>
                 <Text style={s.sectionTitle}>Method</Text>
                 <Pressable onPress={() => setPasteOpen('steps')} accessibilityRole="button">
@@ -689,7 +758,8 @@ export default function Compose() {
                        accessibilityRole="checkbox"
                        accessibilityState={{ checked: rightsConfirmed }} aria-checked={rightsConfirmed}
                        accessibilityLabel="Confirm you have the rights to publish this"
-                       style={s.rightsRow}>
+                       onLayout={mark('rights')}
+                       style={[s.rightsRow, publishTried && !rightsConfirmed && s.rightsRowNeeded]}>
               <View style={[s.checkbox, rightsConfirmed && s.checkboxOn]}>
                 {rightsConfirmed ? <Feather name="check" size={13} color={colors.onMint} /> : null}
               </View>
@@ -726,21 +796,44 @@ export default function Compose() {
               </View>
             ) : null}
 
-            {missing.length ? (
-              <View style={s.missingBox}>
-                <Text style={s.missingTitle}>Still needed before publishing</Text>
-                {missing.map((m) => (
-                  <Text key={m} style={s.missingItem}>• {m}</Text>
-                ))}
-              </View>
-            ) : null}
           </ScrollView>
         </KeyboardAvoidingView>
 
+        {/* Pinned above the buttons rather than at the end of the form, so the
+            reason a Publish tap did nothing is on screen where the tap was. */}
+        {publishTried ? (
+          <View style={s.missingBox} accessibilityLiveRegion="polite">
+            {publishError ? (
+              <>
+                <Text style={[s.missingTitle, { color: colors.danger }]}>Not published</Text>
+                <Text style={s.missingItem}>{publishError}</Text>
+              </>
+            ) : problems.length ? (
+              <>
+                <Text style={s.missingTitle}>
+                  {`Not published yet — ${problems.length} thing${problems.length === 1 ? '' : 's'} to fix`}
+                </Text>
+                {problems.map((p) => (
+                  <Pressable key={p.message} onPress={() => jumpTo(p.field)} disabled={!p.field}
+                             accessibilityRole="button" accessibilityHint="Scrolls to this field"
+                             style={s.problemRow}>
+                    <Feather name="alert-circle" size={14} color={colors.clay} style={{ marginTop: 2 }} />
+                    <Text style={[s.missingItem, { flex: 1 }]}>{p.message}</Text>
+                    {p.field ? <Feather name="chevron-right" size={16} color={colors.textMuted} /> : null}
+                  </Pressable>
+                ))}
+              </>
+            ) : (
+              <Text style={[s.missingTitle, { color: colors.mint }]}>All set — tap Publish.</Text>
+            )}
+          </View>
+        ) : null}
+
         <View style={s.footer}>
           <Button label="Save draft" variant="secondary"
-                  onPress={() => { void persist(); setToast('Draft saved'); }} style={{ flex: 1 }} />
-          <Button label="Publish" onPress={onPublish} style={{ flex: 1 }} />
+                  onPress={() => void onSaveDraft()} style={{ flex: 1 }} />
+          <Button label={publishing ? 'Publishing…' : 'Publish'} disabled={publishing}
+                  onPress={() => void onPublish()} style={{ flex: 1 }} />
         </View>
       </SafeAreaView>
 
@@ -908,6 +1001,8 @@ const s = StyleSheet.create({
   ingredientRow: { flexDirection: 'row', alignItems: 'flex-start', gap: space.xs },
   qtyInput: { width: 74 },
   unitInput: { width: 74 },
+  // Undoes Input's multiline sizing: this is a one-line field that may wrap.
+  nameInput: { minHeight: 46, paddingTop: space.md, textAlignVertical: 'center' },
 
   stepRow: { flexDirection: 'row', alignItems: 'flex-start', gap: space.sm },
   stepNumber: {
@@ -936,11 +1031,15 @@ const s = StyleSheet.create({
   checkboxOn: { backgroundColor: colors.mint, borderColor: colors.mint },
   rightsLabel: { ...type.small, color: colors.text, flex: 1, lineHeight: 19 },
 
+  rightsRowNeeded: { borderColor: colors.clay, backgroundColor: colors.clayWash },
+
   missingBox: {
-    backgroundColor: colors.clayWash, padding: space.lg, borderRadius: radius.md, gap: space.xs,
+    backgroundColor: colors.clayWash, paddingHorizontal: space.lg, paddingVertical: space.md,
+    gap: space.sm, borderTopWidth: 1, borderTopColor: colors.border,
   },
   missingTitle: { ...type.bodyStrong, color: colors.clay },
-  missingItem: { ...type.small, color: colors.text },
+  missingItem: { ...type.small, color: colors.text, lineHeight: 18 },
+  problemRow: { flexDirection: 'row', gap: space.sm, alignItems: 'flex-start' },
 
   scanOff: { ...type.small, color: colors.textFaint, lineHeight: 18 },
   macroRow: { flexDirection: 'row', gap: space.sm },

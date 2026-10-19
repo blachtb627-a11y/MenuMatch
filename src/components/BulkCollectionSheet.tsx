@@ -8,6 +8,7 @@ import {
   SUGGESTED_COLLECTIONS, addRecipesToCollection, createCollection, describeBulkAdd,
   myCollections, type Collection,
 } from '@/lib/collections';
+import { cleanCollectionName, findByName } from '@/lib/collectionName';
 import { colors, fill, radius, space, type, elevate } from '@/theme';
 
 /**
@@ -76,13 +77,15 @@ export function BulkCollectionSheet({
 
   /** Creating and filing are one action here — nobody makes an empty folder. */
   async function createAndFile(name: string) {
-    const trimmed = name.trim();
+    const trimmed = cleanCollectionName(name);
     if (!trimmed || inFlight.current) return;
     inFlight.current = true;
     setBusy(true);
     setError(null);
     try {
-      const { id } = await createCollection(trimmed);
+      // An existing collection by that name (any case) is used, not duplicated.
+      const id = findByName(collections ?? [], trimmed)?.id
+        ?? (await createCollection(trimmed)).id;
       await fileInto(id);
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Could not create that collection');
@@ -92,7 +95,7 @@ export function BulkCollectionSheet({
   }
 
   const suggestions = SUGGESTED_COLLECTIONS.filter(
-    (n) => !(collections ?? []).some((c) => c.name === n),
+    (n) => !findByName(collections ?? [], n),
   );
 
   return (

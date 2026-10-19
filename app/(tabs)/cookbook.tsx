@@ -11,6 +11,7 @@ import { BulkCollectionSheet } from '@/components/BulkCollectionSheet';
 import {
   SUGGESTED_COLLECTIONS, createCollection, myCollections, type Collection,
 } from '@/lib/collections';
+import { cleanCollectionName, findByName } from '@/lib/collectionName';
 import { onQueueChange, pendingCount, drain, queueUnsave } from '@/lib/queue';
 import { Toast } from '@/components/Toast';
 import { useSession } from '@/state/session';
@@ -357,10 +358,27 @@ function CollectionsRow({
 }: { collections: Collection[]; onCreate: (name: string) => Promise<void> }) {
   const [adding, setAdding] = useState(false);
   const [name, setName] = useState('');
+  const [error, setError] = useState<string | null>(null);
   // §12: default suggestions offered on first collection creation.
-  const suggestions = SUGGESTED_COLLECTIONS.filter(
-    (n) => !collections.some((c) => c.name === n),
-  );
+  const suggestions = SUGGESTED_COLLECTIONS.filter((n) => !findByName(collections, n));
+
+  async function submit() {
+    const clean = cleanCollectionName(name);
+    if (!clean) return;
+    // Said here rather than quietly reusing the existing one, which looked
+    // like the new collection had been made and then vanished.
+    const existing = findByName(collections, clean);
+    if (existing) {
+      setError(`You already have a collection called “${existing.name}”.`);
+      return;
+    }
+    try {
+      await onCreate(clean);
+      setName(''); setAdding(false); setError(null);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Could not create that collection');
+    }
+  }
 
   return (
     <View style={{ gap: space.md, marginBottom: space.lg }}>
@@ -397,21 +415,20 @@ function CollectionsRow({
 
       {adding ? (
         <View style={s.addRow}>
-          <TextInput value={name} onChangeText={setName} autoFocus style={s.addInput}
+          <TextInput value={name} onChangeText={(t) => { setName(t); setError(null); }}
+                     autoFocus style={s.addInput}
                      placeholder="Collection name" placeholderTextColor={colors.textFaint}
                      accessibilityLabel="New collection name" maxLength={60}
                      returnKeyType="done"
-                     onSubmitEditing={async () => {
-                       if (name.trim()) await onCreate(name.trim());
-                       setName(''); setAdding(false);
-                     }} />
-          <Pressable onPress={() => { setName(''); setAdding(false); }}
+                     onSubmitEditing={() => void submit()} />
+          <Pressable onPress={() => { setName(''); setAdding(false); setError(null); }}
                      accessibilityRole="button" accessibilityLabel="Cancel"
                      style={s.addCancel}>
             <Feather name="x" size={16} color={colors.textMuted} />
           </Pressable>
         </View>
       ) : null}
+      {adding && error ? <Text style={s.addError} accessibilityLiveRegion="polite">{error}</Text> : null}
     </View>
   );
 }
@@ -507,6 +524,7 @@ const s = StyleSheet.create({
     color: colors.text, fontSize: 15,
   },
   addCancel: { width: 32, height: 32, alignItems: 'center', justifyContent: 'center' },
+  addError: { ...type.small, color: colors.clay },
   tileTitle: { ...type.bodyStrong, color: colors.text },
   tileMeta: { ...type.small, color: colors.textMuted },
 });

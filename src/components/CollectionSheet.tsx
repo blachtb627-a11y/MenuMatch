@@ -8,6 +8,7 @@ import {
   SUGGESTED_COLLECTIONS, createCollection, myCollections, recipeCollections,
   setRecipeCollections, type Collection,
 } from '@/lib/collections';
+import { cleanCollectionName, findByName } from '@/lib/collectionName';
 import { colors, fill, radius, space, type, elevate } from '@/theme';
 
 /**
@@ -61,12 +62,14 @@ export function CollectionSheet({
   }
 
   async function addNew(name: string) {
-    const trimmed = name.trim();
+    const trimmed = cleanCollectionName(name);
     if (!trimmed) return;
     setBusy(true);
     setError(null);
     try {
-      const { id } = await createCollection(trimmed);
+      // An existing collection by that name (any case) is used, not duplicated.
+      const id = findByName(collections ?? [], trimmed)?.id
+        ?? (await createCollection(trimmed)).id;
       setCollections(await myCollections());
       setChecked((prev) => new Set(prev).add(id));
       setNewName('');
@@ -97,7 +100,7 @@ export function CollectionSheet({
   }
 
   const suggestions = SUGGESTED_COLLECTIONS.filter(
-    (n) => !(collections ?? []).some((c) => c.name === n),
+    (n) => !findByName(collections ?? [], n),
   );
 
   return (

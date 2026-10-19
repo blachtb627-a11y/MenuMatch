@@ -37,7 +37,7 @@
     3,
     1,
     "tbsp",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -204,13 +204,13 @@
     2,
     1,
     "tbsp",
-    "plain flour",
+    "all-purpose flour",
     null
    ]
   ],
   "steps": [
    "Render the lardons in a heavy pot until crisp, then lift them out.",
-   "Brown the beef hard in the fat, in batches, so it colours rather than steams.",
+   "Brown the beef hard in the fat, in batches, so it colors rather than steams.",
    "Soften the onion and carrot, stir in the flour and tomato paste, and cook 2 minutes.",
    "Return the beef and bacon, add stock, garlic and thyme, and bring to a bare simmer.",
    "Cover and cook for 2 1/2 hours, until the beef pulls apart under a fork.",
@@ -427,7 +427,7 @@
   "creator": "sundaysimmer",
   "slug": "lamb-rogan-josh",
   "title": "Lamb Rogan Josh",
-  "description": "The yoghurt goes in a spoonful at a time. Dump it and it splits, and you get a grainy sauce instead of a silky one.",
+  "description": "The yogurt goes in a spoonful at a time. Dump it and it splits, and you get a grainy sauce instead of a silky one.",
   "category": "dinner",
   "cuisine": "Indian",
   "prep": 20,
@@ -460,7 +460,7 @@
     1,
     1,
     "cup",
-    "yoghurt",
+    "yogurt",
     "whisked"
    ],
    [
@@ -488,7 +488,7 @@
     2,
     1,
     "tbsp",
-    "kashmiri chilli powder",
+    "kashmiri chili powder",
     null
    ],
    [
@@ -517,8 +517,8 @@
    "Brown the lamb in the ghee in batches and set it aside.",
    "Fry the onions for 12 minutes until soft and browning at the edges.",
    "Add the ginger, garlic and whole spices and cook for 2 minutes.",
-   "Off the heat, stir in the chilli powder and ground fennel.",
-   "Return the lamb, then beat in the yoghurt a spoonful at a time so it does not split.",
+   "Off the heat, stir in the chili powder and ground fennel.",
+   "Return the lamb, then beat in the yogurt a spoonful at a time so it does not split.",
    "Cover and cook on the lowest heat for 90 minutes, until the oil rises red on top."
   ],
   "photo": {
@@ -745,7 +745,7 @@
   "creator": "sundaysimmer",
   "slug": "moussaka",
   "title": "Moussaka",
-  "description": "Roast the aubergine instead of frying it and the whole thing stops being greasy.",
+  "description": "Roast the eggplant instead of frying it and the whole thing stops being greasy.",
   "category": "dinner",
   "cuisine": "Greek",
   "prep": 35,
@@ -773,14 +773,14 @@
     3,
     1,
     "piece",
-    "aubergine",
+    "eggplant",
     "sliced lengthways"
    ],
    [
     1,
     1,
     "lb",
-    "lamb mince",
+    "ground lamb",
     null
    ],
    [
@@ -829,7 +829,7 @@
     4,
     1,
     "tbsp",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -841,10 +841,10 @@
    ]
   ],
   "steps": [
-   "Salt the aubergine slices for 20 minutes, pat dry, then roast at 425F until golden.",
+   "Salt the eggplant slices for 20 minutes, pat dry, then roast at 425F until golden.",
    "Brown the lamb hard, then add onion, garlic, tomatoes and cinnamon and simmer 30 minutes.",
    "Make a thick bechamel with the butter, flour and milk, and beat in most of the cheese.",
-   "Layer aubergine, then lamb, then aubergine again in a deep dish.",
+   "Layer eggplant, then lamb, then eggplant again in a deep dish.",
    "Pour the bechamel over, scatter the last of the cheese, and bake at 350F for 45 minutes.",
    "Rest it for 20 minutes or it will not cut."
   ],
@@ -857,7 +857,7 @@
   "creator": "sundaysimmer",
   "slug": "borscht",
   "title": "Borscht",
-  "description": "Acid early, not late. Vinegar with the beetroot is what stops the pot going brown.",
+  "description": "Acid early, not late. Vinegar with the beets is what stops the pot going brown.",
   "category": "dinner",
   "cuisine": "Ukrainian",
   "prep": 25,
@@ -884,7 +884,7 @@
     4,
     1,
     "piece",
-    "beetroot",
+    "beets",
     "grated"
    ],
    [
@@ -953,10 +953,10 @@
   ],
   "steps": [
    "Simmer the beef in 3 quarts of water for an hour, skimming the top.",
-   "Fry the onion and carrot, add the beetroot, tomato paste and vinegar, and cook 15 minutes.",
-   "The vinegar goes in with the beetroot, not later; it is what keeps the colour red.",
+   "Fry the onion and carrot, add the beets, tomato paste and vinegar, and cook 15 minutes.",
+   "The vinegar goes in with the beets, not later; it is what keeps the color red.",
    "Add the potato to the broth and cook 10 minutes, then the cabbage for 5 more.",
-   "Stir the beetroot mixture in and simmer gently for 10 minutes.",
+   "Stir the beets mixture in and simmer gently for 10 minutes.",
    "Serve with sour cream and a lot of dill."
   ],
   "photo": {
@@ -1045,7 +1045,7 @@
     1,
     1,
     "piece",
-    "courgette",
+    "zucchini",
     "diced"
    ],
    [
@@ -1067,7 +1067,7 @@
    "Sweat the onion, carrot and celery in the oil for 12 minutes without colouring them.",
    "Add the tomatoes and cook 5 minutes until they darken.",
    "Pour in the stock and the beans and simmer 20 minutes.",
-   "Add the pasta and courgette and cook until the pasta is just done.",
+   "Add the pasta and zucchini and cook until the pasta is just done.",
    "Crush some of the beans against the pot to thicken the broth.",
    "Serve with parmesan and a hard line of olive oil over the top."
   ],
@@ -1253,14 +1253,14 @@
     1,
     1,
     "cup",
-    "double cream",
+    "heavy cream",
     null
    ],
    [
     3,
     1,
     "tbsp",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -1427,7 +1427,7 @@
     3,
     1,
     "tbsp",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -1441,7 +1441,7 @@
     1,
     1,
     "cup",
-    "double cream",
+    "heavy cream",
     null
    ],
    [
@@ -1544,7 +1544,7 @@
     2,
     1,
     "tbsp",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -1663,7 +1663,7 @@
     1,
     2,
     "cup",
-    "double cream",
+    "heavy cream",
     null
    ]
   ],
@@ -1753,7 +1753,7 @@
     2,
     1,
     "tbsp",
-    "plain flour",
+    "all-purpose flour",
     null
    ],
    [
@@ -1788,7 +1788,7 @@
   "creator": "sundaysimmer",
   "slug": "sticky-toffee-pudding",
   "title": "Sticky Toffee Pudding",
-  "description": "The dates and their soaking water both go in. Drain them and you lose most of the flavour.",
+  "description": "The dates and their soaking water both go in. Drain them and you lose most of the flavor.",
   "category": "dessert",
   "cuisine": "British",
   "prep": 20,
@@ -1831,7 +1831,7 @@
     1,
     1,
     "tsp",
-    "bicarbonate of soda",
+    "baking soda",
     null
    ],
    [
@@ -1859,14 +1859,14 @@
     1,
     1,
     "cup",
-    "self-raising flour",
+    "self-rising flour",
     null
    ],
    [
     1,
     1,
     "cup",
-    "double cream",
+    "heavy cream",
     null
    ],
    [
@@ -1878,7 +1878,7 @@
    ]
   ],
   "steps": [
-   "Pour the boiling water over the dates with the bicarbonate and leave 15 minutes.",
+   "Pour the boiling water over the dates with the baking soda and leave 15 minutes.",
    "Cream the butter and brown sugar, then beat in the eggs one at a time.",
    "Fold in the flour, then the dates and all their soaking liquid.",
    "Bake at 350F for 35 minutes until it springs back.",
@@ -1991,7 +1991,7 @@
   "creator": "sundaysimmer",
   "slug": "turmeric-latte",
   "title": "Turmeric Latte",
-  "description": "Black pepper and a little fat, or the turmeric is just colour.",
+  "description": "Black pepper and a little fat, or the turmeric is just color.",
   "category": "drinks",
   "cuisine": "Indian",
   "prep": 5,

@@ -11,12 +11,26 @@ import { REQUIRE_ACCOUNT } from '@/config';
 import { colors, radius, space, type } from '@/theme';
 import { goBack } from '@/lib/nav';
 
+/**
+ * New passwords only. Sign-in accepts whatever the account already has, so
+ * anyone who signed up under the old six-character rule can still get in.
+ * Supabase enforces its own minimum too (Authentication → Policies); keep that
+ * at the same number.
+ */
+const MIN_PASSWORD = 8;
+
 export default function Auth() {
   const { signIn, signUp, resendConfirmation, requestPasswordReset, pendingSave } = useSession();
   const params = useLocalSearchParams<{ mode?: string }>();
-  const [mode, setMode] = useState<'signup' | 'signin' | 'reset'>(
+  const [mode, setModeState] = useState<'signup' | 'signin' | 'reset'>(
     params.mode === 'signin' ? 'signin' : params.mode === 'reset' ? 'reset' : 'signup',
   );
+  // The URL follows the form, so a reload or a shared link on the web opens
+  // the screen that was showing rather than whichever one the link started on.
+  const setMode = (next: 'signup' | 'signin' | 'reset') => {
+    setModeState(next);
+    router.setParams({ mode: next });
+  };
   /** Shown after a reset link goes out, in place of the form. */
   const [resetSent, setResetSent] = useState(false);
   const [email, setEmail] = useState('');
@@ -198,7 +212,7 @@ export default function Auth() {
                        textContentType={mode === 'signup' ? 'newPassword' : 'password'} />
               ) : null}
               {mode === 'signup' ? (
-                <Text style={s.hint}>At least 6 characters.</Text>
+                <Text style={s.hint}>At least {MIN_PASSWORD} characters.</Text>
               ) : null}
               {error ? <Text style={s.error}>{error}</Text> : null}
             </View>
@@ -213,7 +227,8 @@ export default function Auth() {
                 // Reset asks for nothing but an address, so holding it to a
                 // password length would leave the button dead forever.
                 disabled={busy || !email.includes('@')
-                  || (mode !== 'reset' && password.length < 6)}
+                  || (mode === 'signup' && password.length < MIN_PASSWORD)
+                  || (mode === 'signin' && password.length === 0)}
               />
               {mode === 'signin' ? (
                 <Pressable

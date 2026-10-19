@@ -96,7 +96,7 @@ export default function ReportProblem() {
         <ScrollView contentContainerStyle={s.list} keyboardShouldPersistTaps="handled">
           <Text style={s.prompt}>What is this about?</Text>
           <Choice label="An account"
-                  hint="Someone’s behaviour, not one particular recipe"
+                  hint="Someone’s behavior, not one particular recipe"
                   on={target === 'user'}
                   onPress={() => { setTarget('user'); setReason(null); }} />
           <Choice label="Swipzy itself"

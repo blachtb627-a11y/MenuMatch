@@ -18,6 +18,7 @@ import { useSession } from '@/state/session';
 import { colors, radius, space, type, elevate } from '@/theme';
 import type { Nutrition, Recipe } from '@/lib/types';
 import { goBack } from '@/lib/nav';
+import { formatTemperatures } from '@/lib/temperature';
 
 export default function RecipeDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -241,7 +242,7 @@ export default function RecipeDetail() {
                   onPress={() => toggleCheck(key)}
                   accessibilityRole="checkbox"
                   accessibilityState={{ checked: on }} aria-checked={on}
-                  accessibilityLabel={`Step ${step.position + 1}. ${step.instruction}`}
+                  accessibilityLabel={`Step ${step.position + 1}. ${formatTemperatures(step.instruction)}`}
                   style={s.stepRow}
                 >
                   <View style={[s.stepNumber, on && s.stepNumberOn]}>
@@ -249,7 +250,7 @@ export default function RecipeDetail() {
                       {step.position + 1}
                     </Text>
                   </View>
-                  <Text style={[s.stepText, on && s.ingredientDone]}>{step.instruction}</Text>
+                  <Text style={[s.stepText, on && s.ingredientDone]}>{formatTemperatures(step.instruction)}</Text>
                 </Pressable>
               );
             })}

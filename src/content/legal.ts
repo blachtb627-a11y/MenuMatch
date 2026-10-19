@@ -180,7 +180,7 @@ export const GUIDELINES: LegalDoc = {
           + 'the ways people hurt each other online. What remains still matters:'),
         list(
           'No harassment, hate, or targeting a person or group.',
-          'No sexual content, and nothing sexualising a minor — this one ends an '
+          'No sexual content, and nothing sexualizing a minor — this one ends an '
             + 'account immediately and is reported onward.',
           'No impersonating another cook, publication or brand.',
           'No spam: affiliate funnels, dropshipping links, engagement bait, or '
@@ -273,15 +273,15 @@ export const TERMS: LegalDoc = {
           + 'do not sell it.'),
         p('To run the service we need your permission to do specific things with '
           + 'what you post. So you grant Swipzy a non-exclusive, worldwide, '
-          + 'royalty-free licence to host, store, reproduce, resize and display '
+          + 'royalty-free license to host, store, reproduce, resize and display '
           + 'your recipes and photographs, for the purpose of operating and '
-          + 'promoting Swipzy. That licence covers showing your recipe in the '
+          + 'promoting Swipzy. That license covers showing your recipe in the '
           + 'discovery deck, in search, in another user’s cookbook, and in '
           + 'screenshots of the app.'),
-        callout('This licence exists so the app can show your recipe to other '
+        callout('This license exists so the app can show your recipe to other '
           + 'people. It does not let us sell your recipe, license it to a third '
           + 'party, or put it in a cookbook we publish.'),
-        p('The licence ends when you delete the recipe, except that a copy may '
+        p('The license ends when you delete the recipe, except that a copy may '
           + 'remain in the cookbooks of people who already saved it, and in '
           + 'backups, until those expire. Removing a published recipe takes it '
           + 'out of discovery immediately.'),
@@ -325,8 +325,8 @@ export const TERMS: LegalDoc = {
           + `notice to ${OPERATOR.copyrightEmail} containing: your contact `
           + 'details; identification of the work; identification of the '
           + 'infringing recipe; a statement that you believe in good faith the '
-          + 'use is unauthorised; a statement that the information is accurate '
-          + 'and that you are authorised to act; and your signature.'),
+          + 'use is unauthorized; a statement that the information is accurate '
+          + 'and that you are authorized to act; and your signature.'),
         p('We will remove or disable access to the recipe and notify the person '
           + 'who posted it, who may submit a counter-notice.'),
         p('Bear in mind the point made in the Community Guidelines: a list of '
@@ -571,7 +571,7 @@ export const PRIVACY: LegalDoc = {
         list(
           'To run your account and let you sign in — necessary to provide the '
             + 'service you asked for.',
-          'To rank and personalise the deck, and to keep already-seen recipes '
+          'To rank and personalize the deck, and to keep already-seen recipes '
             + 'out of it — our legitimate interest in the product working, and '
             + 'the core of what Swipzy is.',
           'To show your recipes to other people — necessary to provide the '

@@ -118,6 +118,80 @@ export type IngredientRow = {
   note: string | null;
 };
 
+/**
+ * Counted things ("2 eggs", "1 onion") carry their number in the noun, and
+ * scaling moves it: a recipe written for "1 egg" at two servings needs "2 eggs"
+ * at four, and "3 limes" halved is "1 1/2 limes" but "3 limes" at a third is
+ * "1 lime". Only rows with no unit or `piece` are touched; "2 cups flour" has
+ * its plural in the unit already.
+ *
+ * English plurals are irregular enough that this stays deliberately narrow:
+ * it changes the head noun only, knows the kitchen's irregulars, and leaves
+ * anything uncountable alone rather than writing "2 rices".
+ */
+const IRREGULAR: Record<string, string> = {
+  leaf: 'leaves', loaf: 'loaves', half: 'halves', knife: 'knives', calf: 'calves',
+  potato: 'potatoes', tomato: 'tomatoes', mango: 'mangoes', avocado: 'avocados',
+  chilli: 'chillies', chili: 'chilies', chile: 'chiles', cookie: 'cookies',
+};
+const SINGULAR = Object.fromEntries(Object.entries(IRREGULAR).map(([a, b]) => [b, a]));
+const UNCOUNTABLE = new Set([
+  'fish', 'shrimp', 'salmon', 'squid', 'cod', 'tuna', 'rice', 'cream', 'bread',
+  'chocolate', 'cheese', 'butter', 'water', 'milk', 'garlic', 'ginger', 'tofu',
+  'feta', 'halloumi', 'mozzarella', 'couscous', 'hummus', 'asparagus', 'spinach',
+  'kale', 'lettuce', 'parsley', 'mint', 'basil', 'dill', 'coriander', 'cilantro',
+  'thyme', 'rosemary', 'sage', 'oregano', 'ice', 'pasta', 'sushi', 'kimchi',
+  'tea', 'coffee', 'juice', 'sauce', 'stock', 'broth', 'flour', 'sugar', 'salt',
+  'yogurt', 'yoghurt', 'paneer', 'tempeh', 'seitan', 'beef', 'pork',
+  'lamb', 'mince', 'bacon', 'ham', 'meat', 'dough', 'pastry', 'filo', 'nero',
+]);
+
+const looksPlural = (w: string) =>
+  w in SINGULAR || (/s$/.test(w) && !/(ss|us|is)$/.test(w));
+
+function pluralize(w: string): string {
+  if (looksPlural(w)) return w;
+  if (IRREGULAR[w]) return IRREGULAR[w];
+  if (/(s|x|z|ch|sh)$/.test(w)) return `${w}es`;
+  if (/[^aeiou]y$/.test(w)) return `${w.slice(0, -1)}ies`;
+  return `${w}s`;
+}
+
+function singularize(w: string): string {
+  if (!looksPlural(w)) return w;
+  if (SINGULAR[w]) return SINGULAR[w];
+  if (/[^aeiou]ies$/.test(w)) return `${w.slice(0, -3)}y`;
+  if (/oes$/.test(w)) return w.slice(0, -2);
+  if (/(ches|shes|xes|zes|sses)$/.test(w)) return w.slice(0, -2);
+  return w.slice(0, -1);
+}
+
+/**
+ * Re-inflects the head noun of a counted ingredient for `value`. The head is
+ * the last word before any comma or bracket ("ripe tomatoes, halved"), or the
+ * word before "of" ("cloves of garlic").
+ */
+export function inflectCounted(text: string, value: number): string {
+  // "corn on the cob" has its noun in the middle; better left as written.
+  if (/\son the\s/i.test(text)) return text;
+  const cut = text.search(/[,(]/);
+  const head = cut === -1 ? text : text.slice(0, cut);
+  const tail = cut === -1 ? '' : text.slice(cut);
+  const ofAt = head.search(/\s+of\s+/i);
+  const scope = ofAt === -1 ? head : head.slice(0, ofAt);
+  const rest = ofAt === -1 ? '' : head.slice(ofAt);
+  const m = scope.match(/([A-Za-z][A-Za-z'-]*)(\s*)$/);
+  const word = m?.[1];
+  if (!m || m.index == null || !word) return text;
+  const lower = word.toLowerCase();
+  if (UNCOUNTABLE.has(lower) || word !== lower && word === word.toUpperCase()) return text;
+  const next = value > 1 ? pluralize(lower) : singularize(lower);
+  if (next === lower) return text;
+  // Keep a leading capital ("Bramley apples") as written.
+  const shaped = /^[A-Z]/.test(word) ? next.charAt(0).toUpperCase() + next.slice(1) : next;
+  return scope.slice(0, m.index) + shaped + (m[2] ?? '') + rest + tail;
+}
+
 /** The full display string for one ingredient row at the chosen serving count. */
 export function renderIngredient(
   row: IngredientRow,
@@ -133,7 +207,12 @@ export function renderIngredient(
   const amount = isImpreciseUnit(row.unit) ? null : formatQuantity(scaled, row.unit);
   const unitLabel = formatUnit(row.unit, scaled ? toNumber(scaled) : 0);
 
-  const parts = [amount, unitLabel, row.ingredient].filter(
+  const counted = !row.unit || row.unit === 'piece';
+  const ingredient = counted && amount && scaled
+    ? inflectCounted(row.ingredient, toNumber(scaled))
+    : row.ingredient;
+
+  const parts = [amount, unitLabel, ingredient].filter(
     (p): p is string => !!p && p.length > 0,
   );
   return parts.join(' ');

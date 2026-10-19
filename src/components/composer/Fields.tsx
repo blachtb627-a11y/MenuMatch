@@ -4,13 +4,21 @@ import { Feather } from '@expo/vector-icons';
 import { colors, radius, space, type } from '@/theme';
 
 export function Labelled({
-  label, hint, required, children,
+  label, hint, required, stacked, children,
 }: {
-  label: string; hint?: string; required?: boolean; children: React.ReactNode;
+  label: string; hint?: string; required?: boolean;
+  /**
+   * Puts REQUIRED under the label instead of beside it. For fields sharing a
+   * row: three labels plus three REQUIRED tags do not fit across a phone, and
+   * side by side they ran into each other ("REQUIREDCOOK (MIN)"). Stacking all
+   * of them keeps the inputs level, which wrapping only some of them would not.
+   */
+  stacked?: boolean;
+  children: React.ReactNode;
 }) {
   return (
     <View style={{ gap: space.xs }}>
-      <View style={s.labelRow}>
+      <View style={[s.labelRow, stacked && s.labelStacked]}>
         <Text style={s.label}>{label.toUpperCase()}</Text>
         {required ? <Text style={s.required}>REQUIRED</Text> : null}
       </View>
@@ -100,7 +108,9 @@ function IconBtn({
 }
 
 const s = StyleSheet.create({
-  labelRow: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
+  // Wraps rather than overflowing into a neighbouring field on narrow screens.
+  labelRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', columnGap: space.sm, rowGap: 2 },
+  labelStacked: { flexDirection: 'column', alignItems: 'flex-start', rowGap: 2 },
   label: { ...type.micro, color: colors.textFaint },
   required: { fontSize: 9, fontWeight: '800', letterSpacing: 0.6, color: colors.mintDim },
   hint: { ...type.small, color: colors.textFaint, lineHeight: 17 },

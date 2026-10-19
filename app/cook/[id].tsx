@@ -15,6 +15,7 @@ import { useSession } from '@/state/session';
 import { colors, fill, radius, space, type } from '@/theme';
 import type { Recipe } from '@/lib/types';
 import { goBack } from '@/lib/nav';
+import { formatTemperatures } from '@/lib/temperature';
 
 /**
  * Cook Mode (§11). One step at a time, large type, high contrast, screen kept
@@ -133,7 +134,7 @@ export default function CookMode() {
 
         <ScrollView contentContainerStyle={s.stepBody}>
           <Text style={s.stepEyebrow}>STEP {index + 1}</Text>
-          <Text style={s.stepText}>{step?.instruction ?? ''}</Text>
+          <Text style={s.stepText}>{formatTemperatures(step?.instruction ?? '')}</Text>
 
           {timerSeconds ? (
             <View style={s.timerBlock}>

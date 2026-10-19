@@ -502,21 +502,21 @@ export default function Compose() {
 
             <View style={s.threeUp}>
               <View style={{ flex: 1 }}>
-                <Labelled label="Prep (min)" required>
+                <Labelled label="Prep (min)" required stacked>
                   <Input value={draft.prepMinutes?.toString() ?? ''} keyboardType="number-pad"
                          onChangeText={(t) => update({ prepMinutes: t ? Number(t) : null })}
                          onBlur={onBlur} placeholder="10" />
                 </Labelled>
               </View>
               <View style={{ flex: 1 }}>
-                <Labelled label="Cook (min)" required>
+                <Labelled label="Cook (min)" required stacked>
                   <Input value={draft.cookMinutes?.toString() ?? ''} keyboardType="number-pad"
                          onChangeText={(t) => update({ cookMinutes: t ? Number(t) : null })}
                          onBlur={onBlur} placeholder="25" />
                 </Labelled>
               </View>
               <View style={{ flex: 1 }}>
-                <Labelled label="Serves" required>
+                <Labelled label="Serves" required stacked>
                   <Input value={draft.servings?.toString() ?? ''} keyboardType="number-pad"
                          onChangeText={(t) => update({ servings: t ? Number(t) : null })}
                          onBlur={onBlur} placeholder="4" />

@@ -620,9 +620,15 @@ export default function Compose() {
                              onBlur={onBlur} placeholder="lb" style={s.unitInput}
                              accessibilityLabel={`Unit for ingredient ${i + 1}`} />
                       <View style={{ flex: 1 }}>
+                        {/* Wraps instead of scrolling sideways: beside the amount
+                            and unit this field is narrow, and a scanned name
+                            ("all-purpose flour, sifted") read as "all-pu…".
+                            Still one line of text — Return finishes the field. */}
                         <Input value={row.ingredient}
-                               onChangeText={(t) => setIngredient(i, { ingredient: t })}
+                               onChangeText={(t) => setIngredient(i, { ingredient: t.replace(/\n/g, ' ') })}
                                onBlur={onBlur} placeholder="bone-in chicken thighs"
+                               multiline scrollEnabled={false} submitBehavior="blurAndSubmit"
+                               returnKeyType="done" style={s.nameInput}
                                accessibilityLabel={`Ingredient ${i + 1}`} />
                       </View>
                     </View>
@@ -995,6 +1001,8 @@ const s = StyleSheet.create({
   ingredientRow: { flexDirection: 'row', alignItems: 'flex-start', gap: space.xs },
   qtyInput: { width: 74 },
   unitInput: { width: 74 },
+  // Undoes Input's multiline sizing: this is a one-line field that may wrap.
+  nameInput: { minHeight: 46, paddingTop: space.md, textAlignVertical: 'center' },
 
   stepRow: { flexDirection: 'row', alignItems: 'flex-start', gap: space.sm },
   stepNumber: {

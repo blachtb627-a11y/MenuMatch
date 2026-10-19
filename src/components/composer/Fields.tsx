@@ -52,7 +52,7 @@ export function ChoiceRow({
   allowEmpty?: boolean;
 }) {
   return (
-    <View style={s.choiceWrap}>
+    <View style={s.choiceWrap} accessibilityRole="radiogroup">
       {options.map((o) => {
         const on = o.value === value;
         return (
@@ -60,7 +60,9 @@ export function ChoiceRow({
             key={o.value}
             onPress={() => onChange(on && allowEmpty ? '' : o.value)}
             accessibilityRole="radio"
-            accessibilityState={{ selected: on }}
+            // Radios report `checked`, not `selected`: VoiceOver and TalkBack
+            // read selected on a radio as nothing at all.
+            accessibilityState={{ checked: on }} aria-checked={on}
             accessibilityLabel={o.label}
             style={[s.choice, on && s.choiceOn]}
           >

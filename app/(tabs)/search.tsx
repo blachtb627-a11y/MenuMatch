@@ -231,7 +231,9 @@ const s = StyleSheet.create({
   avatarLetter: { ...type.bodyStrong, color: colors.text, fontSize: 18 },
   creatorName: { ...type.bodyStrong, color: colors.text },
   creatorMeta: { ...type.small, color: colors.textMuted },
-  grid: { flexDirection: 'row', flexWrap: 'wrap', gap: space.md },
+  // alignItems is not optional; see the same grid in app/creator/[id].tsx.
+  // Without it every recipe tile is zero-height on iOS and Android.
+  grid: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start', gap: space.md },
   tile: {
     // flexGrow stays 0: with one result a growing tile fills the row and
     // becomes a full-width slab taller than the screen.

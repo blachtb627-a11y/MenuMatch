@@ -205,7 +205,11 @@ const s = StyleSheet.create({
   stat: { flex: 1, alignItems: 'center', gap: 2 },
   statValue: { ...type.heading, color: colors.text },
   statLabel: { ...type.small, color: colors.textMuted },
-  grid: { flexDirection: 'row', flexWrap: 'wrap', gap: space.md },
+  // alignItems is not optional. Under the default `stretch`, Yoga — the
+  // layout engine on iOS and Android, not the browser — sizes a wrapped tile
+  // that gets its height from aspectRatio to zero: the rows keep their space
+  // and every tile in them is invisible. The web build never showed it.
+  grid: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start', gap: space.md },
   tile: {
     // flexGrow stays 0: with one result a growing tile fills the row and
     // becomes a full-width slab taller than the screen.

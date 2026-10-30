@@ -6,7 +6,7 @@ import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { RecipeCover } from '@/components/RecipeCover';
-import { EmptyState, Loading, Screen } from '@/components/ui';
+import { Button, EmptyState, Loading, Screen } from '@/components/ui';
 import { Header } from './cookbook';
 import {
   formatCount, searchAll, type SearchCreator, type SearchRecipe, type SearchResults,
@@ -34,21 +34,29 @@ export default function Search() {
     return () => clearTimeout(t);
   }, [query]);
 
-  const run = useCallback(async (q: string) => {
-    if (q.length < 2) { setResults(null); setError(null); return; }
-    setLoading(true);
-    try {
-      setResults(await searchAll(q, null));
-      setError(null);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Could not search just now');
-      setResults({ recipes: [], creators: [] });
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+  // Bumped on every new query and on retry, so an answer for a query the user
+  // has already typed past cannot land on top of the current one.
+  const [attempt, setAttempt] = useState(0);
 
-  useEffect(() => { void run(debounced); }, [debounced, run]);
+  useEffect(() => {
+    const q = debounced;
+    if (q.length < 2) { setResults(null); setError(null); setLoading(false); return; }
+    const controller = new AbortController();
+    let current = true;
+    setLoading(true);
+    setError(null);
+    searchAll(q, null, controller.signal)
+      .then((r) => { if (current) setResults(r); })
+      .catch((e) => {
+        if (!current) return;
+        setError(e instanceof Error ? e.message : 'Could not search just now');
+        setResults(null);
+      })
+      .finally(() => { if (current) setLoading(false); });
+    return () => { current = false; controller.abort(); };
+  }, [debounced, attempt]);
+
+  const retry = useCallback(() => setAttempt((n) => n + 1), []);
 
   const creators = results?.creators ?? [];
   const recipes = results?.recipes ?? [];
@@ -98,7 +106,10 @@ export default function Search() {
           <Feather name="chevron-right" size={17} color={colors.textFaint} />
         </Pressable>
 
-        {loading && results === null ? (
+        {error ? (
+          <EmptyState title="Search didn’t go through" body={error}
+                      action={<Button label="Try again" variant="secondary" onPress={retry} />} />
+        ) : loading && results === null ? (
           <Loading />
         ) : results === null ? (
           <EmptyState title="Find something to cook"
@@ -110,8 +121,6 @@ export default function Search() {
           />
         ) : (
           <ScrollView contentContainerStyle={s.body} keyboardShouldPersistTaps="handled">
-            {error ? <Text style={s.error}>{error}</Text> : null}
-
             {creators.length ? (
               <View style={{ gap: space.sm }}>
                 <Text style={s.sectionLabel}>
@@ -209,7 +218,6 @@ const s = StyleSheet.create({
   },
   input: { flex: 1, color: colors.text, fontSize: 15 },
   body: { padding: space.xl, gap: space.xl, paddingBottom: space.xxxl },
-  error: { ...type.small, color: colors.danger },
   sectionLabel: { ...type.micro, color: colors.textFaint },
   creatorRow: {
     flexDirection: 'row', alignItems: 'center', gap: space.md,

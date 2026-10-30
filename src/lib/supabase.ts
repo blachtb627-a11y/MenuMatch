@@ -1,4 +1,5 @@
 import 'react-native-url-polyfill/auto';
+import { AppState, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createClient } from '@supabase/supabase-js';
 
@@ -39,3 +40,20 @@ export const supabase = createClient(url, key, {
     flowType: 'implicit',
   },
 });
+
+/**
+ * Refresh the session only while the app is in the foreground.
+ *
+ * A browser tab keeps its timers; a backgrounded iOS app does not. Left to
+ * itself, the refresh timer stalls in the background, the access token expires,
+ * and on return every request waits behind a refresh that started in a
+ * suspended state — screens holding data from before look fine, and anything
+ * that needs a fresh request (search, most visibly) simply never answers.
+ * Supabase's React Native setup asks for exactly this hand-off.
+ */
+if (Platform.OS !== 'web') {
+  AppState.addEventListener('change', (state) => {
+    if (state === 'active') supabase.auth.startAutoRefresh();
+    else supabase.auth.stopAutoRefresh();
+  });
+}

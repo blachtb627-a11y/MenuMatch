@@ -31,15 +31,35 @@ export type SearchCreator = {
 
 export type SearchResults = { recipes: SearchRecipe[]; creators: SearchCreator[] };
 
+const SEARCH_TIMEOUT_MS = 12_000;
+
+/**
+ * The timeout races the whole call, not just the request. A stalled session
+ * refresh holds the SDK before any request is sent, so an abort signal alone
+ * would never fire and the screen would wait forever with nothing to say.
+ */
 export async function searchAll(
-  query: string, maxMinutes: number | null,
+  query: string, maxMinutes: number | null, signal?: AbortSignal,
 ): Promise<SearchResults> {
-  const { data, error } = await supabase.rpc('search_all', {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(
+      () => reject(new Error('Search is taking too long. Check your connection and try again.')),
+      SEARCH_TIMEOUT_MS,
+    );
+  });
+  let request = supabase.rpc('search_all', {
     p_query: query, p_max_minutes: maxMinutes, p_limit: 30,
   });
-  if (error) throw new Error(error.message);
-  const r = data as Partial<SearchResults> | null;
-  return { recipes: r?.recipes ?? [], creators: r?.creators ?? [] };
+  if (signal) request = request.abortSignal(signal);
+  try {
+    const { data, error } = await Promise.race([request, timeout]);
+    if (error) throw new Error(error.message);
+    const r = data as Partial<SearchResults> | null;
+    return { recipes: r?.recipes ?? [], creators: r?.creators ?? [] };
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 export type CreatorProfile = {
